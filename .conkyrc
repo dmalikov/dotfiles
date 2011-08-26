@@ -1,0 +1,57 @@
+#avoid flicker
+double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+#own_window_colour 333333
+use_xft yes
+own_window yes
+own_window_colour brown
+own_window_transparent yes
+#own_window_type override
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+own_window_argb_value 0
+double_buffer yes
+
+
+draw_borders no
+border_width 1
+border_inner_margin 2
+
+#shades
+draw_shades no
+
+default_color 888888
+
+#position
+gap_x 3
+gap_y 3
+alignment bottom_left
+
+#behaviour
+update_interval 0.3
+
+color2 aeaeae
+color3 7777aa
+color4 7e7e7e
+color5 aa2222
+color6 22aa22
+color7 ccccdd
+color8 666677
+
+use_xft yes
+xftalpha 0.8
+xftfont Terminus:size=8
+
+minimum_size 1440
+
+short_units yes
+
+TEXT
+${voffset 4}\
+${goto 3}${font}${color3} [${desktop}]  >\
+${goto 60}${color4}CPU ${cpubar cpu0 6, 80} ${cpubar cpu1 6, 80}\
+${goto 280}RAM ${color4}${membar 6, 80} ${mem}\
+${goto 460}${color3}Weather: ${color4}${execi 120 curl -s http://pogoda.yandex.ru/zelenograd/ | sed -n -r -e 's/−/-/' -e '/.*Погода сейчас">(.*°C).*/{s//\1/p}'} \
+${goto 570}${color5}Up: ${color4}${upspeedf eth0} ${color6}${goto 630}Down: ${color4}${downspeedf eth0}\
+${voffset -2}${goto 1270}${color7}${font Terminus:size:12:bold}${execi 1 date +"/%b %d/ %a %T"}\

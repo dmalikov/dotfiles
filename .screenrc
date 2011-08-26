@@ -1,0 +1,4 @@
+hardstatus alwayslastline
+hardstatus string "%{= G}[ %{G}%H %{g}] %{= B} %= %{= w}%-w%{+b B}*%n %t%{-b B}%{w}%+w %="
+bindkey "^[[1;5D" prev
+bindkey "^[[1;5C" next

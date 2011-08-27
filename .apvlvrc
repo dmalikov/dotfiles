@@ -1,0 +1,23 @@
+" Enable fullscreen
+set fullscreen = yes
+
+" Hide menu and toolbar 
+set guioptions = -mT
+
+" Do not show content view first
+set content = no
+
+" Enable the usage of ~/.apvlvinfo
+set noinfo = no
+
+" Use visualmode to select and copy text
+set visualmode = yes
+
+" Show pages continuosly
+set continuos = yes
+
+" Hide scrollbar
+set scrollbar = no
+
+" Fit pages to window width
+set zoom = fitwidth

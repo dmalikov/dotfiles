@@ -95,7 +95,8 @@ au BufEnter,FileType help call clearmatches()
 " :au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
 " :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
-colorscheme blackboard 
+" colorscheme blackboard 
+colorscheme railscasts
 
 " Смена кодировок
 " http://www.opennet.ru/base/rus/vim_rus_text.txt.html
@@ -172,3 +173,8 @@ endif
 endwhile
 endfunction
 
+:source ~/.vim/plugin/matchit.vim 
+
+" Automatically chmod +x Shell and Python scripts
+au BufWritePost   *.sh             !chmod +x %
+au BufWritePost   *.py             !chmod +x %

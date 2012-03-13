@@ -1,0 +1,123 @@
+"=====================================
+" GENERAL SETTINGS
+"=====================================
+    " do not making backup before editing file
+    set nobackup
+    " do not using swapfile
+    set noswapfile
+
+    " number of lines that are remembered
+    set history=100
+
+    " automatically reload file, when it's changed outside of Vim
+    set autoread
+
+    " Maximum number of changes that can be undone
+    set undolevels=100
+
+    "  list of character encodings considered when starting to edit an existing file
+    set fileencodings=utf-8,cp1251,koi8-r,cp866
+
+"=====================================
+" APPEARANCE SETTINGS
+"=====================================
+    " color theme
+    colorscheme blackboard
+    au BufEnter *.hs colorscheme blackboard
+
+    syntax on
+
+    set background=dark
+
+    " Ignore case when the pattern contains lowercase letters only.
+    set smartcase
+
+    " always show current cursor position
+    set ruler
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+    " Show the current mode
+    set showmode
+    set statusline=%F\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+    " Show the current command in the lower right corner
+    set showcmd
+    " Show status line for all files
+    set laststatus=2
+    " Show matching brackets
+    set showmatch
+    " Do case insensitive matching
+    set ignorecase
+
+    " line numbers
+    set number
+    set numberwidth=3
+    highlight LineNr ctermfg=yellow ctermbg=black
+
+"=====================================
+" MISC SETTINGS
+"=====================================
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab
+    set autoindent
+
+    " lines before screen edge to scroll
+    set scrolloff=1000
+
+    " Don't searches wrap around the end of the file
+    set nowrapscan
+    " enable wrap
+    set wrap
+    " wrap backspace, space, h, l, <-, ->, [ and ] keys
+    set whichwrap=b,s,<,>,[,],l,h
+    " set word-wrap, not symbol-wrap
+    set linebreak
+
+    " set g default option to any s///
+    set gdefault
+    "
+    " set Haskell indent
+    autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+    " use ghc functionality for haskell files
+    au Bufenter *.hs compiler ghc
+    " configure browser for haskell_doc.vim
+    let g:haddock_browser = "firefox-bin"
+    " syntax rules
+    let hs_highlight_delimiters = 1
+    let hs_highlight_boolean = 1
+    let hs_highlight_debug = 1
+    let hs_highlight_more_types = 1
+    let hs_highlight_types = 1
+
+    " ingore whitespaces (vimdiff)
+    set diffopt+=iwhite " ignore whitespaces
+
+    " highlight trailing spaces
+    set list!
+    set listchars=tab:»»,trail:·
+    " disable matches in help buffers
+    au BufEnter,FileType help call clearmatches()
+
+    " hightlight over 80 symbols
+    match ErrorMsg '\%>80v.\+'
+    au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
+    " Automatically chmod +x Shell and Python scripts
+    au BufWritePost *.sh !chmod +x %
+    au BufWritePost *.py !chmod +x %
+
+    " enable filetype detection, plus loading of filetype plugins 
+    source ~/.vim/plugin/matchit.vim
+    filetype plugin on
+"=====================================
+" KEY MAPPING SETTINGS
+"=====================================
+    nmap <F2> :nohlsearch<CR>
+    set pastetoggle=<F3>
+
+    " rxvt shit
+    map <Esc>[5^ :tabp<CR>
+    map <Esc>[6^ :tabn<CR>
+
+    noremap <space> <C-d>

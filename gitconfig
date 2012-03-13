@@ -1,0 +1,59 @@
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    editor = vim
+    pager = cat
+
+[merge]
+    tool = vimdiff
+
+[alias]
+    st = status -uno
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff --word-diff
+    lg = log -p
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[gitflow "branch"]
+    master = master
+    develop = develop
+
+[gitflow "prefix"]
+    feature = feature/
+    release = release/
+    hotfix = hotfix/
+    support = support/
+    versiontag =
+
+[cola]
+    fontdiff = Terminus,8,-1,5,50,0,0,0,0,0
+
+[gui]
+    editor = vim
+
+[diff]
+    tool = vimdiff

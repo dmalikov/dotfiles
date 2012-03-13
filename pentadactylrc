@@ -1,0 +1,2 @@
+set defsearch=d
+noremap <space> <C-d>

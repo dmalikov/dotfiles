@@ -1,0 +1,61 @@
+!black
+URxvt.color0:  #1c1c1c
+URxvt.color8:  #2B2B2B
+!red
+URxvt.color1:  #A5372E
+URxvt.color9:  #E06C5C
+!green
+URxvt.color2:  #4A663C
+URxvt.color10: #7B996C
+!yellow
+URxvt.color3:  #7C5618
+URxvt.color11: #B38849
+!blue
+URxvt.color4:  #566060
+URxvt.color12: #889393
+!magenta
+URxvt.color5:  #8E4948
+URxvt.color13: #C67C78
+!cyan
+URxvt.color6:  #6D5B42
+URxvt.color14: #A28D73
+!white
+URxvt.color7:  #8D8D8D
+URxvt.color15: #C6C6C6
+
+urxvt.background: #1c1c1c
+urxvt.foreground: #a1a1a1
+
+!urxvt fonts:
+urxvt.font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-iso10646-1
+urxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-iso10646-1
+
+!urxvt extensions:
+URxvt.perl-lib: ${HOME}/.urxvt/perl
+URxvt.perl-ext-common: default,matcher,tabbed
+
+!enabling clickable links:
+URxvt.urlLauncher: /usr/bin/firefox-bin
+URxvt.matcher.button: 1
+URxvt.keysym.M-u: perl:url-select:select_next
+
+!urxvt scrolling options and cursor style:
+
+URxvt*saveLines: 3000
+URxvt*scrollstyle:plain
+URxvt*scrollBar: false
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: true
+
+! urxvt tabs settings:
+
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: #1c1c1c
+URxvt.tabbed.tab-fg: 0
+URxvt.tabbed.tab-bg: 1
+URxvt.tabbed.autohide: yes
+URxvt.tabbed.new-button: no
+URxvt.tabbed.title: yes
+
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~

@@ -9,6 +9,7 @@ ln -sf --verbose "$(pwd)/xinitrc" ~/.xinitrc
 ln -sf --verbose "$(pwd)/Xdefaults" ~/.Xdefaults
 ln -sf --verbose "$(pwd)/pentadactylrc" ~/.pentadactylrc
 ln -sf --verbose "$(pwd)/gitconfig" ~/.gitconfig
+ln -sf --verbose "$(pwd)/ghci" ~/.ghci
 
 echo "done!"
 

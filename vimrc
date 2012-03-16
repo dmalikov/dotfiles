@@ -16,15 +16,11 @@
     set undolevels=100
 
     "  list of character encodings considered when starting to edit an existing file
-    set fileencodings=utf-8,cp1251,koi8-r,cp866
+    set fileencodings=utf-8
 
 "=====================================
 " APPEARANCE SETTINGS
 "=====================================
-    " color theme
-    colorscheme blackboard
-    au BufEnter *.hs colorscheme blackboard
-
     syntax on
 
     set background=dark
@@ -52,6 +48,8 @@
     set numberwidth=3
     highlight LineNr ctermfg=yellow ctermbg=black
 
+    colorscheme moria
+    " autocmd BufEnter *.hs colorscheme elflord
 "=====================================
 " MISC SETTINGS
 "=====================================
@@ -75,8 +73,12 @@
 
     " set g default option to any s///
     set gdefault
-    "
-    " set Haskell indent
+
+" some Haskell properties
+    " no conceal (just for some occasion)
+    " let g:no_haskell_conceal = 1
+    hi hsNiceOperator ctermfg=none ctermbg=black
+    set conceallevel=1 concealcursor=nvic
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
     " use ghc functionality for haskell files
     au Bufenter *.hs compiler ghc
@@ -88,6 +90,10 @@
     let hs_highlight_debug = 1
     let hs_highlight_more_types = 1
     let hs_highlight_types = 1
+
+    " set XML style
+    let g:xml_syntax_folding=1
+    autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2 foldmethod=syntax
 
     " ingore whitespaces (vimdiff)
     set diffopt+=iwhite " ignore whitespaces
@@ -107,9 +113,10 @@
     au BufWritePost *.sh !chmod +x %
     au BufWritePost *.py !chmod +x %
 
-    " enable filetype detection, plus loading of filetype plugins 
+    " enable filetype detection, plus loading of filetype plugins
     source ~/.vim/plugin/matchit.vim
     filetype plugin on
+
 "=====================================
 " KEY MAPPING SETTINGS
 "=====================================
@@ -121,3 +128,6 @@
     map <Esc>[6^ :tabn<CR>
 
     noremap <space> <C-d>
+
+    " remove trailing whitespaces
+    noremap <F4> :%s/ \+$//gc

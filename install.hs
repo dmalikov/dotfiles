@@ -1,3 +1,5 @@
+#!/usr/bin/env runhaskell
+
 import Control.Monad (when)
 import System.Directory (getHomeDirectory, getCurrentDirectory, removeFile)
 import System.FilePath ((</>))
@@ -18,6 +20,9 @@ files =
   , ( "xinitrc", ".xinitrc" )
   ]
 
+main :: IO ()
+main = mapM addPath files >>= mapM_ (uncurry createSymbolicLinkForce)
+
 addPath :: (FilePath, FilePath) -> IO (FilePath, FilePath)
 addPath (file, dest) = do
   homeDir <- getHomeDirectory
@@ -27,7 +32,5 @@ addPath (file, dest) = do
 createSymbolicLinkForce :: FilePath -> FilePath -> IO ()
 createSymbolicLinkForce file dest = do
   fileExist dest >>= (flip when) (removeFile dest)
+  putStrLn $ "create symlink: " ++ show file ++ " -> " ++ dest
   createSymbolicLink file dest
-
-main =
-  mapM addPath files >>= mapM_ (uncurry createSymbolicLinkForce)

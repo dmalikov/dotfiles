@@ -11,7 +11,8 @@ URxvt.color10: #7B996C
 URxvt.color3:  #7C5618
 URxvt.color11: #B38849
 !blue
-URxvt.color4:  #566060
+!URxvt.color4:  #566060
+URxvt.color4:  #223535
 URxvt.color12: #889393
 !magenta
 URxvt.color5:  #8E4948

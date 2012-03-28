@@ -50,6 +50,7 @@
 
     colorscheme moria
     " autocmd BufEnter *.hs colorscheme elflord
+
 "=====================================
 " MISC SETTINGS
 "=====================================
@@ -76,12 +77,12 @@
 
 " some Haskell properties
     " no conceal (just for some occasion)
-    " let g:no_haskell_conceal = 1
+    let g:no_haskell_conceal = 1
     hi hsNiceOperator ctermfg=none ctermbg=black
     set conceallevel=1 concealcursor=nvic
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
     " use ghc functionality for haskell files
-    au Bufenter *.hs compiler ghc
+    autocmd Bufenter *.hs compiler ghc
     " configure browser for haskell_doc.vim
     let g:haddock_browser = "firefox-bin"
     " syntax rules
@@ -91,8 +92,11 @@
     let hs_highlight_more_types = 1
     let hs_highlight_types = 1
 
+    " Use ruby syntax for capfiles
+    autocmd Bufenter Capfile setfiletype ruby
+
     " set XML style
-    let g:xml_syntax_folding=1
+    " let g:xml_syntax_folding=1
     autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2 foldmethod=syntax
 
     " ingore whitespaces (vimdiff)
@@ -102,16 +106,16 @@
     set list!
     set listchars=tab:»»,trail:·
     " disable matches in help buffers
-    au BufEnter,FileType help call clearmatches()
+    autocmd BufEnter,FileType help call clearmatches()
 
     " hightlight over 80 symbols
     match ErrorMsg '\%>80v.\+'
-    au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+    autocmd BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+    autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
     " Automatically chmod +x Shell and Python scripts
-    au BufWritePost *.sh !chmod +x %
-    au BufWritePost *.py !chmod +x %
+    autocmd BufWritePost *.sh !chmod +x %
+    autocmd BufWritePost *.py !chmod +x %
 
     " enable filetype detection, plus loading of filetype plugins
     source ~/.vim/plugin/matchit.vim

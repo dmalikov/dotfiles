@@ -14,4 +14,3 @@ ln -sf --verbose "$(pwd)/mpdconf" ~/.mpdconf
 ln -sf --verbose "$(pwd)/ncmpcppconf" ~/.ncmpcpp/config
 
 echo "done!"
-

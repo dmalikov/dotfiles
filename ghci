@@ -8,6 +8,7 @@
 :m + Data.Numbers.Primes
 :m + Data.Monoid
 :m + GOA
+:m + Text.Printf
 
 setLambdabotHome "/usr/bin/"
 :def bs        lambdabot "botsnack"

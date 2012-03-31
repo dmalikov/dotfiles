@@ -1,0 +1,8 @@
+MusicDir                = "~/music"
+Repeat                  = yes
+Shuffle                 = no
+AutoNext                = yes
+ShowHiddenFiles         = no
+StartInMusicDir         = yes
+SavePlaylist            = yes
+Theme                   = transparent-background

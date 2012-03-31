@@ -11,6 +11,7 @@ files =
   , ( "ghci", ".ghci" )
   , ( "gitconfig", ".gitconfig" )
   , ( "gvimrc", ".gvimrc" )
+  , ( "mocpconfig", ".moc/config" )
   , ( "mpdconf", ".mpdconf" )
   , ( "ncmpcppconf", ".ncmpcpp/config" )
   , ( "pentadactylrc", ".pentadactylrc" )

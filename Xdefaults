@@ -28,8 +28,10 @@ urxvt.background: #1c1c1c
 urxvt.foreground: #a1a1a1
 
 !urxvt fonts:
-urxvt.font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-iso10646-1
-urxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-iso10646-1
+!urxvt.font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-iso10646-1
+!urxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-iso10646-1
+urxvt*font: xft:Droid Sans Mono:pixelsize=16
+urxvt*boldFont: xft:Droid Sans Mono:bold:pixelsize=16
 
 !urxvt extensions:
 URxvt.perl-lib: ${HOME}/.urxvt/perl

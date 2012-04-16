@@ -4,6 +4,8 @@
 :m + Control.Arrow
 :m + Control.Applicative
 :m + Control.Monad
+:m + Data.List.Split
+:m + Data.Maybe
 :m + Data.Function
 :m + Data.Numbers.Primes
 :m + Data.Monoid

@@ -1,2 +1,3 @@
 set defsearch=d
 noremap <space> <C-d>
+set hintkeys=asdfghjkl;

@@ -1,0 +1,260 @@
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+# Combining stuff
+<Multi_key> <v> <v> : "⃗" U20D7 # COMBINING RIGHT ARROW ABOVE, знак вектора
+<Multi_key> <plus> <slash> : "̸" U0338 # COMBINING LONG SOLIDUS OVERLAY
+<Multi_key> <plus> <period> : "̇" U0307 # COMBINING DOT ABOVE
+<Multi_key> <plus> <colon> : "̈" U0308 # COMBINING DIARESIS
+<Multi_key> <plus> <quotedbl> : "̋" U030B # COMBINING DOUBLE ACUTE ACCENT
+
+<Multi_key> <plus> <grave>      : "̀" U0300 # combining grave accent
+<Multi_key> <grave> <plus>      : "̀" U0300 # combining grave accent
+
+<Multi_key> <plus> <apostrophe> : "́" U0301 # combining acute accent
+<Multi_key> <apostrophe> <plus> : "́" U0301 # combining acute accent
+
+<Multi_key> <plus> <asciicircum> : "̂" U0302 # combining circumflex accent
+<Multi_key> <asciicircum> <plus> : "̂" U0302 # combining circumflex accent
+
+<Multi_key> <plus> <asciitilde> : "̃" U0303 # combining tilde
+<Multi_key> <asciitilde> <plus> : "̃" U0303 # combining tilde
+
+<Multi_key> <plus> <parenleft>  : "̆" U0306 # combining breve
+<Multi_key> <parenleft> <plus>  : "̆" U0306 # combining breve
+
+<Multi_key> <plus> <v>  : "̌" U030c # combining caron
+<Multi_key> <v> <plus>  : "̌" U030c # combining caron
+
+<Multi_key> <plus> <underscore> : "̲" U0332 # combining low line
+<Multi_key> <underscore> <plus> : "̲" U0332 # combining low line
+
+<Multi_key> <plus> <comma>      : "̨" U0328 # combining ogonek
+<Multi_key> <comma> <plus>      : "̨" U0328 # combining ogonek
+
+<Multi_key> <space> <space>: " " U2008 # PUNCTUATION SPACE
+<Multi_key> <space> <period>: ".  " U2008 # End of sentence
+
+
+# MATH
+<Multi_key> <r> <r> : "√" U221A # SQUARE ROOT
+<Multi_key> <r> <3> : "∛" U221B # CUBE ROOT
+<Multi_key> <m> <A> : "∀" U2200 # FOR ALL
+<Multi_key> <m> <E> : "∃" U2203 # THERE EXISTS
+<Multi_key> <m> <i> : "∊" U220A # SMALL ELEMENT OF
+<Multi_key> <m> <d> : "∂" U2202 # PARTIAL DIFFERENTIAL
+<Multi_key> <m> <D> : "∆" U2206 # INCREMENT, Laplace operator
+<Multi_key> <m> <S> : "∑" U2211 # N-ARY SUMMATION, Sigma
+<Multi_key> <m> <I> : "∫" U222B # INTEGRAL
+<Multi_key> <equal> <asciitilde> : "≈" U2248 # ALMOST EQUAL TO
+<Multi_key> <asciitilde> <equal> : "≈" U2248 # ALMOST EQUAL TO
+<Multi_key> <asciitilde> <asciitilde> <equal> : "≊" U224A # ALMOST EQUAL OR EQUAL TO
+<Multi_key> <underscore> <underscore> : "‾" U023E # OVERLINE
+<Multi_key> <equal> <slash> : "≠"   U2260 # NOT EQUAL TO
+<Multi_key> <slash> <equal> : "≠"   U2260 # NOT EQUAL TO
+<Multi_key> <minus> <equal> : "≡"   U2261 # IDENTICAL TO
+<Multi_key> <equal> <minus> : "≡"   U2261 # IDENTICAL TO
+<Multi_key> <i> <n> <f> : "∞" U221E # INFINITY
+<Multi_key> <8> <8> : "∞" U221E # infinity, "lazy eight"
+<Multi_key> <bar> <bar> : "∥" U2225 # PARALLEL TO
+<Multi_key> <slash> <bar> <bar> : "∦" U2226 # NOT PARALLEL TO
+<Multi_key> <bar> <bar> <slash> : "∦" U2226 # NOT PARALLEL TO
+<Multi_key> <o> <plus> : "⊕"
+<Multi_key> <o> <asterisk> : "⊗"
+<Multi_key> <o> <slash> : "⊘"
+<Multi_key> <o> <minus> : "⊝"
+<Multi_key> <o> <less> : "⧀"
+<Multi_key> <less> <u>  : "⊂"
+<Multi_key> <less> <e>  : "⊆"
+<Multi_key> <u> <greater>  : "⊃"
+<Multi_key> <e> <greater>  : "⊇"
+<Multi_key> <colon> <colon> : "∷"
+<Multi_key> <v> <v> : "∨"
+<Multi_key> <ampersand> <ampersand> : "∧"
+<Multi_key> <bar> <minus> : "⊢"
+<Multi_key> <bar> <equal> : "⊨"
+
+
+# cyrillic:
+<Multi_key> <Cyrillic_SOFTSIGN> <minus> : "Ҍ"   U0462 # CYRILLIC CAPITAL LETTER YAT
+<Multi_key> <Cyrillic_softsign> <minus> : "ѣ"   U0463 # CYRILLIC SMALL LETTER YAT
+<Multi_key> <Cyrillic_O> <minus> : "Ѳ"   U0472 # CYRILLIC CAPITAL LETTER FITA
+<Multi_key> <Cyrillic_o> <minus> : "ѳ"   U0473 # CYRILLIC SMALL LETTER FITA
+<Multi_key> <Cyrillic_hardsign> <Cyrillic_yeru> : "ꙑ" UA651
+<Multi_key> <Cyrillic_HARDSIGN> <Cyrillic_YERU> : "Ꙑ" UA650
+<Multi_key> <Cyrillic_e> <Cyrillic_e> : "є"
+<Multi_key> <Cyrillic_E> <Cyrillic_E> : "Є"
+
+
+# Arrows
+# Simple
+<Multi_key> <less> <minus> : "←" U2190 # LEFTWARDS ARROW
+<Multi_key> <bar> <asciicircum> : "↑" U2191 # UPWARDS ARROW
+<Multi_key> <minus> <greater> : "→" U2192 # RIGHTWARDS ARROW
+<Multi_key> <bar> <v> : "↓" U2193 # DOWNWARDS ARROW
+<Multi_key> <less> <greater> <minus> : "↔" U2194 # LEFT RIGHT ARROW
+<Multi_key> <minus> <less> <greater> : "↔" U2194 # LEFT RIGHT ARROW
+<Multi_key> <v> <bar> <asciicircum> : "↕" U2195 # UP DOWN ARROW
+<Multi_key> <asciicircum> <bar> <v> : "↕" U2195 # UP DOWN ARROW
+<Multi_key> <backslash> <asciicircum> : "↖" U2196 # NORTH WEST ARROW
+<Multi_key> <asciicircum> <backslash>: "↖" U2196 # NORTH WEST ARROW
+<Multi_key> <slash> <asciicircum> : "↗" U2197 # NORTH EAST ARROW
+<Multi_key> <backslash> <v> : "↘" U2198 # SOUTH EAST ARROW
+<Multi_key> <slash> <v> : "↙" U2199 # SOUTH WEST ARROW
+<Multi_key> <v> <slash>: "↙" U2199 # SOUTH WEST ARROW
+
+# Double
+<Multi_key> <less> <equal> : "⇐" U21D0 # LEFTWARDS DOUBLE ARROW
+<Multi_key> <bar> <bar> <asciicircum>: "⇑" U21D1 # UPWARDS DOUBLE ARROW
+<Multi_key> <equal> <greater>: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <bar> <bar> <v>: "⇓" U21D3 # DOWNWARDS DOUBLE ARROW
+<Multi_key> <less> <greater> <equal>: "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <less> <greater>: "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+
+# Sucky
+<Multi_key> <less> <numbersign> : "◄" U25c4 # black left-pointing pointer
+<Multi_key> <numbersign> <less> : "◄" U25c4 # black left-pointing pointer
+<Multi_key> <greater> <numbersign> : "►" U25ba # black right-pointing pointer
+<Multi_key> <numbersign> <greater> : "►" U25ba # black right-pointing pointer
+
+
+# Greek Letters
+<Multi_key> <ampersand> <a> : "α"
+<Multi_key> <ampersand> <A> : "Α"
+<Multi_key> <ampersand> <b> : "β"
+<Multi_key> <ampersand> <B> : "Β"
+<Multi_key> <ampersand> <c> : "χ"
+<Multi_key> <ampersand> <C> : "Χ"
+<Multi_key> <ampersand> <d> : "δ"
+<Multi_key> <ampersand> <D> : "Δ"
+<Multi_key> <ampersand> <e> : "ε"
+<Multi_key> <ampersand> <E> : "Ε"
+<Multi_key> <ampersand> <f> : "φ"
+<Multi_key> <ampersand> <F> : "Φ"
+<Multi_key> <ampersand> <g> : "γ"
+<Multi_key> <ampersand> <G> : "Γ"
+<Multi_key> <ampersand> <h> : "η"
+<Multi_key> <ampersand> <H> : "Η"
+<Multi_key> <ampersand> <i> : "ι"
+<Multi_key> <ampersand> <I> : "Ι"
+<Multi_key> <ampersand> <j> : "ϕ"
+<Multi_key> <ampersand> <J> : "ϑ"
+<Multi_key> <ampersand> <k> : "κ"
+<Multi_key> <ampersand> <K> : "Κ"
+<Multi_key> <ampersand> <l> : "λ"
+<Multi_key> <ampersand> <L> : "Λ"
+<Multi_key> <ampersand> <m> : "μ"
+<Multi_key> <ampersand> <M> : "Μ"
+<Multi_key> <ampersand> <n> : "ν"
+<Multi_key> <ampersand> <N> : "Ν"
+<Multi_key> <ampersand> <o> : "ο"
+<Multi_key> <ampersand> <O> : "Ο"
+<Multi_key> <ampersand> <p> : "π"
+<Multi_key> <ampersand> <P> : "Π"
+<Multi_key> <ampersand> <q> : "θ"
+<Multi_key> <ampersand> <Q> : "Θ"
+<Multi_key> <ampersand> <r> : "ρ"
+<Multi_key> <ampersand> <R> : "Ρ"
+<Multi_key> <ampersand> <s> : "σ"
+<Multi_key> <ampersand> <S> : "Σ"
+<Multi_key> <ampersand> <t> : "τ"
+<Multi_key> <ampersand> <T> : "Τ"
+<Multi_key> <ampersand> <u> : "υ"
+<Multi_key> <ampersand> <U> : "Υ"
+<Multi_key> <ampersand> <v> : "ϖ"
+<Multi_key> <ampersand> <V> : "ς"
+<Multi_key> <ampersand> <w> : "ω"
+<Multi_key> <ampersand> <W> : "Ω"
+<Multi_key> <ampersand> <x> : "ξ"
+<Multi_key> <ampersand> <X> : "Ξ"
+<Multi_key> <ampersand> <y> : "ψ"
+<Multi_key> <ampersand> <Y> : "Ψ"
+<Multi_key> <ampersand> <z> : "ζ"
+<Multi_key> <ampersand> <Z> : "Ζ"
+
+
+# unusable
+<Multi_key> <asterisk> <asterisk> : "★" U2605
+<Multi_key> <asterisk> <0> : "☆" U2606
+<Multi_key> <t> <t> : "☎" U260E
+<Multi_key> <p> <p> : "☮" U262E
+<Multi_key> <less> <3> : "♥" U2665
+<Multi_key> <3> <3> : "☘" U2618
+<Multi_key> <asciitilde> <asciitilde> : "☙" U2619
+<Multi_key> <k> <z> : "☭" U262D
+<Multi_key> <w> <a> : "⚠" U26A0
+<Multi_key> <b> <h> : "☣" U2623
+<Multi_key> <r> <a> : "☢" U2622
+<Multi_key> <percent> <percent> : "⌘" U2318
+<Multi_key> <plus> <plus> : "☦" U2626
+<Multi_key> <parenleft> <asterisk> : "☪" U262A
+<Multi_key> <b> <b> : "卍" U534D
+<Multi_key> <B> <B> : "☸" U3638
+<Multi_key> <6> <6> : "✡" U2721
+
+<Multi_key> <Cyrillic_shcha> <Cyrillic_es>  : "©"   copyright # COPYRIGHT SIGN
+<Multi_key> <Cyrillic_shcha> <Cyrillic_ES>  : "©"   copyright # COPYRIGHT SIGN
+<Multi_key> <Cyrillic_SHCHA> <Cyrillic_es>  : "©"   copyright # COPYRIGHT SIGN
+<Multi_key> <Cyrillic_SHCHA> <Cyrillic_ES>  : "©"   copyright # COPYRIGHT SIGN
+<Multi_key> <Cyrillic_shcha> <Cyrillic_ka>  : "®"   registered # REGISTERED SIGN
+<Multi_key> <Cyrillic_shcha> <Cyrillic_KA>  : "®"   registered # REGISTERED SIGN
+<Multi_key> <Cyrillic_SHCHA> <Cyrillic_KA>  : "®"   registered # REGISTERED SIGN
+<Multi_key> <Cyrillic_SHCHA> <Cyrillic_KA>  : "®"   registered # REGISTERED SIGN
+
+
+# Quotation marks
+<Multi_key> <Cyrillic_yu> <Cyrillic_yu> : "»"   guillemotright # RIGHT-POINTING DOUBLE ANGLE
+<Multi_key> <Cyrillic_YU> <Cyrillic_YU> : "»"   guillemotright # RIGHT-POINTING DOUBLE ANGLE
+<Multi_key> <Cyrillic_be> <Cyrillic_be> : "«"   guillemotleft # LEFT-POINTING DOUBLE ANGLE QUOTATION
+<Multi_key> <Cyrillic_BE> <Cyrillic_BE> : "«"   guillemotleft # LEFT-POINTING DOUBLE ANGLE QUOTATION
+<Multi_key> <Cyrillic_BE> <quotedbl>    : "“"   U201c # LEFT DOUBLE QUOTATION MARK
+<Multi_key> <quotedbl> <Cyrillic_BE>    : "“"   U201c # LEFT DOUBLE QUOTATION MARK
+<Multi_key> <Cyrillic_YU> <quotedbl>    : "”"   U201d # RIGHT DOUBLE QUOTATION MARK
+<Multi_key> <quotedbl> <Cyrillic_YU>    : "”"   U201d # RIGHT DOUBLE QUOTATION MARK
+
+
+# Per xxx
+<Multi_key> <percent> <Cyrillic_shcha>  : "‰"   U2030 # PER MILLE SIGN
+
+# Currencies
+<Multi_key> <Cyrillic_ES> <equal>       : "€"   EuroSign # EURO SIGN
+<Multi_key> <equal> <Cyrillic_ES>       : "€"   EuroSign # EURO SIGN
+<Multi_key> <Cyrillic_U> <equal>        : "€"   EuroSign # EURO SIGN
+<Multi_key> <equal> <Cyrillic_U>        : "€"   EuroSign # EURO SIGN
+<Multi_key> <Cyrillic_DE> <minus>       : "£"   U00a3 # POUND SIGN
+<Multi_key> <minus> <Cyrillic_DE>       : "£"   U00a3 # POUND SIGN
+<Multi_key> <Cyrillic_EN> <equal>       : "¥"   yen # YEN SIGN
+<Multi_key> <equal> <Cyrillic_EN>       : "¥"   yen # YEN SIGN
+
+# sburke: phonetic stuff
+<Multi_key> <e> <e>        : "ə" U0259 # latin small letter schwa
+<Multi_key> <e> <h>        : "ɛ" U025b # open "e" (eh)
+
+<Multi_key> <i> <i>        : "ɪ" U026a # smallcap "I"
+
+<Multi_key> <s> <h>        : "ʃ" U0283 # small esh
+<Multi_key> <z> <h>        : "ʒ" U0292 # small ezh
+<Multi_key> <u> <u>        : "ʌ" U028c # small turned v (vowel in "buck")
+
+<Multi_key> <g> <n>        : "ɲ" U0272 # small n with left hook
+<Multi_key> <j> <n>        : "ɲ" U0272 # small n with left hook
+<Multi_key> <n> <j>        : "ɲ" U0272 # small n with left hook
+
+<Multi_key> <o> <a>        : "ɑ" U0251 # small alpha (open a, French pâte)
+<Multi_key> <a> <o>        : "ɑ" U0251 # small alpha (open a, French pâte)
+
+<Multi_key> <e> <r>        : "ɚ" U025a # small schwa with hook (er)
+
+<Multi_key> <o> <o>          : "ɔ" U0254 # small open o (turned c)
+<Multi_key> <o> <parenright> : "ɔ" U0254 # small open o (turned c)
+
+<Multi_key> <o> <w>        : "ʊ" U028a # small phonetic "upsilon" (vowel in "book")
+<Multi_key> <g> <h>        : "ɣ" U0263 # small phonetic "gamma"
+
+<Multi_key> <h> <h>            : "ʔ" U0294 # latin letter glottal stop<!> : "⁈" U2048 # QUESTION EXCLAMATION, ?!
+<Multi_key><underscore><a> : "ₐ"
+<Multi_key> <-> <-> <,> : "‐" U2010
+<Multi_key> <w> <w> : "ʬ"
+<Multi_key> <1> <slash> : "⅟" U215F # FRACTION NUMERATOR ONE
+
+# misc
+<Multi_key><t><e><r><m> : "http://fuck.linuxx.org/i/eys-bleeding-terminus.jpg"

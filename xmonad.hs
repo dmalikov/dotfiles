@@ -5,7 +5,6 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Combo
-import XMonad.Layout.LayoutHints
 import XMonad.Layout.NoBorders
 import XMonad.Layout.SimpleFloat
 import XMonad.Layout.Tabbed
@@ -64,7 +63,7 @@ myManageHook = composeAll . concat $
   where myIgnores = [ "panel", "trayer" ]
         myFloats  = [ "feh", "gimp", "VirtualBox" ]
 
-myLayoutHook = smartBorders . avoidStruts . layoutHints $
+myLayoutHook = smartBorders . avoidStruts $
   myTiled ||| myTwoPaneLeft ||| myTwoPaneRight ||| myTabbed
   where
     myTiled        = Tall 1 (3/100) (1/2)

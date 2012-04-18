@@ -18,7 +18,10 @@ files =
   , ( "screenrc", ".screenrc" )
   , ( "vimrc", ".vimrc" )
   , ( "Xdefaults", ".Xdefaults" )
+  , ( "XCompose", ".XCompose" )
   , ( "xinitrc", ".xinitrc" )
+  , ( "xmobarrc", ".xmobarrc" )
+  , ( "xmonad.hs", ".xmonad/xmonad.hs" )
   ]
 
 main :: IO ()

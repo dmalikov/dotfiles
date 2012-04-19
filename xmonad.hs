@@ -1,3 +1,5 @@
+import Control.Monad (liftM2)
+import Data.Map (fromList, union)
 import System.IO
 import XMonad
 import XMonad.Actions.SpawnOn (spawnOn)
@@ -12,50 +14,54 @@ import XMonad.Layout.TwoPane
 import XMonad.Layout.WindowNavigation
 import XMonad.Prompt
 import XMonad.Util.Run (spawnPipe)
-import XMonad.Util.EZConfig (additionalKeys)
 
 import qualified XMonad.Actions.CycleWS as CWS
 
+main :: IO ()
 main = do
     xmproc <- spawnPipe xmobar_run
     xmonad $ defaultConfig
-      { startupHook        = myStartupHook
+      { borderWidth        = 1
+      , focusFollowsMouse  = False
+      , focusedBorderColor = "#ee9a00"
+      , keys               = liftM2 union myKeys (keys defaultConfig)
+      , layoutHook         = myLayoutHook
+      , manageHook         = manageHook defaultConfig <+> myManageHook
       , modMask            = mod4Mask
+      , normalBorderColor  = "#2c3c3b"
       , terminal           = myTerminal
       , workspaces         = myWorkspaces
-      , layoutHook         = myLayoutHook
-      , borderWidth        = 1
-      , normalBorderColor  = "#2c3c3b"
-      , focusedBorderColor = "#ee9a00"
-      , focusFollowsMouse  = False
-      , manageHook         = manageHook defaultConfig <+> myManageHook
       , logHook            = dynamicLogWithPP $ xmobarPP
         { ppOutput  = hPutStrLn xmproc
         , ppCurrent = xmobarColor "#ee9a00" ""
         , ppTitle   = xmobarColor "#ee9a00" ""
         , ppSep     = " | "
         }
-      } `additionalKeys`
-      [ ( ( mod4Mask                , xK_p      ), spawn dmenu_run )
-      , ( ( mod4Mask .|. controlMask, xK_l      ), spawn lock_screen )
-      , ( ( mod4Mask .|. controlMask, xK_9      ), spawn volume_decrease )
-      , ( ( mod4Mask .|. controlMask, xK_0      ), spawn volume_increase )
-      , ( ( mod4Mask .|. controlMask, xK_m      ), spawn volume_toggle_mute )
-      , ( ( mod4Mask .|. controlMask, xK_j      ), spawnOn "t" jws_irssi )
-      , ( ( mod4Mask .|. controlMask, xK_p      ), spawn mpc_toggle )
-      , ( ( mod4Mask .|. controlMask, xK_period ), spawn mpc_next )
-      , ( ( mod4Mask                , xK_Right  ), CWS.nextWS )
-      , ( ( mod4Mask                , xK_Left   ), CWS.prevWS )
+      }
+
+myKeys (XConfig {modMask = modm}) = fromList $
+      [ ( ( modm                , xK_p      ), spawn dmenu_run )
+      , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
+      , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
+      , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )
+      , ( ( modm .|. controlMask, xK_m      ), spawn volume_toggle_mute )
+      , ( ( modm .|. controlMask, xK_j      ), spawnOn "t" jws_irssi )
+      , ( ( modm .|. controlMask, xK_p      ), spawn mpc_toggle )
+      , ( ( modm .|. controlMask, xK_period ), spawn mpc_next )
+      , ( ( modm                , xK_Right  ), CWS.nextWS )
+      , ( ( modm                , xK_Left   ), CWS.prevWS )
       ]
 
 -- Sets the WM name to a given string, so that it could be
 -- detected using _NET_SUPPORTING_WM_CHECK protocol
+myStartupHook :: X ()
 myStartupHook = setWMName "LG3D"
 
 myTerminal = "urxvt -cd ~/"
 
 myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
 
+myManageHook :: ManageHook
 myManageHook = composeAll . concat $
     [ [ className =? c --> doFloat  | c <- myFloats]
     , [ resource  =? r --> doIgnore | r <- myIgnores]
@@ -71,6 +77,7 @@ myLayoutHook = smartBorders . avoidStruts $
     myTwoPaneRight = windowNavigation $ combineTwo (TwoPane (3/100) (7.4/10)) Full (tabbedAlways shrinkText defaultTheme)
     myTabbed       = tabbed shrinkText defaultTheme
 
+myXPrompt :: XPConfig
 myXPrompt = defaultXPConfig { font = "terminus-medium:weight=normal:pixelsize=16" }
 
 -- applications

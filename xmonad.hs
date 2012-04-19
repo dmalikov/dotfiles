@@ -14,8 +14,10 @@ import XMonad.Layout.TwoPane
 import XMonad.Layout.WindowNavigation
 import XMonad.Prompt
 import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.Scratchpad
 
 import qualified XMonad.Actions.CycleWS as CWS
+import qualified XMonad.StackSet as W
 
 main :: IO ()
 main = do
@@ -39,7 +41,7 @@ main = do
         }
       }
 
-myKeys (XConfig {modMask = modm}) = fromList $
+myKeys conf@(XConfig {modMask = modm}) = fromList $
       [ ( ( modm                , xK_p      ), spawn dmenu_run )
       , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
       , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
@@ -50,6 +52,7 @@ myKeys (XConfig {modMask = modm}) = fromList $
       , ( ( modm .|. controlMask, xK_period ), spawn mpc_next )
       , ( ( modm                , xK_Right  ), CWS.nextWS )
       , ( ( modm                , xK_Left   ), CWS.prevWS )
+      , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
       ]
 
 -- Sets the WM name to a given string, so that it could be
@@ -62,12 +65,19 @@ myTerminal = "urxvt -cd ~/"
 myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
 
 myManageHook :: ManageHook
-myManageHook = composeAll . concat $
+myManageHook = scratchpadHook <+> (composeAll $ concat $
     [ [ className =? c --> doFloat  | c <- myFloats]
     , [ resource  =? r --> doIgnore | r <- myIgnores]
-    ]
+    ] )
   where myIgnores = [ "panel", "trayer" ]
         myFloats  = [ "feh", "gimp", "VirtualBox" ]
+
+scratchpadHook = scratchpadManageHook (W.RationalRect paddingLeft paddingTop width height')
+  where
+    height'     = 0.4
+    width       = 0.8
+    paddingTop  = 0.4
+    paddingLeft = 0.1
 
 myLayoutHook = smartBorders . avoidStruts $
   myTiled ||| myTwoPaneLeft ||| myTwoPaneRight ||| myTabbed

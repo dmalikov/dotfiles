@@ -122,6 +122,10 @@
     source ~/.vim/plugin/matchit.vim
     filetype plugin on
 
+    " preserve undo actions even after file has closed
+    set undolevels=1000
+    set undofile
+
 "=====================================
 " KEY MAPPING SETTINGS
 "=====================================

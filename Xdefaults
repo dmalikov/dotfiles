@@ -61,7 +61,7 @@ URxvt*keysym.Home: \033[1~
 URxvt*keysym.End: \033[4~
 
 ! xmonad scratchpad settings
-scratchpad.background: #1c1c1c
+scratchpad.background: #111111
 scratchpad.foreground: #a1a1a1
 
 scratchpad.perl-ext-common: default

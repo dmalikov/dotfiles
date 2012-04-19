@@ -28,17 +28,12 @@ main = do
       , focusedBorderColor = "#ee9a00"
       , keys               = liftM2 union myKeys (keys defaultConfig)
       , layoutHook         = myLayoutHook
+      , logHook            = myLogHook xmproc
       , manageHook         = manageHook defaultConfig <+> myManageHook
       , modMask            = mod4Mask
       , normalBorderColor  = "#2c3c3b"
       , terminal           = myTerminal
       , workspaces         = myWorkspaces
-      , logHook            = dynamicLogWithPP $ xmobarPP
-        { ppOutput  = hPutStrLn xmproc
-        , ppCurrent = xmobarColor "#ee9a00" ""
-        , ppTitle   = xmobarColor "#ee9a00" ""
-        , ppSep     = " | "
-        }
       }
 
 myKeys conf@(XConfig {modMask = modm}) = fromList $
@@ -55,14 +50,14 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
       ]
 
--- Sets the WM name to a given string, so that it could be
--- detected using _NET_SUPPORTING_WM_CHECK protocol
-myStartupHook :: X ()
-myStartupHook = setWMName "LG3D"
-
-myTerminal = "urxvt -cd ~/"
-
-myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
+myLogHook :: Handle -> X ()
+myLogHook h = dynamicLogWithPP $ xmobarPP
+  { ppCurrent = xmobarColor "#ee9a00" ""
+  , ppOutput  = hPutStrLn h
+  , ppSep     = " | "
+  , ppSort    = fmap (.scratchpadFilterOutWorkspace) $ ppSort xmobarPP
+  , ppTitle   = xmobarColor "#ee9a00" ""
+  }
 
 myManageHook :: ManageHook
 myManageHook = scratchpadHook <+> (composeAll $ concat $
@@ -74,10 +69,10 @@ myManageHook = scratchpadHook <+> (composeAll $ concat $
 
 scratchpadHook = scratchpadManageHook (W.RationalRect paddingLeft paddingTop width height')
   where
-    height'     = 0.4
-    width       = 0.8
-    paddingTop  = 0.4
-    paddingLeft = 0.1
+    height'     = 0.7
+    width       = 0.6
+    paddingTop  = 0.2
+    paddingLeft = (1 - width) / 2
 
 myLayoutHook = smartBorders . avoidStruts $
   myTiled ||| myTwoPaneLeft ||| myTwoPaneRight ||| myTabbed
@@ -86,6 +81,15 @@ myLayoutHook = smartBorders . avoidStruts $
     myTwoPaneLeft  = windowNavigation $ combineTwo (TwoPane (3/100) (2.6/10)) (tabbedAlways shrinkText defaultTheme) Full
     myTwoPaneRight = windowNavigation $ combineTwo (TwoPane (3/100) (7.4/10)) Full (tabbedAlways shrinkText defaultTheme)
     myTabbed       = tabbed shrinkText defaultTheme
+
+-- Sets the WM name to a given string, so that it could be
+-- detected using _NET_SUPPORTING_WM_CHECK protocol
+myStartupHook :: X ()
+myStartupHook = setWMName "LG3D"
+
+myTerminal = "urxvt -cd ~/"
+
+myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
 
 myXPrompt :: XPConfig
 myXPrompt = defaultXPConfig { font = "terminus-medium:weight=normal:pixelsize=16" }

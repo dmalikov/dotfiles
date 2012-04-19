@@ -43,15 +43,12 @@ URxvt.matcher.button: 1
 URxvt.keysym.M-u: perl:url-select:select_next
 
 !urxvt scrolling options and cursor style:
-
-URxvt*saveLines: 3000
 URxvt*scrollstyle:plain
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
 
 ! urxvt tabs settings:
-
 URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: #1c1c1c
 URxvt.tabbed.tab-fg: 0
@@ -62,3 +59,34 @@ URxvt.tabbed.title: yes
 
 URxvt*keysym.Home: \033[1~
 URxvt*keysym.End: \033[4~
+
+! xmonad scratchpad settings
+scratchpad.background: #1c1c1c
+scratchpad.foreground: #a1a1a1
+
+scratchpad.perl-ext-common: default
+
+scratchpad.font: xft:Droid Sans Mono:pixelsize=16
+scratchpad.boldFont: xft:Droid Sans Mono:bold:pixelsize=16
+
+scratchpad.scrollstyle: plain
+scratchpad.scrollBar: false
+scratchpad.cursorBlink: false
+scratchpad.cursorUnderline: false
+
+scratchpad.color0:  #1c1c1c
+scratchpad.color8:  #2B2B2B
+scratchpad.color1:  #A5372E
+scratchpad.color9:  #E06C5C
+scratchpad.color2:  #4A663C
+scratchpad.color10: #7B996C
+scratchpad.color3:  #7C5618
+scratchpad.color11: #B38849
+scratchpad.color4:  #223535
+scratchpad.color12: #889393
+scratchpad.color5:  #8E4948
+scratchpad.color13: #C67C78
+scratchpad.color6:  #6D5B42
+scratchpad.color14: #A28D73
+scratchpad.color7:  #8D8D8D
+scratchpad.color15: #C6C6C6

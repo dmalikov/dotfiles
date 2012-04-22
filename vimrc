@@ -109,11 +109,6 @@
     " disable matches in help buffers
     autocmd BufEnter,FileType help call clearmatches()
 
-    " hightlight over 80 symbols
-    match ErrorMsg '\%>80v.\+'
-    autocmd BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
-    autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-
     " Automatically chmod +x Shell and Python scripts
     autocmd BufWritePost *.sh !chmod +x %
     autocmd BufWritePost *.py !chmod +x %
@@ -126,6 +121,11 @@
     set undolevels=1000
     set undofile
 
+    " vim-latex settings
+    set grepprg=grep\ -nH\ $*
+    let g:tex_flavor='latex'
+    filetype indent on
+
 "=====================================
 " KEY MAPPING SETTINGS
 "=====================================
@@ -136,7 +136,9 @@
     map <Esc>[5^ :tabp<CR>
     map <Esc>[6^ :tabn<CR>
 
-    noremap <space> <C-d>
-
     " remove trailing whitespaces
     noremap <F4> :%s/ \+$//gc
+
+    noremap <space> <C-d>
+    noremap zz :q!<CR>
+

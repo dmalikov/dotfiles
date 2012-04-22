@@ -6,7 +6,9 @@ import System.FilePath ((</>))
 import System.Posix.Files (fileExist, createSymbolicLink)
 
 files =
-  [ ( "apvlvrc", ".apvlvrc" )
+  [
+    ( "ackrc", ".ackrc" )
+  , ( "apvlvrc", ".apvlvrc" )
   , ( "conkyrc", ".conkyrc" )
   , ( "ghci", ".ghci" )
   , ( "gitconfig", ".gitconfig" )

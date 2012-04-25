@@ -1,4 +1,6 @@
+import Control.Applicative ((<$>))
 import Control.Monad (liftM2)
+import Data.List (isPrefixOf)
 import Data.Map (fromList, union)
 import System.IO
 import XMonad
@@ -60,12 +62,21 @@ myLogHook h = dynamicLogWithPP $ xmobarPP
   }
 
 myManageHook :: ManageHook
-myManageHook = scratchpadHook <+> (composeAll $ concat $
-    [ [ className =? c --> doFloat  | c <- myFloats]
-    , [ resource  =? r --> doIgnore | r <- myIgnores]
-    ] )
-  where myIgnores = [ "panel", "trayer" ]
-        myFloats  = [ "feh", "gimp", "VirtualBox" ]
+myManageHook = scratchpadHook <+> (composeAll $
+  [ myIgnores --> doIgnore
+  , myFloats  --> doFloat
+  ] )
+  where
+    myFloats = foldr1 (<||>)
+      [ ("Figure" `isPrefixOf`) <$> title
+      , className =? "feh"
+      , className =? "gimp"
+      , className =? "Virtual Box"
+      ]
+    myIgnores = foldr1 (<||>)
+      [ resource =? "panel"
+      , resource =? "trayer"
+      ]
 
 scratchpadHook = scratchpadManageHook (W.RationalRect paddingLeft paddingTop width height')
   where

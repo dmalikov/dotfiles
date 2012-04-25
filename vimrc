@@ -132,13 +132,15 @@
     nmap <F2> :nohlsearch<CR>
     set pastetoggle=<F3>
 
-    " rxvt shit
-    map <Esc>[5^ :tabp<CR>
-    map <Esc>[6^ :tabn<CR>
-
     " remove trailing whitespaces
     noremap <F4> :%s/ \+$//gc
 
     noremap <space> <C-d>
     noremap zz :q!<CR>
 
+    noremap k <c-y>
+    noremap j <c-e>
+
+    " switching between buffers
+    nmap <Esc>[5^ :bnext<CR>
+    nmap <Esc>[6^ :bprevious<CR>

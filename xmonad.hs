@@ -50,6 +50,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_Right  ), CWS.nextWS )
       , ( ( modm                , xK_Left   ), CWS.prevWS )
       , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
+      , ( ( modm                , xK_g      ), spawn gvim )
       ]
 
 myLogHook :: Handle -> X ()
@@ -107,6 +108,7 @@ myXPrompt = defaultXPConfig { font = "terminus-medium:weight=normal:pixelsize=16
 
 -- applications
 dmenu_run = "dmenu_run -b -i -fn '-*-terminus-medium-*-*-*-20-*-*-*-*-*-iso10646-*' -nb '#222222' -nf '#ee9a00' -sb '#404051' -sf '#9999ff'"
+gvim = "gvim"
 jws_irssi = "urxvt -title jws -e ssh jws -t 'export LANG=en_US.UTF-8; screen -rD irssi'"
 lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"

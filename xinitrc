@@ -1,5 +1,8 @@
 xsetroot -cursor_name left_ptr
 
+# enable ctrl-alt-backspace sequence
+setxkbmap -option terminate:ctrl_alt_bksp
+
 # enable keyboard layout
 setxkbmap -option "" -layout "us,ru" -option grp:caps_toggle
 

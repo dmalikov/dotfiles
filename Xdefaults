@@ -28,10 +28,8 @@ urxvt.background: #1c1c1c
 urxvt.foreground: #a1a1a1
 
 !urxvt fonts:
-!urxvt.font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-iso10646-1
-!urxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-iso10646-1
-urxvt*font: xft:Droid Sans Mono:pixelsize=16
-urxvt*boldFont: xft:Droid Sans Mono:bold:pixelsize=16
+urxvt.font: -*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1
+urxvt.boldFont: -*-terminus-bold-r-*-*-18-*-*-*-*-*-iso10646-1
 
 !urxvt extensions:
 URxvt.perl-lib: ${HOME}/.urxvt/perl
@@ -66,8 +64,8 @@ scratchpad.foreground: #a1a1a1
 
 scratchpad.perl-ext-common: default
 
-scratchpad.font: xft:Droid Sans Mono:pixelsize=16
-scratchpad.boldFont: xft:Droid Sans Mono:bold:pixelsize=16
+scratchpad.font: -*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1
+scratchpad.boldFont: -*-terminus-bold-r-*-*-18-*-*-*-*-*-iso10646-1
 
 scratchpad.scrollstyle: plain
 scratchpad.scrollBar: false

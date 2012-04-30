@@ -11,7 +11,7 @@ mpd_host = "localhost"
 #
 mpd_port = "6600"
 #
-mpd_music_dir = "${HOME}/music"
+mpd_music_dir = "~/music"
 #
 #mpd_connection_timeout = "5"
 #

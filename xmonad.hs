@@ -15,6 +15,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.TwoPane
 import XMonad.Layout.WindowNavigation
 import XMonad.Prompt
+import XMonad.Prompt.Shell
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
 
@@ -27,19 +28,19 @@ main = do
     xmonad $ defaultConfig
       { borderWidth        = 1
       , focusFollowsMouse  = False
-      , focusedBorderColor = "#ee9a00"
+      , focusedBorderColor = orangeColor
       , keys               = liftM2 union myKeys (keys defaultConfig)
       , layoutHook         = myLayoutHook
       , logHook            = myLogHook xmproc
       , manageHook         = manageHook defaultConfig <+> myManageHook
       , modMask            = mod4Mask
-      , normalBorderColor  = "#2c3c3b"
+      , normalBorderColor  = blueColor
       , terminal           = myTerminal
       , workspaces         = myWorkspaces
       }
 
 myKeys conf@(XConfig {modMask = modm}) = fromList $
-      [ ( ( modm                , xK_p      ), spawn dmenu_run )
+      [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
       , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
       , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
       , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )
@@ -55,11 +56,11 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
 
 myLogHook :: Handle -> X ()
 myLogHook h = dynamicLogWithPP $ xmobarPP
-  { ppCurrent = xmobarColor "#ee9a00" ""
+  { ppCurrent = xmobarColor orangeColor ""
   , ppOutput  = hPutStrLn h
   , ppSep     = " | "
-  , ppSort    = fmap (.scratchpadFilterOutWorkspace) $ ppSort xmobarPP
-  , ppTitle   = xmobarColor "#ee9a00" ""
+  , ppSort    = fmap (. scratchpadFilterOutWorkspace) $ ppSort xmobarPP
+  , ppTitle   = xmobarColor orangeColor ""
   }
 
 myManageHook :: ManageHook
@@ -89,10 +90,32 @@ scratchpadHook = scratchpadManageHook (W.RationalRect paddingLeft paddingTop wid
 myLayoutHook = smartBorders . avoidStruts $
   myTiled ||| myTwoPaneLeft ||| myTwoPaneRight ||| myTabbed
   where
-    myTiled        = Tall 1 (3/100) (1/2)
-    myTwoPaneLeft  = windowNavigation $ combineTwo (TwoPane (3/100) (2.6/10)) (tabbedAlways shrinkText defaultTheme) Full
-    myTwoPaneRight = windowNavigation $ combineTwo (TwoPane (3/100) (7.4/10)) Full (tabbedAlways shrinkText defaultTheme)
-    myTabbed       = tabbed shrinkText defaultTheme
+    myTiled        = Tall 1 (1/10) (1/2)
+    myTwoPaneLeft  = windowNavigation $ combineTwo (TwoPane (1/10) (1/3)) (tabbedAlways shrinkText myTheme) Full
+    myTwoPaneRight = windowNavigation $ combineTwo (TwoPane (1/10) (2/3)) Full (tabbedAlways shrinkText myTheme)
+    myTabbed       = tabbed shrinkText myTheme
+
+myXPConfig :: XPConfig
+myXPConfig = defaultXPConfig
+  { font = terminusFont
+  , bgColor = blackColor
+  , borderColor = blackColor
+  , fgColor = orangeColor
+  , position = Bottom
+  , height = 28
+  , autoComplete = Just 1
+  }
+
+myTheme = defaultTheme
+  { activeColor = orangeColor
+  , activeBorderColor = orangeColor
+  , activeTextColor = blackColor
+  , inactiveColor = darkBlackColor
+  , inactiveBorderColor = darkBlackColor
+  , inactiveTextColor = orangeColor
+  , fontName = terminusFont
+  , decoHeight = 26
+}
 
 -- Sets the WM name to a given string, so that it could be
 -- detected using _NET_SUPPORTING_WM_CHECK protocol
@@ -103,11 +126,7 @@ myTerminal = "urxvt -cd ~/"
 
 myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
 
-myXPrompt :: XPConfig
-myXPrompt = defaultXPConfig { font = "terminus-medium:weight=normal:pixelsize=16" }
-
 -- applications
-dmenu_run = "dmenu_run -b -i -fn '-*-terminus-medium-*-*-*-20-*-*-*-*-*-iso10646-*' -nb '#222222' -nf '#ee9a00' -sb '#404051' -sf '#9999ff'"
 gvim = "gvim"
 jws_irssi = "urxvt -title jws -e ssh jws -t 'export LANG=en_US.UTF-8; screen -rD irssi'"
 lock_screen = "xscreensaver-command -lock"
@@ -117,3 +136,14 @@ volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"
 volume_toggle_mute = "amixer set Master toggle"
 xmobar_run = "xmobar ~/.xmobarrc"
+
+-- colors
+orangeColor = "#ee9a00"
+blueColor = "#2c3c3c"
+blackColor = "#222222"
+darkBlackColor = "#1c1c1c"
+whiteColor = "#9999ff"
+purpleColor = "#404051"
+
+-- fonts
+terminusFont = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*"

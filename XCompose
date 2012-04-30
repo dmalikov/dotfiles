@@ -258,3 +258,17 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 
 # misc
 <Multi_key><t><e><r><m> : "http://fuck.linuxx.org/i/eys-bleeding-terminus.jpg"
+
+# some really useful stuff
+<Multi_key> <parenleft <parenleft> : "☹" U2639
+<Multi_key> <parenright> <parenright> : "☺" U263A
+<Multi_key> <m> <m> : "∙" U0251
+<Multi_key> <less> <minus> : "←" U2190
+<Multi_key> <minus> <greater> : "→" U2192
+<Multi_key> <less> <equal> : "⇐"
+<Multi_key> <equal> <greater> : "⇒"
+<Multi_key> <colon> <colon> : "∷"
+<Multi_key> <space> <a> : "α"
+<Multi_key> <space> <b> : "β"
+<Multi_key> <space> <l> : "λ"
+<Multi_key> <space> <r> : "ρ"

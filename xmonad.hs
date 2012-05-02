@@ -107,12 +107,12 @@ myXPConfig = defaultXPConfig
   }
 
 myTheme = defaultTheme
-  { activeColor = orangeColor
-  , activeBorderColor = orangeColor
-  , activeTextColor = blackColor
-  , inactiveColor = darkBlackColor
-  , inactiveBorderColor = darkBlackColor
-  , inactiveTextColor = orangeColor
+  { activeColor = darkBlackColor
+  , activeBorderColor = darkBlackColor
+  , activeTextColor = orangeColor
+  , inactiveColor = orangeColor
+  , inactiveBorderColor = orangeColor
+  , inactiveTextColor = blackColor
   , fontName = terminusFont
   , decoHeight = 26
 }

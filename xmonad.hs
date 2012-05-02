@@ -5,6 +5,7 @@ import Data.Map (fromList, union)
 import System.IO
 import XMonad
 import XMonad.Actions.SpawnOn (spawnOn)
+import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
@@ -55,13 +56,15 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       ]
 
 myLogHook :: Handle -> X ()
-myLogHook h = dynamicLogWithPP $ xmobarPP
-  { ppCurrent = xmobarColor orangeColor ""
-  , ppOutput  = hPutStrLn h
-  , ppSep     = " | "
-  , ppSort    = fmap (. scratchpadFilterOutWorkspace) $ ppSort xmobarPP
-  , ppTitle   = xmobarColor orangeColor ""
-  }
+myLogHook h = do
+  updatePointer (Relative 0.5 0.5)
+  dynamicLogWithPP $ xmobarPP
+    { ppCurrent = xmobarColor orangeColor ""
+    , ppOutput  = hPutStrLn h
+    , ppSep     = " | "
+    , ppSort    = fmap (. scratchpadFilterOutWorkspace) $ ppSort xmobarPP
+    , ppTitle   = xmobarColor orangeColor ""
+    }
 
 myManageHook :: ManageHook
 myManageHook = scratchpadHook <+> (composeAll $

@@ -12,6 +12,7 @@ files =
   , ( "conkyrc", ".conkyrc" )
   , ( "ghci", ".ghci" )
   , ( "gitconfig", ".gitconfig" )
+  , ( "gitignore", ".gitignore" )
   , ( "gvimrc", ".gvimrc" )
   , ( "mocpconfig", ".moc/config" )
   , ( "mpdconf", ".mpdconf" )

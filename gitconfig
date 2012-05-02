@@ -5,6 +5,7 @@
     logallrefupdates = true
     editor = vim
     pager = cat
+    excludesfile = ~/.gitignore
 
 [merge]
     tool = vimdiff

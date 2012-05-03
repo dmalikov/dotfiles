@@ -127,6 +127,11 @@
     filetype indent on
 
 "=====================================
+" COMMANDS
+"=====================================
+    command -nargs=+ Ghc !ghc -e <q-args>
+
+"=====================================
 " KEY MAPPING SETTINGS
 "=====================================
     nmap <F2> :nohlsearch<CR>
@@ -146,3 +151,6 @@
     noremap <C-PageUp> :bnext<CR>
     noremap <Esc>[6^ :bprevious<CR>
     noremap <C-PageDown> :bprevious<CR>
+
+    " exec Ghc
+    noremap <C-g> :Ghc 

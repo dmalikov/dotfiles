@@ -142,5 +142,7 @@
     noremap j <c-e>
 
     " switching between buffers
-    nmap <Esc>[5^ :bnext<CR>
-    nmap <Esc>[6^ :bprevious<CR>
+    noremap <Esc>[5^ :bnext<CR>
+    noremap <C-PageUp> :bnext<CR>
+    noremap <Esc>[6^ :bprevious<CR>
+    noremap <C-PageDown> :bprevious<CR>

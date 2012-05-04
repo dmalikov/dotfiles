@@ -76,10 +76,7 @@
     set gdefault
 
 " some Haskell properties
-    " no conceal (just for some occasion)
-    let g:no_haskell_conceal = 1
     hi hsNiceOperator ctermfg=none ctermbg=black
-    set conceallevel=1 concealcursor=nvic
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
     " use ghc functionality for haskell files
     autocmd Bufenter *.hs compiler ghc
@@ -153,4 +150,4 @@
     noremap <C-PageDown> :bprevious<CR>
 
     " exec Ghc
-    noremap <C-g> :Ghc 
+    noremap <C-g> :Ghc

@@ -4,6 +4,7 @@
 :m + Control.Arrow
 :m + Control.Applicative
 :m + Control.Monad
+:m + Control.Monad.Error
 :m + Data.List.Split
 :m + Data.Maybe
 :m + Data.Function

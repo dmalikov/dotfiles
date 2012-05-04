@@ -14,6 +14,7 @@ files =
   , ( "gitconfig", ".gitconfig" )
   , ( "gitignore", ".gitignore" )
   , ( "gvimrc", ".gvimrc" )
+  , ( "haskell.vim", ".vim/after/syntax/haskell.vim" )
   , ( "mocpconfig", ".moc/config" )
   , ( "mpdconf", ".mpdconf" )
   , ( "ncmpcppconf", ".ncmpcpp/config" )

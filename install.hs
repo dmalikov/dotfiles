@@ -25,6 +25,7 @@ files =
   , ( "XCompose", ".XCompose" )
   , ( "xinitrc", ".xinitrc" )
   , ( "xmobarrc", ".xmobarrc" )
+  , ( "xmobar.hs", ".xmonad/xmobar.hs"
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
   ]
 

@@ -53,6 +53,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_Left   ), CWS.prevWS )
       , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
       , ( ( modm                , xK_g      ), spawn gvim )
+      , ( ( modm                , xK_x      ), spawn recompileXmobar )
       ]
 
 myLogHook :: Handle -> X ()
@@ -135,10 +136,12 @@ jws_irssi = "urxvt -title jws -e ssh jws -t 'export LANG=en_US.UTF-8; screen -rD
 lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
+recompileXmobar = "ghc --make -O2 ~/.xmonad/xmobar.hs"
 volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"
 volume_toggle_mute = "amixer set Master toggle"
-xmobar_run = "xmobar ~/.xmobarrc"
+-- xmobar_run = "xmobar ~/.xmobarrc"
+xmobar_run = "~/.xmonad/xmobar"
 
 -- colors
 orangeColor = "#ee9a00"

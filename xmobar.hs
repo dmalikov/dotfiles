@@ -37,14 +37,11 @@ main = xmobar Config
                  , "-H", "80"
                  , "-p", "3"
                  , "--"
-                 , "-O", "<fc=#429942>On</fc> - "
-                 , "-o", ""
                  , "-L", "-15"
                  , "-H", "-5"
                  , "-l", "red"
                  , "-m", "blue"
                  , "-h", "#429942"
-                 , "-c", "charge_full_design"
                  ] 200
                , Run $ Date "/ %H:%M" "date" 10
                , Run $ Volume "default" "Master" [ ] 5
@@ -57,10 +54,6 @@ main = xmobar Config
     , "%battery%"
     , "%cpu%"
     , "%memory%"
-    -- , "%wlan0% <fc=#ee9a00>%date%</fc> "
-    , "%wlan0% <fc=#ffffff>%date%</fc> "
+    , "%wlan0% <fc=#ee9a00>%date%</fc> "
     ]
   }  where separator = " <fc=#ee9a00>|</fc> "
-  
-
-

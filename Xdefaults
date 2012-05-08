@@ -43,7 +43,7 @@ URxvt.keysym.M-u: perl:url-select:select_next
 !urxvt scrolling options and cursor style:
 URxvt*scrollstyle:plain
 URxvt*scrollBar: false
-URxvt*cursorBlink: true
+URxvt*cursorBlink: false
 URxvt*cursorUnderline: true
 
 ! urxvt tabs settings:

@@ -239,7 +239,7 @@ song_columns_list_format = "(7f)[green]{l} (20)[cyan]{a} (40)[]{t|f} (30)[red]{b
 ##
 #execute_on_song_change = ""
 #
-#playlist_show_remaining_time = "no"
+playlist_show_remaining_time = "yes"
 #
 #playlist_shorten_total_times = "no"
 #
@@ -347,11 +347,11 @@ fancy_scrolling = "yes"
 #
 #jump_to_now_playing_song_at_start = "yes"
 #
-#ask_before_clearing_main_playlist = "no"
+ask_before_clearing_main_playlist = "yes"
 #
 #clock_display_seconds = "no"
 #
-display_volume_level = "yes"
+display_volume_level = "no"
 #
 display_bitrate = "yes"
 #

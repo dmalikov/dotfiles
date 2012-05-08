@@ -226,7 +226,7 @@ song_status_format = "{(%l) }{%a - }{%t}|{%f}"
 ##   not available.
 ##
 #
-#song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[]{t|f} (30)[red]{b}"
+song_columns_list_format = "(7f)[green]{l} (20)[cyan]{a} (40)[]{t|f} (30)[red]{b} (7)[magenta]{y}"
 #
 ##### various settings #####
 #

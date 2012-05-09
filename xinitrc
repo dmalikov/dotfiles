@@ -1,4 +1,4 @@
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr -solid "#1c1c1c"
 
 # enable ctrl-alt-backspace sequence
 setxkbmap -option terminate:ctrl_alt_bksp
@@ -13,7 +13,7 @@ setxkbmap -option compose:ralt
 export GTK_IM_MODULE=xim
 
 # run trayer
-trayer --edge bottom --align left --transparent true --widthtype pixel --width 120 --heighttype pixel --height 20 --tint 0x1c1c1c --alpha 0 --SetDockType true &
+trayer --edge bottom --align left --transparent true --widthtype pixel --width 100 --heighttype pixel --height 20 --tint 0x1c1c1c --alpha 0 --SetDockType true &
 
 # run NetworkManager applet
 nm-applet &

@@ -20,6 +20,7 @@ files =
   , ( "ncmpcppconf", ".ncmpcpp/config" )
   , ( "pentadactylrc", ".pentadactylrc" )
   , ( "screenrc", ".screenrc" )
+  , ( "shiva.Xresources", "shiva.Xresources" )
   , ( "vimrc", ".vimrc" )
   , ( "Xdefaults", ".Xdefaults" )
   , ( "XCompose", ".XCompose" )

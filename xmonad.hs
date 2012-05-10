@@ -54,6 +54,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
       , ( ( modm                , xK_g      ), spawn gvim )
       , ( ( modm                , xK_x      ), spawn recompileXmobar )
+      , ( ( modm                , xK_t      ), spawn urxvt_shiva )
       ]
 
 myLogHook :: Handle -> X ()
@@ -137,10 +138,10 @@ lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
 recompileXmobar = "ghc --make -O2 ~/.xmonad/xmobar.hs"
+urxvt_shiva = "urxvt -name shiva"
 volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"
 volume_toggle_mute = "amixer set Master toggle"
--- xmobar_run = "xmobar ~/.xmobarrc"
 xmobar_run = "~/.xmonad/xmobar"
 
 -- colors

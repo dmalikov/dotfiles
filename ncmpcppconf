@@ -84,11 +84,11 @@ mpd_music_dir = "~/music"
 #
 ## delay after playlist highlighting will be disabled (0 = don't disable)
 #
-#playlist_disable_highlight_delay = "5"
+playlist_disable_highlight_delay = "2"
 #
 ## defines how long various messages are supposed to be visible
 #
-#message_delay_time = "4"
+message_delay_time = "2"
 #
 ##### song format #####
 ##
@@ -257,7 +257,7 @@ playlist_display_mode = "columns" # (classic/columns)
 #
 #seek_time = "1"
 #
-#autocenter_mode = "no"
+autocenter_mode = "yes"
 #
 #centered_cursor = "no"
 #
@@ -265,7 +265,7 @@ playlist_display_mode = "columns" # (classic/columns)
 ## Note: You can specify third character which will
 ## be used to build 'empty' part of progressbar.
 ##
-#progressbar_look = "=>"
+progressbar_look = "|>-"
 #
 #default_place_to_search_in = "database" (database/playlist)
 #
@@ -283,7 +283,7 @@ user_interface = "alternative" # (classic/alternative)
 #
 #header_visibility = "yes"
 #
-#statusbar_visibility = "yes"
+statusbar_visibility = "yes"
 #
 #titles_visibility = "yes"
 #
@@ -291,7 +291,7 @@ user_interface = "alternative" # (classic/alternative)
 #
 fancy_scrolling = "yes"
 #
-#cyclic_scrolling = "no"
+cyclic_scrolling = "yes"
 #
 #lines_scrolled = "2"
 #
@@ -343,9 +343,9 @@ fancy_scrolling = "yes"
 ## Note: You can define startup screen for ncmpcpp
 ## by choosing screen number from the list above.
 ##
-#startup_screen = "2"
+startup_screen = "2"
 #
-#jump_to_now_playing_song_at_start = "yes"
+jump_to_now_playing_song_at_start = "yes"
 #
 ask_before_clearing_main_playlist = "yes"
 #
@@ -408,17 +408,17 @@ search_engine_default_search_mode = "2"
 #
 #allow_physical_directories_deletion = "no"
 #
-#external_editor = ""
+external_editor = "/usr/bin/vim"
 #
-#use_console_editor = "no" (set to yes, if your editor is console app)
+use_console_editor = "yes" (set to yes, if your editor is console app)
 #
 ##### colors definitions #####
 #
-#colors_enabled = "yes"
+colors_enabled = "yes"
 #
 #empty_tag_color = "cyan"
 #
-#header_window_color = "default"
+header_window_color = "white"
 #
 #volume_color = "default"
 #
@@ -434,11 +434,11 @@ search_engine_default_search_mode = "2"
 #
 #main_window_highlight_color = "yellow"
 #
-#progressbar_color = "default"
+progressbar_color = "black"
 #
-#statusbar_color = "default"
+statusbar_color = "black"
 #
-#alternative_ui_separator_color = "black"
+alternative_ui_separator_color = "green"
 #
 #active_column_color = "red"
 #

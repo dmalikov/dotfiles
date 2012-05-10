@@ -4,6 +4,9 @@ module Main
 
 import Application
 import Data.List (intercalate)
+import Text.Printf
+
+type Color = String
 
 main :: IO ()
 main = xmobar Config
@@ -45,18 +48,26 @@ main = xmobar Config
                  ] 200
                , Run $ Date "/ %H:%M" "date" 10
                , Run $ Volume "default" "Master" [ ] 5
+               , Run $ MPD
+                 [ "--template"
+                 , "<artist> - <title>"
+                 ] 10
                , Run $ StdinReader
                ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = intercalate separator
-    [ "%StdinReader% }{ %default:Master%"
+  , template = "%StdinReader% }{" ++ intercalate separator
+    [ withColor "#dd9abb" "mpd: " ++ "%mpd%"
+    , "%default:Master%"
     , "%battery%"
     , "%cpu%"
     , "%memory%"
-    , "%wlan0% <fc=#ee9a00>%date%</fc> "
+    , "%wlan0%" ++ withColor "#ee9a00" "%date% "
     ]
   }
-  where separator = " <fc=#ee9a00>|</fc> "
+  where separator = " " ++ (withColor "#ee9a00" "|") ++ " "
         backgroundColor = "#080808"
         foregroundColor = "#8080a1"
+
+withColor ∷ Color → String → String
+withColor = printf "<fc=%s>%s</fc>"

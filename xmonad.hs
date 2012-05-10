@@ -54,7 +54,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
       , ( ( modm                , xK_g      ), spawn gvim )
       , ( ( modm                , xK_x      ), spawn recompileXmobar )
-      , ( ( modm                , xK_t      ), spawn urxvt_shiva )
+      , ( ( modm                , xK_t      ), spawn urxvt )
       ]
 
 myLogHook :: Handle -> X ()
@@ -133,12 +133,12 @@ myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
 
 -- applications
 gvim = "gvim"
-jws_irssi = "urxvt -title jws -e ssh jws -t 'export LANG=en_US.UTF-8; screen -rD irssi'"
+jws_irssi = urxvt ++ " -title jws -e ssh jws -t 'export LANG=en_US.UTF-8; screen -rD irssi'"
 lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
 recompileXmobar = "ghc --make -O2 ~/.xmonad/xmobar.hs"
-urxvt_shiva = "urxvt -name shiva"
+urxvt = "urxvt -name shiva"
 volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"
 volume_toggle_mute = "amixer set Master toggle"

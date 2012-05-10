@@ -22,6 +22,7 @@ files =
   , ( "pentadactylrc", ".pentadactylrc" )
   , ( "screenrc", ".screenrc" )
   , ( "shiva.Xresources", "shiva.Xresources" )
+  , ( "tigrc", ".tigrc" )
   , ( "vimrc", ".vimrc" )
   , ( "Xdefaults", ".Xdefaults" )
   , ( "XCompose", ".XCompose" )

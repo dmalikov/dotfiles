@@ -1,4 +1,6 @@
+--color
+--column
+--flush
+--follow
 --smart-case
 --sort-files
---color
---pager=less

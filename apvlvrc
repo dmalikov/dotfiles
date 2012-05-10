@@ -1,7 +1,6 @@
-" Enable fullscreen
 set fullscreen = yes
 
-" Hide menu and toolbar 
+" Hide menu and toolbar
 set guioptions = -mT
 
 " Do not show content view first
@@ -21,3 +20,14 @@ set scrollbar = no
 
 " Fit pages to window width
 set zoom = fitwidth
+
+" Reload document after 0 second
+set autoreload = 0
+
+" Enable scrolling the pages when hitting a page tail/head
+set autoscrollpage = yes
+
+" Set wrapscan to search text
+set wrapscan = yes
+
+map zz :q <CR>

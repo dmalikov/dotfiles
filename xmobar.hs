@@ -1,3 +1,5 @@
+{-# LANGUAGE UnicodeSyntax #-}
+
 module Main
   ( main
   ) where
@@ -50,14 +52,17 @@ main = xmobar Config
                , Run $ Volume "default" "Master" [ ] 5
                , Run $ MPD
                  [ "--template"
-                 , "<artist> - <title>"
+                 , "<statei>: <artist> - <title>"
+                 , "--", "-P", withColor "#33ee33" "♫"
+                       , "-Z", withColor "#3333ee" "♫"
+                       , "-S", withColor "#ee3333" "♫"
                  ] 10
                , Run $ StdinReader
                ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{" ++ intercalate separator
-    [ withColor "#dd9abb" "mpd: " ++ "%mpd%"
+  , template = "%StdinReader% }{" ++ intercalate' separator
+    [ "%mpd%"
     , "%default:Master%"
     , "%battery%"
     , "%cpu%"
@@ -65,7 +70,8 @@ main = xmobar Config
     , "%wlan0%" ++ withColor "#ee9a00" "%date% "
     ]
   }
-  where separator = " " ++ (withColor "#ee9a00" "|") ++ " "
+  where intercalate' s list = s ++ intercalate s list
+        separator = " " ++ (withColor "#ee9a00" "|") ++ " "
         backgroundColor = "#080808"
         foregroundColor = "#8080a1"
 

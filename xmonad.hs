@@ -148,7 +148,7 @@ xmobar_run = "~/.xmonad/xmobar"
 orangeColor = "#ee9a00"
 blueColor = "#2c3c3c"
 blackColor = "#222222"
-darkBlackColor = "#1c1c1c"
+darkBlackColor = "#080808"
 whiteColor = "#9999ff"
 purpleColor = "#404051"
 

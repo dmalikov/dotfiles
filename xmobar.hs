@@ -10,9 +10,9 @@ main = xmobar Config
   { lowerOnStart = False
   , font = "-*-terminus-medium-r-normal--12-*"
   , border = NoBorder
-  , borderColor = "#1c1c1c"
-  , bgColor = "#1c1c1c"
-  , fgColor = "#8080A1"
+  , borderColor = backgroundColor
+  , bgColor = backgroundColor
+  , fgColor = foregroundColor
   , position = Static { xpos = 120
                       , ypos = 1060
                       , width = 1800
@@ -56,4 +56,7 @@ main = xmobar Config
     , "%memory%"
     , "%wlan0% <fc=#ee9a00>%date%</fc> "
     ]
-  }  where separator = " <fc=#ee9a00>|</fc> "
+  }
+  where separator = " <fc=#ee9a00>|</fc> "
+        backgroundColor = "#080808"
+        foregroundColor = "#8080a1"

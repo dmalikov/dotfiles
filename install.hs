@@ -14,6 +14,7 @@ files =
   , ( "gitconfig", ".gitconfig" )
   , ( "gitignore", ".gitignore" )
   , ( "gvimrc", ".gvimrc" )
+  , ( "gtkrc-2.0.mine", ".gtkrc-2.0.mine" )
   , ( "haskell.vim", ".vim/after/syntax/haskell.vim" )
   , ( "mocpconfig", ".moc/config" )
   , ( "mpdconf", ".mpdconf" )

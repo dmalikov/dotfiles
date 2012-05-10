@@ -1,5 +1,5 @@
 shiva.background: #080808
-shiva.foreground: #ffd7dd
+shiva.foreground: #ddd7ff
 
 shiva.font:     -*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1
 shiva.boldFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-iso10646-1

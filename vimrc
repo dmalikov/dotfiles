@@ -48,7 +48,7 @@
     set numberwidth=3
     highlight LineNr ctermfg=yellow ctermbg=black
 
-    colorscheme moria
+    colorscheme neverland-darker
     " autocmd BufEnter *.hs colorscheme elflord
 
 "=====================================

@@ -291,7 +291,7 @@ statusbar_visibility = "yes"
 #
 fancy_scrolling = "yes"
 #
-cyclic_scrolling = "yes"
+cyclic_scrolling = "no"
 #
 #lines_scrolled = "2"
 #
@@ -418,7 +418,7 @@ colors_enabled = "yes"
 #
 #empty_tag_color = "cyan"
 #
-header_window_color = "white"
+#header_window_color = "default"
 #
 #volume_color = "default"
 #
@@ -436,7 +436,7 @@ header_window_color = "white"
 #
 progressbar_color = "black"
 #
-statusbar_color = "black"
+statusbar_color = "yellow"
 #
 alternative_ui_separator_color = "green"
 #

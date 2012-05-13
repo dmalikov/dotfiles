@@ -1,3 +1,11 @@
 set defsearch=d
-noremap <space> <C-d>
 set hintkeys=asdfghjkl;
+set showtabline=never
+
+noremap <space> <C-d>
+
+loadplugins buftabs
+
+hi BufTabSelected color: #ee9a00
+
+source /home/dmalikov/.pentadactyl/color/pemees.penta

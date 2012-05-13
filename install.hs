@@ -20,6 +20,7 @@ files =
   , ( "mpdconf", ".mpdconf" )
   , ( "ncmpcppconf", ".ncmpcpp/config" )
   , ( "pentadactylrc", ".pentadactylrc" )
+  , ( "pemees.penta", ".pentadactyl/color/pemees.penta" )
   , ( "screenrc", ".screenrc" )
   , ( "shiva.Xresources", "shiva.Xresources" )
   , ( "tigrc", ".tigrc" )

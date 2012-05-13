@@ -7,6 +7,7 @@ import XMonad
 import XMonad.Actions.SpawnOn (spawnOn)
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Combo
@@ -54,7 +55,6 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
       , ( ( modm                , xK_g      ), spawn gvim )
       , ( ( modm                , xK_x      ), spawn recompileXmobar )
-      , ( ( modm                , xK_t      ), spawn urxvt )
       ]
 
 myLogHook :: Handle -> X ()
@@ -67,6 +67,7 @@ myLogHook h = do
     , ppSort    = fmap (. scratchpadFilterOutWorkspace) $ ppSort xmobarPP
     , ppTitle   = xmobarColor orangeColor ""
     }
+  fadeInactiveLogHook 0.7
 
 myManageHook :: ManageHook
 myManageHook = scratchpadHook <+> (composeAll $
@@ -103,9 +104,9 @@ myLayoutHook = smartBorders . avoidStruts $
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig
   { font = terminusFont
-  , bgColor = blackColor
+  , bgColor = darkBlackColor
   , borderColor = blackColor
-  , fgColor = orangeColor
+  , fgColor = blueColor
   , position = Bottom
   , height = 28
   , autoComplete = Just 1
@@ -127,7 +128,7 @@ myTheme = defaultTheme
 myStartupHook :: X ()
 myStartupHook = setWMName "LG3D"
 
-myTerminal = "urxvt -cd ~/"
+myTerminal = urxvt ++ " -cd ~/"
 
 myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
 

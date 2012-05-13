@@ -16,7 +16,7 @@ hi Gradient background: #121212;
 hi GradientLeft background: #121212;
 hi GradientRight background: #121212;
 
-hi ErrorMsg background: #e3074b; color: #2c3c3c;
+hi ErrorMsg background: #7f1b11; color: #aaafaa;
 hi Filter color: #FF8B00; font-weight: bold;
 
 hi StatusLine       font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;

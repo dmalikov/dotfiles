@@ -73,7 +73,7 @@ main = xmobar Config
   where intercalate' s list = s ++ intercalate s list
         separator = " " ++ (withColor "#ee9a00" "|") ++ " "
         backgroundColor = "#080808"
-        foregroundColor = "#8080a1"
+        foregroundColor = "#2c3c3c"
 
 withColor ∷ Color → String → String
 withColor = printf "<fc=%s>%s</fc>"

@@ -57,6 +57,14 @@ main = xmobar Config
                        , "-Z", withColor "#3333ee" "♫"
                        , "-S", withColor "#ee3333" "♫"
                  ] 10
+               , Run $ Weather "UUDD"
+                 [ "--template", "<tempC>°C <skyCondition>"
+                 , "-L", "0"
+                 , "-H", "26"
+                 , "--low", whiteColor
+                 , "--normal", foregroundColor
+                 , "--high", orangeColor
+                 ] 18000
                , Run $ StdinReader
                ]
   , sepChar = "%"
@@ -65,15 +73,21 @@ main = xmobar Config
     [ "%mpd%"
     , "%default:Master%"
     , "%battery%"
+    , "%UUDD%"
     , "%cpu%"
     , "%memory%"
-    , "%wlan0%" ++ withColor "#ee9a00" "%date% "
+    , "%wlan0%" ++ withColor orangeColor "%date% "
     ]
   }
   where intercalate' s list = s ++ intercalate s list
-        separator = " " ++ (withColor "#ee9a00" "|") ++ " "
-        backgroundColor = "#080808"
-        foregroundColor = "#2c3c3c"
+        separator = " " ++ (withColor orangeColor "|") ++ " "
+        backgroundColor = blackColor
+        foregroundColor = blueColor
 
 withColor ∷ Color → String → String
 withColor = printf "<fc=%s>%s</fc>"
+
+blackColor = "#080808"
+blueColor = "#2c3c3c"
+orangeColor = "#ee9a00"
+whiteColor = "#9999ff"

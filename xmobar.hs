@@ -64,7 +64,7 @@ main = xmobar Config
                  , "--low", whiteColor
                  , "--normal", foregroundColor
                  , "--high", orangeColor
-                 ] 18000
+                 ] 600
                , Run $ StdinReader
                ]
   , sepChar = "%"

@@ -27,7 +27,3 @@ hi StatusLineSecure font-family: Terminus; font-size: 10pt; color: #9999ff; back
 hi Hint font-family: Terminus; font-size: 12pt; color: #92ff00; background-color: #121212; padding: 0px 1px; border: 0px solid #888888;
 
 hi Title font-size: 12pt; color: #121212; background: #afafaf;
-
-style -name statusbar chrome://* <<EOM
-statusbarpanel > * { margin: 0 !important; padding: 0 2px 0 0 !important; }
-EOM

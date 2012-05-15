@@ -130,7 +130,7 @@ myStartupHook = setWMName "LG3D"
 
 myTerminal = urxvt ++ " -cd ~/"
 
-myWorkspaces  = [ "m", "t", "i", "s" ] ++ map show [5..10]
+myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..20]
 
 -- applications
 gvim = "gvim"

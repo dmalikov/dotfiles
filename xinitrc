@@ -24,5 +24,11 @@ nm-applet &
 # run xscreensaver daemon
 xscreensaver -no-splash &
 
+# enable shiva.xresources
+xrdb -override ~/shiva.Xresources
+
+# run unclutter to hide cursor
+unclutter &
+
 # run xmonad
 exec ck-launch-session dbus-launch xmonad

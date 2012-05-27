@@ -25,12 +25,13 @@ files =
   , ( "screenrc", ".screenrc" )
   , ( "shiva.Xresources", "shiva.Xresources" )
   , ( "tigrc", ".tigrc" )
+  , ( "tmux.conf", ".tmux.conf" )
   , ( "vimrc", ".vimrc" )
-  , ( "Xdefaults", ".Xdefaults" )
   , ( "XCompose", ".XCompose" )
+  , ( "Xdefaults", ".Xdefaults" )
   , ( "xinitrc", ".xinitrc" )
-  , ( "xmobarrc", ".xmobarrc" )
   , ( "xmobar.hs", ".xmonad/xmobar.hs" )
+  , ( "xmobarrc", ".xmobarrc" )
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
   ]
 

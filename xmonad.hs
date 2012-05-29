@@ -134,7 +134,7 @@ myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", 
 
 -- applications
 gvim = "gvim"
-jws_irssi = urxvt ++ " -title jws -e ssh jws -t 'export LANG=en_US.UTF-8; screen -rD irssi'"
+jws_irssi = urxvt ++ " -title jεωs -e ssh jws -t 'export LANG=en_US.UTF-8; tmux attach-session -t irssi'"
 lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"

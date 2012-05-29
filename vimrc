@@ -18,6 +18,22 @@
     "  list of character encodings considered when starting to edit an existing file
     set fileencodings=utf-8
 
+    " enable pathogen
+    call pathogen#infect()
+
+    " share clipboard among instances
+    set clipboard=unnamed
+
+"=====================================
+" FUNCTIONS
+"=====================================
+    " chmod +х to scripts
+    function ModeChange()
+        if getline(1) =~ '^#!'
+            silent !chmod a+x <afile>
+        endif
+    endfunction
+
 "=====================================
 " APPEARANCE SETTINGS
 "=====================================
@@ -51,6 +67,19 @@
     colorscheme neverland-darker
     " autocmd BufEnter *.hs colorscheme elflord
 
+    " enable autocomplete
+    set wildmenu
+    set wildmode=list:longest,full
+
+    " don't pause big listings
+    set nomore
+
+    " make vim message not to annoy
+    set shortmess=aoOIT
+
+    " always report about changed lines
+    set report=0
+
 "=====================================
 " MISC SETTINGS
 "=====================================
@@ -60,6 +89,8 @@
     set expandtab
     set autoindent
 
+    " lines to scroll when cursor leaves screen
+    set scrolljump=10
     " lines before screen edge to scroll
     set scrolloff=1000
 
@@ -106,9 +137,8 @@
     " disable matches in help buffers
     autocmd BufEnter,FileType help call clearmatches()
 
-    " Automatically chmod +x Shell and Python scripts
-    autocmd BufWritePost *.sh !chmod +x %
-    autocmd BufWritePost *.py !chmod +x %
+    " Automatically chmod +x
+    autocmd BufWritePost * call ModeChange()
 
     " enable filetype detection, plus loading of filetype plugins
     source ~/.vim/plugin/matchit.vim
@@ -151,3 +181,9 @@
 
     " exec Ghc
     noremap <C-g> :Ghc
+
+    " perd tree
+    nmap <silent> <c-n> :NERDTreeToggle<CR>
+
+    " save as root with w!!
+    cmap w!! w !sudo tee % > /dev/null

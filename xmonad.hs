@@ -12,6 +12,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Combo
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
 import XMonad.Layout.SimpleFloat
 import XMonad.Layout.Tabbed
 import XMonad.Layout.TwoPane
@@ -55,6 +56,8 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
       , ( ( modm                , xK_g      ), spawn gvim )
       , ( ( modm                , xK_x      ), spawn recompileXmobar )
+      , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
+      , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
       ]
 
 myLogHook :: Handle -> X ()
@@ -94,9 +97,9 @@ scratchpadHook = scratchpadManageHook (W.RationalRect paddingLeft paddingTop wid
     paddingLeft = (1 - width) / 2
 
 myLayoutHook = smartBorders . avoidStruts $
-  myTiled ||| myTwoPaneLeft ||| myTwoPaneRight ||| myTabbed
+  resizableTile ||| myTwoPaneLeft ||| myTwoPaneRight ||| myTabbed
   where
-    myTiled        = Tall 1 (1/10) (1/2)
+    resizableTile  = ResizableTall 1 (1/30) (1/2) []
     myTwoPaneLeft  = windowNavigation $ combineTwo (TwoPane (1/10) (1/3)) (tabbedAlways shrinkText myTheme) Full
     myTwoPaneRight = windowNavigation $ combineTwo (TwoPane (1/10) (2/3)) Full (tabbedAlways shrinkText myTheme)
     myTabbed       = tabbed shrinkText myTheme

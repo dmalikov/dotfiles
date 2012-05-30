@@ -138,7 +138,7 @@ jws_irssi = urxvt ++ " -title jεωs -e ssh jws -t 'export LANG=en_US.UTF-8; tmu
 lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
-recompileXmobar = "ghc --make -O2 ~/.xmonad/xmobar.hs"
+recompileXmobar = "recompile_xmobar"
 urxvt = "urxvt -name shiva"
 volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"

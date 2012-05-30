@@ -65,6 +65,12 @@ main = xmobar Config
                  , "--normal", foregroundColor
                  , "--high", orangeColor
                  ] 600
+               , Run $ CoreTemp
+                 [ "-t", "Temp:<core0>|<core1>°C "
+                 , "-L", "40", "-H", "60"
+                 , "-l", "lightblue"
+                 , "-n", "gray90", "-h", "red"
+                 ] 50
                , Run $ StdinReader
                ]
   , sepChar = "%"
@@ -72,6 +78,7 @@ main = xmobar Config
   , template = "%StdinReader% }{" ++ intercalate' separator
     [ "%mpd%"
     , "%default:Master%"
+    , "%coretemp%"
     , "%battery%"
     , "%UUDD%"
     , "%cpu%"

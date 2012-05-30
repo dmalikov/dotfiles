@@ -29,7 +29,7 @@ main :: IO ()
 main = do
     xmproc <- spawnPipe xmobar_run
     xmonad $ defaultConfig
-      { borderWidth        = 1
+      { borderWidth        = 3
       , focusFollowsMouse  = False
       , focusedBorderColor = orangeColor
       , keys               = liftM2 union myKeys (keys defaultConfig)
@@ -37,7 +37,7 @@ main = do
       , logHook            = myLogHook xmproc
       , manageHook         = manageHook defaultConfig <+> myManageHook
       , modMask            = mod4Mask
-      , normalBorderColor  = blueColor
+      , normalBorderColor  = darkBlackColor
       , terminal           = myTerminal
       , workspaces         = myWorkspaces
       }

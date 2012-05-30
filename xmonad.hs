@@ -58,6 +58,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
       , ( ( modm                , xK_x      ), spawn recompileXmobar )
       , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
       , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
+      , ( ( modm                , xK_m      ), windows W.swapMaster )
       ]
 
 myLogHook :: Handle -> X ()

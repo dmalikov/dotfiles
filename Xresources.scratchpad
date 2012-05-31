@@ -1,30 +1,28 @@
 ! xmonad scratchpad settings
-URxvt_scratchpad.background: #111111
-URxvt_scratchpad.foreground: #a1a1a1
+scratchpad.background: #111111
+scratchpad.foreground: #a1a1a1
 
-URxvt_scratchpad.perl-ext-common: default
+scratchpad.font: -*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1
+scratchpad.boldFont: -*-terminus-bold-r-*-*-18-*-*-*-*-*-iso10646-1
 
-URxvt_scratchpad.font: -*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1
-URxvt_scratchpad.boldFont: -*-terminus-bold-r-*-*-18-*-*-*-*-*-iso10646-1
+scratchpad.scrollstyle: plain
+scratchpad.scrollBar: false
+scratchpad.cursorBlink: false
+scratchpad.cursorUnderline: false
 
-URxvt_scratchpad.scrollstyle: plain
-URxvt_scratchpad.scrollBar: false
-URxvt_scratchpad.cursorBlink: false
-URxvt_scratchpad.cursorUnderline: false
-
-URxvt_scratchpad.color0:  #1c1c1c
-URxvt_scratchpad.color8:  #2B2B2B
-URxvt_scratchpad.color1:  #A5372E
-URxvt_scratchpad.color9:  #E06C5C
-URxvt_scratchpad.color2:  #4A663C
-URxvt_scratchpad.color10: #7B996C
-URxvt_scratchpad.color3:  #7C5618
-URxvt_scratchpad.color11: #B38849
-URxvt_scratchpad.color4:  #223535
-URxvt_scratchpad.color12: #889393
-URxvt_scratchpad.color5:  #8E4948
-URxvt_scratchpad.color13: #C67C78
-URxvt_scratchpad.color6:  #6D5B42
-URxvt_scratchpad.color14: #A28D73
-URxvt_scratchpad.color7:  #8D8D8D
-URxvt_scratchpad.color15: #C6C6C6
+scratchpad.color0:  #1c1c1c
+scratchpad.color8:  #2B2B2B
+scratchpad.color1:  #A5372E
+scratchpad.color9:  #E06C5C
+scratchpad.color2:  #4A663C
+scratchpad.color10: #7B996C
+scratchpad.color3:  #7C5618
+scratchpad.color11: #B38849
+scratchpad.color4:  #223535
+scratchpad.color12: #889393
+scratchpad.color5:  #8E4948
+scratchpad.color13: #C67C78
+scratchpad.color6:  #6D5B42
+scratchpad.color14: #A28D73
+scratchpad.color7:  #8D8D8D
+scratchpad.color15: #C6C6C6

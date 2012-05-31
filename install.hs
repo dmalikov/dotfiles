@@ -9,6 +9,7 @@ files =
   [
     ( "ackrc", ".ackrc" )
   , ( "apvlvrc", ".apvlvrc" )
+  , ( "bashrc", ".bashrc" )
   , ( "buftabs.js", ".pentadactyl/plugins/buftabs.js" )
   , ( "conkyrc", ".conkyrc" )
   , ( "ghci", ".ghci" )

@@ -39,6 +39,9 @@
 "=====================================
     syntax on
 
+    " Syntax coloring lines that are too long just slows down the world
+    set synmaxcol=2048
+
     set background=dark
 
     " Ignore case when the pattern contains lowercase letters only.
@@ -79,6 +82,9 @@
 
     " always report about changed lines
     set report=0
+
+    " Don't update the display while executing macros
+    set lazyredraw
 
 "=====================================
 " MISC SETTINGS
@@ -154,6 +160,12 @@
     filetype indent on
 
 "=====================================
+" GVIM SETTINGS
+"=====================================
+    set guifont=Terminus\ 8
+    set guioptions=ac
+
+"=====================================
 " COMMANDS
 "=====================================
     command -nargs=+ Ghc !ghc -e <q-args>
@@ -161,11 +173,17 @@
 "=====================================
 " KEY MAPPING SETTINGS
 "=====================================
-    nmap <F2> :nohlsearch<CR>
+    " System default for mappings is now the "," character
+    let mapleader = ","
+
+    " remove search highlighting
+    nmap <Leader>nh :nohlsearch<CR>
+
+    " set paste mode
     set pastetoggle=<F3>
 
     " remove trailing whitespaces
-    noremap <F4> :%s/ \+$//gc
+    noremap <Leader>rw :%s/ \+$//gc
 
     noremap <space> <C-d>
     noremap zz :q!<CR>
@@ -187,3 +205,14 @@
 
     " save as root with w!!
     cmap w!! w !sudo tee % > /dev/null
+
+    " hide/show statusline
+    nnoremap <Leader>h :exe "set laststatus=".(&laststatus == 0 ? 2 : 0)<CR>
+
+    " Make shift-insert past
+    map <S-Insert> <MiddleMouse>
+    map! <S-Insert> <MiddleMouse>
+
+    " Edit the vimrc file
+    nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+    nmap <silent> <Leader>sv :so $MYVIMRC<CR>

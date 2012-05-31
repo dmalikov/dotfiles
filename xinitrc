@@ -25,7 +25,7 @@ nm-applet &
 xscreensaver -no-splash &
 
 # process urxvt settings
-xrdb ~/.Xdefaults -merge ~/.Xresources.shiva -merge ~/.Xresources.scratchpad
+xrdb -merge ~/.Xdefaults -merge ~/.Xresources.scratchpad -merge ~/.Xresources.shiva
 
 # run unclutter to hide cursor
 unclutter &

@@ -11,12 +11,15 @@
     tool = vimdiff
 
 [alias]
-    st = status -uno
-    ci = commit
     br = branch
+    ci = commit
     co = checkout
-    df = diff --word-diff
+    df = diff --name-only
+    dt = difftool
+    dw = diff --word-diff
+    gg = log --graph --oneline -n 50 --oneline
     lg = log -p
+    st = status -uno
 
 [color]
     branch = auto
@@ -29,10 +32,10 @@
     remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+    meta = green
+    frag = magenta
+    old = blue
+    new = yellow
 
 [color "status"]
     added = yellow
@@ -54,7 +57,10 @@
     fontdiff = Terminus,8,-1,5,50,0,0,0,0,0
 
 [gui]
-    editor = vim
+    editor = gvim
 
 [diff]
-    tool = vimdiff
+    tool = gvimdiff
+
+[difftool]
+    prompt = false

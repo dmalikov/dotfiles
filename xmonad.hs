@@ -29,9 +29,9 @@ main :: IO ()
 main = do
     xmproc <- spawnPipe xmobar_run
     xmonad $ defaultConfig
-      { borderWidth        = 3
+      { borderWidth        = 1
       , focusFollowsMouse  = False
-      , focusedBorderColor = orangeColor
+      , focusedBorderColor = orangeDarkColor
       , keys               = liftM2 union myKeys (keys defaultConfig)
       , layoutHook         = myLayoutHook
       , logHook            = myLogHook xmproc
@@ -69,7 +69,7 @@ myLogHook h = do
     , ppOutput  = hPutStrLn h
     , ppSep     = " | "
     , ppSort    = fmap (. scratchpadFilterOutWorkspace) $ ppSort xmobarPP
-    , ppTitle   = xmobarColor orangeColor ""
+    , ppTitle   = xmobarColor orangeDarkColor ""
     }
   fadeInactiveLogHook 0.7
 
@@ -151,6 +151,7 @@ xmobar_run = "~/.xmonad/xmobar"
 
 -- colors
 orangeColor = "#ee9a00"
+orangeDarkColor = "#9e4a00"
 blueColor = "#2c3c3c"
 blackColor = "#222222"
 darkBlackColor = "#080808"

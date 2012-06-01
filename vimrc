@@ -47,12 +47,11 @@
     " Ignore case when the pattern contains lowercase letters only.
     set smartcase
 
-    " always show current cursor position
-    set ruler
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
     " Show the current mode
     set showmode
-    set statusline=%F\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+
+    set statusline=(#%n)\ %f\ %y\ %m\ %r\ %=(L:%l,\ C:%c)\ of\ %L\ [%p%%]
+
     " Show the current command in the lower right corner
     set showcmd
     " Show status line for all files
@@ -66,6 +65,7 @@
     set number
     set numberwidth=3
     highlight LineNr ctermfg=yellow ctermbg=black
+    set cursorline
 
     colorscheme neverland-darker
     " autocmd BufEnter *.hs colorscheme elflord

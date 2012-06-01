@@ -14,7 +14,6 @@
 
 ! urxvt tabs settings:
 *.tabbed.tabbar-fg: 2
-*.tabbed.tabbar-bg: #1c1c1c
 *.tabbed.tab-fg: 0
 *.tabbed.tab-bg: 1
 *.tabbed.autohide: yes

@@ -23,21 +23,16 @@ main = xmobar Config
                       , width = 1800
                       , height = 20
                       }
-  , commands = [ Run $ Network "wlan0"
-                 [ "-L", "0"
-                 , "-H", "32"
-                 , "--normal", "#429942"
-                 , "--high", "#A36666"
-                 ] 10
-               , Run $ Cpu
+  , commands = [ Run $ Cpu
                  [ "-L", "3"
                  , "-H", "50"
                  , "--normal", "green"
                  , "--high", "red"
                  ] 10
-               , Run $ Memory ["-t","Mem: <usedratio>%"] 10
+               , Run $ Memory
+                 [ "--template", "Mem: <used>/<total>"] 10
                , Run $ BatteryP ["BAT0"]
-                 [ "-t", "<acstatus><watts> (<left>%)"
+                 [ "--template", "<acstatus>[<watts>] (<left>%)"
                  , "-L", "10"
                  , "-H", "80"
                  , "-p", "3"
@@ -48,7 +43,6 @@ main = xmobar Config
                  , "-m", "blue"
                  , "-h", "#429942"
                  ] 200
-               , Run $ Date "/ %H:%M" "date" 10
                , Run $ Volume "default" "Master" [ ] 5
                , Run $ MPD
                  [ "--template"
@@ -65,29 +59,26 @@ main = xmobar Config
                  , "--normal", foregroundColor
                  , "--high", orangeColor
                  ] 600
-               , Run $ CoreTemp
-                 [ "-t", "Temp:<core0>|<core1>°C "
-                 , "-L", "40", "-H", "60"
-                 , "-l", "lightblue"
-                 , "-n", "gray90", "-h", "red"
-                 ] 50
+               , Run $ Kbd
+                 [ ("ru", withColor blueColorKeyboardLayout "RU")
+                 , ("us", withColor redColorKeyboardLayout  "US")
+                 ]
                , Run $ StdinReader
                ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{" ++ intercalate' separator
+  , template = "%StdinReader% }{" ++ intercalate separator
     [ "%mpd%"
     , "%default:Master%"
-    , "%coretemp%"
     , "%battery%"
     , "%UUDD%"
     , "%cpu%"
     , "%memory%"
-    , "%wlan0%" ++ withColor orangeColor "%date% "
+    , "%kbd%"
+    , "" -- dummy padding
     ]
   }
-  where intercalate' s list = s ++ intercalate s list
-        separator = " " ++ (withColor orangeColor "|") ++ " "
+  where separator = " " ++ (withColor orangeColor "|") ++ " "
         backgroundColor = blackColor
         foregroundColor = blueColor
 
@@ -96,5 +87,7 @@ withColor = printf "<fc=%s>%s</fc>"
 
 blackColor = "#080808"
 blueColor = "#2c3c3c"
+blueColorKeyboardLayout = "#11eebb"
 orangeColor = "#ee9a00"
+redColorKeyboardLayout = "#ee7777"
 whiteColor = "#9999ff"

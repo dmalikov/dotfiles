@@ -1,8 +1,12 @@
 "=====================================
 " GENERAL SETTINGS
 "=====================================
+    " drop vi shit
+    set nocompatible
+
     " do not making backup before editing file
     set nobackup
+
     " do not using swapfile
     set noswapfile
 
@@ -19,10 +23,17 @@
     set fileencodings=utf-8
 
     " enable pathogen
+    filetype off
     call pathogen#infect()
+    filetype plugin indent on
 
     " share clipboard among instances
     set clipboard=unnamed
+
+    " prevents some security exploits having to do with modelines in files
+    set modelines=0
+
+    set ttyfast
 
 "=====================================
 " FUNCTIONS
@@ -44,9 +55,6 @@
 
     set background=dark
 
-    " Ignore case when the pattern contains lowercase letters only.
-    set smartcase
-
     " Show the current mode
     set showmode
 
@@ -60,6 +68,8 @@
     set showmatch
     " Do case insensitive matching
     set ignorecase
+    " Ignore case when the pattern contains lowercase letters only.
+    set smartcase
 
     " line numbers
     set number
@@ -95,6 +105,9 @@
     set expandtab
     set autoindent
 
+    " matched string is highlighted.
+    set incsearch
+
     " lines to scroll when cursor leaves screen
     set scrolljump=10
     " lines before screen edge to scroll
@@ -108,6 +121,8 @@
     set whichwrap=b,s,<,>,[,],l,h
     " set word-wrap, not symbol-wrap
     set linebreak
+
+    set colorcolumn=80
 
     " set g default option to any s///
     set gdefault
@@ -139,7 +154,7 @@
 
     " highlight trailing spaces
     set list!
-    set listchars=tab:»»,trail:·
+    set listchars=tab:»»,trail:∘
     " disable matches in help buffers
     autocmd BufEnter,FileType help call clearmatches()
 
@@ -158,6 +173,9 @@
     set grepprg=grep\ -nH\ $*
     let g:tex_flavor='latex'
     filetype indent on
+
+    " save after losing focus
+    autocmd FocusLost * :wa
 
 "=====================================
 " GVIM SETTINGS
@@ -183,13 +201,13 @@
     set pastetoggle=<F3>
 
     " remove trailing whitespaces
-    noremap <Leader>rw :%s/ \+$//gc
+    noremap <Leader>rw :%s/ \+$//gc<CR>
 
     noremap <space> <C-d>
     noremap zz :q!<CR>
 
-    noremap k <c-y>
-    noremap j <c-e>
+    noremap k gk
+    noremap j gj
 
     " switching between buffers
     noremap <Esc>[5^ :bnext<CR>
@@ -216,3 +234,27 @@
     " Edit the vimrc file
     nmap <silent> <Leader>ev :e $MYVIMRC<CR>
     nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+
+    " Close current buffer
+    nmap <Leader>d :bd<CR>
+
+    " Close all buffers except current
+    nmap <Leader>a :BufOnly<CR>
+
+    " faster split jumping
+    nmap <C-j> <C-w>j<C-w>
+    nmap <C-k> <C-w>k<C-w>
+
+    " disable arrow keys in insert mode
+    nnoremap <up> <nop>
+    nnoremap <down> <nop>
+    nnoremap <left> <nop>
+    nnoremap <right> <nop>
+    inoremap <up> <nop>
+    inoremap <down> <nop>
+    inoremap <left> <nop>
+    inoremap <right> <nop>
+
+    " leave insert mode by jj
+    inoremap jj <ESC>
+

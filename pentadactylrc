@@ -4,6 +4,11 @@ set showtabline=never
 
 noremap <space> <C-d>
 
+" disable F1
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
 loadplugins buftabs
 
 source /home/dmalikov/.pentadactyl/color/pemees.penta

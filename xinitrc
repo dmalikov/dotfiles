@@ -32,5 +32,8 @@ xrdb -override ~/.Xresources.shiva
 # run unclutter to hide cursor
 unclutter &
 
+# run davmail to transport exchange server
+davmail.sh &
+
 # run xmonad
 exec ck-launch-session dbus-launch xmonad

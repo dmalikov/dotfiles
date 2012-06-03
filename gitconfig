@@ -17,8 +17,9 @@
     df = diff --name-only
     dt = difftool
     dw = diff --word-diff
-    gg = log --graph --oneline -n 50 --oneline
+    gg = log --graph --date-order --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short -n 50
     lg = log -p
+    sm = submodule
     st = status -uno
 
 [color]

@@ -25,6 +25,8 @@
     " enable pathogen
     filetype off
     call pathogen#infect()
+    call pathogen#runtime_append_all_bundles()
+    call pathogen#helptags()
     filetype plugin indent on
 
     " share clipboard among instances
@@ -34,6 +36,10 @@
     set modelines=0
 
     set ttyfast
+
+    " enable neocomplcache
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_force_overwrite_completefunc = 1
 
 "=====================================
 " FUNCTIONS
@@ -58,7 +64,7 @@
     " Show the current mode
     set showmode
 
-    set statusline=(#%n)\ %f\ %y\ %m\ %r\ %=(L:%l,\ C:%c)\ of\ %L\ [%p%%]
+    set statusline=(#%n)\ %f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=(L:%l,\ C:%c)\ of\ %L\ [%p%%]
 
     " Show the current command in the lower right corner
     set showcmd
@@ -83,9 +89,6 @@
     " enable autocomplete
     set wildmenu
     set wildmode=list:longest,full
-
-    " don't pause big listings
-    set nomore
 
     " make vim message not to annoy
     set shortmess=aoOIT
@@ -250,10 +253,6 @@
     nnoremap <down> <nop>
     nnoremap <left> <nop>
     nnoremap <right> <nop>
-    inoremap <up> <nop>
-    inoremap <down> <nop>
-    inoremap <left> <nop>
-    inoremap <right> <nop>
 
     " leave insert mode by jj
     inoremap jj <ESC>

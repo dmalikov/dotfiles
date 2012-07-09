@@ -84,6 +84,7 @@ myManageHook = scratchpadHook <+> (composeAll $
       , className =? "feh"
       , className =? "gimp"
       , className =? "Virtual Box"
+      , className =? "Git-cola"
       ]
     myIgnores = foldr1 (<||>)
       [ resource =? "panel"

@@ -48,3 +48,14 @@ function remove-spaces () {
     mv "${filename}" "${newfilename}" -v
   fi
 }
+
+declare MAINDISPLAY=LVDS-0
+
+setdisplay() {
+    local -r NEWDISPLAY=${2:-DP-0}
+    case $1 in
+            on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;
+            off)    xrandr --output $NEWDISPLAY --off ;;
+            *)      echo "Wrong argument"; return 1 ;;
+    esac
+}

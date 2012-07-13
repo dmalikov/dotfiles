@@ -1,8 +1,11 @@
 #!/usr/bin/env runhaskell
 
 import Control.Monad (when)
-import System.Directory (getHomeDirectory, getCurrentDirectory, removeFile)
-import System.FilePath ((</>))
+import System.Directory ( createDirectoryIfMissing
+                        , getHomeDirectory
+                        , getCurrentDirectory
+                        , removeFile )
+import System.FilePath ((</>), takeDirectory)
 import System.Posix.Files (fileExist, createSymbolicLink)
 
 files =
@@ -51,5 +54,6 @@ addPath (file, dest) = do
 createSymbolicLinkForce :: FilePath -> FilePath -> IO ()
 createSymbolicLinkForce file dest = do
   fileExist dest >>= (flip when) (removeFile dest)
+  createDirectoryIfMissing True . takeDirectory $ dest
   putStrLn $ "create symlink: " ++ show file ++ " -> " ++ dest
   createSymbolicLink file dest

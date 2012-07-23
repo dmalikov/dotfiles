@@ -146,6 +146,7 @@
 
     " Use ruby syntax for capfiles
     autocmd Bufenter Capfile setfiletype ruby
+    autocmd Bufenter *.capfile setfiletype ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 
     " set XML style

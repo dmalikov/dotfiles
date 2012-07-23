@@ -69,15 +69,16 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
   , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
   , ( ( modm                , xK_m      ), windows S.swapMaster )
-  , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen predicate hook horizontally )
+  , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen visible moveToImg horizontally )
+  , ( ( modm .|. shiftMask  , xK_a      ), captureWorkspacesWhen defaultPredicate moveToImg horizontally )
   ]
 
 -- xmonad-screenshoter stuff
-predicate ∷ WindowSpace → X Bool
-predicate = return . isJust . S.stack
+visible ∷ WindowSpace → X Bool
+visible = return . isJust . S.stack
 
-hook ∷ FilePath → IO ()
-hook filepath = do
+moveToImg ∷ FilePath → IO ()
+moveToImg filepath = do
   hd ← getHomeDirectory
   date ← formatTime defaultTimeLocale "%F-%X" <$> getCurrentTime
   let newFileName = hd </> "img" </> "screen" </> "own" </> "xmonad" </> date ++ ".png"

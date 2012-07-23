@@ -1,8 +1,16 @@
+{-# LANGUAGE UnicodeSyntax #-}
 import Control.Applicative ((<$>))
 import Control.Monad (liftM2)
 import Data.List (isPrefixOf)
 import Data.Map (fromList, union)
-import System.IO
+import Data.Maybe (isJust)
+import Data.Time (getCurrentTime)
+import Data.Time.Format (formatTime)
+import Graphics.UI.Gtk (initGUI)
+import System.Directory (getHomeDirectory, renameFile)
+import System.FilePath.Posix ((</>))
+import System.IO (Handle, hPutStrLn)
+import System.Locale (defaultTimeLocale)
 import XMonad
 import XMonad.Actions.SpawnOn (spawnOn)
 import XMonad.Actions.UpdatePointer
@@ -21,45 +29,59 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
+import XMonad.Util.WorkspaceScreenshot
 
 import qualified XMonad.Actions.CycleWS as CWS
-import qualified XMonad.StackSet as W
+import qualified XMonad.StackSet as S
 
 main :: IO ()
 main = do
-    xmproc <- spawnPipe xmobar_run
-    xmonad $ defaultConfig
-      { borderWidth        = 7
-      , focusFollowsMouse  = False
-      , focusedBorderColor = orangeDarkestColor
-      , keys               = liftM2 union myKeys (keys defaultConfig)
-      , layoutHook         = myLayoutHook
-      , logHook            = myLogHook xmproc
-      , manageHook         = manageHook defaultConfig <+> myManageHook
-      , modMask            = mod4Mask
-      , normalBorderColor  = darkBlackColor
-      , terminal           = myTerminal
-      , workspaces         = myWorkspaces
-      }
+  initGUI
+  xmproc <- spawnPipe xmobar_run
+  xmonad $ defaultConfig
+    { borderWidth        = 7
+    , focusFollowsMouse  = False
+    , focusedBorderColor = orangeDarkestColor
+    , keys               = liftM2 union myKeys (keys defaultConfig)
+    , layoutHook         = myLayoutHook
+    , logHook            = myLogHook xmproc
+    , manageHook         = manageHook defaultConfig <+> myManageHook
+    , modMask            = mod4Mask
+    , normalBorderColor  = darkBlackColor
+    , terminal           = myTerminal
+    , workspaces         = myWorkspaces
+    }
 
-myKeys conf@(XConfig {modMask = modm}) = fromList $
-      [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
-      , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
-      , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
-      , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )
-      , ( ( modm .|. controlMask, xK_m      ), spawn volume_toggle_mute )
-      , ( ( modm .|. controlMask, xK_j      ), spawnOn "t" jws_irssi )
-      , ( ( modm .|. controlMask, xK_p      ), spawn mpc_toggle )
-      , ( ( modm .|. controlMask, xK_period ), spawn mpc_next )
-      , ( ( modm                , xK_j      ), CWS.prevWS )
-      , ( ( modm                , xK_k      ), CWS.nextWS )
-      , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
-      , ( ( modm                , xK_g      ), spawn gvim )
-      , ( ( modm                , xK_x      ), spawn recompileXmobar )
-      , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
-      , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
-      , ( ( modm                , xK_m      ), windows W.swapMaster )
-      ]
+myKeys conf@(XConfig {modMask = modm}) = fromList
+  [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
+  , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
+  , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
+  , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )
+  , ( ( modm .|. controlMask, xK_m      ), spawn volume_toggle_mute )
+  , ( ( modm .|. controlMask, xK_j      ), spawnOn "t" jws_irssi )
+  , ( ( modm .|. controlMask, xK_p      ), spawn mpc_toggle )
+  , ( ( modm .|. controlMask, xK_period ), spawn mpc_next )
+  , ( ( modm                , xK_j      ), CWS.prevWS )
+  , ( ( modm                , xK_k      ), CWS.nextWS )
+  , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
+  , ( ( modm                , xK_g      ), spawn gvim )
+  , ( ( modm                , xK_x      ), spawn recompileXmobar )
+  , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
+  , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
+  , ( ( modm                , xK_m      ), windows S.swapMaster )
+  , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen predicate hook horizontally )
+  ]
+
+-- xmonad-screenshoter stuff
+predicate ∷ WindowSpace → X Bool
+predicate = return . isJust . S.stack
+
+hook ∷ FilePath → IO ()
+hook filepath = do
+  hd ← getHomeDirectory
+  date ← formatTime defaultTimeLocale "%F-%X" <$> getCurrentTime
+  let newFileName = hd </> "img" </> "screen" </> "own" </> "xmonad" </> date ++ ".png"
+  renameFile filepath newFileName
 
 myLogHook :: Handle -> X ()
 myLogHook h = do
@@ -74,10 +96,10 @@ myLogHook h = do
   fadeInactiveLogHook 0.7
 
 myManageHook :: ManageHook
-myManageHook = scratchpadHook <+> (composeAll $
+myManageHook = scratchpadHook <+> composeAll
   [ myIgnores --> doIgnore
   , myFloats  --> doFloat
-  ] )
+  ]
   where
     myFloats = foldr1 (<||>)
       [ ("Figure" `isPrefixOf`) <$> title
@@ -91,7 +113,7 @@ myManageHook = scratchpadHook <+> (composeAll $
       , resource =? "trayer"
       ]
 
-scratchpadHook = scratchpadManageHook (W.RationalRect paddingLeft paddingTop width height')
+scratchpadHook = scratchpadManageHook (S.RationalRect paddingLeft paddingTop width height')
   where
     height'     = 0.7
     width       = 0.6

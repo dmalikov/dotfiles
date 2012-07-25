@@ -6,7 +6,6 @@ import Data.Map (fromList, union)
 import Data.Maybe (isJust)
 import Data.Time (getCurrentTime)
 import Data.Time.Format (formatTime)
-import Graphics.UI.Gtk (initGUI)
 import System.Directory (getHomeDirectory, renameFile)
 import System.FilePath.Posix ((</>))
 import System.IO (Handle, hPutStrLn)
@@ -36,7 +35,7 @@ import qualified XMonad.StackSet as S
 
 main :: IO ()
 main = do
-  initGUI
+  initCapturing
   xmproc <- spawnPipe xmobar_run
   xmonad $ defaultConfig
     { borderWidth        = 7

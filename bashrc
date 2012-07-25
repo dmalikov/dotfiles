@@ -49,6 +49,12 @@ function remove-spaces () {
   fi
 }
 
+alias ihach='iconv -cf inis-cyrillic'
+
+function knife-qa () {
+    knife $@ -c ~/.chef/knife.qa.rb
+}
+
 declare MAINDISPLAY=LVDS-0
 
 setdisplay() {
@@ -59,3 +65,5 @@ setdisplay() {
             *)      echo "Wrong argument"; return 1 ;;
     esac
 }
+
+alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'

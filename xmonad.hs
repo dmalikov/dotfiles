@@ -70,6 +70,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm                , xK_m      ), windows S.swapMaster )
   , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen visible moveToImg horizontally )
   , ( ( modm .|. shiftMask  , xK_a      ), captureWorkspacesWhen defaultPredicate moveToImg horizontally )
+  , ( ( modm                , xK_b      ), CWS.toggleWS' ["NSP"] )
   ]
 
 -- xmonad-screenshoter stuff

@@ -14,6 +14,8 @@
 :m + GOA
 :m + Text.Printf
 
+import qualified Data.ByteString.Lazy.Char8 as BSC
+
 setLambdabotHome "/usr/bin/"
 :def bs        lambdabot "botsnack"
 :def pl        lambdabot "pl"
@@ -55,3 +57,4 @@ setLambdabotHome "/usr/bin/"
 :set -fwarn-unused-matches
 :set -fwarn-warnings-deprecations
 :set -XUnicodeSyntax
+:set -XOverloadedStrings

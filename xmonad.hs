@@ -7,7 +7,7 @@ import Data.Maybe (isJust)
 import Data.Time (getCurrentTime)
 import Data.Time.Format (formatTime)
 import System.Directory (getHomeDirectory, renameFile)
-import System.FilePath.Posix ((</>))
+import System.FilePath.Posix ((<.>), joinPath)
 import System.IO (Handle, hPutStrLn)
 import System.Locale (defaultTimeLocale)
 import XMonad
@@ -80,7 +80,7 @@ moveToImg ∷ FilePath → IO ()
 moveToImg filepath = do
   hd ← getHomeDirectory
   date ← formatTime defaultTimeLocale "%F-%X" <$> getCurrentTime
-  let newFileName = hd </> "img" </> "screen" </> "own" </> "xmonad" </> date ++ ".png"
+  let newFileName = joinPath [hd, "img", "screen", "own", "xmonad", date] <.> "png"
   renameFile filepath newFileName
 
 myLogHook :: Handle -> X ()

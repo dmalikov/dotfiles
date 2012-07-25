@@ -1,36 +1,32 @@
-" ==Pentadactyl_Color_Scheme==
-" name: Pemees
+" Pentadactyl colorscheme
+"   name: Pemees
 
-hi -append URL color: #87af00;
-
-hi Normal background:  #080808; color: #afafaf; font-size: 10pt; font-family: Terminus;
 hi CmdLine background: #080808; color: #8080a1; font-size: 10pt; font-family: Terminus; padding: 0px 3px;
-
 hi CompGroup background: #121212; color: #afafaf;
 hi CompTitle background: #121212; color: #afafaf; font-weight: bold;
 hi CompItem background: #121212; color: #afafaf; padding: 0px 3px;
-hi CompItem[selected] background: #121212; color: #FF4500; font-weight: bold;
+hi CompItem[selected] background: #121212; color: #ff4500; font-weight: bold;
 hi CompDesc background: #121212; color: #afafaf;
-hi CompDesc[selected] background: #FF4500; color: #afafaf;
+hi CompDesc[selected] background: #ff4500; color: #afafaf;
 hi CompMsg background: #121212; color: #afafaf;
 
-hi Gradient background: #121212;
-hi GradientLeft background: #121212;
-hi GradientRight background: #121212;
-
-hi Filter color: #FF8B00; font-weight: bold;
-
 hi ErrorMsg background: #7f1b11; color: #ff6a6a !important;
-hi WarningMsg background: #7f1b11; color: #ff6a6a !important;
 
-hi StatusLine       font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
+hi Filter color: #ff4500; font-weight: bold;
+
+hi Hint font-family: Terminus; font-size: 12pt; color: #92ff00; background-color: #121212; padding: 0px 1px; border: 0px solid #888888;
+hi -append HintElem background-color: #87af00;
+
+hi Normal background: #080808; color: #afafaf; font-size: 10pt; font-family: Terminus;
+
+hi StatusLine font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
 hi StatusLineBroken font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
 hi StatusLineNormal font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
 hi StatusLineSecure font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
 
-hi Hint font-family: Terminus; font-size: 12pt; color: #92ff00; background-color: #121212; padding: 0px 1px; border: 0px solid #888888;
-
-hi Title font-size: 12pt; color: #121212; background: #afafaf;
 hi Tag color: #ee9a00;
+hi Title font-size: 12pt; color: #121212; background: #afafaf;
 
-highlight -append HintElem background-color: #87af00;
+hi -append URL color: #87af00;
+
+hi WarningMsg background: #7f1b11; color: #ff6a6a !important;

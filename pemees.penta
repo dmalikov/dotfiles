@@ -1,6 +1,8 @@
 " ==Pentadactyl_Color_Scheme==
 " name: Pemees
 
+hi -append URL color: #87af00;
+
 hi Normal background:  #080808; color: #afafaf; font-size: 10pt; font-family: Terminus;
 hi CmdLine background: #080808; color: #8080a1; font-size: 10pt; font-family: Terminus; padding: 0px 3px;
 
@@ -16,8 +18,10 @@ hi Gradient background: #121212;
 hi GradientLeft background: #121212;
 hi GradientRight background: #121212;
 
-hi ErrorMsg background: #7f1b11; color: #aaafaa;
 hi Filter color: #FF8B00; font-weight: bold;
+
+hi ErrorMsg background: #7f1b11; color: #ff6a6a !important;
+hi WarningMsg background: #7f1b11; color: #ff6a6a !important;
 
 hi StatusLine       font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
 hi StatusLineBroken font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
@@ -27,3 +31,6 @@ hi StatusLineSecure font-family: Terminus; font-size: 10pt; color: #9999ff; back
 hi Hint font-family: Terminus; font-size: 12pt; color: #92ff00; background-color: #121212; padding: 0px 1px; border: 0px solid #888888;
 
 hi Title font-size: 12pt; color: #121212; background: #afafaf;
+hi Tag color: #ee9a00;
+
+highlight -append HintElem background-color: #87af00;

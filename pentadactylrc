@@ -11,7 +11,7 @@ vnoremap <F1> <ESC>
 
 loadplugins buftabs
 
-source /home/dmalikov/.pentadactyl/color/pemees.penta
+colorscheme pemees
 
 hi BufTab color: #ee9a00; background: #080808; font-weight: normal;
 hi BufTabSelected color: #ee9a00; background: #080808; font-weight: bold;

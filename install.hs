@@ -26,7 +26,7 @@ files =
   , ( "mpdconf", ".mpdconf" )
   , ( "neverland-darker.vim", ".vim/colors/neverland-darker.vim" )
   , ( "ncmpcppconf", ".ncmpcpp/config" )
-  , ( "pemees.penta", ".pentadactyl/color/pemees.penta" )
+  , ( "pemees.penta", ".pentadactyl/colors/pemees.penta" )
   , ( "pentadactylrc", ".pentadactylrc" )
   , ( "screenrc", ".screenrc" )
   , ( "Xresources.scratchpad", ".Xresources.scratchpad" )

@@ -35,5 +35,9 @@ unclutter &
 # run davmail to transport exchange server
 davmail.sh &
 
+# run ssh-agent
+eval `ssh-agent`
+ssh-add ~/.ssh/id_dsa
+
 # run xmonad
 exec ck-launch-session dbus-launch xmonad

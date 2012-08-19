@@ -22,3 +22,5 @@
 
 *.keysym.Home: \033[1~
 *.keysym.End: \033[4~
+
+Xft.dpi: 144

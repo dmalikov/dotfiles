@@ -55,10 +55,10 @@ function knife-qa () {
     knife $@ -c ~/.chef/knife.qa.rb
 }
 
-declare MAINDISPLAY=LVDS-0
+declare MAINDISPLAY=LVDS1
 
 setdisplay() {
-    local -r NEWDISPLAY=${2:-DP-0}
+    local -r NEWDISPLAY=${2:-DP1}
     case $1 in
             on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;
             off)    xrandr --output $NEWDISPLAY --off ;;

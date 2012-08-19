@@ -46,7 +46,7 @@ main = do
     , logHook            = myLogHook xmproc
     , manageHook         = manageHook defaultConfig <+> myManageHook
     , modMask            = mod4Mask
-    , normalBorderColor  = darkBlackColor
+    , normalBorderColor  = blackDarkColor
     , terminal           = myTerminal
     , workspaces         = myWorkspaces
     }
@@ -69,6 +69,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
   , ( ( modm                , xK_m      ), windows S.swapMaster )
   , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen visible moveToImg horizontally )
+  , ( ( modm .|. shiftMask  , xK_y      ), captureWorkspacesWhen current moveToImg horizontally )
   , ( ( modm .|. shiftMask  , xK_a      ), captureWorkspacesWhen defaultPredicate moveToImg horizontally )
   , ( ( modm                , xK_b      ), CWS.toggleWS' ["NSP"] )
   ]
@@ -76,6 +77,9 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
 -- xmonad-screenshoter stuff
 visible ∷ WindowSpace → X Bool
 visible = return . isJust . S.stack
+
+current ∷ WindowSpace → X Bool
+current w = withWindowSet $ (\ws → return $ (S.tag . S.workspace . S.current $ ws) == S.tag w)
 
 moveToImg ∷ FilePath → IO ()
 moveToImg filepath = do
@@ -132,7 +136,7 @@ myLayoutHook = smartBorders . avoidStruts $
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig
   { font = terminusFont
-  , bgColor = darkBlackColor
+  , bgColor = blackDarkColor
   , borderColor = blackColor
   , fgColor = blueColor
   , position = Bottom
@@ -141,8 +145,8 @@ myXPConfig = defaultXPConfig
   }
 
 myTheme = defaultTheme
-  { activeColor = darkBlackColor
-  , activeBorderColor = darkBlackColor
+  { activeColor = blackDarkColor
+  , activeBorderColor = blackDarkColor
   , activeTextColor = orangeColor
   , inactiveColor = orangeColor
   , inactiveBorderColor = orangeColor
@@ -179,7 +183,7 @@ orangeDarkColor = "#9e4a00"
 orangeDarkestColor = "#7e2a00"
 blueColor = "#2c3c3c"
 blackColor = "#222222"
-darkBlackColor = "#080808"
+blackDarkColor = "#080808"
 whiteColor = "#9999ff"
 purpleColor = "#404051"
 

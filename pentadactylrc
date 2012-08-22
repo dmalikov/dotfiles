@@ -1,13 +1,13 @@
-set defsearch=google
+set defsearch=ddg
 set hintkeys=asdfghjkl;
 set showtabline=never
 
-noremap <space> <C-d>
+map -builtin <space> <C-d>
 
 " disable F1
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+imap -builtin <F1> <ESC>
+nmap -builtin <F1> <ESC>
+vmap -builtin <F1> <ESC>
 
 loadplugins buftabs
 

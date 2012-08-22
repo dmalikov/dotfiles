@@ -99,6 +99,9 @@
     " Don't update the display while executing macros
     set lazyredraw
 
+    " Nice-looking vertical separator
+    set fillchars=vert:│
+
 "=====================================
 " MISC SETTINGS
 "=====================================

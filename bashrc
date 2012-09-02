@@ -67,3 +67,15 @@ setdisplay() {
 }
 
 alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'
+
+setxmobar () {
+  ghc -O2 --make $HOME/dmalikov/dotfiles/xmobar.hs -o ~/.xmonad/xmobar -fforce-recomp
+}
+
+setxmobar-wide () {
+  ghc -O2 --make $HOME/dmalikov/dotfiles/xmobar-wide.hs -o ~/.xmonad/xmobar -fforce-recomp
+}
+
+rsync-torrents () {
+  rsync --recursive --archive --verbose --delete ~/downloads/torrents/ home:~/torrents/
+}

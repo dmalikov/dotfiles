@@ -1,4 +1,4 @@
-set defsearch=ddg
+set defsearch=google
 set hintkeys=asdfghjkl;
 set showtabline=never
 

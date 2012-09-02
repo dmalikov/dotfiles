@@ -64,7 +64,7 @@
     " Show the current mode
     set showmode
 
-    set statusline=(#%n)\ %f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=(L:%l,\ C:%c)\ of\ %L\ [%p%%]
+    set statusline=#%n\ %f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=%l,%c/%L
 
     " Show the current command in the lower right corner
     set showcmd
@@ -77,10 +77,6 @@
     " Ignore case when the pattern contains lowercase letters only.
     set smartcase
 
-    " line numbers
-    set number
-    set numberwidth=3
-    highlight LineNr ctermfg=yellow ctermbg=black
     set cursorline
 
     colorscheme neverland-darker

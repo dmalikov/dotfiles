@@ -8,7 +8,7 @@ main = execute $
     dotfiles
 
 dotfiles ∷ Script Repository ()
-dotfiles = git "git@github.com:dmalikov/dotfiles" "git/dotfiles" $ do
+dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ do
     mapM_ (uncurry link)
       [ ( "ackrc", ".ackrc" )
       , ( "apvlvrc", ".apvlvrc" )

@@ -22,11 +22,6 @@
     "  list of character encodings considered when starting to edit an existing file
     set fileencodings=utf-8
 
-    " enable pathogen
-    filetype off
-    call pathogen#infect()
-    call pathogen#runtime_append_all_bundles()
-    call pathogen#helptags()
     filetype plugin indent on
 
     " share clipboard among instances
@@ -36,10 +31,6 @@
     set modelines=0
 
     set ttyfast
-
-    " enable neocomplcache
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_force_overwrite_completefunc = 1
 
 "=====================================
 " FUNCTIONS
@@ -164,8 +155,6 @@
     " Automatically chmod +x
     autocmd BufWritePost * call ModeChange()
 
-    " enable filetype detection, plus loading of filetype plugins
-    source ~/.vim/plugin/matchit.vim
     filetype plugin on
 
     " preserve undo actions even after file has closed
@@ -257,3 +246,5 @@
     " leave insert mode by jj
     inoremap jj <ESC>
 
+    " Insert new line after the cursor with shift+enter
+    nmap <CR> i<Enter><Esc>l

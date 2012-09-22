@@ -12,7 +12,9 @@ type Color = String
 
 main :: IO ()
 main = xmobar Config
-  { lowerOnStart = False
+  { hideOnStart = False
+  , persistent = True
+  , lowerOnStart = False
   , font = "-*-terminus-medium-r-normal--12-*"
   , border = NoBorder
   , borderColor = backgroundColor

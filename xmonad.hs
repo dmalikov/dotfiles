@@ -64,7 +64,6 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm                , xK_k      ), CWS.nextWS )
   , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
   , ( ( modm                , xK_g      ), spawn gvim )
-  , ( ( modm                , xK_x      ), spawn recompileXmobar )
   , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
   , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
   , ( ( modm                , xK_m      ), windows S.swapMaster )
@@ -170,7 +169,6 @@ jws_irssi = urxvt ++ " -title jεωs -e ssh jws -t 'export LANG=en_US.UTF-8; tmu
 lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
-recompileXmobar = "recompile_xmobar"
 urxvt = "urxvt -name shiva"
 volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"

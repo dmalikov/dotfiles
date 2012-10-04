@@ -21,6 +21,7 @@
     lg = log -p
     sm = submodule
     st = status -uno
+    us = reset HEAD --
 
 [color]
     branch = auto

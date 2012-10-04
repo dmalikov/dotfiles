@@ -248,3 +248,6 @@
 
     " Insert new line after the cursor with shift+enter
     nmap <CR> i<Enter><Esc>l
+
+    " stylify-haskell
+    nmap <Leader>sh :%!stylish-haskell<CR>

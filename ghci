@@ -10,29 +10,12 @@
 :m + Data.Function
 :m + Data.Numbers.Primes
 :m + Data.Monoid
-:m + GOA
 :m + Text.Printf
 
 import qualified Data.ByteString.Lazy.Char8 as BSC
 
-setLambdabotHome "/usr/bin/"
-:def bs        lambdabot "botsnack"
-:def pl        lambdabot "pl"
-:def unpl      lambdabot "unpl"
-:def redo      lambdabot "redo"
-:def undo      lambdabot "undo"
-:def index     lambdabot "index"
-:def docs      lambdabot "docs"
-:def instances lambdabot "instances"
-:def hoogle    lambdabot "hoogle"
-:def source    lambdabot "fptools"
-:def where     lambdabot "where"
-:def version   lambdabot "version"
-:def src       lambdabot "src"
-
 :set -Werror
 :set -fwarn-alternative-layout-rule-transitional
-:set -fwarn-auto-orphans
 :set -fwarn-deprecated-flags
 :set -fwarn-deprecations
 :set -fwarn-dodgy-exports
@@ -47,7 +30,6 @@ setLambdabotHome "/usr/bin/"
 :set -fwarn-missing-methods
 :set -fwarn-monomorphism-restriction
 :set -fwarn-name-shadowing
-:set -fwarn-orphans
 :set -fwarn-overlapping-patterns
 :set -fwarn-tabs
 :set -fwarn-unrecognised-pragmas

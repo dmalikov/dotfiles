@@ -44,7 +44,7 @@ main = do
     , keys               = liftM2 union myKeys (keys defaultConfig)
     , layoutHook         = myLayoutHook
     , logHook            = myLogHook xmproc
-    , manageHook         = manageHook defaultConfig <+> myManageHook
+    , manageHook         = manageDocks <+> manageHook defaultConfig <+> myManageHook
     , modMask            = mod4Mask
     , normalBorderColor  = blackDarkColor
     , terminal           = myTerminal
@@ -115,13 +115,14 @@ myManageHook = scratchpadHook <+> composeAll
     myIgnores = foldr1 (<||>)
       [ resource =? "panel"
       , resource =? "trayer"
+      , className =? "stalonetray"
       ]
 
 scratchpadHook = scratchpadManageHook (S.RationalRect paddingLeft paddingTop width height')
   where
-    height'     = 0.7
-    width       = 0.6
-    paddingTop  = 0.2
+    height'     = 0.9
+    width       = 0.9
+    paddingTop  = 0.05
     paddingLeft = (1 - width) / 2
 
 myLayoutHook = smartBorders . avoidStruts $

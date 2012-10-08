@@ -59,6 +59,7 @@ declare MAINDISPLAY=LVDS1
 
 setdisplay() {
     local -r NEWDISPLAY=${2:-DP1}
+    source ${HOME}/prexinit
     case $1 in
             on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;
             off)    xrandr --output $NEWDISPLAY --off ;;

@@ -28,6 +28,7 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ do
       , ( "ncmpcppconf", ".ncmpcpp/config" )
       , ( "pemees.penta", ".pentadactyl/colors/pemees.penta" )
       , ( "pentadactylrc", ".pentadactylrc" )
+      , ( "prexinit", "prexinit" )
       , ( "screenrc", ".screenrc" )
       , ( "Xresources.scratchpad", ".Xresources.scratchpad" )
       , ( "Xresources.shiva", ".Xresources.shiva" )

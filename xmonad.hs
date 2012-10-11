@@ -28,14 +28,14 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
--- import XMonad.Util.WorkspaceScreenshot
+import XMonad.Util.WorkspaceScreenshot
 
 import qualified XMonad.Actions.CycleWS as CWS
 import qualified XMonad.StackSet as S
 
 main :: IO ()
 main = do
-  -- initCapturing
+  initCapturing
   xmproc <- spawnPipe xmobar_run
   xmonad $ defaultConfig
     { borderWidth        = 7
@@ -67,9 +67,9 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
   , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
   , ( ( modm                , xK_m      ), windows S.swapMaster )
-  -- , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen visible moveToImg horizontally )
-  -- , ( ( modm .|. shiftMask  , xK_y      ), captureWorkspacesWhen current moveToImg horizontally )
-  -- , ( ( modm .|. shiftMask  , xK_a      ), captureWorkspacesWhen defaultPredicate moveToImg horizontally )
+  , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen visible moveToImg horizontally )
+  , ( ( modm .|. shiftMask  , xK_y      ), captureWorkspacesWhen current moveToImg horizontally )
+  , ( ( modm .|. shiftMask  , xK_a      ), captureWorkspacesWhen defaultPredicate moveToImg horizontally )
   , ( ( modm                , xK_b      ), CWS.toggleWS' ["NSP"] )
   ]
 

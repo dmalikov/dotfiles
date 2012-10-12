@@ -60,6 +60,7 @@
 
 [gui]
     editor = gvim
+    fontdiff = Terminus,8,-1,5,50,0,0,0,0,0
 
 [diff]
     tool = gvimdiff
@@ -69,3 +70,9 @@
 
 [branch]
     autosetuprebase = always
+
+[push]
+    default = current
+
+[status]
+    submodulesummary = true

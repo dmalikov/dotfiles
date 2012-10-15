@@ -1,5 +1,7 @@
 #!/usr/bin/runhaskell
 {-# LANGUAGE UnicodeSyntax #-}
+import System.FilePath.Posix
+
 import Biegunka
 import Biegunka.Source.Git
 
@@ -7,9 +9,8 @@ main ∷ IO ()
 main = execute $
   profile "mine" $ do
     dotfiles
-    vim_scala
-
-links = mapM_ $ uncurry link
+    vim_pathogen
+    vim_pathogen_modules
 
 dotfiles ∷ SourceScript () () ()
 dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
@@ -46,8 +47,21 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
   ]
 
-vim_scala = git "git@github.com:scala/scala-dist" "dmalikov/scala-dist" $ links
-  [ ( "tool-support/src/vim/ftdetect/scala.vim", ".vim/ftdetect/scala.vim" )
-  , ( "tool-support/src/vim/indent/scala.vim", ".vim/indent/scala.vim" )
-  , ( "tool-support/src/vim/syntax/scala.vim", ".vim/syntax/scala.vim" )
+vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $
+  link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
+
+vim_pathogen_modules = mapM_ pathogen_module
+  [ "git@github.com:scala/scala-dist"
+  , "git@github.com:scrooloose/nerdtree.git"
+  , "git@github.com:scrooloose/syntastic.git"
+  , "git@github.com:Shougo/vimproc.git"
+  , "git@github.com:eagletmt/ghcmod-vim.git"
   ]
+
+pathogen_module gitLink = git gitLink ("dmalikov" </> projectName) $
+  link "." $ joinPath [ ".vim", "bundle", projectName ]
+    where projectName = takeFileName $ dropExtension gitLink
+
+links = mapM_ $ uncurry link
+copys = mapM_ $ uncurry copy
+

@@ -6,6 +6,9 @@ setxkbmap -option terminate:ctrl_alt_bksp
 # enable keyboard layout
 setxkbmap -option "" -layout "us,ru" -option grp:caps_toggle
 
+# set up delay and rate
+xset r rate 300 50
+
 # enable right alt for xcompose
 setxkbmap -option compose:ralt
 

@@ -23,4 +23,10 @@
 *.keysym.Home: \033[1~
 *.keysym.End: \033[4~
 
+Xft.antialias: 1
+Xft.autohint: 0
 Xft.dpi: 144
+Xft.hinting: 1
+Xft.hintstyle: hintmedium
+Xft.lcdfilter: lcddefault
+Xft.rgba : rgb

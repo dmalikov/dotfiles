@@ -51,11 +51,14 @@ vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathoge
   link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
 
 vim_pathogen_modules = mapM_ pathogen_module
-  [ "git@github.com:scala/scala-dist"
+  [ "git@github.com:rosstimson/scala-vim-support"
   , "git@github.com:scrooloose/nerdtree.git"
   , "git@github.com:scrooloose/syntastic.git"
   , "git@github.com:Shougo/vimproc.git"
   , "git@github.com:eagletmt/ghcmod-vim.git"
+  , "git@github.com:ujihisa/neco-ghc.git"
+  , "git@github.com:Shougo/neocomplcache.git"
+  , "git@github.com:tpope/vim-surround.git"
   ]
 
 pathogen_module gitLink = git gitLink ("dmalikov" </> projectName) $

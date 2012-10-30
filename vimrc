@@ -22,6 +22,8 @@
     "  list of character encodings considered when starting to edit an existing file
     set fileencodings=utf-8
 
+    filetype off
+    call pathogen#infect()
     filetype plugin indent on
 
     " share clipboard among instances
@@ -31,6 +33,10 @@
     set modelines=0
 
     set ttyfast
+
+    " enable neocomplcache
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_force_overwrite_completefunc = 1
 
 "=====================================
 " FUNCTIONS
@@ -119,6 +125,9 @@
 
     " set g default option to any s///
     set gdefault
+
+    " don’t worry, I’m using two spaces like a sane person (http://stevelosh.com/blog/2012/10/why-i-two-space/)
+    set cpo+=J
 
 " some Haskell properties
     hi hsNiceOperator ctermfg=none ctermbg=black

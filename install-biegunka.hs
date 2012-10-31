@@ -1,4 +1,5 @@
 #!/usr/bin/runhaskell
+{-# LANGUAGE DataKinds #-}
 {-# LANGUAGE UnicodeSyntax #-}
 import System.FilePath.Posix
 
@@ -9,10 +10,10 @@ main ∷ IO ()
 main = execute $
   profile "mine" $ do
     dotfiles
-    vim_pathogen
-    vim_pathogen_modules
+    vimPathogen
+    vimPathogenModules
 
-dotfiles ∷ SourceScript () () ()
+dotfiles ∷ Script Source
 dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   [ ( "ackrc", ".ackrc" )
   , ( "apvlvrc", ".apvlvrc" )
@@ -47,10 +48,10 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
   ]
 
-vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $
+vimPathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $
   link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
 
-vim_pathogen_modules = mapM_ pathogen_module
+vimPathogenModules = mapM_ pathogenModule
   [ "git@github.com:rosstimson/scala-vim-support"
   , "git@github.com:scrooloose/nerdtree.git"
   , "git@github.com:scrooloose/syntastic.git"
@@ -61,10 +62,12 @@ vim_pathogen_modules = mapM_ pathogen_module
   , "git@github.com:tpope/vim-surround.git"
   ]
 
-pathogen_module gitLink = git gitLink ("dmalikov" </> projectName) $
+pathogenModule gitLink = git gitLink ("dmalikov" </> projectName) $
   link "." $ joinPath [ ".vim", "bundle", projectName ]
     where projectName = takeFileName $ dropExtension gitLink
 
+urxvtTabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-tabbedex" $
+  link "tabbedex" ".urxvt/perl/tabbedex"
+
 links = mapM_ $ uncurry link
 copys = mapM_ $ uncurry copy
-

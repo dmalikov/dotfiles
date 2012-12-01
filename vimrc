@@ -220,7 +220,7 @@
     noremap <C-g> :Ghc
 
     " perd tree
-    nmap <silent> <c-n> :NERDTreeToggle<CR>
+    nmap <silent> <c-n> :Unite file buffer<CR>
 
     " save as root with w!!
     cmap w!! w !sudo tee % > /dev/null

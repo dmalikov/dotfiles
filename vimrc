@@ -143,6 +143,10 @@
     let hs_highlight_more_types = 1
     let hs_highlight_types = 1
 
+    let g:syntastic_mode_map = { 'mode': 'active',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': ['haskell'] }
+
     " Use ruby syntax for capfiles
     autocmd Bufenter Capfile setfiletype ruby
     autocmd Bufenter *.capfile setfiletype ruby

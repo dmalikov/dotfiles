@@ -60,6 +60,8 @@ vimPathogenModules = mapM_ pathogenModule
   , "git@github.com:ujihisa/neco-ghc.git"
   , "git@github.com:Shougo/neocomplcache.git"
   , "git@github.com:tpope/vim-surround.git"
+  , "git@github.com:tpope/vim-markdown.git"
+  , "git@github.com:Shougo/unite.vim.git"
   ]
 
 pathogenModule gitLink = git gitLink ("dmalikov" </> projectName) $

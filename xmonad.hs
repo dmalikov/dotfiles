@@ -47,6 +47,7 @@ main = do
     , manageHook         = manageDocks <+> manageHook defaultConfig <+> myManageHook
     , modMask            = mod4Mask
     , normalBorderColor  = blackDarkColor
+    , startupHook        = myStartupHook
     , terminal           = myTerminal
     , workspaces         = myWorkspaces
     }
@@ -57,6 +58,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
   , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )
   , ( ( modm .|. controlMask, xK_m      ), spawn volume_toggle_mute )
+  , ( ( modm .|. controlMask, xK_u      ), spawn uzbl_tabbed )
   , ( ( modm .|. controlMask, xK_j      ), spawnOn "t" jws_irssi )
   , ( ( modm .|. controlMask, xK_p      ), spawn mpc_toggle )
   , ( ( modm .|. controlMask, xK_period ), spawn mpc_next )
@@ -171,6 +173,7 @@ lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
 urxvt = "urxvt -name shiva"
+uzbl_tabbed = "uzbl-tabbed"
 volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"
 volume_toggle_mute = "amixer set Master toggle"

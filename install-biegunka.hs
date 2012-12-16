@@ -46,7 +46,8 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "xmobar.hs", ".xmonad/xmobar.hs" )
   , ( "xmobarrc", ".xmobarrc" )
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
-  , ( "uzbl-config", ".config/uzbl/config"
+  , ( "uzbl-config", ".config/uzbl/config" )
+  , ( "zshrc", ".zshrc" )
   ]
 
 vimPathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $

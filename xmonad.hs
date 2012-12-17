@@ -29,6 +29,8 @@ import XMonad.Prompt.Shell
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
 import XMonad.Util.WorkspaceScreenshot
+import XMonad.Hooks.ICCCMFocus
+import XMonad.Hooks.EwmhDesktops
 
 import qualified XMonad.Actions.CycleWS as CWS
 import qualified XMonad.StackSet as S
@@ -91,6 +93,8 @@ moveToImg filepath = do
 
 myLogHook :: Handle -> X ()
 myLogHook h = do
+  takeTopFocus
+  ewmhDesktopsLogHook
   updatePointer (Relative 0.5 0.5)
   dynamicLogWithPP $ xmobarPP
     { ppCurrent = xmobarColor orangeColor ""

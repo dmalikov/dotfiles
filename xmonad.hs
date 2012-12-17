@@ -16,7 +16,6 @@ import           XMonad.Actions.UpdatePointer
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.FadeInactive
-import           XMonad.Hooks.ICCCMFocus
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
 import           XMonad.Layout.Combo
@@ -93,7 +92,6 @@ moveToImg filepath = do
 
 myLogHook ∷ Handle → X ()
 myLogHook h = do
-  takeTopFocus
   ewmhDesktopsLogHook
   updatePointer (Relative 0.5 0.5)
   dynamicLogWithPP $ xmobarPP

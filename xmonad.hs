@@ -1,41 +1,41 @@
 {-# LANGUAGE UnicodeSyntax #-}
-import Control.Applicative ((<$>))
-import Control.Monad (liftM2)
-import Data.List (isPrefixOf)
-import Data.Map (fromList, union)
-import Data.Maybe (isJust)
-import Data.Time (getCurrentTime)
-import Data.Time.Format (formatTime)
-import System.Directory (getHomeDirectory, renameFile)
-import System.FilePath.Posix ((<.>), joinPath)
-import System.IO (Handle, hPutStrLn)
-import System.Locale (defaultTimeLocale)
-import XMonad
-import XMonad.Actions.SpawnOn (spawnOn)
-import XMonad.Actions.UpdatePointer
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.FadeInactive
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.SetWMName
-import XMonad.Layout.Combo
-import XMonad.Layout.NoBorders
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.SimpleFloat
-import XMonad.Layout.Tabbed
-import XMonad.Layout.TwoPane
-import XMonad.Layout.WindowNavigation
-import XMonad.Prompt
-import XMonad.Prompt.Shell
-import XMonad.Util.Run (spawnPipe)
-import XMonad.Util.Scratchpad
-import XMonad.Util.WorkspaceScreenshot
-import XMonad.Hooks.ICCCMFocus
-import XMonad.Hooks.EwmhDesktops
+import           Control.Applicative             ((<$>))
+import           Control.Monad                   (liftM2)
+import           Data.List                       (isPrefixOf)
+import           Data.Map                        (fromList, union)
+import           Data.Maybe                      (isJust)
+import           Data.Time                       (getCurrentTime)
+import           Data.Time.Format                (formatTime)
+import           System.Directory                (getHomeDirectory, renameFile)
+import           System.FilePath.Posix           (joinPath, (<.>))
+import           System.IO                       (Handle, hPutStrLn)
+import           System.Locale                   (defaultTimeLocale)
+import           XMonad
+import           XMonad.Actions.SpawnOn          (spawnOn)
+import           XMonad.Actions.UpdatePointer
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.FadeInactive
+import           XMonad.Hooks.ICCCMFocus
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.SetWMName
+import           XMonad.Layout.Combo
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.ResizableTile
+import           XMonad.Layout.SimpleFloat
+import           XMonad.Layout.Tabbed
+import           XMonad.Layout.TwoPane
+import           XMonad.Layout.WindowNavigation
+import           XMonad.Prompt
+import           XMonad.Prompt.Shell
+import           XMonad.Util.Run                 (spawnPipe)
+import           XMonad.Util.Scratchpad
+import           XMonad.Util.WorkspaceScreenshot
 
-import qualified XMonad.Actions.CycleWS as CWS
-import qualified XMonad.StackSet as S
+import qualified XMonad.Actions.CycleWS          as CWS
+import qualified XMonad.StackSet                 as S
 
-main :: IO ()
+main ∷ IO ()
 main = do
   initCapturing
   xmproc <- spawnPipe xmobar_run
@@ -91,7 +91,7 @@ moveToImg filepath = do
   let newFileName = joinPath [hd, "img", "screen", "own", "xmonad", date] <.> "png"
   renameFile filepath newFileName
 
-myLogHook :: Handle -> X ()
+myLogHook ∷ Handle → X ()
 myLogHook h = do
   takeTopFocus
   ewmhDesktopsLogHook
@@ -105,7 +105,7 @@ myLogHook h = do
     }
   fadeInactiveLogHook 0.7
 
-myManageHook :: ManageHook
+myManageHook ∷ ManageHook
 myManageHook = scratchpadHook <+> composeAll
   [ myIgnores --> doIgnore
   , myFloats  --> doFloat
@@ -139,7 +139,7 @@ myLayoutHook = smartBorders . avoidStruts $
     myTwoPaneRight = windowNavigation $ combineTwo (TwoPane (1/10) (2/3)) Full (tabbedAlways shrinkText myTheme)
     myTabbed       = tabbed shrinkText myTheme
 
-myXPConfig :: XPConfig
+myXPConfig ∷ XPConfig
 myXPConfig = defaultXPConfig
   { font = terminusFont
   , bgColor = blackDarkColor
@@ -163,7 +163,7 @@ myTheme = defaultTheme
 
 -- Sets the WM name to a given string, so that it could be
 -- detected using _NET_SUPPORTING_WM_CHECK protocol
-myStartupHook :: X ()
+myStartupHook ∷ X ()
 myStartupHook = setWMName "LG3D"
 
 myTerminal = urxvt ++ " -cd ~/"

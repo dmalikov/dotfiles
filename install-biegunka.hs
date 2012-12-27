@@ -11,10 +11,10 @@ main ∷ IO ()
 main = execute $
   profile "mine" $ do
     dotfiles
+    gitflow
+    urxvt_tabbedex
     vim_pathogen
     vim_pathogen_modules
-    urxvt_tabbedex
-    gitflow
     xmonad
 
 dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links

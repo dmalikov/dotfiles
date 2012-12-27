@@ -12,8 +12,9 @@ main = execute $
     dotfiles
     vimPathogen
     vimPathogenModules
+    urxvtTabbedex
+    gitflow
 
-dotfiles ∷ Script Source
 dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   [ ( "ackrc", ".ackrc" )
   , ( "apvlvrc", ".apvlvrc" )
@@ -72,6 +73,8 @@ pathogenModule gitLink = git gitLink ("dmalikov" </> projectName) $
 
 urxvtTabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-tabbedex" $
   link "tabbedex" ".urxvt/perl/tabbedex"
+
+gitflow = git_ "git@github.com:nvie/gitflow.git" "gitflow"
 
 links = mapM_ $ uncurry link
 copys = mapM_ $ uncurry copy

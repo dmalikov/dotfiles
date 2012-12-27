@@ -5,15 +5,17 @@ import System.FilePath.Posix
 
 import Biegunka
 import Biegunka.Source.Git
+import Biegunka.Source.Darcs
 
 main ∷ IO ()
 main = execute $
   profile "mine" $ do
     dotfiles
-    vimPathogen
-    vimPathogenModules
-    urxvtTabbedex
+    vim_pathogen
+    vim_pathogen_modules
+    urxvt_tabbedex
     gitflow
+    xmonad
 
 dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   [ ( "ackrc", ".ackrc" )
@@ -51,10 +53,10 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "zshrc", ".zshrc" )
   ]
 
-vimPathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $
+vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $
   link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
 
-vimPathogenModules = mapM_ pathogenModule
+vim_pathogen_modules = mapM_ pathogen_module
   [ "git@github.com:rosstimson/scala-vim-support"
   , "git@github.com:scrooloose/nerdtree.git"
   , "git@github.com:scrooloose/syntastic.git"
@@ -67,14 +69,20 @@ vimPathogenModules = mapM_ pathogenModule
   , "git@github.com:Shougo/unite.vim.git"
   ]
 
-pathogenModule gitLink = git gitLink ("dmalikov" </> projectName) $
-  link "." $ joinPath [ ".vim", "bundle", projectName ]
-    where projectName = takeFileName $ dropExtension gitLink
 
-urxvtTabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-tabbedex" $
+urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-tabbedex" $
   link "tabbedex" ".urxvt/perl/tabbedex"
 
 gitflow = git_ "git@github.com:nvie/gitflow.git" "gitflow"
 
+xmonad = do
+  darcs_ "http://code.haskell.org/xmonad" "projects/xmonad"
+  darcs_ "http://code.haskell.org/XMonadContrib" "projects/XMonadContrib"
+
+
 links = mapM_ $ uncurry link
 copys = mapM_ $ uncurry copy
+
+pathogen_module gitLink = git gitLink ("dmalikov" </> projectName) $
+  link "." $ joinPath [ ".vim", "bundle", projectName ]
+    where projectName = takeFileName $ dropExtension gitLink

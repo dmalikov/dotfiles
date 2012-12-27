@@ -66,3 +66,4 @@ color main-ref color60 color232 normal
 bind generic C !git cherry-pick %(commit)
 bind generic P !git pull --rebase origin %(branch)
 bind generic R !git revert %(commit)
+bind generic L !git log %(file)

@@ -80,3 +80,5 @@ setxmobar-wide () {
 rsync-torrents () {
   rsync --recursive --archive --verbose --delete ~/downloads/torrents/ home:~/torrents/
 }
+
+source ~/.bash-qik-stuff

@@ -12,3 +12,5 @@ syn match hsVarSym /→/
 syn match hsVarSym /←/
 syn match hsVarSym /⇒/
 syn match hsVarSym /∷/
+
+setlocal omnifunc=necoghc#omnifunc

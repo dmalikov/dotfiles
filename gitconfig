@@ -9,7 +9,6 @@
 
 [merge]
     tool = vimdiff
-    ff = false
 
 [alias]
     br = branch
@@ -77,9 +76,3 @@
 
 [status]
     submodulesummary = true
-[giggle]
-	main-window-maximized = false
-	main-window-geometry = 1266x948+1280+32
-	file-view-vpane-position = 789
-	history-view-vpane-position = 745
-	main-window-view = FileView

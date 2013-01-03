@@ -96,6 +96,7 @@ myLogHook h = do
   updatePointer (Relative 0.5 0.5)
   dynamicLogWithPP $ xmobarPP
     { ppCurrent = xmobarColor orangeColor ""
+    , ppLayout  = const ""
     , ppOutput  = hPutStrLn h
     , ppSep     = " | "
     , ppSort    = fmap (. scratchpadFilterOutWorkspace) $ ppSort xmobarPP

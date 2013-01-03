@@ -12,6 +12,7 @@ main = execute $
   profile "mine" $ do
     dotfiles
     gitflow
+    hpasteit
     urxvt_tabbedex
     vim_pathogen
     vim_pathogen_modules
@@ -74,6 +75,7 @@ urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-t
   link "tabbedex" ".urxvt/perl/tabbedex"
 
 gitflow = git_ "git@github.com:nvie/gitflow.git" "gitflow"
+hpasteit = git_ "git@github.com:parcs/hpasteit.git" "projects/hpasteit"
 
 xmonad = do
   darcs_ "http://code.haskell.org/xmonad" "projects/xmonad"

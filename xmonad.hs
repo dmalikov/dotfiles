@@ -73,6 +73,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm .|. shiftMask  , xK_u      ), captureWorkspacesWhen visible moveToImg horizontally )
   , ( ( modm .|. shiftMask  , xK_y      ), captureWorkspacesWhen current moveToImg horizontally )
   , ( ( modm .|. shiftMask  , xK_a      ), captureWorkspacesWhen defaultPredicate moveToImg horizontally )
+  , ( ( modm .|. shiftMask  , xK_h      ), spawn hpasteit )
   , ( ( modm                , xK_b      ), CWS.toggleWS' ["NSP"] )
   ]
 
@@ -171,6 +172,7 @@ myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", 
 
 -- applications
 gvim = "gvim"
+hpasteit = "xclip -o -selection primary | hpasteit | xclip -i -selection primary"
 jws_irssi = urxvt ++ " -title jεωs -e ssh jws -t 'export LANG=en_US.UTF-8; tmux attach-session -t irssi'"
 lock_screen = "xscreensaver-command -lock"
 mpc_next = "mpc next"

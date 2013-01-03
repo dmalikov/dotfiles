@@ -201,17 +201,21 @@ input {
 #
 # An example of an ALSA output:
 #
+# audio_output {
+# 	type		"pulse"
+# 	name		"My ALSA Device"
+# 	device		"hw:0,1"	# optional
+# 	format		"44100:16:2"	# optional
+# 	mixer_type      "hardware"	# optional
+# 	mixer_device	"default"	# optional
+# 	mixer_control	"PCM"		# optional
+# 	mixer_index	"0"		# optional
+# 	auto_resample   "no"
+# 	use_mmap        "yes"
+# }
 audio_output {
-	type		"pulse"
-	name		"My ALSA Device"
-	device		"hw:0,0"	# optional
-	format		"44100:16:2"	# optional
-	mixer_type      "hardware"	# optional
-	mixer_device	"default"	# optional
-	mixer_control	"PCM"		# optional
-	mixer_index	"0"		# optional
-	auto_resample   "no"
-	use_mmap        "yes"
+    type                    "alsa"
+    name                    "USB Audio"
 }
 #
 # An example of an OSS output:

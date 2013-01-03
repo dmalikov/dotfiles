@@ -51,10 +51,6 @@ function remove-spaces () {
 
 alias ihach='iconv -cf inis-cyrillic'
 
-function knife-qa () {
-    knife $@ -c ~/.chef/knife.qa.rb
-}
-
 declare MAINDISPLAY=LVDS1
 
 setdisplay() {
@@ -75,10 +71,6 @@ setxmobar () {
 
 setxmobar-wide () {
   ghc -O2 --make $HOME/dmalikov/dotfiles/xmobar-wide.hs -o ~/.xmonad/xmobar -fforce-recomp
-}
-
-rsync-torrents () {
-  rsync --recursive --archive --verbose --delete ~/downloads/torrents/ home:~/torrents/
 }
 
 source ~/.bash-qik-stuff

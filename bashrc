@@ -66,11 +66,15 @@ setdisplay() {
 alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'
 
 setxmobar () {
-  ghc -O2 --make $HOME/dmalikov/dotfiles/xmobar.hs -o ~/.xmonad/xmobar -fforce-recomp
+  ghc -O2 $HOME/dmalikov/dotfiles/xmobar.hs -o ~/.xmonad/xmobar -fforce-recomp
+}
+
+setxmobar-top () {
+  ghc -O2 $HOME/dmalikov/dotfiles/xmobar-top.hs -o ~/.xmonad/xmobar-top -fforce-recomp
 }
 
 setxmobar-wide () {
-  ghc -O2 --make $HOME/dmalikov/dotfiles/xmobar-wide.hs -o ~/.xmonad/xmobar -fforce-recomp
+  ghc -O2 $HOME/dmalikov/dotfiles/xmobar-wide.hs -o ~/.xmonad/xmobar -fforce-recomp
 }
 
 source ~/.bash-qik-stuff

@@ -80,9 +80,10 @@ main = xmobar Config
     , "" -- dummy padding
     ]
   }
-  where separator = " " ++ (withColor orangeColor "|") ++ " "
-        backgroundColor = blackColor
-        foregroundColor = blueColor
+ where
+  separator = " " ++ (withColor orangeColor "|") ++ " "
+  backgroundColor = blackColor
+  foregroundColor = blueColor
 
 withColor ∷ Color → String → String
 withColor = printf "<fc=%s>%s</fc>"

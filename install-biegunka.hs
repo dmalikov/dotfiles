@@ -48,6 +48,7 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "Xdefaults", ".Xdefaults" )
   , ( "xinitrc", ".xinitrc" )
   , ( "xmobar.hs", ".xmonad/xmobar.hs" )
+  , ( "xmobar-top.hs", ".xmonad/xmobar-top.hs" )
   , ( "xmobarrc", ".xmobarrc" )
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
   , ( "uzbl-config", ".config/uzbl/config" )

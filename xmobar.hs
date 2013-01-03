@@ -32,7 +32,7 @@ main = xmobar Config
                  , "--high", "red"
                  ] 10
                , Run $ Memory
-                 [ "--template", "Mem: <used>/<total>"] 10
+                 [ "--template", "M: <used>/<total>"] 10
                , Run $ BatteryP ["BAT0"]
                  [ "--template", "<acstatus>[<watts>] (<left>%)"
                  , "-L", "10"
@@ -54,7 +54,7 @@ main = xmobar Config
                        , "-S", withColor "#ee3333" "♫"
                  ] 10
                , Run $ Weather "UUDD"
-                 [ "--template", "<tempC>°C <skyCondition>"
+                 [ "--template", "<tempC>°C"
                  , "-L", "0"
                  , "-H", "26"
                  , "--low", whiteColor

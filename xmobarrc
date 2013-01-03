@@ -1,4 +1,6 @@
-Config { lowerOnStart = False
+Config { persistent = True
+       , lowerOnStart = False
+       , hideOnStart = False
        , font = "-*-terminus-medium-r-normal--12-*"
        , border = NoBorder
        , borderColor = "#1c1c1c"

@@ -10,8 +10,11 @@ import           System.Directory                (getHomeDirectory, renameFile)
 import           System.FilePath.Posix           (joinPath, (<.>))
 import           System.IO                       (Handle, hPutStrLn)
 import           System.Locale                   (defaultTimeLocale)
+
 import           XMonad
+import qualified XMonad.Actions.CycleWS          as CWS
 import           XMonad.Actions.SpawnOn          (spawnOn)
+import           XMonad.Actions.SwapWorkspaces   (swapWithCurrent)
 import           XMonad.Actions.UpdatePointer
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
@@ -27,12 +30,10 @@ import           XMonad.Layout.TwoPane
 import           XMonad.Layout.WindowNavigation
 import           XMonad.Prompt
 import           XMonad.Prompt.Shell
+import qualified XMonad.StackSet                 as S
 import           XMonad.Util.Run                 (spawnPipe)
 import           XMonad.Util.Scratchpad
 import           XMonad.Util.WorkspaceScreenshot
-
-import qualified XMonad.Actions.CycleWS          as CWS
-import qualified XMonad.StackSet                 as S
 
 main ∷ IO ()
 main = do
@@ -53,7 +54,7 @@ main = do
     , workspaces         = myWorkspaces
     }
 
-myKeys conf@(XConfig {modMask = modm}) = fromList
+myKeys conf@(XConfig {modMask = modm}) = fromList $
   [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
   , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
   , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
@@ -76,6 +77,15 @@ myKeys conf@(XConfig {modMask = modm}) = fromList
   , ( ( modm .|. shiftMask  , xK_h      ), spawn hpasteit )
   , ( ( modm                , xK_b      ), CWS.toggleWS' ["NSP"] )
   ]
+  ++
+  [ ( ( modm .|. controlMask, k         ), withWindowSet swapWindows )
+    | (i, k) <- zip myWorkspaces myWorkspacesKeys
+    , let swapWindows s = do
+            windows $ swapWithCurrent i
+            windows $ S.greedyView $ S.currentTag s
+  ]
+ where
+  myWorkspacesKeys = [xK_1..xK_9]
 
 -- xmonad-screenshoter stuff
 visible ∷ WindowSpace → X Bool
@@ -144,7 +154,7 @@ myXPConfig = defaultXPConfig
   { font = terminusFont
   , bgColor = blackDarkColor
   , borderColor = blackColor
-  , fgColor = blueColor
+  , fgColor = blueLightColor
   , position = Bottom
   , height = 28
   , autoComplete = Just 1
@@ -154,11 +164,11 @@ myTheme = defaultTheme
   { activeColor = blackDarkColor
   , activeBorderColor = blackDarkColor
   , activeTextColor = orangeColor
-  , inactiveColor = orangeColor
-  , inactiveBorderColor = orangeColor
-  , inactiveTextColor = blackColor
+  , inactiveColor = blackDarkColor
+  , inactiveBorderColor = blackDarkColor
+  , inactiveTextColor = orangeDarkestColor
   , fontName = terminusFont
-  , decoHeight = 26
+  , decoHeight = 22
 }
 
 -- Sets the WM name to a given string, so that it could be
@@ -189,6 +199,7 @@ orangeColor = "#ee9a00"
 orangeDarkColor = "#9e4a00"
 orangeDarkestColor = "#7e2a00"
 blueColor = "#2c3c3c"
+blueLightColor = "#22cc99"
 blackColor = "#222222"
 blackDarkColor = "#080808"
 whiteColor = "#9999ff"

@@ -48,7 +48,12 @@ main = xmobar Config
                , Run $ Volume "default" "Master" [ ] 5
                , Run $ MPD
                  [ "--template"
-                 , "<statei>: [" ++ (withColor blackBlueColor "<lapsed> / <length>") ++ "] <artist> - <title>"
+                 , concat
+                   [ "<statei>: ["
+                   , withColor blueColorKeyboardLayout "<lapsed> / <length>"
+                   , "] "
+                   , withColor yellowColor "<artist> - <title>"
+                   ]
                  , "--", "-P", withColor "#33ee33" "♫"
                        , "-Z", withColor "#3333ee" "♫"
                        , "-S", withColor "#ee3333" "♫"
@@ -88,10 +93,11 @@ main = xmobar Config
 withColor ∷ Color → String → String
 withColor = printf "<fc=%s>%s</fc>"
 
-blackColor = "#080808"
 blackBlueColor = "#202020"
+blackColor = "#080808"
 blueColor = "#2c3c3c"
 blueColorKeyboardLayout = "#11eebb"
 orangeColor = "#ee9a00"
 redColorKeyboardLayout = "#ee7777"
 whiteColor = "#9999ff"
+yellowColor = "#ffd317"

@@ -19,10 +19,10 @@ main = xmobar Config
   , fgColor = foregroundColor
   , position = TopSize C 100 20
   , commands = [ Run $ TopMem
-     [ "-t", concatMap nameAndMem [1..10]
+     [ "--template", concatMap nameAndMem [1..10]
      ] 30
      , Run $ TopProc
-     [ "-t", concatMap nameAndCpu [1..10]
+     [ "--template", concatMap nameAndCpu [1..10]
      ] 30
    ]
   , sepChar = "%"

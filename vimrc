@@ -263,3 +263,7 @@
 
     " stylify-haskell
     nmap <Leader>sh :%!stylish-haskell<CR>
+
+    " hdevtools
+    autocmd FileType haskell nnoremap <buffer> <F5> :HdevtoolsType<CR>
+    autocmd FileType haskell nnoremap <buffer> <F6> :HdevtoolsClear<CR>

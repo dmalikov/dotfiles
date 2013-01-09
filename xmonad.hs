@@ -79,13 +79,11 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
   ]
   ++
   [ ( ( modm .|. controlMask, k         ), withWindowSet swapWindows )
-    | (i, k) <- zip myWorkspaces myWorkspacesKeys
+    | (i, k) <- zip myWorkspaces [xK_1..xK_8]
     , let swapWindows s = do
             windows $ swapWithCurrent i
             windows $ S.greedyView $ S.currentTag s
   ]
- where
-  myWorkspacesKeys = [xK_1..xK_9]
 
 -- xmonad-screenshoter stuff
 visible ∷ WindowSpace → X Bool

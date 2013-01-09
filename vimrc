@@ -184,7 +184,7 @@
 "=====================================
 " GVIM SETTINGS
 "=====================================
-    set guifont=Terminus\ 10
+    set guifont=Terminus\ 8
     set guioptions=ac
 
 "=====================================

@@ -14,7 +14,6 @@
 
 import qualified Data.ByteString.Lazy.Char8 as BSC
 
-:set -Werror
 :set -fwarn-alternative-layout-rule-transitional
 :set -fwarn-deprecated-flags
 :set -fwarn-deprecations

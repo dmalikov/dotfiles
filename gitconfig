@@ -22,6 +22,7 @@
     sm = submodule
     st = status -uno
     us = reset HEAD --
+    parents = "!f() { git rev-parse $1^@; }; f"
 
 [color]
     branch = auto

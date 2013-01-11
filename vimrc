@@ -205,7 +205,10 @@
     set pastetoggle=<F3>
 
     " remove trailing whitespaces
-    noremap <Leader>rw :%s/ \+$//gc<CR>
+    noremap <Leader>rw :%s/ \+$//c<CR>
+
+    " tabs → spaces
+    noremap <Leader>ts :%s/\t/\ \ /c<CR>
 
     noremap <space> <C-d>
     noremap zz :q!<CR>

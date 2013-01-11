@@ -122,9 +122,6 @@
 
     set colorcolumn=80
 
-    " set g default option to any s///
-    set gdefault
-
     " don’t worry, I’m using two spaces like a sane person (http://stevelosh.com/blog/2012/10/why-i-two-space/)
     set cpo+=J
 

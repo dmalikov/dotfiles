@@ -163,8 +163,6 @@
     " Automatically chmod +x
     autocmd BufWritePost * call ModeChange()
 
-    filetype plugin on
-
     " preserve undo actions even after file has closed
     set undolevels=1000
     set undofile
@@ -172,7 +170,6 @@
     " vim-latex settings
     set grepprg=grep\ -nH\ $*
     let g:tex_flavor='latex'
-    filetype indent on
 
     " save after losing focus
     autocmd FocusLost * :wa

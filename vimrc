@@ -22,7 +22,6 @@
     "  list of character encodings considered when starting to edit an existing file
     set fileencodings=utf-8
 
-    filetype off
     call pathogen#infect()
     filetype plugin indent on
 

@@ -209,12 +209,6 @@
     noremap k gk
     noremap j gj
 
-    " switching between buffers
-    noremap <Esc>[5^ :bnext<CR>
-    noremap <C-PageUp> :bnext<CR>
-    noremap <Esc>[6^ :bprevious<CR>
-    noremap <C-PageDown> :bprevious<CR>
-
     " exec Ghc
     noremap <C-g> :Ghc
 

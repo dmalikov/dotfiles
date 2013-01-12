@@ -226,7 +226,6 @@
     map! <S-Insert> <MiddleMouse>
 
     " Edit the vimrc file
-    nmap <silent> <Leader>ev :e $MYVIMRC<CR>
     nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 
     " Close current buffer

@@ -60,7 +60,6 @@ vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathoge
 
 vim_pathogen_modules = mapM_ pathogen_module
   [ "git@github.com:rosstimson/scala-vim-support"
-  , "git@github.com:scrooloose/nerdtree.git"
   , "git@github.com:scrooloose/syntastic.git"
   , "git@github.com:Shougo/vimproc.git"
   , "git@github.com:eagletmt/ghcmod-vim.git"

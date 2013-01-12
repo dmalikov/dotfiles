@@ -174,6 +174,10 @@
     " save after losing focus
     autocmd FocusLost * :wa
 
+    " ghc-mod customs
+    let g:ghcmod_ghc_options = ['-Wall','-fno-warn-missing-signatures']
+    autocmd bufwritepost *.hs :GhcModCheck
+
 "=====================================
 " GVIM SETTINGS
 "=====================================
@@ -235,8 +239,14 @@
     inoremap jj <ESC>
 
     " stylify-haskell
-    nmap <Leader>sh :%!stylish-haskell<CR>
 
-    " hdevtools
+
+    " ghc-mod check
+    autocmd FileType haskell
+
+    " Haskell maps
+    autocmd FileType haskell nnoremap <buffer> <F3> :GhcModLint<CR>
+    autocmd FileType haskell nnoremap <buffer> <F4> :GhcModCheck<CR>
     autocmd FileType haskell nnoremap <buffer> <F5> :HdevtoolsType<CR>
     autocmd FileType haskell nnoremap <buffer> <F6> :HdevtoolsClear<CR>
+    autocmd FileType haskell nnoremap <Leader>sh :%!stylish-haskell<CR>

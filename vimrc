@@ -209,21 +209,11 @@
     noremap k gk
     noremap j gj
 
-    " exec Ghc
-    noremap <C-g> :Ghc
-
     " perd tree
     nmap <silent> <c-u> :Unite file buffer<CR>
 
     " save as root with w!!
     cmap w!! w !sudo tee % > /dev/null
-
-    " hide/show statusline
-    nnoremap <Leader>h :exe "set laststatus=".(&laststatus == 0 ? 2 : 0)<CR>
-
-    " Make shift-insert past
-    map <S-Insert> <MiddleMouse>
-    map! <S-Insert> <MiddleMouse>
 
     " Edit the vimrc file
     nmap <silent> <Leader>sv :so $MYVIMRC<CR>
@@ -234,10 +224,6 @@
     " Close all buffers except current
     nmap <Leader>a :BufOnly<CR>
 
-    " faster split jumping
-    nmap <C-j> <C-w>j<C-w>
-    nmap <C-k> <C-w>k<C-w>
-
     " disable arrow keys in insert mode
     nnoremap <up> <nop>
     nnoremap <down> <nop>
@@ -247,7 +233,7 @@
     " leave insert mode by jj
     inoremap jj <ESC>
 
-    " Insert new line after the cursor with shift+enter
+    " Insert new line after the cursor with enter
     nmap <CR> i<Enter><Esc>l
 
     " stylify-haskell

@@ -224,7 +224,11 @@
     " Close all buffers except current
     nmap <Leader>a :BufOnly<CR>
 
-    " disable arrow keys in insert mode
+    " disable arrow keys in insert and normal modes
+    inoremap <up> <nop>
+    inoremap <down> <nop>
+    inoremap <left> <nop>
+    inoremap <right> <nop>
     nnoremap <up> <nop>
     nnoremap <down> <nop>
     nnoremap <left> <nop>

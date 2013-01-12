@@ -70,6 +70,7 @@ vim_pathogen_modules = mapM_ pathogen_module
   , "git@github.com:tpope/vim-markdown.git"
   , "git@github.com:Shougo/unite.vim.git"
   , "git@github.com:bitc/vim-hdevtools.git"
+  , "git@github.com:dahu/Insertlessly.git"
   ]
 
 

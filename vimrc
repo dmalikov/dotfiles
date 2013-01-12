@@ -234,9 +234,6 @@
     " leave insert mode by jj
     inoremap jj <ESC>
 
-    " Insert new line after the cursor with enter
-    nmap <CR> i<Enter><Esc>l
-
     " stylify-haskell
     nmap <Leader>sh :%!stylish-haskell<CR>
 

@@ -238,12 +238,6 @@
     " leave insert mode by jj
     inoremap jj <ESC>
 
-    " stylify-haskell
-
-
-    " ghc-mod check
-    autocmd FileType haskell
-
     " Haskell maps
     autocmd FileType haskell nnoremap <buffer> <F3> :GhcModLint<CR>
     autocmd FileType haskell nnoremap <buffer> <F4> :GhcModCheck<CR>

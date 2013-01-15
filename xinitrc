@@ -28,4 +28,5 @@ eval `ssh-agent`
 ssh-add ~/.ssh/id_dsa
 
 # run xmonad
+~/.xmonad/xmobar-top &
 exec ck-launch-session dbus-launch xmonad

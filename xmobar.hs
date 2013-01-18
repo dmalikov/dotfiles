@@ -70,7 +70,7 @@ main = xmobar Config
                  [ ("ru", withColor blueColorKeyboardLayout "RU")
                  , ("us", withColor redColorKeyboardLayout  "US")
                  ]
-               , Run $ StdinReader
+               , Run StdinReader
                ]
   , sepChar = "%"
   , alignSep = "}{"
@@ -86,7 +86,7 @@ main = xmobar Config
     ]
   }
  where
-  separator = " " ++ (withColor orangeColor "|") ++ " "
+  separator = " " ++ withColor orangeColor "|" ++ " "
   backgroundColor = blackColor
   foregroundColor = blueColor
 

@@ -185,11 +185,6 @@
     set guioptions=ac
 
 "=====================================
-" COMMANDS
-"=====================================
-    command -nargs=+ Ghc !ghc -e <q-args>
-
-"=====================================
 " KEY MAPPING SETTINGS
 "=====================================
     " System default for mappings is now the "," character

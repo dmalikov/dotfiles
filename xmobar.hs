@@ -20,11 +20,7 @@ main = xmobar Config
   , borderColor = backgroundColor
   , bgColor = backgroundColor
   , fgColor = foregroundColor
-  , position = Static { xpos = 120
-                      , ypos = 1060
-                      , width = 1800
-                      , height = 20
-                      }
+  , position = BottomP 120 0
   , commands = [ Run $ Cpu
                  [ "-L", "3"
                  , "-H", "50"

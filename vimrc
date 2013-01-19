@@ -125,11 +125,9 @@
     " don’t worry, I’m using two spaces like a sane person (http://stevelosh.com/blog/2012/10/why-i-two-space/)
     set cpo+=J
 
-" some Haskell properties
+    " some Haskell properties
     hi hsNiceOperator ctermfg=none ctermbg=black
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
-    " use ghc functionality for haskell files
-    autocmd Bufenter *.hs compiler ghc
     " configure browser for haskell_doc.vim
     let g:haddock_browser = "firefox-bin"
     " syntax rules
@@ -138,6 +136,9 @@
     let hs_highlight_debug = 1
     let hs_highlight_more_types = 1
     let hs_highlight_types = 1
+    " ghc-mod customs
+    let g:ghcmod_ghc_options = ['-Wall','-fno-warn-missing-signatures']
+    autocmd bufwritepost *.hs :GhcModCheck
 
     let g:syntastic_mode_map = { 'mode': 'active',
     \ 'active_filetypes': [],
@@ -174,9 +175,6 @@
     " save after losing focus
     autocmd FocusLost * :wa
 
-    " ghc-mod customs
-    let g:ghcmod_ghc_options = ['-Wall','-fno-warn-missing-signatures']
-    autocmd bufwritepost *.hs :GhcModCheck
 
 "=====================================
 " GVIM SETTINGS

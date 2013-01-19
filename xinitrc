@@ -1,7 +1,7 @@
 source ${HOME}/prexinit
 
 # run trayer
-trayer --edge bottom --align left --transparent true --widthtype pixel --width 100 --heighttype pixel --height 20 --tint 0x080808 --alpha 0 --SetDockType true &
+trayer --edge bottom --align left --transparent true --widthtype pixel --width 100 --heighttype pixel --height 10 --tint 0x080808 --alpha 0 --SetDockType true &
 
 # run NetworkManager applet
 nm-applet &

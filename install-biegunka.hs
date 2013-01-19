@@ -72,6 +72,7 @@ vim_pathogen_modules = do
   git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
   git_ "git@github.com:spolu/dwm.vim.git" ".vim/bundle/dwm"
   git_ "git@github.com:dahu/Insertlessly.git" ".vim/bundle/Insertlessly"
+  git_ "git@github.com:tpope/vim-commentary.git" ".vim/bundle/commentary"
 
 
 urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-tabbedex" $

@@ -139,10 +139,10 @@
     " ghc-mod customs
     let g:ghcmod_ghc_options = ['-Wall','-fno-warn-missing-signatures']
     autocmd bufwritepost *.hs :GhcModCheck
+    " for vim-commentary
+    autocmd FileType haskell set commentstring=--\ %s
 
-    let g:syntastic_mode_map = { 'mode': 'active',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': ['haskell'] }
+    let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['haskell'] }
 
     " Use ruby syntax for capfiles
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby

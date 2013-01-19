@@ -18,6 +18,7 @@ main = execute $
     vim_pathogen_modules
     xmonad
 
+
 dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   [ ( "ackrc", ".ackrc" )
   , ( "apvlvrc", ".apvlvrc" )
@@ -58,20 +59,19 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
 vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $
   link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
 
-vim_pathogen_modules = mapM_ pathogen_module
-  [ "git@github.com:rosstimson/scala-vim-support"
-  , "git@github.com:scrooloose/syntastic.git"
-  , "git@github.com:Shougo/vimproc.git"
-  , "git@github.com:eagletmt/ghcmod-vim.git"
-  , "git@github.com:ujihisa/neco-ghc.git"
-  , "git@github.com:Shougo/neocomplcache.git"
-  , "git@github.com:tpope/vim-surround.git"
-  , "git@github.com:tpope/vim-markdown.git"
-  , "git@github.com:Shougo/unite.vim.git"
-  , "git@github.com:bitc/vim-hdevtools.git"
-  , "git@github.com:spolu/dwm.vim.git"
-  , "git@github.com:dahu/Insertlessly.git"
-  ]
+vim_pathogen_modules = do
+  git_ "git@github.com:rosstimson/scala-vim-support" ".vim/bundle/scala-support"
+  git_ "git@github.com:scrooloose/syntastic.git" ".vim/bundle/syntastic"
+  git "git@github.com:Shougo/vimproc.git" ".vim/bundle/vimproc" $ shell "make -f make_unix.mak"
+  git_ "git@github.com:eagletmt/ghcmod-vim.git" ".vim/bundle/ghcmod-vim"
+  git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
+  git_ "git@github.com:Shougo/neocomplcache.git" ".vim/bundle/neocomplcache"
+  git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
+  git_ "git@github.com:tpope/vim-markdown.git" ".vim/bundle/markdown"
+  git_ "git@github.com:Shougo/unite.vim.git" ".vim/bundle/unite"
+  git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
+  git_ "git@github.com:spolu/dwm.vim.git" ".vim/bundle/dwm"
+  git_ "git@github.com:dahu/Insertlessly.git" ".vim/bundle/Insertlessly"
 
 
 urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-tabbedex" $
@@ -87,7 +87,3 @@ xmonad = do
 
 links = mapM_ $ uncurry link
 copys = mapM_ $ uncurry copy
-
-pathogen_module gitLink = git gitLink ("dmalikov" </> projectName) $
-  link "." $ joinPath [ ".vim", "bundle", projectName ]
-    where projectName = takeFileName $ dropExtension gitLink

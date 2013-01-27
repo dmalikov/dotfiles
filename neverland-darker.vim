@@ -15,7 +15,6 @@ if version > 580
 endif
 let g:colors_name="neverland-darker"
 
-" hi Normal          guifg=#ffd7ff guibg=#080808
 hi Normal          guifg=#ddd7ff guibg=#080808
 set background=dark
 
@@ -112,7 +111,7 @@ hi TabLineFill     guifg=#080808 guibg=#121212
 hi TabLineSel      guifg=#ffd700 guibg=#1c1c1c
 
 if &t_Co > 255
-   hi Normal          ctermfg=225 ctermbg=232
+   hi Normal          ctermfg=189   ctermbg=232
    set background=dark
 
    hi Boolean         ctermfg=135

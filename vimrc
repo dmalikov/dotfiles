@@ -144,6 +144,19 @@
 
     let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['haskell'] }
 
+    " add some hotkeys for rather tedious perd commands
+    nmap <leader>l :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>
+    nmap <leader>L :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>:PerdSwitch<CR>
+    nmap <leader>z :PerdUnload<CR>
+
+    let g:perd_ghci_settings = '-package-db=cabal-dev/packages-7.6.1.conf'
+    let g:perd_ghci_fallback = 1
+
+    " for vim-perd
+    autocmd VimResized * normal =
+    autocmd VimLeave * bufdo :if exists(':PerdUnload') | execute 'PerdUnload' | endif
+    autocmd BufDelete *.hs PerdUnload '<afile>'
+
     " Use ruby syntax for capfiles
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
@@ -237,3 +250,8 @@
     autocmd FileType haskell nnoremap <buffer> <F5> :HdevtoolsType<CR>
     autocmd FileType haskell nnoremap <buffer> <F6> :HdevtoolsClear<CR>
     autocmd FileType haskell nnoremap <Leader>sh :%!stylish-haskell<CR>
+
+    " add some hotkeys for rather tedious perd commands
+    nmap <leader>l :PerdLoad<CR>
+    nmap <leader>L :PerdLoad<CR>:PerdSwitch<CR>
+    nmap <leader>z :PerdUnload<CR>

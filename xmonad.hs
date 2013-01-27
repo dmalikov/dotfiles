@@ -29,9 +29,11 @@ import           XMonad.Layout.Tabbed
 import           XMonad.Layout.TwoPane
 import           XMonad.Layout.WindowNavigation
 import           XMonad.Prompt
+import           XMonad.Prompt.Input             (inputPromptWithCompl, (?+))
 import           XMonad.Prompt.Shell
 import qualified XMonad.StackSet                 as S
-import           XMonad.Util.Run                 (spawnPipe)
+import           XMonad.Util.Run                 (runProcessWithInput,
+                                                  spawnPipe)
 import           XMonad.Util.Scratchpad
 import           XMonad.Util.WorkspaceScreenshot
 
@@ -56,6 +58,7 @@ main = do
 
 myKeys conf@(XConfig {modMask = modm}) = fromList $
   [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
+  , ( ( modm                , xK_t      ), tmuxPrompt myXPConfig )
   , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
   , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
   , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )
@@ -168,6 +171,19 @@ myTheme = defaultTheme
   , fontName = terminusFont
   , decoHeight = 22
 }
+
+tmuxRun ∷ IO [String]
+tmuxRun = lines <$> runProcessWithInput "tmux" ["list-sessions", "-F", "#{session_name}"] ""
+
+tmuxPrompt ∷ XPConfig → X ()
+tmuxPrompt c = io tmuxRun >>= \as -> inputPromptWithCompl c "tmux" (mkComplFunFromList' as) ?+ tmuxStart as
+
+tmuxStart ∷ [String] → String → X ()
+tmuxStart ss s = asks (terminal . config) >>= \term -> if s `elem` ss then attach term s else create term s
+ where
+  attach = \t s' -> spawn $ t ++ " -e tmux attach -t " ++ s'
+  create = \t s' -> spawn $ t ++ " -e tmux new -s " ++ s'
+
 
 -- Sets the WM name to a given string, so that it could be
 -- detected using _NET_SUPPORTING_WM_CHECK protocol

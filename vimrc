@@ -137,7 +137,7 @@
     let hs_highlight_more_types = 1
     let hs_highlight_types = 1
     " ghc-mod customs
-    let g:ghcmod_ghc_options = ['-Wall','-fno-warn-missing-signatures']
+    let g:ghcmod_ghc_options = ['-Wall','-fno-warn-missing-signatures', '-fno-warn-unused-do-bind', '-fno-warn-type-defaults']
     autocmd bufwritepost *.hs :GhcModCheck
     " for vim-commentary
     autocmd FileType haskell set commentstring=--\ %s

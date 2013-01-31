@@ -125,6 +125,10 @@
     " don’t worry, I’m using two spaces like a sane person (http://stevelosh.com/blog/2012/10/why-i-two-space/)
     set cpo+=J
 
+    if $TMUX == ''
+        set clipboard+=unnamed
+    endif
+
     " some Haskell properties
     hi hsNiceOperator ctermfg=none ctermbg=black
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2

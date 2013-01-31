@@ -58,7 +58,7 @@ main = do
 
 myKeys conf@(XConfig {modMask = modm}) = fromList $
   [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
-  , ( ( modm                , xK_t      ), tmuxPrompt myXPConfig )
+  , ( ( modm .|. shiftMask  , xK_t      ), tmuxPrompt myXPConfig )
   , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
   , ( ( modm .|. controlMask, xK_9      ), spawn volume_decrease )
   , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )

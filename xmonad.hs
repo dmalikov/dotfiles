@@ -158,7 +158,7 @@ myXPConfig = defaultXPConfig
   , fgColor = blueLightColor
   , position = Bottom
   , height = 28
-  , autoComplete = Just 1
+  , autoComplete = Nothing
   }
 
 myTheme = defaultTheme

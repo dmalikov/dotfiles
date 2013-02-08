@@ -27,7 +27,7 @@ export TERM='rxvt-256color'
 export COLORTERM='rxvt-unicode-256color'
 export EDITOR=vim
 
-PATH=$PATH:${HOME}/bin:${HOME}/.cabal/bin:
+PATH=${HOME}/bin/:$PATH:${HOME}/.cabal/bin:${HOME}/.smackage/bin:
 export PATH
 
 HISTCONTROL=ignoredups:ignorespace

@@ -80,3 +80,8 @@ setxmobar-wide () {
 }
 
 source ~/.bash-qik-stuff
+
+function knife-opscode () {
+    knife $@ -c ~/.chef/knife-opscode.rb
+}
+

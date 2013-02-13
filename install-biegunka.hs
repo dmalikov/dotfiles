@@ -39,6 +39,7 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "pemees.penta", ".pentadactyl/colors/pemees.penta" )
   , ( "pentadactylrc", ".pentadactylrc" )
   , ( "prexinit", "prexinit" )
+  , ( "rvmrc", ".rvmrc" )
   , ( "screenrc", ".screenrc" )
   , ( "Xresources.scratchpad", ".Xresources.scratchpad" )
   , ( "Xresources.shiva", ".Xresources.shiva" )

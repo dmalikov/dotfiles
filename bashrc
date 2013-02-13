@@ -85,3 +85,6 @@ function knife-opscode () {
     knife $@ -c ~/.chef/knife-opscode.rb
 }
 
+unset RUBYOPT
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

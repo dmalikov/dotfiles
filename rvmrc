@@ -1,0 +1,34 @@
+#   This is where rvm installs and manages everything in by default.
+export rvm_path="$HOME/.rvm"
+
+#   This is where rvm extracts to for compiling & installing.
+export rvm_source_path="${rvm_path}/src"
+
+#   This is where rvm logs all of it's actions to
+export rvm_log_path="${rvm_path}/log"
+
+#   This is where rvm places all of it's executable/wrapper scripts.
+export rvm_bin_path="${rvm_path}/bin"
+
+#   This is where rvm installs all gems to for each ruby interpreter/version%gemset
+export rvm_gems_path="$rvm_path/gems"
+
+#   These options are passed to the 'gem' command in a RVM environment.
+export rvm_gem_options="--no-rdoc --no-ri"
+
+#   This is where rvm stores all of its temporary files.
+export rvm_tmp_path="${rvm_tmp_path:-"$rvm_path/tmp"}"
+
+# Install rubies when used if are not installed.
+export rvm_install_on_use_flag=1
+
+# This will create a gemset when the gemset is used if it does not exist
+export rvm_gemset_create_on_use_flag=1
+
+# Make Flags, I have 8 cpu's so I might use 7 make threads:
+export rvm_make_flags="-j3"
+
+
+# Add configure flags for builds
+
+export rvm_configure_flags="--with-openssl-dir=$rvm_path/usr --with-readline-dir=$rvm_path/usr"

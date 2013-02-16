@@ -34,6 +34,8 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "irssi.config", ".irssi/config" )
   , ( "mocpconfig", ".moc/config" )
   , ( "mpdconf", ".mpdconf" )
+  , ( "mplayer.config", ".mplayer/config" )
+  , ( "mplayer.input.conf", ".mplayer/input.conf" )
   , ( "neverland-darker.vim", ".vim/colors/neverland-darker.vim" )
   , ( "ncmpcppconf", ".ncmpcpp/config" )
   , ( "pemees.penta", ".pentadactyl/colors/pemees.penta" )

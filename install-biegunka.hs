@@ -1,15 +1,20 @@
 #!/usr/bin/runhaskell
-{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE DataKinds     #-}
 {-# LANGUAGE UnicodeSyntax #-}
-import System.FilePath.Posix
+import           Control.Lens
+import           Data.Default          (def)
+import           System.Directory      (getHomeDirectory)
 
-import Biegunka
-import Biegunka.Source.Git
-import Biegunka.Source.Darcs
+import           Biegunka
+import           Biegunka.Source.Darcs
+import           Biegunka.Source.Git
 
 main ∷ IO ()
-main = execute $
-  profile "mine" $ do
+main = do
+  home <- getHomeDirectory
+  biegunka (def & root .~ home) p $ execute def
+ where
+  p = profile "mine" $ do
     dotfiles
     gitflow
     hpasteit

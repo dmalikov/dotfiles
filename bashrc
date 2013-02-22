@@ -20,6 +20,9 @@ source /etc/profile
 # vi-like interface
 set -o vi
 
+# autocd
+shopt -s autocd
+
 # ^l clear screen
 bind -m vi-insert "\C-l":clear-screen
 

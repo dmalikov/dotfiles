@@ -69,6 +69,7 @@ setdisplay() {
 alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'
 
 alias sml='rlwrap sml'
+alias racket='rlwrap racket'
 
 setxmobar () {
   ghc -O2 $HOME/dmalikov/dotfiles/xmobar.hs -o ~/.xmonad/xmobar -fforce-recomp

@@ -69,6 +69,9 @@ setdisplay() {
 alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'
 
 alias sml='rlwrap sml'
+
+# Force xterm-color on ssh sessions
+alias ssh='TERM=xterm-color ssh'
 alias racket='rlwrap racket'
 
 setxmobar () {

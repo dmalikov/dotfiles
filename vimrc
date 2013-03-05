@@ -192,6 +192,9 @@
     " save after losing focus
     autocmd FocusLost * :wa
 
+    " clear signcolumn for Syntastic and GitGutter
+    highlight clear SignColumn
+
 
 "=====================================
 " GVIM SETTINGS

@@ -13,7 +13,7 @@ main ∷ IO ()
 main =
   biegunka (set root "~") p $ execute def
  where
-  p = task . profile "mine" $ do
+  p = profile "mine" $ do
     dotfiles
     gitflow
     hpasteit

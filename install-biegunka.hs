@@ -10,11 +10,10 @@ import           Biegunka.Source.Darcs
 import           Biegunka.Source.Git
 
 main ∷ IO ()
-main = do
-  home <- getHomeDirectory
-  biegunka (def & root .~ home) p $ execute def
+main =
+  biegunka (set root "~") p $ execute def
  where
-  p = profile "mine" $ do
+  p = task . profile "mine" $ do
     dotfiles
     gitflow
     hpasteit

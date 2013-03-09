@@ -16,6 +16,7 @@ xscreensaver -no-splash &
 xrdb ~/.Xdefaults
 xrdb -override ~/.Xresources.scratchpad
 xrdb -override ~/.Xresources.shiva
+xrdb -override ~/.Xresources.large
 
 # run unclutter to hide cursor
 unclutter &

@@ -49,6 +49,7 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "screenrc", ".screenrc" )
   , ( "Xresources.scratchpad", ".Xresources.scratchpad" )
   , ( "Xresources.shiva", ".Xresources.shiva" )
+  , ( "Xresources.large", ".Xresources.large" )
   , ( "tigrc", ".tigrc" )
   , ( "tmux.conf", ".tmux.conf" )
   , ( "vimrc", ".vimrc" )

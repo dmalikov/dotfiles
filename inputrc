@@ -1,0 +1,3 @@
+set editing-mode vi
+set completion-ignore-case on
+set echo-control-characters off

@@ -65,6 +65,7 @@
 
 [diff]
     tool = gvimdiff
+    renames = true
 
 [difftool]
     prompt = false

@@ -21,9 +21,6 @@ xrdb -override ~/.Xresources.large
 # run unclutter to hide cursor
 unclutter &
 
-# run davmail to transport exchange server
-davmail.sh &
-
 # run ssh-agent
 eval `ssh-agent`
 ssh-add ~/.ssh/id_dsa

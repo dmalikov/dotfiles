@@ -3,7 +3,6 @@
 {-# LANGUAGE UnicodeSyntax #-}
 import           Control.Lens
 import           Data.Default          (def)
-import           System.Directory      (getHomeDirectory)
 
 import           Biegunka
 import           Biegunka.Source.Darcs
@@ -23,7 +22,7 @@ main =
     xmonad
 
 
-dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
+dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ links
   [ ( "ackrc", ".ackrc" )
   , ( "apvlvrc", ".apvlvrc" )
   , ( "bashrc", ".bashrc" )
@@ -65,7 +64,7 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ links
   , ( "zshrc", ".zshrc" )
   ]
 
-vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "dmalikov/vim-pathogen" $
+vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "projects/misc/vim-pathogen" $
   link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
 
 vim_pathogen_modules = do
@@ -86,16 +85,15 @@ vim_pathogen_modules = do
   git_ "git@github.com:airblade/vim-gitgutter.git" ".vim/bundle/gitgutter"
 
 
-urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "dmalikov/urxvt-tabbedex" $
+urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "projects/misc/urxvt-tabbedex" $
   link "tabbedex" ".urxvt/perl/tabbedex"
 
-gitflow = git_ "git@github.com:nvie/gitflow.git" "gitflow"
+gitflow = git_ "git@github.com:nvie/gitflow.git" "projects/misc/gitflow"
 hpasteit = git_ "git@github.com:parcs/hpasteit.git" "projects/hpasteit"
 
 xmonad = do
-  darcs_ "http://code.haskell.org/xmonad" "projects/xmonad"
-  darcs_ "http://code.haskell.org/XMonadContrib" "projects/XMonadContrib"
+  darcs_ "http://code.haskell.org/xmonad" "projects/misc/xmonad"
+  darcs_ "http://code.haskell.org/XMonadContrib" "projects/misc/XMonadContrib"
 
 
 links = mapM_ $ uncurry link
-copys = mapM_ $ uncurry copy

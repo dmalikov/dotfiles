@@ -194,7 +194,10 @@
 
     " clear signcolumn for Syntastic and GitGutter
     highlight clear SignColumn
-
+    highlight GitGutterAdd ctermfg=000 ctermbg=003
+    highlight GitGutterChange ctermfg=000 ctermbg=022
+    highlight GitGutterDelete ctermfg=000 ctermbg=010
+    highlight GitGutterChangeDelete ctermfg=000 ctermbg=010
 
 "=====================================
 " GVIM SETTINGS

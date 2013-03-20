@@ -26,6 +26,7 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $
   [ ( "ackrc", ".ackrc" )
   , ( "apvlvrc", ".apvlvrc" )
   , ( "bashrc", ".bashrc" )
+  , ( "bleedie.xml", ".IdeaIC12/config/colors/bleedie.xml" )
   , ( "buftabs.js", ".pentadactyl/plugins/buftabs.js" )
   , ( "conkyrc", ".conkyrc" )
   , ( "ghci", ".ghci" )

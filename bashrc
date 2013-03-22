@@ -39,6 +39,7 @@ PROMPT_COMMAND=''
 export PS1="\[\033[0;33m\][ \[\033[0;32m\]\w\[\033[0;33m\] ]\[\033[0;33m\] \n\[\033[0m\]$> "
 
 alias mvn='mvn-2.2'
+alias git-home='cd $(git rev-parse --show-toplevel)'
 alias mc='mc --colors normal=green,default:selected=cyan,gray:marked=yellow,default:markselect=yellow,gray:directory=blue,default:executable=brightgreen,default:link=cyan,default:device=brightmagenta,default:special=lightgray,default:errors=red,default:reverse=green,default:gauge=green,default:input=white,gray:dnormal=green,gray:dfocus=brightgreen,gray:dhotnormal=cyan,gray:dhotfocus=brightcyan,gray:menu=green,default:menuhot=cyan,default:menusel=green,gray:menuhotsel=cyan,default:helpnormal=cyan,default:editnormal=green,default:editbold=blue,default:editmarked=gray,blue:stalelink=red,default'
 
 function remove-spaces () {

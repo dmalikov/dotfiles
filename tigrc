@@ -64,7 +64,8 @@ color main-ref color60 color232 normal
 
 # Cherry-pick current commit onto current branch
 bind generic C !git cherry-pick %(commit)
+bind generic I !git commit
+bind generic F !git fetch --prune
+bind generic L !git log %(file)
 bind generic P !git pull --rebase origin %(branch)
 bind generic R !git revert %(commit)
-bind generic L !git log %(file)
-bind generic I !git commit

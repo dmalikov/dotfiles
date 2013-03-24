@@ -208,7 +208,6 @@
 "=====================================
 " KEY MAPPING SETTINGS
 "=====================================
-    " System default for mappings is now the "," character
     let mapleader = ","
 
     " remove search highlighting
@@ -220,13 +219,9 @@
     " remove trailing whitespaces
     noremap <Leader>rw :%s/ \+$//c<CR>
 
-    noremap <space> <C-d>
-    noremap zz :q!<CR>
-
     noremap k gk
     noremap j gj
 
-    " perd tree
     noremap <Leader>u :Unite file buffer<CR>
 
     " save as root with w!!
@@ -250,9 +245,6 @@
     nnoremap <down> <nop>
     nnoremap <left> <nop>
     nnoremap <right> <nop>
-
-    " leave insert mode by jj
-    inoremap jj <ESC>
 
     " Haskell maps
     autocmd FileType haskell nnoremap <buffer> <F3> :GhcModLint<CR>

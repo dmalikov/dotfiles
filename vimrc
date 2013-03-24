@@ -227,7 +227,7 @@
     noremap j gj
 
     " perd tree
-    nmap <silent> <c-u> :Unite file buffer<CR>
+    noremap <Leader>u :Unite file buffer<CR>
 
     " save as root with w!!
     cmap w!! w !sudo tee % > /dev/null

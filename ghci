@@ -38,5 +38,5 @@ import qualified Data.ByteString.Lazy.Char8 as BSC
 :set -fwarn-warnings-deprecations
 :set -XUnicodeSyntax
 :set -XOverloadedStrings
--- :set -fno-warn-orphans
+:set -XRankNTypes
 

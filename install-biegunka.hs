@@ -34,6 +34,7 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $
   , ( "gitignore", ".gitignore" )
   , ( "gtkrc-2.0.mine", ".gtkrc-2.0.mine" )
   , ( "haskell.vim", ".vim/after/syntax/haskell.vim" )
+  , ( "irbrc", ".irbrc" )
   , ( "irssi.bleeding.theme", ".irssi/bleeding.theme" )
   , ( "inputrc", ".inputrc" )
   , ( "irssi.config", ".irssi/config" )

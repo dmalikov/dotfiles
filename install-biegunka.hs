@@ -91,7 +91,7 @@ urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "projects/misc/ur
   link "tabbedex" ".urxvt/perl/tabbedex"
 
 gitflow = git_ "git@github.com:nvie/gitflow.git" "projects/misc/gitflow"
-hpasteit = git_ "git@github.com:parcs/hpasteit.git" "projects/hpasteit"
+hpasteit = git_ "git@github.com:parcs/hpasteit.git" "projects/misc/hpasteit"
 
 xmonad = do
   darcs_ "http://code.haskell.org/xmonad" "projects/misc/xmonad"

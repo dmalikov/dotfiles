@@ -1,4 +1,3 @@
-#!/usr/bin/runhaskell
 {-# LANGUAGE DataKinds     #-}
 {-# LANGUAGE UnicodeSyntax #-}
 import           Control.Lens

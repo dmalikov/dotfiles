@@ -9,8 +9,6 @@
 " you will need to change this setting.
 
 set vicmd=vim
-" set vicmd=elvis\ -G\ termcap
-" set vicmd=vile
 
 " Trash Directory
 " The default is to move files that are deleted with dd or :d to
@@ -20,10 +18,11 @@ set vicmd=vim
 " This probably shouldn't be an option.
 
 set trash
+set trashdir="~/.Trash/"
 
 " This is how many directories to store in the directory history.
 
-set history=15
+set history=100
 
 " Follow links on l or Enter.
 
@@ -40,7 +39,7 @@ set sortnumbers
 
 " Maximum number of changes that can be undone.
 
-set undolevels=100
+set undolevels=1000
 
 " If you installed the vim.txt help file set vimhelp.
 " If would rather use a plain text help file set novimhelp.
@@ -111,17 +110,17 @@ filetype *.mp3 ffplay %f
 fileviewer *.mp3 ffprobe -show_format -pretty %f 2> /dev/null
 
 " Video
-filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv dragon %f
+filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv mplayer2 %f
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv ffprobe -show_format -pretty %f 2> /dev/null
 
 " Web
-filetype *.html,*.htm links,mozilla
+filetype *.html,*.htm firefox-bin %f
 
 " Object
 filetype *.o nm %f | less
 
 " Image
-filetype *.jpg,*.jpeg,*.png,*.gif gpicview %c
+filetype *.jpg,*.jpeg,*.png,*.gif viewnior %c
 
 " Md5
 filetype *.md5 md5sum -c %f

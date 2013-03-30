@@ -1,48 +1,29 @@
+require 'rubygems'
 require 'irb/completion'
 require 'irb/ext/save-history'
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
-# wirble for permanent eyes bleeding
-require 'wirble'
+# irb history
+ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
+IRB.conf[:EVAL_HISTORY] = 1000
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:HISTORY_FILE] = File::expand_path("~/.irbhistory")
 
-Wirble.init({
-  :history_path =>"#{ENV['HOME']}/.irb_history",
-  :history_size => 10000
-})
+# interactive editor: use vim from within irb
+begin
+  require 'interactive_editor'
+rescue LoadError => err
+  warn "Couldn't load interactive_editor: #{err}"
+end
 
-Wirble.colorize
 
-Wirble::Colorize.colors = {
-  # delimiter colors
-  :comma              => :blue,
-  :refers             => :blue,
+# awesome print
+begin
+  require 'awesome_print'
+  AwesomePrint.irb!
+rescue LoadError => err
+  warn "Couldn't load awesome_print: #{err}"
+end
 
-  # container colors (hash and array)
-  :open_hash          => :blue,
-  :close_hash         => :blue,
-  :open_array         => :blue,
-  :close_array        => :blue,
 
-  # object colors
-  :open_object        => :light_red,
-  :object_class       => :white,
-  :object_addr_prefix => :blue,
-  :object_line_prefix => :blue,
-  :close_object       => :light_red,
-
-  # symbol colors
-  :symbol             => :yellow,
-  :symbol_prefix      => :yellow,
-
-  # string colors
-  :open_string        => :yellow,
-  :string             => :yellow,
-  :close_string       => :yellow,
-
-  # misc colors
-  :number             => :cyan,
-  :keyword            => :green,
-  :class              => :light_green,
-  :range              => :red,
-}

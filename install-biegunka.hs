@@ -62,7 +62,8 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $
   , ( "xmobarrc", ".xmobarrc" )
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
   , ( "uzbl-config", ".config/uzbl/config" )
-  , ( "vifmrc", ".vifmrc" )
+  , ( "vifmrc", ".vifm/vifmrc" )
+  , ( "vifm-neverland.colorscheme", ".vifm/colors/neverland" )
   , ( "zshrc", ".zshrc" )
   ]
 

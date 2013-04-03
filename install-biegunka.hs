@@ -23,6 +23,11 @@ main =
 
 dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ links
   [ ( "ackrc", ".ackrc" )
+  , ( "XCompose", ".XCompose" )
+  , ( "Xdefaults", ".Xdefaults" )
+  , ( "Xresources.large", ".Xresources.large" )
+  , ( "Xresources.scratchpad", ".Xresources.scratchpad" )
+  , ( "Xresources.shiva", ".Xresources.shiva" )
   , ( "apvlvrc", ".apvlvrc" )
   , ( "bashrc", ".bashrc" )
   , ( "bleedie.xml", ".IdeaIC12/config/colors/bleedie.xml" )
@@ -33,37 +38,32 @@ dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $
   , ( "gitignore", ".gitignore" )
   , ( "gtkrc-2.0.mine", ".gtkrc-2.0.mine" )
   , ( "haskell.vim", ".vim/after/syntax/haskell.vim" )
+  , ( "inputrc", ".inputrc" )
   , ( "irbrc", ".irbrc" )
   , ( "irssi.bleeding.theme", ".irssi/bleeding.theme" )
-  , ( "inputrc", ".inputrc" )
   , ( "irssi.config", ".irssi/config" )
   , ( "mocpconfig", ".moc/config" )
   , ( "mpdconf", ".mpdconf" )
   , ( "mplayer.config", ".mplayer/config" )
   , ( "mplayer.input.conf", ".mplayer/input.conf" )
-  , ( "neverland-darker.vim", ".vim/colors/neverland-darker.vim" )
   , ( "ncmpcppconf", ".ncmpcpp/config" )
+  , ( "neverland-darker.vim", ".vim/colors/neverland-darker.vim" )
   , ( "pemees.penta", ".pentadactyl/colors/pemees.penta" )
   , ( "pentadactylrc", ".pentadactylrc" )
   , ( "prexinit", "prexinit" )
   , ( "rvmrc", ".rvmrc" )
   , ( "screenrc", ".screenrc" )
-  , ( "Xresources.scratchpad", ".Xresources.scratchpad" )
-  , ( "Xresources.shiva", ".Xresources.shiva" )
-  , ( "Xresources.large", ".Xresources.large" )
   , ( "tigrc", ".tigrc" )
   , ( "tmux.conf", ".tmux.conf" )
+  , ( "uzbl-config", ".config/uzbl/config" )
+  , ( "vifm-neverland.colorscheme", ".vifm/colors/neverland" )
+  , ( "vifmrc", ".vifm/vifmrc" )
   , ( "vimrc", ".vimrc" )
-  , ( "XCompose", ".XCompose" )
-  , ( "Xdefaults", ".Xdefaults" )
   , ( "xinitrc", ".xinitrc" )
-  , ( "xmobar.hs", ".xmonad/xmobar.hs" )
   , ( "xmobar-top.hs", ".xmonad/xmobar-top.hs" )
+  , ( "xmobar.hs", ".xmonad/xmobar.hs" )
   , ( "xmobarrc", ".xmobarrc" )
   , ( "xmonad.hs", ".xmonad/xmonad.hs" )
-  , ( "uzbl-config", ".config/uzbl/config" )
-  , ( "vifmrc", ".vifm/vifmrc" )
-  , ( "vifm-neverland.colorscheme", ".vifm/colors/neverland" )
   , ( "zshrc", ".zshrc" )
   ]
 
@@ -71,21 +71,22 @@ vim_pathogen = git "git@github.com:tpope/vim-pathogen.git" "projects/misc/vim-pa
   link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
 
 vim_pathogen_modules = do
+  git "git@github.com:Shougo/vimproc.git" ".vim/bundle/vimproc" $ shell "make -f make_unix.mak"
+  git_ "git@github.com:Shougo/neocomplcache.git" ".vim/bundle/neocomplcache"
+  git_ "git@github.com:Shougo/unite.vim.git" ".vim/bundle/unite"
+  git_ "git@github.com:airblade/vim-gitgutter.git" ".vim/bundle/gitgutter"
+  git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
+  git_ "git@github.com:dahu/Insertlessly.git" ".vim/bundle/Insertlessly"
+  git_ "git@github.com:eagletmt/ghcmod-vim.git" ".vim/bundle/ghcmod-vim"
+  git_ "git@github.com:godlygeek/tabular.git" ".vim/bundle/tabular"
   git_ "git@github.com:rosstimson/scala-vim-support" ".vim/bundle/scala-support"
   git_ "git@github.com:scrooloose/syntastic.git" ".vim/bundle/syntastic"
-  git "git@github.com:Shougo/vimproc.git" ".vim/bundle/vimproc" $ shell "make -f make_unix.mak"
-  git_ "git@github.com:eagletmt/ghcmod-vim.git" ".vim/bundle/ghcmod-vim"
-  git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
-  git_ "git@github.com:Shougo/neocomplcache.git" ".vim/bundle/neocomplcache"
-  git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
-  git_ "git@github.com:tpope/vim-markdown.git" ".vim/bundle/markdown"
-  git_ "git@github.com:Shougo/unite.vim.git" ".vim/bundle/unite"
-  git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
   git_ "git@github.com:spolu/dwm.vim.git" ".vim/bundle/dwm"
-  git_ "git@github.com:dahu/Insertlessly.git" ".vim/bundle/Insertlessly"
-  git_ "git@github.com:tpope/vim-commentary.git" ".vim/bundle/commentary"
   git_ "git@github.com:supki/vim-perds.git" ".vim/bundle/perds"
-  git_ "git@github.com:airblade/vim-gitgutter.git" ".vim/bundle/gitgutter"
+  git_ "git@github.com:tpope/vim-commentary.git" ".vim/bundle/commentary"
+  git_ "git@github.com:tpope/vim-markdown.git" ".vim/bundle/markdown"
+  git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
+  git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
 
 
 urxvt_tabbedex = git "git@github.com:stepb/urxvt-tabbedex.git" "projects/misc/urxvt-tabbedex" $

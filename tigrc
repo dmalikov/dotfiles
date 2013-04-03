@@ -1,17 +1,19 @@
 #==================================
 # GENERAL SETTINGS
 #==================================
-set tab-size = 2
-set show-author = full
-set show-date = relative
-set show-rev-graph = yes
-set show-refs = yes
-set line-number-interval = 1
+set author-width = 20
+set diff-context = 5
 set horizontal-scroll = 20%
-set author-width = 10
 set line-graphics = "utf8"
+set line-number-interval = 1
+set show-author = full
+set show-changes = true
+set show-date = local
+set show-id = true
+set show-refs = yes
+set show-rev-graph = yes
 set status-untracked-dirs = off
-set diff-context = 2
+set tab-size = 2
 
 #==================================
 # FONTS SETTINGS

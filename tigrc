@@ -19,53 +19,53 @@ set tab-size = 2
 # COLOR SETTINGS
 #==================================
 # general
-color author color137 color232 bold
-color commit color244 color232 normal
-color cursor color106 color235 bold
-color default color250 color232 normal
-color id color3 color232 normal
-color parent color44 color232 normal
-color status color197 color232 normal
-color title-blur color197 color232 normal
-color title-focus color3 color233 bold
+color author      color137 color232 bold
+color commit      color244 color232 normal
+color cursor      color106 color235 bold
+color default     color250 color232 normal
+color id          color3   color232 normal
+color parent      color44  color232 normal
+color status      color197 color232 normal
+color title-blur  color197 color232 normal
+color title-focus color3   color233 bold
 
 # diff highlighting
-color diff-add color34 color232 normal
-color diff-chunk color226 color232 bold
-color diff-copy-from color124 color232 bold
-color diff-copy-to color76 color232 bold
-color diff-del color196 color232 normal
+color diff-add           color34  color232 normal
+color diff-chunk         color226 color232 bold
+color diff-copy-from     color124 color232 bold
+color diff-copy-to       color76  color232 bold
+color diff-del           color196 color232 normal
 color diff-dissimilarity color136 color232 normal
-color diff-header color196 color232 normal
-color diff-index color27 color232 normal
-color diff-newmode color34 color232 bold
-color diff-oldmode color196 color232 bold
-color diff-rename-from color160 color232 bold
-color diff-rename-to color70 color232 bold
-color diff-similarity color208 color232 normal
-color diff-tree color35 color232 normal
+color diff-header        color196 color232 normal
+color diff-index         color27  color232 normal
+color diff-newmode       color34  color232 bold
+color diff-oldmode       color196 color232 bold
+color diff-rename-from   color160 color232 bold
+color diff-rename-to     color70  color232 bold
+color diff-similarity    color208 color232 normal
+color diff-tree          color35  color232 normal
 
 # commit headers pretty prints
-color pp-adate color138 color232 normal
+color pp-adate  color138 color232 normal
 color pp-author color137 color232 normal
-color pp-cdate color138 color232 normal
+color pp-cdate  color138 color232 normal
 color pp-commit color244 color232 bold
-color pp-date color138 color232 normal
-color pp-merge color88 color232 normal
-color pp-refs color202 color232 normal
+color pp-date   color138 color232 normal
+color pp-merge  color88  color232 normal
+color pp-refs   color202 color232 normal
 
 # main view colors
-color main-date color138 color232 normal
-color main-head color202 color232 normal
+color main-date      color138 color232 normal
+color main-head      color202 color232 normal
 color main-local-tag color202 color232 normal
-color main-ref color202 color232 normal
-color main-remote color202 color232 normal
-color main-tag color202 color232 normal
-color main-tracked color202 color232 normal
+color main-ref       color202 color232 normal
+color main-remote    color202 color232 normal
+color main-tag       color202 color232 normal
+color main-tracked   color202 color232 normal
 
 # tree view
 color tree-head color27 color232 normal
-color tree-dir color27 color232 normal
+color tree-dir  color27 color232 normal
 color tree-file color27 color232 normal
 
 #==================================

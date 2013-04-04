@@ -165,6 +165,9 @@
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 
+    " Use haskell syntax for biegunkofiles
+    autocmd Bufenter *.biegunka setfiletype haskell
+
     " set XML style
     " let g:xml_syntax_folding=1
     autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2 foldmethod=syntax

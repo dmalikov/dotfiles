@@ -59,11 +59,11 @@ vim = do
     git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
     git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
   profile "vim/rc" $
-    git_dotfiles $ link "vimrc" ".vimrc"
+    git_dotfiles $ link "vim/vimrc" ".vimrc"
   profile "vim/syntax" $
-    git_dotfiles $ link "haskell.vim" ".vim/after/syntax/haskell.vim"
+    git_dotfiles $ link "vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
   profile "vim/colorschemes" $
-    git_dotfiles $ link "neverland-darker.vim" ".vim/colors/neverland-darker.vim"
+    git_dotfiles $ link "vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
 
 xmonad :: Script Profiles
 xmonad = do
@@ -72,131 +72,132 @@ xmonad = do
     darcs_ "http://code.haskell.org/XMonadContrib" "projects/misc/xmonad-contrib"
     darcs_ "http://code.haskell.org/xmonad-extras/" "projects/misc/xmonad-extras"
   profile "xmonad/xmonad.hs" $
-    git_dotfiles $ link "xmonad" ".xmonad/xmonad.hs"
+    git_dotfiles $
+      link "xmonad/xmonad.hs" ".xmonad/xmonad.hs"
   profile "xmonad/xmobar" $ do
     git_dotfiles $ do
-      link "xmobar-top.hs" ".xmonad/xmobar-top.hs"
-      link "xmobar.hs" ".xmonad/xmobar.hs"
-      link "xmobarrc" ".xmobarrc"
+      link "xmonad/xmobar-top.hs" ".xmonad/xmobar-top.hs"
+      link "xmonad/xmobar.hs" ".xmonad/xmobar.hs"
+      link "xmonad/xmobarrc" ".xmobarrc"
 
 git' :: Script Profiles
 git' = profile "git" $ do
   git_dotfiles $ do
-    link "gitconfig" ".gitconfig"
-    link "gitignore" ".gitignore"
-    link "tigrc" ".tigrc"
+    link "git/config" ".gitconfig"
+    link "git/ignore" ".gitignore"
+    link "git/tigrc" ".tigrc"
   git_ "git@github.com:nvie/gitflow.git" "projects/misc/gitflow"
 
 ruby :: Script Profiles
 ruby = profile "ruby" $ do
   git_dotfiles $ do
-    link "irbrc" ".irbrc"
-    link "rvmrc" ".rvmrc"
+    link "ruby/irbrc" ".irbrc"
+    link "ruby/rvmrc" ".rvmrc"
 
 x :: Script Profiles
 x = profile "X" $ do
   git_dotfiles $ do
-    link "XCompose" ".XCompose"
-    link "Xdefaults" ".Xdefaults"
-    link "Xresources.large" ".Xresources.large"
-    link "Xresources.scratchpad" ".Xresources.scratchpad"
-    link "Xresources.shiva" ".Xresources.shiva"
-    link "inputrc" ".inputrc"
-    link "prexinit" "prexinit"
-    link "xinitrc" ".xinitrc"
+    link "X/XCompose" ".XCompose"
+    link "X/Xdefaults" ".Xdefaults"
+    link "X/Xresources.large" ".Xresources.large"
+    link "X/Xresources.scratchpad" ".Xresources.scratchpad"
+    link "X/Xresources.shiva" ".Xresources.shiva"
+    link "X/inputrc" ".inputrc"
+    link "X/prexinit" "prexinit"
+    link "X/xinitrc" ".xinitrc"
 
 ghc :: Script Profiles
 ghc = profile "ghc" $ do
   git_dotfiles $
-    link "ghci" ".ghci"
+    link "ghc/ghci" ".ghci"
   git_ "git@github.com:eagletmt/ghcmod-vim.git" ".vim/bundle/ghcmod-vim"
   git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
 
 irssi :: Script Profiles
 irssi = profile "irssi" $
   git_dotfiles $ do
-    link "irssi.bleeding.theme" ".irssi/bleeding.theme"
-    link "irssi.config" ".irssi/config"
+    link "irssi/bleeding.theme" ".irssi/bleeding.theme"
+    link "irssi/config" ".irssi/config"
 
 mpd :: Script Profiles
 mpd = profile "mpd" $
   git_dotfiles $ do
-    link "mpdconf" ".mpdconf"
-    link "ncmpcppconf" ".ncmpcpp/config"
+    link "mpd/mpdconf" ".mpdconf"
+    link "mpd/ncmpcpp/config" ".ncmpcpp/config"
 
 mplayer :: Script Profiles
 mplayer = profile "mplayer" $
   git_dotfiles $ do
-    link "mplayer.config" ".mplayer/config"
-    link "mplayer.input.conf" ".mplayer/input.conf"
+    link "mplayer/config" ".mplayer/config"
+    link "mplayer/input.conf" ".mplayer/input.conf"
 
 pentadactyl :: Script Profiles
 pentadactyl = profile "pentadactyl" $
   git_dotfiles $ do
-    link "pemees.penta" ".pentadactyl/colors/pemees.penta"
-    link "pentadactylrc" ".pentadactylrc"
-    link "buftabs.js" ".pentadactyl/plugins/buftabs.js"
+    link "pentadactyl/colors/pemees.penta" ".pentadactyl/colors/pemees.penta"
+    link "pentadactyl/pentadactylrc" ".pentadactylrc"
+    link "pentadactyl/plugins/buftabs.js" ".pentadactyl/plugins/buftabs.js"
 
 screen :: Script Profiles
 screen = profile "screen" $
   git_dotfiles $
-    link "screenrc" ".screenrc"
+    link "screen/screenrc" ".screenrc"
 
 ackrc :: Script Profiles
 ackrc = profile "ack" $
   git_dotfiles $
-    link "ackrc" ".ackrc"
+    link "ack/ackrc" ".ackrc"
 
 apvlv :: Script Profiles
 apvlv = profile "apvlv" $
   git_dotfiles $
-    link "apvlvrc" ".apvlvrc"
+    link "apvlv/apvlvrc" ".apvlvrc"
 
 shell' :: Script Profiles
 shell' = do
   profile "shell/bash" $
     git_dotfiles $
-      link "bashrc" ".bashrc"
+      link "shell/bash/bashrc" ".bashrc"
   profile "shell/zsh" $
     git_dotfiles $
-      link "zshrc" ".zshrc"
+      link "shell/zsh/zshrc" ".zshrc"
 
 java :: Script Profiles
 java = do
   profile "idea" $
     git_dotfiles $
-      link "bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"
+      link "idea/config/colors/bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"
 
 conky :: Script Profiles
 conky = profile "conky" $
   git_dotfiles $
-    link "conkyrc" ".conkyrc"
+    link "conky/conkyrc" ".conkyrc"
 
 gtk :: Script Profiles
 gtk = profile "gtk" $
   git_dotfiles $
-    link "gtkrc-2.0.mine" ".gtkrc-2.0.mine"
+    link "gtk/gtkrc-2.0.mine" ".gtkrc-2.0.mine"
 
 mocp :: Script Profiles
 mocp = profile "mocp" $
   git_dotfiles $
-    link "mocpconfig" ".moc/config"
+    link "moc/config" ".moc/config"
 
 tmux :: Script Profiles
 tmux = profile "tmux" $
   git_dotfiles $
-    link "tmux.conf" ".tmux.conf"
+    link "tmux/conf" ".tmux.conf"
 
 uzbl :: Script Profiles
 uzbl = profile "uzbl" $
   git_dotfiles $
-    link "uzbl-config" ".config/uzbl/config"
+    link "uzbl/config" ".config/uzbl/config"
 
 vifm :: Script Profiles
 vifm = profile "vifm" $
   git_dotfiles $ do
-    link "vifm-neverland.colorscheme" ".vifm/colors/neverland"
-    link "vifmrc" ".vifm/vifmrc"
+    link "vifm/colors/neverland" ".vifm/colors/neverland"
+    link "vifm/vifmrc" ".vifm/vifmrc"
 
 misc :: Script Profiles
 misc = do

@@ -40,10 +40,10 @@ git_dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfile
 
 vim :: Script Profiles
 vim = do
-  profile "vim_pathogen" $ do
+  profile "vim/pathogen/meta" $ do
     git "git@github.com:tpope/vim-pathogen.git" "projects/misc/vim-pathogen" $
       link "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
-  profile "vim_pathogen_modules" $ do
+  profile "vim/pathogen/modules" $ do
     git "git@github.com:Shougo/vimproc.git" ".vim/bundle/vimproc" $
       shell "make -f make_unix.mak"
     git_ "git@github.com:Shougo/neocomplcache.git" ".vim/bundle/neocomplcache"
@@ -58,22 +58,22 @@ vim = do
     git_ "git@github.com:tpope/vim-markdown.git" ".vim/bundle/markdown"
     git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
     git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
-  profile "vim_rc" $
+  profile "vim/rc" $
     git_dotfiles $ link "vimrc" ".vimrc"
-  profile "vim_syntax" $
+  profile "vim/syntax" $
     git_dotfiles $ link "haskell.vim" ".vim/after/syntax/haskell.vim"
-  profile "vim_colorschemes" $
+  profile "vim/colorschemes" $
     git_dotfiles $ link "neverland-darker.vim" ".vim/colors/neverland-darker.vim"
 
 xmonad :: Script Profiles
 xmonad = do
-  profile "xmonad_darcs_repos" $ do
+  profile "xmonad/darcs/repos" $ do
     darcs_ "http://code.haskell.org/xmonad" "projects/misc/xmonad"
     darcs_ "http://code.haskell.org/XMonadContrib" "projects/misc/xmonad-contrib"
     darcs_ "http://code.haskell.org/xmonad-extras/" "projects/misc/xmonad-extras"
-  profile "xmonad_xmonad.hs" $
+  profile "xmonad/xmonad.hs" $
     git_dotfiles $ link "xmonad" ".xmonad/xmonad.hs"
-  profile "xmonad_xmobar" $ do
+  profile "xmonad/xmobar" $ do
     git_dotfiles $ do
       link "xmobar-top.hs" ".xmonad/xmobar-top.hs"
       link "xmobar.hs" ".xmonad/xmobar.hs"
@@ -154,10 +154,10 @@ apvlv = profile "apvlv" $
 
 shell' :: Script Profiles
 shell' = do
-  profile "shell_bash" $
+  profile "shell/bash" $
     git_dotfiles $
       link "bashrc" ".bashrc"
-  profile "shell_zsh" $
+  profile "shell/zsh" $
     git_dotfiles $
       link "zshrc" ".zshrc"
 
@@ -200,8 +200,8 @@ vifm = profile "vifm" $
 
 misc :: Script Profiles
 misc = do
-  profile "misc_urxvt_tabbedex" $
+  profile "misc/urxvt/tabbedex" $
     git "git@github.com:stepb/urxvt-tabbedex.git" "projects/misc/urxvt-tabbedex" $
       link "tabbedex" ".urxvt/perl/tabbedex"
-  profile "misc_hpasteit" $
+  profile "misc/hpasteit" $
     git_ "git@github.com:parcs/hpasteit.git" "projects/misc/hpasteit"

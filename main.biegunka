@@ -87,6 +87,9 @@ git' = profile "git" $ do
     link "git/ignore" ".gitignore"
     link "git/tigrc" ".tigrc"
   git_ "git@github.com:nvie/gitflow.git" "projects/misc/gitflow"
+    -- install?
+  git_ "git@github.com:arc90/git-sweep.git" "projects/misc/git-sweep"
+    -- install?
 
 ruby :: Script Profiles
 ruby = profile "ruby" $ do

@@ -15,14 +15,15 @@
     ci = commit
     co = checkout
     df = diff --name-only
-    dt = difftool
     dw = diff --word-diff
     gg = log --graph --date-order --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short -n 50
+    ignored = ls-files --others -i --exclude-standard
     lg = log -p
+    parents = "!f() { git rev-parse $1^@; }; f"
+    pr = pull --rebase
     sm = submodule
     st = status -uno
     us = reset HEAD --
-    parents = "!f() { git rev-parse $1^@; }; f"
 
 [color]
     branch = auto
@@ -64,8 +65,9 @@
     fontdiff = Terminus,8,-1,5,50,0,0,0,0,0
 
 [diff]
-    tool = gvimdiff
+    algorithm = patience
     renames = true
+    tool = gvimdiff
 
 [difftool]
     prompt = false

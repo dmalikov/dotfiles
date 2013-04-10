@@ -77,3 +77,4 @@ bind generic F !git fetch --prune
 bind generic L !git log %(file)
 bind generic P !git pull --rebase origin %(branch)
 bind generic R !git revert %(commit)
+bind generic ^r !git reset --soft %(commit)

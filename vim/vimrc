@@ -94,6 +94,9 @@
     " Nice-looking vertical separator
     set fillchars=vert:│
 
+    " Cyrillic mapping
+    set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
 "=====================================
 " MISC SETTINGS
 "=====================================
@@ -102,6 +105,7 @@
     set softtabstop=4
     set expandtab
     set autoindent
+
 
     " matched string is highlighted.
     set incsearch

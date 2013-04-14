@@ -17,7 +17,6 @@ rescue LoadError => err
   warn "Couldn't load interactive_editor: #{err}"
 end
 
-
 # awesome print
 begin
   require 'awesome_print'
@@ -25,5 +24,3 @@ begin
 rescue LoadError => err
   warn "Couldn't load awesome_print: #{err}"
 end
-
-

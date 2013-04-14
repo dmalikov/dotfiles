@@ -25,11 +25,12 @@ bind C-p run "tmux set-buffer \"$(xsel -o)\"; tmux paste-buffer"
 bind-key b set-option status
 
 set -g set-titles on
-set -g set-titles-string "tmux:#I [#W]"
+set -g set-titles-string '[#S:#I #H] #W'
 set -g status-keys vi
-set -g status-left "#[fg=colour3][#S]#[fg=colour106]"
-set -g window-status-format "#I:#W"
-set -g window-status-current-format "#[fg=colour1]#I:#[fg=colour3]#W"
+set -g status-left '#[fg=colour3][#S]#[fg=colour106]'
+set -g status-right '#[fg=colour3]#(cut -d " " -f 1-3 /proc/loadavg)#[default]'
+set -g window-status-format '#I:#W'
+set -g window-status-current-format '#[fg=colour1]#I:#[fg=colour3]#W'
 set -g status-fg green
 set -g status-bg default
 set -g status-interval 1

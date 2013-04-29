@@ -42,7 +42,7 @@ main = do
   initCapturing
   xmproc <- spawnPipe xmobar_run
   xmonad $ defaultConfig
-    { borderWidth        = 7
+    { borderWidth        = 1
     , focusFollowsMouse  = False
     , focusedBorderColor = orangeDarkestColor
     , keys               = liftM2 union myKeys (keys defaultConfig)

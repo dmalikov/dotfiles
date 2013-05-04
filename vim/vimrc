@@ -150,7 +150,7 @@
     " for vim-commentary
     autocmd FileType haskell set commentstring=--\ %s
 
-    let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['haskell'] }
+    let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['haskell','tex'] }
 
     " add some hotkeys for rather tedious perd commands
     nmap <leader>l :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>

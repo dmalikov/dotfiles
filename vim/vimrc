@@ -229,6 +229,10 @@
     noremap k gk
     noremap j gj
 
+    " annoying shift and caps
+    cnoremap W w
+    cnoremap ц w
+
     noremap <Leader>u :Unite file buffer<CR>
 
     " save as root with w!!

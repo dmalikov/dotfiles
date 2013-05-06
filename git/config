@@ -13,8 +13,9 @@
 [alias]
     br = branch
     ci = commit
+    close-feature = "!f() { git merge --squash $1 && git ci -a ; }; f"
     co = checkout
-    deletebranch = "!f() { git branch -D $1; git push origin :$1; }; f"
+    delete-branch = "!f() { git branch -D $1 && git push origin :$1; }; f"
     df = diff --name-only
     dw = diff --word-diff
     gg = log --graph --date-order --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short -n 50

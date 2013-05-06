@@ -13,7 +13,6 @@ main =
  where
   profiles = sequence_
     [ vim
-    , xmonad
     , git'
     , ruby
     , x
@@ -38,7 +37,7 @@ main =
 
 git_dotfiles = git "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles"
 
-vim :: Script Profiles
+vim :: Script Profiles ()
 vim = do
   profile "vim/pathogen/meta" $ do
     git "git@github.com:tpope/vim-pathogen.git" "projects/misc/vim-pathogen" $
@@ -65,7 +64,7 @@ vim = do
   profile "vim/colorschemes" $
     git_dotfiles $ link "vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
 
-xmonad :: Script Profiles
+xmonad :: Script Profiles ()
 xmonad = do
   profile "xmonad/darcs/repos" $ do
     darcs_ "http://code.haskell.org/xmonad" "projects/misc/xmonad"
@@ -80,7 +79,7 @@ xmonad = do
       link "xmonad/xmobar.hs" ".xmonad/xmobar.hs"
       link "xmonad/xmobarrc" ".xmobarrc"
 
-git' :: Script Profiles
+git' :: Script Profiles ()
 git' = profile "git" $ do
   git_dotfiles $ do
     link "git/config" ".gitconfig"
@@ -91,13 +90,13 @@ git' = profile "git" $ do
   git_ "git@github.com:arc90/git-sweep.git" "projects/misc/git-sweep"
     -- install?
 
-ruby :: Script Profiles
+ruby :: Script Profiles ()
 ruby = profile "ruby" $ do
   git_dotfiles $ do
     link "ruby/irbrc" ".irbrc"
     link "ruby/rvmrc" ".rvmrc"
 
-x :: Script Profiles
+x :: Script Profiles ()
 x = profile "X" $ do
   git_dotfiles $ do
     link "X/XCompose" ".XCompose"
@@ -109,54 +108,54 @@ x = profile "X" $ do
     link "X/prexinit" "prexinit"
     link "X/xinitrc" ".xinitrc"
 
-ghc :: Script Profiles
+ghc :: Script Profiles ()
 ghc = profile "ghc" $ do
   git_dotfiles $
     link "ghc/ghci" ".ghci"
   git_ "git@github.com:eagletmt/ghcmod-vim.git" ".vim/bundle/ghcmod-vim"
   git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
 
-irssi :: Script Profiles
+irssi :: Script Profiles ()
 irssi = profile "irssi" $
   git_dotfiles $ do
     link "irssi/bleeding.theme" ".irssi/bleeding.theme"
     link "irssi/config" ".irssi/config"
 
-mpd :: Script Profiles
+mpd :: Script Profiles ()
 mpd = profile "mpd" $
   git_dotfiles $ do
     link "mpd/mpdconf" ".mpdconf"
     link "mpd/ncmpcpp/config" ".ncmpcpp/config"
 
-mplayer :: Script Profiles
+mplayer :: Script Profiles ()
 mplayer = profile "mplayer" $
   git_dotfiles $ do
     link "mplayer/config" ".mplayer/config"
     link "mplayer/input.conf" ".mplayer/input.conf"
 
-pentadactyl :: Script Profiles
+pentadactyl :: Script Profiles ()
 pentadactyl = profile "pentadactyl" $
   git_dotfiles $ do
     link "pentadactyl/colors/pemees.penta" ".pentadactyl/colors/pemees.penta"
     link "pentadactyl/pentadactylrc" ".pentadactylrc"
     link "pentadactyl/plugins/buftabs.js" ".pentadactyl/plugins/buftabs.js"
 
-screen :: Script Profiles
+screen :: Script Profiles ()
 screen = profile "screen" $
   git_dotfiles $
     link "screen/screenrc" ".screenrc"
 
-ackrc :: Script Profiles
+ackrc :: Script Profiles ()
 ackrc = profile "ack" $
   git_dotfiles $
     link "ack/ackrc" ".ackrc"
 
-apvlv :: Script Profiles
+apvlv :: Script Profiles ()
 apvlv = profile "apvlv" $
   git_dotfiles $
     link "apvlv/apvlvrc" ".apvlvrc"
 
-shell' :: Script Profiles
+shell' :: Script Profiles ()
 shell' = do
   profile "shell/bash" $
     git_dotfiles $
@@ -165,44 +164,44 @@ shell' = do
     git_dotfiles $
       link "shell/zsh/zshrc" ".zshrc"
 
-java :: Script Profiles
+java :: Script Profiles ()
 java = do
   profile "idea" $
     git_dotfiles $
       link "idea/config/colors/bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"
 
-conky :: Script Profiles
+conky :: Script Profiles ()
 conky = profile "conky" $
   git_dotfiles $
     link "conky/conkyrc" ".conkyrc"
 
-gtk :: Script Profiles
+gtk :: Script Profiles ()
 gtk = profile "gtk" $
   git_dotfiles $
     link "gtk/gtkrc-2.0.mine" ".gtkrc-2.0.mine"
 
-mocp :: Script Profiles
+mocp :: Script Profiles ()
 mocp = profile "mocp" $
   git_dotfiles $
     link "moc/config" ".moc/config"
 
-tmux :: Script Profiles
+tmux :: Script Profiles ()
 tmux = profile "tmux" $
   git_dotfiles $
     link "tmux/conf" ".tmux.conf"
 
-uzbl :: Script Profiles
+uzbl :: Script Profiles ()
 uzbl = profile "uzbl" $
   git_dotfiles $
     link "uzbl/config" ".config/uzbl/config"
 
-vifm :: Script Profiles
+vifm :: Script Profiles ()
 vifm = profile "vifm" $
   git_dotfiles $ do
     link "vifm/colors/neverland" ".vifm/colors/neverland"
     link "vifm/vifmrc" ".vifm/vifmrc"
 
-misc :: Script Profiles
+misc :: Script Profiles ()
 misc = do
   profile "misc/urxvt/tabbedex" $
     git "git@github.com:stepb/urxvt-tabbedex.git" "projects/misc/urxvt-tabbedex" $

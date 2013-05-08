@@ -4,7 +4,6 @@ import           Control.Lens
 import           Data.Default          (def)
 
 import           Biegunka
-import           Biegunka.Source.Darcs
 import           Biegunka.Source.Git
 
 main ∷ IO ()
@@ -13,6 +12,7 @@ main =
  where
   profiles = sequence_
     [ vim
+    , xmonad
     , git'
     , ruby
     , x
@@ -66,10 +66,6 @@ vim = do
 
 xmonad :: Script Profiles ()
 xmonad = do
-  profile "xmonad/darcs/repos" $ do
-    darcs_ "http://code.haskell.org/xmonad" "projects/misc/xmonad"
-    darcs_ "http://code.haskell.org/XMonadContrib" "projects/misc/xmonad-contrib"
-    darcs_ "http://code.haskell.org/xmonad-extras/" "projects/misc/xmonad-extras"
   profile "xmonad/xmonad.hs" $
     git_dotfiles $
       link "xmonad/xmonad.hs" ".xmonad/xmonad.hs"

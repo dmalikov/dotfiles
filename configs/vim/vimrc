@@ -264,8 +264,7 @@
     autocmd FileType haskell nnoremap <buffer> <F6> :HdevtoolsClear<CR>
     autocmd FileType haskell nnoremap <Leader>sh :%!stylish-haskell<CR>
 
-    " coquille mappings
-    autocmd FileType coq call coquille#FNMapping()
+    autocmd FileType coq call coquille#CoqideMapping()
 
     " add some hotkeys for rather tedious perd commands
     nmap <leader>l :PerdLoad<CR>

@@ -206,6 +206,14 @@
     highlight GitGutterDelete ctermfg=000 ctermbg=010
     highlight GitGutterChangeDelete ctermfg=000 ctermbg=010
 
+    if &term =~ '^screen'
+        " tmux will send xterm-style keys when xterm-keys is on
+        execute "set <xUp>=\e[1;*A"
+        execute "set <xDown>=\e[1;*B"
+        execute "set <xRight>=\e[1;*C"
+        execute "set <xLeft>=\e[1;*D"
+    endif
+
 "=====================================
 " GVIM SETTINGS
 "=====================================

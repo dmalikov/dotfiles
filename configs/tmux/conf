@@ -7,6 +7,7 @@ set -g history-limit 10000
 set -g visual-activity on
 set -g bell-action any
 set -g default-path ""
+set-option -g xterm-keys on
 
 set-window-option -g aggressive-resize on
 

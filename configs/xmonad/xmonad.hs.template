@@ -93,7 +93,7 @@ visible ∷ WindowSpace → X Bool
 visible = return . isJust . S.stack
 
 current ∷ WindowSpace → X Bool
-current w = withWindowSet \$ (\ws → return \$ (S.tag . S.workspace . S.current \$ ws) == S.tag w)
+current w = withWindowSet \$ (\\ws → return \$ (S.tag . S.workspace . S.current \$ ws) == S.tag w)
 
 moveToImg ∷ FilePath → IO ()
 moveToImg filepath = do
@@ -176,13 +176,13 @@ tmuxRun ∷ IO [String]
 tmuxRun = lines <\$> runProcessWithInput "tmux" ["list-sessions", "-F", "#{session_name}"] ""
 
 tmuxPrompt ∷ XPConfig → X ()
-tmuxPrompt c = io tmuxRun >>= \as -> inputPromptWithCompl c "tmux" (mkComplFunFromList' as) ?+ tmuxStart as
+tmuxPrompt c = io tmuxRun >>= \\as -> inputPromptWithCompl c "tmux" (mkComplFunFromList' as) ?+ tmuxStart as
 
 tmuxStart ∷ [String] → String → X ()
-tmuxStart ss s = asks (terminal . config) >>= \term -> if s `elem` ss then attach term s else create term s
+tmuxStart ss s = asks (terminal . config) >>= \\term -> if s `elem` ss then attach term s else create term s
  where
-  attach = \t s' -> spawn \$ t ++ " -e tmux attach -t " ++ s'
-  create = \t s' -> spawn \$ t ++ " -e tmux new -s " ++ s'
+  attach = \\t s' -> spawn \$ t ++ " -e tmux attach -t " ++ s'
+  create = \\t s' -> spawn \$ t ++ " -e tmux new -s " ++ s'
 
 
 -- Sets the WM name to a given string, so that it could be
@@ -220,4 +220,4 @@ whiteColor = "#9999ff"
 purpleColor = "#404051"
 
 -- fonts
-terminusFont = $template.xmonad.terminus_font$
+terminusFont = "$template.xmonad.terminus_font$"

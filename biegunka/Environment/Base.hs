@@ -42,7 +42,8 @@ data Xmonad = Xmonad
   } deriving (Data, Typeable)
 
 data X = X
-  { xft_dpi :: String
+  { user :: String
+  , xft_dpi :: String
   } deriving (Data, Typeable)
 
 instance Default Pentadactyl where
@@ -69,5 +70,6 @@ instance Default Xmonad where
 
 instance Default X where
   def = X
-    { xft_dpi = def
+    { user = def
+    , xft_dpi = def
     }

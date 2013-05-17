@@ -27,7 +27,8 @@ template = def
     { terminus_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*"
     }
   , x = def
-    { xft_dpi = "120"
+    { user = "m"
+    , xft_dpi = "120"
     }
   }
 

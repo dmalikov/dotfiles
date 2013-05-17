@@ -1,5 +1,5 @@
-*.perl-lib: /home/dmalikov/.urxvt/perl
-*.perl-ext-common: default,matcher,tabbedex
+*.perl-lib: /home/$template.x.user$/.urxvt/perl
+*.perl-ext-common: default,matcher
 
 !enabling clickable links:
 *.urlLauncher: /usr/bin/firefox-bin

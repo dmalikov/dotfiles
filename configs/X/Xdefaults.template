@@ -1,10 +1,20 @@
-*.perl-lib: /home/$template.x.user$/.urxvt/perl
-*.perl-ext-common: default,matcher
+*.perl-ext-common: default,matcher,keyboard-select,url-select
+*.perl-lib: /usr/lib64/urxvt/perl/
 
 !enabling clickable links:
 *.urlLauncher: /usr/bin/firefox-bin
 *.matcher.button: 1
+
+!keyboard-select mappings
+*.keysym.M-Escape: perl:keyboard-select:activate
+*.keysym.M-s: perl:keyboard-select:search
+
+!url-select settings
 *.keysym.M-u: perl:url-select:select_next
+*.url-select.autocopy: false
+*.url-select.button: 1
+*.url-select.launcher: /usr/bin/firefox-bin
+*.url-select.underline: true
 
 !urxvt scrolling options and cursor style:
 *.loginShell: true

@@ -26,7 +26,8 @@ template = def
   , xmonad = def
     { terminus_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*"
     }
-  , { xft_dpi = "120"
+  , x = def
+    { xft_dpi = "120"
     }
   }
 

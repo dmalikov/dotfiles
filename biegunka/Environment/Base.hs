@@ -9,7 +9,7 @@ import Data.Default
 data Template = Template
   { pentadactyl :: Pentadactyl
   , xresource_scratchpad :: XresourceScratchpad
-  , sresource_shiva :: XresourceShiva
+  , xresource_shiva :: XresourceShiva
   , xmonad :: Xmonad
   , x :: X
   } deriving (Data, Typeable)
@@ -20,7 +20,7 @@ instance Default Template where
     , xresource_scratchpad = def
     , xresource_shiva = def
     , xmonad = def
-    , X = def
+    , x = def
     }
 
 data Pentadactyl = Pentadactyl
@@ -32,7 +32,7 @@ data XresourceScratchpad = XresourceScratchpad
   , scratchpad_font :: String
   } deriving (Data, Typeable)
 
-data XresourceShiva = XresourceScratchpad
+data XresourceShiva = XresourceShiva
   { shiva_bold_font :: String
   , shiva_font :: String
   } deriving (Data, Typeable)

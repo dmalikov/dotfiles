@@ -69,7 +69,7 @@ profile_x :: Script Profiles ()
 profile_x = profile "X" $ do
   dotfiles $ do
     copy "configs/X/XCompose" ".XCompose"
-    copy "configs/X/Xdefaults" ".Xdefaults"
+    substitute "configs/X/Xdefaults.template" ".Xdefaults"
     copy "configs/X/Xresources.large" ".Xresources.large"
     copy "configs/X/Xresources.scratchpad" ".Xresources.scratchpad"
     copy "configs/X/Xresources.shiva" ".Xresources.shiva"

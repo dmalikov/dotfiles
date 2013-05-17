@@ -13,6 +13,9 @@ template = def
   { xmonad = def
     { terminus_font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*"
     }
+  , x = def
+    { xft_dpi = "144"
+    }
   }
 
 profiles = sequence_

@@ -7,15 +7,22 @@ import Data.Typeable (Typeable)
 import Data.Default
 
 data Template = Template
-  { xmonad :: Xmonad
+  { scratchpad :: Scratchpad
+  , xmonad :: Xmonad
   , x :: X
   } deriving (Data, Typeable)
 
 instance Default Template where
   def = Template
-    { xmonad = def
-
+    { scratchpad = def
+    , xmonad = def
+    , X = def
     }
+
+data Scratchpad = Scratchpad
+  { bold_font :: String
+  , font :: String
+  } deriving (Data, Typeable)
 
 data Xmonad = Xmonad
   { terminus_font :: String
@@ -24,6 +31,12 @@ data Xmonad = Xmonad
 data X = X
   { xft_dpi :: String
   } deriving (Data, Typeable)
+
+instance Default Scratchpad where
+  def = Scratchpad
+    { bold_font = def
+    , font = def
+    }
 
 instance Default Xmonad where
   def = Xmonad

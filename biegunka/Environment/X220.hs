@@ -12,7 +12,11 @@ import Profiles
 
 template :: Template
 template = def
-  { xmonad = def
+  { scratchpad = def
+    { bold_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
+    , font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
+    }
+  , xmonad = def
     { terminus_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*"
     }
   , { xft_dpi = "120"

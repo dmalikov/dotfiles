@@ -71,7 +71,7 @@ profile_x = profile "X" $ do
     copy "configs/X/XCompose" ".XCompose"
     substitute "configs/X/Xdefaults.template" ".Xdefaults"
     copy "configs/X/Xresources.large" ".Xresources.large"
-    copy "configs/X/Xresources.scratchpad" ".Xresources.scratchpad"
+    substitute "configs/X/Xresources.scratchpad.template" ".Xresources.scratchpad"
     copy "configs/X/Xresources.shiva" ".Xresources.shiva"
     copy "configs/X/inputrc" ".inputrc"
     copy "configs/X/prexinit" "prexinit"

@@ -10,9 +10,13 @@ import Profiles
 
 template :: Template
 template = def
-  { scratchpad = def
-    { bold_font = "-*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1"
-    , font = "-*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1"
+  { xresource_shiva = def
+    { shiva_bold_font = "-*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1"
+    , shiva_font = "-*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1"
+    }
+  , xresource_scratchpad = def
+    { scratchpad_bold_font = "-*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1"
+    , scratchpad_font = "-*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-1"
     }
   , xmonad = def
     { terminus_font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*"

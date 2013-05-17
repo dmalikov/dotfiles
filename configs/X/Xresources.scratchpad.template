@@ -2,8 +2,8 @@
 scratchpad.background: #111111
 scratchpad.foreground: #a1a1a1
 
-scratchpad.font: $template.scratcchpad.font$
-scratchpad.boldFont: $template.scratcchpad.bold_font$
+scratchpad.font: $template.xresource_scratcchpad.scratchpad_font$
+scratchpad.boldFont: $template.xresource_scratchpad.scratchpad_bold_font$
 
 scratchpad.scrollstyle: plain
 scratchpad.scrollBar: false

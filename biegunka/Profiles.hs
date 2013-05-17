@@ -72,7 +72,7 @@ profile_x = profile "X" $ do
     substitute "configs/X/Xdefaults.template" ".Xdefaults"
     copy "configs/X/Xresources.large" ".Xresources.large"
     substitute "configs/X/Xresources.scratchpad.template" ".Xresources.scratchpad"
-    copy "configs/X/Xresources.shiva" ".Xresources.shiva"
+    substitute "configs/X/Xresources.shiva.template" ".Xresources.shiva"
     copy "configs/X/inputrc" ".inputrc"
     copy "configs/X/prexinit" "prexinit"
     copy "configs/X/xinitrc" ".xinitrc"

@@ -1,7 +1,6 @@
 module Environment.T510 where
 import Control.Lens (set)
 import Data.Default (def)
-import Data.Monoid ((<>))
 
 import Biegunka
 
@@ -42,5 +41,5 @@ profiles = sequence_
   ]
 
 install :: IO ()
-install = biegunka (set root "~") profiles $ pretend <> pause <> execute (set templates (Templates template))
+install = biegunka (set root "~") profiles $ execute (set templates (Templates template))
 

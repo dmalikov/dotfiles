@@ -13,7 +13,7 @@ main =
   profiles = sequence_
     [ vim
     , xmonad
-    , git'
+    , gitp
     , ruby
     , x
     , ghc
@@ -75,8 +75,8 @@ xmonad = do
       link "xmonad/xmobar.hs" ".xmonad/xmobar.hs"
       link "xmonad/xmobarrc" ".xmobarrc"
 
-git' :: Script Profiles ()
-git' = profile "git" $ do
+gitp :: Script Profiles ()
+gitp = profile "git" $ do
   git_dotfiles $ do
     link "git/config" ".gitconfig"
     link "git/ignore" ".gitignore"

@@ -178,8 +178,5 @@ profile_vifm = profile "vifm" $
 
 profile_misc :: Script Profiles ()
 profile_misc = do
-  profile "misc/urxvt/tabbedex" $
-    git "git@github.com:stepb/urxvt-tabbedex.git" "projects/misc/urxvt-tabbedex" $
-      copy "configs/tabbedex" ".urxvt/perl/tabbedex"
   profile "misc/hpasteit" $
     git_ "git@github.com:parcs/hpasteit.git" "projects/misc/hpasteit"

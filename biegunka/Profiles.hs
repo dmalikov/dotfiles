@@ -7,12 +7,6 @@ import           Data.Default          (def)
 import           Biegunka
 import           Biegunka.Source.Git
 
-{-
-main ∷ IO ()
-main =
-  biegunka (set root "~") profiles $ execute def
--}
-
 dotfiles :: Script Actions () -> Script Sources ()
 dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as & branch .~ "feature/templating"
 

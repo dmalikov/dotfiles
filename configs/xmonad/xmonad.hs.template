@@ -1,5 +1,5 @@
 {-# LANGUAGE UnicodeSyntax #-}
-import           Control.Applicative             ((<$>))
+import           Control.Applicative             ((<\$>))
 import           Control.Monad                   (liftM2)
 import           Data.List                       (isPrefixOf)
 import           Data.Map                        (fromList, union)
@@ -41,7 +41,7 @@ main ∷ IO ()
 main = do
   initCapturing
   xmproc <- spawnPipe xmobar_run
-  xmonad $ defaultConfig
+  xmonad \$ defaultConfig
     { borderWidth        = 1
     , focusFollowsMouse  = False
     , focusedBorderColor = orangeDarkestColor
@@ -56,7 +56,7 @@ main = do
     , workspaces         = myWorkspaces
     }
 
-myKeys conf@(XConfig {modMask = modm}) = fromList $
+myKeys conf@(XConfig {modMask = modm}) = fromList \$
   [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
   , ( ( modm .|. shiftMask  , xK_t      ), tmuxPrompt myXPConfig )
   , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
@@ -84,8 +84,8 @@ myKeys conf@(XConfig {modMask = modm}) = fromList $
   [ ( ( modm .|. controlMask, k         ), withWindowSet swapWindows )
     | (i, k) <- zip myWorkspaces [xK_1..xK_8]
     , let swapWindows s = do
-            windows $ swapWithCurrent i
-            windows $ S.greedyView $ S.currentTag s
+            windows \$ swapWithCurrent i
+            windows \$ S.greedyView \$ S.currentTag s
   ]
 
 -- xmonad-screenshoter stuff
@@ -93,12 +93,12 @@ visible ∷ WindowSpace → X Bool
 visible = return . isJust . S.stack
 
 current ∷ WindowSpace → X Bool
-current w = withWindowSet $ (\ws → return $ (S.tag . S.workspace . S.current $ ws) == S.tag w)
+current w = withWindowSet \$ (\ws → return \$ (S.tag . S.workspace . S.current \$ ws) == S.tag w)
 
 moveToImg ∷ FilePath → IO ()
 moveToImg filepath = do
   hd ← getHomeDirectory
-  date ← formatTime defaultTimeLocale "%F-%X" <$> getCurrentTime
+  date ← formatTime defaultTimeLocale "%F-%X" <\$> getCurrentTime
   let newFileName = joinPath [hd, "img", "screen", "own", "xmonad", date] <.> "png"
   renameFile filepath newFileName
 
@@ -106,12 +106,12 @@ myLogHook ∷ Handle → X ()
 myLogHook h = do
   ewmhDesktopsLogHook
   updatePointer (Relative 0.5 0.5)
-  dynamicLogWithPP $ xmobarPP
+  dynamicLogWithPP \$ xmobarPP
     { ppCurrent = xmobarColor orangeColor ""
     , ppLayout  = const ""
     , ppOutput  = hPutStrLn h
     , ppSep     = " | "
-    , ppSort    = fmap (. scratchpadFilterOutWorkspace) $ ppSort xmobarPP
+    , ppSort    = fmap (. scratchpadFilterOutWorkspace) \$ ppSort xmobarPP
     , ppTitle   = xmobarColor orangeDarkColor ""
     }
   fadeInactiveLogHook 0.7
@@ -123,7 +123,7 @@ myManageHook = scratchpadHook <+> composeAll
   ]
   where
     myFloats = foldr1 (<||>)
-      [ ("Figure" `isPrefixOf`) <$> title
+      [ ("Figure" `isPrefixOf`) <\$> title
       , className =? "feh"
       , className =? "gimp"
       , className =? "Virtual Box"
@@ -142,12 +142,12 @@ scratchpadHook = scratchpadManageHook (S.RationalRect paddingLeft paddingTop wid
     paddingTop  = 0.05
     paddingLeft = (1 - width) / 2
 
-myLayoutHook = smartBorders . avoidStruts $
+myLayoutHook = smartBorders . avoidStruts \$
   resizableTile ||| myTwoPaneLeft ||| myTwoPaneRight ||| myTabbed
   where
     resizableTile  = ResizableTall 1 (1/30) (1/2) []
-    myTwoPaneLeft  = windowNavigation $ combineTwo (TwoPane (1/10) (1/3)) (tabbedAlways shrinkText myTheme) Full
-    myTwoPaneRight = windowNavigation $ combineTwo (TwoPane (1/10) (2/3)) Full (tabbedAlways shrinkText myTheme)
+    myTwoPaneLeft  = windowNavigation \$ combineTwo (TwoPane (1/10) (1/3)) (tabbedAlways shrinkText myTheme) Full
+    myTwoPaneRight = windowNavigation \$ combineTwo (TwoPane (1/10) (2/3)) Full (tabbedAlways shrinkText myTheme)
     myTabbed       = tabbed shrinkText myTheme
 
 myXPConfig ∷ XPConfig
@@ -173,7 +173,7 @@ myTheme = defaultTheme
 }
 
 tmuxRun ∷ IO [String]
-tmuxRun = lines <$> runProcessWithInput "tmux" ["list-sessions", "-F", "#{session_name}"] ""
+tmuxRun = lines <\$> runProcessWithInput "tmux" ["list-sessions", "-F", "#{session_name}"] ""
 
 tmuxPrompt ∷ XPConfig → X ()
 tmuxPrompt c = io tmuxRun >>= \as -> inputPromptWithCompl c "tmux" (mkComplFunFromList' as) ?+ tmuxStart as
@@ -181,8 +181,8 @@ tmuxPrompt c = io tmuxRun >>= \as -> inputPromptWithCompl c "tmux" (mkComplFunFr
 tmuxStart ∷ [String] → String → X ()
 tmuxStart ss s = asks (terminal . config) >>= \term -> if s `elem` ss then attach term s else create term s
  where
-  attach = \t s' -> spawn $ t ++ " -e tmux attach -t " ++ s'
-  create = \t s' -> spawn $ t ++ " -e tmux new -s " ++ s'
+  attach = \t s' -> spawn \$ t ++ " -e tmux attach -t " ++ s'
+  create = \t s' -> spawn \$ t ++ " -e tmux new -s " ++ s'
 
 
 -- Sets the WM name to a given string, so that it could be

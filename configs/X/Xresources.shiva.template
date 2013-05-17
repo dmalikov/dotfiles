@@ -1,8 +1,8 @@
 shiva.background: #080808
 shiva.foreground: #ddd7ff
 
-shiva.font: $template.xresource_shiva.shiva_font$
-shiva.boldFont: -$template.xresource_shiva.shiva_bold_font$
+shiva.font:     $template.xresource_shiva.shiva_font$
+shiva.boldFont: $template.xresource_shiva.shiva_bold_font$
 
 shiva.color0:   #121212
 shiva.color1:   #404040

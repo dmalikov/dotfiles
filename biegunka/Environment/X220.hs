@@ -12,7 +12,10 @@ import Profiles
 
 template :: Template
 template = def
-  { xresource_shiva = def
+  { pentadactyl = def
+    { font_size = "8pt"
+    }
+  , xresource_shiva = def
     { shiva_bold_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
     , shiva_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
     }

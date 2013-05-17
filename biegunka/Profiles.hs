@@ -105,7 +105,7 @@ profile_mplayer = profile "mplayer" $
 profile_pentadactyl :: Script Profiles ()
 profile_pentadactyl = profile "pentadactyl" $
   dotfiles $ do
-    copy "configs/pentadactyl/colors/pemees.penta" ".pentadactyl/colors/pemees.penta"
+    substitute "configs/pentadactyl/colors/pemees.penta.template" ".pentadactyl/colors/pemees.penta"
     copy "configs/pentadactyl/pentadactylrc" ".pentadactylrc"
     copy "configs/pentadactyl/plugins/buftabs.js" ".pentadactyl/plugins/buftabs.js"
 

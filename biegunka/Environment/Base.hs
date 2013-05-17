@@ -7,7 +7,8 @@ import Data.Typeable (Typeable)
 import Data.Default
 
 data Template = Template
-  { xresource_scratchpad :: XresourceScratchpad
+  { pentadactyl :: Pentadactyl
+  , xresource_scratchpad :: XresourceScratchpad
   , sresource_shiva :: XresourceShiva
   , xmonad :: Xmonad
   , x :: X
@@ -15,11 +16,16 @@ data Template = Template
 
 instance Default Template where
   def = Template
-    { xresource_scratchpad = def
+    { pentadactyl = def
+    , xresource_scratchpad = def
     , xresource_shiva = def
     , xmonad = def
     , X = def
     }
+
+data Pentadactyl = Pentadactyl
+  { font_size :: String
+  } deriving (Data, Typeable)
 
 data XresourceScratchpad = XresourceScratchpad
   { scratchpad_bold_font :: String
@@ -38,6 +44,11 @@ data Xmonad = Xmonad
 data X = X
   { xft_dpi :: String
   } deriving (Data, Typeable)
+
+instance Default Pentadactyl where
+  def = Pentadactyl
+    { font_size = def
+    }
 
 instance Default XresourceShiva where
   def = XresourceShiva

@@ -1,7 +1,7 @@
 " Pentadactyl colorscheme
 "   name: Pemees
 
-hi CmdLine background: #080808; color: #8080a1; font-size: 10pt; font-family: Terminus; padding: 0px 3px;
+hi CmdLine background: #080808; color: #8080a1; font-size: $template.pentadactyl.font_size$; font-family: Terminus; padding: 0px 3px;
 hi CompGroup background: #121212; color: #afafaf;
 hi CompTitle background: #121212; color: #afafaf; font-weight: bold;
 hi CompItem background: #121212; color: #afafaf; padding: 0px 3px;
@@ -17,12 +17,12 @@ hi Filter color: #ff4500; font-weight: bold;
 hi Hint font-family: Terminus; font-size: 12pt; color: #92ff00; background-color: #121212; padding: 0px 1px; border: 0px solid #888888;
 hi -append HintElem background-color: #87af00;
 
-hi Normal background: #080808; color: #afafaf; font-size: 10pt; font-family: Terminus;
+hi Normal background: #080808; color: #afafaf; font-size: $template.pentadactyl.font_size$; font-family: Terminus;
 
-hi StatusLine font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
-hi StatusLineBroken font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
-hi StatusLineNormal font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
-hi StatusLineSecure font-family: Terminus; font-size: 10pt; color: #9999ff; background: #080808;
+hi StatusLine font-family: Terminus; font-size: $template.pentadactyl.font_size$; color: #9999ff; background: #080808;
+hi StatusLineBroken font-family: Terminus; font-size: $template.pentadactyl.font_size$; color: #9999ff; background: #080808;
+hi StatusLineNormal font-family: Terminus; font-size: $template.pentadactyl.font_size$; color: #9999ff; background: #080808;
+hi StatusLineSecure font-family: Terminus; font-size: $template.pentadactyl.font_size$; color: #9999ff; background: #080808;
 
 hi Tag color: #ee9a00;
 hi Title font-size: 12pt; color: #121212; background: #afafaf;

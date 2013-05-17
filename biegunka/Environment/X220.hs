@@ -16,8 +16,8 @@ template = def
     { font_size = "8pt"
     }
   , xresource_shiva = def
-    { shiva_bold_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
-    , shiva_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
+    { shiva_bold_font = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1"
+    , shiva_font = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1"
     }
   , xresource_scratchpad = def
     { scratchpad_bold_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"

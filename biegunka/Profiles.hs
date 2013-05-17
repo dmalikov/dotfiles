@@ -1,45 +1,23 @@
 {-# LANGUAGE DataKinds     #-}
 {-# LANGUAGE UnicodeSyntax #-}
+module Profiles where
 import           Control.Lens
 import           Data.Default          (def)
 
 import           Biegunka
 import           Biegunka.Source.Git
 
+{-
 main ∷ IO ()
 main =
   biegunka (set root "~") profiles $ execute def
- where
-  profiles = sequence_
-    [ vim
-    , xmonad
-    , gitp
-    , ruby
-    , x
-    , ghc
-    , irssi
-    , mpd
-    , mplayer
-    , pentadactyl
-    , screen
-    , ackrc
-    , apvlv
-    , shell'
-    , java
-    , conky
-    , gtk
-    , mocp
-    , tmux
-    , uzbl
-    , vifm
-    , misc
-    ]
+-}
 
-git_dotfiles :: Script Actions () -> Script Sources ()
-git_dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as & branch .~ "feature/templating"
+dotfiles :: Script Actions () -> Script Sources ()
+dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as & branch .~ "feature/templating"
 
-vim :: Script Profiles ()
-vim = do
+profile_vim :: Script Profiles ()
+profile_vim = do
   profile "vim/pathogen/meta" $ do
     git "git@github.com:tpope/vim-pathogen.git" "projects/misc/vim-pathogen" $
       copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
@@ -59,26 +37,26 @@ vim = do
     git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
     git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
   profile "vim/rc" $
-    git_dotfiles $ copy "vim/vimrc" ".vimrc"
+    dotfiles $ copy "vim/vimrc" ".vimrc"
   profile "vim/syntax" $
-    git_dotfiles $ copy "vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
+    dotfiles $ copy "vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
   profile "vim/colorschemes" $
-    git_dotfiles $ copy "vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
+    dotfiles $ copy "vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
 
-xmonad :: Script Profiles ()
-xmonad = do
+profile_xmonad :: Script Profiles ()
+profile_xmonad = do
   profile "xmonad/xmonad.hs" $
-    git_dotfiles $
+    dotfiles $
       copy "xmonad/xmonad.hs" ".xmonad/xmonad.hs"
   profile "xmonad/xmobar" $ do
-    git_dotfiles $ do
+    dotfiles $ do
       copy "xmonad/xmobar-top.hs" ".xmonad/xmobar-top.hs"
       copy "xmonad/xmobar.hs" ".xmonad/xmobar.hs"
       copy "xmonad/xmobarrc" ".xmobarrc"
 
-gitp :: Script Profiles ()
-gitp = profile "git" $ do
-  git_dotfiles $ do
+profile_git :: Script Profiles ()
+profile_git = profile "git" $ do
+  dotfiles $ do
     copy "git/config" ".gitconfig"
     copy "git/ignore" ".gitignore"
     copy "git/tigrc" ".tigrc"
@@ -87,15 +65,15 @@ gitp = profile "git" $ do
   git_ "git@github.com:arc90/git-sweep.git" "projects/misc/git-sweep"
     -- install?
 
-ruby :: Script Profiles ()
-ruby = profile "ruby" $ do
-  git_dotfiles $ do
+profile_ruby :: Script Profiles ()
+profile_ruby = profile "ruby" $ do
+  dotfiles $ do
     copy "ruby/irbrc" ".irbrc"
     copy "ruby/rvmrc" ".rvmrc"
 
-x :: Script Profiles ()
-x = profile "X" $ do
-  git_dotfiles $ do
+profile_x :: Script Profiles ()
+profile_x = profile "X" $ do
+  dotfiles $ do
     copy "X/XCompose" ".XCompose"
     copy "X/Xdefaults" ".Xdefaults"
     copy "X/Xresources.large" ".Xresources.large"
@@ -105,101 +83,101 @@ x = profile "X" $ do
     copy "X/prexinit" "prexinit"
     copy "X/xinitrc" ".xinitrc"
 
-ghc :: Script Profiles ()
-ghc = profile "ghc" $ do
-  git_dotfiles $
+profile_ghc :: Script Profiles ()
+profile_ghc = profile "ghc" $ do
+  dotfiles $
     copy "ghc/ghci" ".ghci"
   git_ "git@github.com:eagletmt/ghcmod-vim.git" ".vim/bundle/ghcmod-vim"
   git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
 
-irssi :: Script Profiles ()
-irssi = profile "irssi" $
-  git_dotfiles $ do
+profile_irssi :: Script Profiles ()
+profile_irssi = profile "irssi" $
+  dotfiles $ do
     copy "irssi/bleeding.theme" ".irssi/bleeding.theme"
     copy "irssi/config" ".irssi/config"
 
-mpd :: Script Profiles ()
-mpd = profile "mpd" $
-  git_dotfiles $ do
+profile_mpd :: Script Profiles ()
+profile_mpd = profile "mpd" $
+  dotfiles $ do
     copy "mpd/mpdconf" ".mpdconf"
     copy "mpd/ncmpcpp/config" ".ncmpcpp/config"
 
-mplayer :: Script Profiles ()
-mplayer = profile "mplayer" $
-  git_dotfiles $ do
+profile_mplayer :: Script Profiles ()
+profile_mplayer = profile "mplayer" $
+  dotfiles $ do
     copy "mplayer/config" ".mplayer/config"
     copy "mplayer/input.conf" ".mplayer/input.conf"
 
-pentadactyl :: Script Profiles ()
-pentadactyl = profile "pentadactyl" $
-  git_dotfiles $ do
+profile_pentadactyl :: Script Profiles ()
+profile_pentadactyl = profile "pentadactyl" $
+  dotfiles $ do
     copy "pentadactyl/colors/pemees.penta" ".pentadactyl/colors/pemees.penta"
     copy "pentadactyl/pentadactylrc" ".pentadactylrc"
     copy "pentadactyl/plugins/buftabs.js" ".pentadactyl/plugins/buftabs.js"
 
-screen :: Script Profiles ()
-screen = profile "screen" $
-  git_dotfiles $
+profile_screen :: Script Profiles ()
+profile_screen = profile "screen" $
+  dotfiles $
     copy "screen/screenrc" ".screenrc"
 
-ackrc :: Script Profiles ()
-ackrc = profile "ack" $
-  git_dotfiles $
+profile_ackrc :: Script Profiles ()
+profile_ackrc = profile "ack" $
+  dotfiles $
     copy "ack/ackrc" ".ackrc"
 
-apvlv :: Script Profiles ()
-apvlv = profile "apvlv" $
-  git_dotfiles $
+profile_apvlv :: Script Profiles ()
+profile_apvlv = profile "apvlv" $
+  dotfiles $
     copy "apvlv/apvlvrc" ".apvlvrc"
 
-shell' :: Script Profiles ()
-shell' = do
+profile_shell :: Script Profiles ()
+profile_shell = do
   profile "shell/bash" $
-    git_dotfiles $
+    dotfiles $
       copy "shell/bash/bashrc" ".bashrc"
   profile "shell/zsh" $
-    git_dotfiles $
+    dotfiles $
       copy "shell/zsh/zshrc" ".zshrc"
 
-java :: Script Profiles ()
-java = do
+profile_java :: Script Profiles ()
+profile_java = do
   profile "idea" $
-    git_dotfiles $
+    dotfiles $
       copy "idea/config/colors/bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"
 
-conky :: Script Profiles ()
-conky = profile "conky" $
-  git_dotfiles $
+profile_conky :: Script Profiles ()
+profile_conky = profile "conky" $
+  dotfiles $
     copy "conky/conkyrc" ".conkyrc"
 
-gtk :: Script Profiles ()
-gtk = profile "gtk" $
-  git_dotfiles $
+profile_gtk :: Script Profiles ()
+profile_gtk = profile "gtk" $
+  dotfiles $
     copy "gtk/gtkrc-2.0.mine" ".gtkrc-2.0.mine"
 
-mocp :: Script Profiles ()
-mocp = profile "mocp" $
-  git_dotfiles $
+profile_mocp :: Script Profiles ()
+profile_mocp = profile "mocp" $
+  dotfiles $
     copy "moc/config" ".moc/config"
 
-tmux :: Script Profiles ()
-tmux = profile "tmux" $
-  git_dotfiles $
+profile_tmux :: Script Profiles ()
+profile_tmux = profile "tmux" $
+  dotfiles $
     copy "tmux/conf" ".tmux.conf"
 
-uzbl :: Script Profiles ()
-uzbl = profile "uzbl" $
-  git_dotfiles $
+profile_uzbl :: Script Profiles ()
+profile_uzbl = profile "uzbl" $
+  dotfiles $
     copy "uzbl/config" ".config/uzbl/config"
 
-vifm :: Script Profiles ()
-vifm = profile "vifm" $
-  git_dotfiles $ do
+profile_vifm :: Script Profiles ()
+profile_vifm = profile "vifm" $
+  dotfiles $ do
     copy "vifm/colors/neverland" ".vifm/colors/neverland"
     copy "vifm/vifmrc" ".vifm/vifmrc"
 
-misc :: Script Profiles ()
-misc = do
+profile_misc :: Script Profiles ()
+profile_misc = do
   profile "misc/urxvt/tabbedex" $
     git "git@github.com:stepb/urxvt-tabbedex.git" "projects/misc/urxvt-tabbedex" $
       copy "tabbedex" ".urxvt/perl/tabbedex"

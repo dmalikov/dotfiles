@@ -220,4 +220,4 @@ whiteColor = "#9999ff"
 purpleColor = "#404051"
 
 -- fonts
-terminusFont = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*"
+terminusFont = $template.xmonad.terminus_font$

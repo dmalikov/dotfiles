@@ -57,7 +57,7 @@ set iec
 
 " Selected color scheme
 
-colorscheme Default
+colorscheme neverland
 
 " The FUSE_HOME directory will be used as a root dir for all FUSE mounts.
 " Unless it exists with write/exec permissions set, vifm will attempt to

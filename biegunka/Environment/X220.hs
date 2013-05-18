@@ -29,27 +29,21 @@ settings = def
   }
 
 profiles = sequence_
-  [ profile_vim
-  , profile_xmonad
-  , profile_git
-  , profile_ruby
-  , profile_x
+  [ profile_ackrc
   , profile_ghc
-  , profile_irssi
+  , profile_git
+  , profile_gtk
+  , profile_misc
   , profile_mpd
   , profile_mplayer
   , profile_pentadactyl
-  , profile_screen
-  , profile_ackrc
-  , profile_apvlv
+  , profile_ruby
   , profile_shell
-  , profile_java
-  , profile_conky
-  , profile_gtk
-  , profile_mocp
   , profile_tmux
   , profile_uzbl
   , profile_vifm
-  , profile_misc
+  , profile_vim
+  , profile_x
+  , profile_xmonad
   ]
 

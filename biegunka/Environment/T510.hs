@@ -1,15 +1,12 @@
-module Environment.T510 where
-import Control.Lens (set)
-import Data.Default (def)
+module Environment.T510 (settings, profiles) where
 
-import Biegunka
+import Data.Default (def)
 
 import Environment.Base
 import Profiles
 
-
-template :: Template
-template = def
+settings :: Template
+settings = def
   { pentadactyl = def
     { font_size = "10pt"
     }
@@ -54,7 +51,3 @@ profiles = sequence_
   , profile_vifm
   , profile_misc
   ]
-
-install :: IO ()
-install = biegunka (set root "~") profiles $ execute (set templates (Templates template))
-

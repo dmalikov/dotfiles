@@ -1,17 +1,13 @@
 module Environment.X220 where
 
-import Control.Lens (set)
 import Data.Default (def)
-import Data.Monoid ((<>))
-
-import Biegunka
 
 import Environment.Base
 import Profiles
 
 
-template :: Template
-template = def
+settings :: Template
+settings = def
   { pentadactyl = def
     { font_size = "8pt"
     }
@@ -57,5 +53,3 @@ profiles = sequence_
   , profile_misc
   ]
 
-install :: IO ()
-install = biegunka (set root "~") profiles $ pretend <> pause <> execute (set templates (Templates template))

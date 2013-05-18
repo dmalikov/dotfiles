@@ -5,4 +5,4 @@ Bunch of dotfiles managed by [biegunka](https://github.com/biegunka).
 Dotfiles installs like that:
 
     $> cd biegunka
-    $> runhaskell Main.hs -e x220
+    $> runhaskell Main.hs --pretend --verify -e x220

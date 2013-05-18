@@ -30,6 +30,7 @@ profile_vim = do
     git_ "git@github.com:tpope/vim-markdown.git" ".vim/bundle/markdown"
     git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
     git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
+    git_ "git@github.com:jvoorhis/coq.vim.git" ".vim/bundle/coq"
   profile "vim/rc" $
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $

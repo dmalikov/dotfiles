@@ -13,6 +13,7 @@
 :m + Text.Printf
 
 import qualified Data.ByteString.Lazy.Char8 as BSC
+import qualified Data.Text as Text
 
 :set -fwarn-alternative-layout-rule-transitional
 :set -fwarn-deprecated-flags
@@ -39,4 +40,5 @@ import qualified Data.ByteString.Lazy.Char8 as BSC
 :set -XUnicodeSyntax
 :set -XOverloadedStrings
 :set -XRankNTypes
+:set -XScopedTypeVariables
 

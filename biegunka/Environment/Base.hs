@@ -7,7 +7,8 @@ import Data.Typeable (Typeable)
 import Data.Default
 
 data Template = Template
-  { pentadactyl :: Pentadactyl
+  { git :: Git
+  , pentadactyl :: Pentadactyl
   , xresource_scratchpad :: XresourceScratchpad
   , xresource_shiva :: XresourceShiva
   , xmonad :: Xmonad
@@ -16,12 +17,19 @@ data Template = Template
 
 instance Default Template where
   def = Template
-    { pentadactyl = def
+    { git = def
+    , pentadactyl = def
     , xresource_scratchpad = def
     , xresource_shiva = def
     , xmonad = def
     , x = def
     }
+
+data Git = Git
+  { set_user :: Bool
+  , user_email :: String
+  , user_name :: String
+  } deriving (Data, Typeable)
 
 data Pentadactyl = Pentadactyl
   { font_size :: String
@@ -45,6 +53,13 @@ data X = X
   { user :: String
   , xft_dpi :: String
   } deriving (Data, Typeable)
+
+instance Default Git where
+  def = Git
+    { set_user = False
+    , user_name = def
+    , user_email = def
+    }
 
 instance Default Pentadactyl where
   def = Pentadactyl

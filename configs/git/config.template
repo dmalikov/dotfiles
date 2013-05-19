@@ -6,6 +6,11 @@
     editor = vim
     pager = cat
     excludesfile = ~/.gitignore
+$if(template.git.set_user)$
+[user]
+    name = $template.git.user_name$
+    email = $template.git.user_email$
+$endif$
 
 [merge]
     tool = vimdiff
@@ -13,15 +18,15 @@
 [alias]
     br = branch
     ci = commit
-    close-feature = "!f() { git merge --squash $1 && git ci -a ; }; f"
+    close-feature = "!f() { git merge --squash \$1 && git ci -a ; }; f"
     co = checkout
-    delete-branch = "!f() { git branch -D $1 && git push origin :$1; }; f"
+    delete-branch = "!f() { git branch -D \$1 && git push origin :\$1; }; f"
     df = diff --name-only
     dw = diff --word-diff
     gg = log --graph --date-order --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short -n 50
     ignored = ls-files --others -i --exclude-standard
     lg = log -p
-    parents = "!f() { git rev-parse $1^@; }; f"
+    parents = "!f() { git rev-parse \$1^@; }; f"
     pr = pull --rebase
     sm = submodule
     st = status -uno

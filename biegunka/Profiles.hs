@@ -54,7 +54,7 @@ profile_xmonad = do
 profile_git :: Script Profiles ()
 profile_git = profile "git" $ do
   dotfiles $ do
-    copy "configs/git/config" ".gitconfig"
+    substitute "configs/git/config.template" ".gitconfig"
     copy "configs/git/ignore" ".gitignore"
     copy "configs/git/tigrc" ".tigrc"
   git_ "git@github.com:nvie/gitflow.git" "projects/misc/gitflow"

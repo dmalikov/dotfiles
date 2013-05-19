@@ -8,7 +8,12 @@ import Profiles
 
 settings :: Template
 settings = def
-  { pentadactyl = def
+  { git = def
+    { set_user = True
+    , user_name = "Dmitry Malikov"
+    , user_email = "malikov.d.y"
+    }
+  , pentadactyl = def
     { font_size = "8pt"
     }
   , xresource_shiva = def

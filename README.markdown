@@ -14,12 +14,12 @@ different configurations.
 
 Usual `install.sh` script sucks when number of working environments that should
 be maintained is more than 1. Simple scripts sucks when you want to synchronize
-git repositories regulary. All these reinvent-the-wheel scripts sucks when you
+git repositories regulary. All these reinvent-the-wheel scripts suck when you
 want to clean all shit out of your system, that your installation script
 produced.
 
 [`Chef`][chef] and
-[`chef-folo`][chef-solo] could be helpful here
+[`chef-solo`][chef-solo] could be helpful here
 with all these recipes and roles power, but I'm too lazy for writing a cookbook
 for every application that I have.
 
@@ -81,7 +81,7 @@ modules.
 biegunka (set root "~") (pretend' <> execute (set templates $ Templates settings') <> verify') profiles'
 ```
 
-`profiles` is a variable of `:: Script \`Profiles ()` type. It contains all
+`profiles` is a variable of `:: Script Profiles ()` type. It contains all
 information about what _profiles_ will be installed.
 
 `Profiles.hs` file contains all profiles that I have. Here is example of xmonad

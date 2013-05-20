@@ -17,17 +17,17 @@ data Conf = Conf
 
 run_with_conf :: Conf -> IO ()
 run_with_conf c = do
-  let pretend' = if (enable_pretend c) then pretend <> pause else mempty
-      verify' = if (enable_verify c) then verify else mempty
+  let pretend' = if enable_pretend c then pretend <> pause else mempty
+      verify' = if enable_verify c then verify else mempty
       settings' = case (environment c) of
                     "t510" -> T510.settings
                     "x220" -> X220.settings
                     e -> error $ "no such environment " ++ e
-      profiles' = case (environment c) of
+      profiles' = case environment c of
                     "t510" -> T510.profiles
                     "x220" -> X220.profiles
                     e -> error $ "no such environment " ++ e
-  biegunka (set root "~") (pretend' <> execute (set templates (Templates settings')) <> verify') profiles'
+  biegunka (set root "~") (pretend' <> execute (set templates $ Templates settings') <> verify') profiles'
 
 
 main :: IO ()

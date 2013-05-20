@@ -1,5 +1,4 @@
 {-# LANGUAGE DataKinds     #-}
-{-# LANGUAGE UnicodeSyntax #-}
 module Profiles where
 import           Control.Lens
 import           Data.Default          (def)

@@ -11,7 +11,7 @@ settings = def
   { git = def
     { set_user = True
     , user_name = "Dmitry Malikov"
-    , user_email = "malikov.d.y"
+    , user_email = "malikov.d.y@gmail.com"
     }
   , pentadactyl = def
     { font_size = "8pt"

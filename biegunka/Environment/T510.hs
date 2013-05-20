@@ -34,18 +34,13 @@ profiles = sequence_
   , profile_ruby
   , profile_x
   , profile_ghc
-  , profile_irssi
   , profile_mpd
   , profile_mplayer
   , profile_pentadactyl
-  , profile_screen
   , profile_ackrc
-  , profile_apvlv
   , profile_shell
   , profile_java
-  , profile_conky
   , profile_gtk
-  , profile_mocp
   , profile_tmux
   , profile_uzbl
   , profile_vifm

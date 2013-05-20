@@ -64,13 +64,6 @@ $endif$
     support = support/
     versiontag =
 
-[cola]
-    fontdiff = Terminus,8,-1,5,50,0,0,0,0,0
-
-[gui]
-    editor = gvim
-    fontdiff = Terminus,8,-1,5,50,0,0,0,0,0
-
 [diff]
     algorithm = patience
     renames = true

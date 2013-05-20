@@ -1,14 +1,14 @@
 # dotfiles
 
-World of configuration files managed by [`biegunka`](https://github.com/biegunka).
+World of configuration files managed by [`biegunka`][biegunka].
 
 [![Build Status](https://drone.io/github.com/dmalikov/dotfiles/status.png)](https://drone.io/github.com/dmalikov/dotfiles/latest)
 
 ## What is it?
 
-This is `biegunka`-powered repository containing my configuration files. It has
-nice mechanism for maintain many working environments with different
-configurations.
+This is [`biegunka`][biegunka]-powered repository containing my configuration
+files. It has nice mechanism for maintain many working environments with
+different configurations.
 
 ## Why biegunka?
 
@@ -18,17 +18,17 @@ git repositories regulary. All these reinvent-the-wheel scripts sucks when you
 want to clean all shit out of your system, that your installation script
 produced.
 
-[`Chef`](https://github.com/opscode/chef) and
-[`chef-folo`](http://docs.opscode.com/chef_solo.html) could be helpful here
+[`Chef`][chef] and
+[`chef-folo`][chef-solo] could be helpful here
 with all these recipes and roles power, but I'm too lazy for writing a cookbook
 for every application that I have.
 
-`biegunka` could be used not just for dummy copying files to specific
-directories, but for syncing git or darcs repositories. It is quite usable when
-you have many repositories and almost die of boredom updating them every day.
-It could be successfully done by another `sh` script, but `biegunka` offers
-nice readable declarative syntax and beatiful methods to formalize all that
-logic nicely.
+[`biegunka`][biegunka] could be used not just for dummy copying files to
+specific directories, but for syncing git or darcs repositories. It is quite
+usable when you have many repositories and almost die of boredom updating them
+every day.  It could be successfully done by another `sh` script, but
+[`biegunka`][biegunka] offers nice readable declarative syntax and beatiful
+methods to formalize all that logic nicely.
 
 ## How I'm using it?
 
@@ -47,15 +47,15 @@ that I've done on other machine and pushed to github:
 $> dotfiles -e x220
 ```
 
-If I want `biegunka` to show me what it gonna install and where I'm calling
-`pretend` function:
+If I want [`biegunka`][biegunka] to show me what it gonna install and where I'm
+calling `pretend` function:
 
 ```
 $> dotfiles --pretend -e x220
 ```
 
-If I want `biegunka` to check that it create all files I'm calling `verify`
-function:
+If I want [`biegunka`][biegunka] to check that it create all files I'm calling
+`verify` function:
 
 ```
 $> dotfiles --verify -e x220
@@ -81,7 +81,7 @@ modules.
 biegunka (set root "~") (pretend' <> execute (set templates $ Templates settings') <> verify') profiles'
 ```
 
-`profiles` is a variable of `:: Script `Profiles ()` type. It contains all
+`profiles` is a variable of `:: Script \`Profiles ()` type. It contains all
 information about what _profiles_ will be installed.
 
 `Profiles.hs` file contains all profiles that I have. Here is example of xmonad
@@ -130,7 +130,7 @@ $if(template.git.set_user)$
 $endif$
 ```
 
-`X220` modules contains definition for these template placeholders:
+`X220` environment contains definition for these template placeholders:
 
 ```haskell
 settings :: Template
@@ -143,8 +143,8 @@ settings = def
 ...
 ```
 
-`T510` environment doesn't have these variables and `set_user` is equal `False`
-for it.
+`T510` environment doesn't have these variables and `set_user` is equal to
+`False` for it.
 
 `git` profiles has these call:
 
@@ -159,3 +159,7 @@ So it produces `[user]` part of gitconfig only for `X220` environment:
     name = Dmitry Malikov
     email = malikov.d.y@gmail.com
 ```
+
+[biegunka]: https://github.com/biegunka
+[chef]: https://github.com/opscode/chef
+[chef-solo]: http://docs.opscode.com/chef_solo.html

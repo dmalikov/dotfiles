@@ -48,3 +48,5 @@ When I'm using my `t510` workstation its all the same:
 
     $> dotfiles -e t510
 
+## How it works?
+

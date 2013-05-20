@@ -1,0 +1,18 @@
+name: dotfiles
+version: 9999
+
+build-type: Simple
+cabal-version: >=1.2
+
+executable dotfiles
+  main-is: Main.hs
+  build-depends:
+    base >= 4.6,
+    biegunka-core >= 0.1,
+    data-default >= 0.5.0,
+    lens >= 3.9,
+    optparse-applicative >= 0.5.2
+
+
+
+

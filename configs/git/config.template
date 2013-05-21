@@ -24,6 +24,7 @@ $endif$
     df = diff --name-only
     dw = diff --word-diff
     gg = log --graph --date-order --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short -n 50
+    root = rev-parse --show-toplevel
     ignored = ls-files --others -i --exclude-standard
     lg = log -p
     parents = "!f() { git rev-parse \$1^@; }; f"

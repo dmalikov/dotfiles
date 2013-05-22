@@ -1,5 +1,3 @@
-xsetroot -cursor_name left_ptr -solid "#080808"
-
 # enable ctrl-alt-backspace sequence
 setxkbmap -option terminate:ctrl_alt_bksp
 

@@ -22,5 +22,11 @@ unclutter &
 eval `ssh-agent`
 ssh-add ~/.ssh/id_rsa
 
+# enable wallpaper
+feh --bg-scale ~/img/w/w.jpg
+
+# compositing
+xcompmgr -c &
+
 # run xmonad
 exec ck-launch-session dbus-launch xmonad

@@ -14,7 +14,7 @@ settings = def
     , user_email = "malikov.d.y@gmail.com"
     }
   , pentadactyl = def
-    { font_size = "8pt"
+    { font_size = 8
     }
   , xresource_shiva = def
     { shiva_bold_font = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1"
@@ -29,7 +29,7 @@ settings = def
     }
   , x = def
     { user = "m"
-    , xft_dpi = "120"
+    , xft_dpi = 120
     }
   }
 

@@ -8,7 +8,7 @@ import Profiles
 settings :: Template
 settings = def
   { pentadactyl = def
-    { font_size = "10pt"
+    { font_size = 10
     }
   , xresource_shiva = def
     { shiva_bold_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
@@ -23,7 +23,7 @@ settings = def
     }
   , x = def
     { user = "dmalikov"
-    , xft_dpi = "144"
+    , xft_dpi = 144
     }
   }
 

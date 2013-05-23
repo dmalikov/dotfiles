@@ -32,7 +32,7 @@ data Git = Git
   } deriving (Data, Typeable)
 
 data Pentadactyl = Pentadactyl
-  { font_size :: String
+  { font_size :: Int
   } deriving (Data, Typeable)
 
 data XresourceScratchpad = XresourceScratchpad
@@ -51,7 +51,7 @@ data Xmonad = Xmonad
 
 data X = X
   { user :: String
-  , xft_dpi :: String
+  , xft_dpi :: Int
   } deriving (Data, Typeable)
 
 instance Default Git where

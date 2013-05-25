@@ -172,6 +172,11 @@ profile_vifm = profile "vifm" $
     copy "configs/vifm/colors/neverland" ".vifm/colors/neverland"
     copy "configs/vifm/vifmrc" ".vifm/vifmrc"
 
+profile_zathura :: Script Profiles ()
+profile_zathura = profile "zathura" $
+  dotfiles $
+    copy "configs/zathura/zathurarc" ".config/zathura/zathurarc"
+
 profile_misc :: Script Profiles ()
 profile_misc = do
   profile "misc/hpasteit" $

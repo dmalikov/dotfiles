@@ -1,0 +1,15 @@
+# Open document in fit-width mode by default
+set adjust-open "width"
+
+# One page per row by default
+set pages-per-row 1
+
+# Appearance
+set default-bg "#121212"
+set default-fg "#9e4a00"
+set inputbar-bg "#121212"
+set inputbar-fg "#9e4a00"
+set statusbar-bg "#121212"
+set statusbar-fg "#9e4a00"
+
+set font "Terminus normal 6"

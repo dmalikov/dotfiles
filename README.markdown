@@ -36,8 +36,7 @@ methods to formalize all that logic nicely.
 something executable:
 
 ```
-$> cd biegunka
-$> cabal install
+$> cabal install biegunka/dotfiles.cabal
 ```
 
 If I'm using my `x220` workstation and I need to get some changes in dotfiles

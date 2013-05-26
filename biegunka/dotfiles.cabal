@@ -12,7 +12,3 @@ executable dotfiles
     data-default >= 0.5.0,
     lens >= 3.9,
     optparse-applicative >= 0.5.2
-
-
-
-

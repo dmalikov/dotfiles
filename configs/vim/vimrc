@@ -73,10 +73,12 @@
     " Ignore case when the pattern contains lowercase letters only.
     set smartcase
 
-    set cursorline
-
     colorscheme neverland-darker
-    " autocmd BufEnter *.hs colorscheme elflord
+
+    set cursorline
+    set cursorcolumn
+    hi CursorLine ctermbg=235
+    hi CursorColumn ctermbg=235
 
     " enable autocomplete
     set wildmenu

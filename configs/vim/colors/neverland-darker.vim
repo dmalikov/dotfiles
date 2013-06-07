@@ -177,7 +177,7 @@ if &t_Co > 255
    hi SpellLocal      ctermfg=124 ctermbg=233 cterm=bold
 
    hi Statement       ctermfg=172               cterm=bold
-   hi StatusLine      ctermfg=233 ctermbg=136
+   hi StatusLine      ctermfg=235 ctermbg=136
    hi StatusLineNC    ctermfg=232 ctermbg=100
    hi StorageClass    ctermfg=208
    hi Structure       ctermfg=81

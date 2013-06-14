@@ -6,8 +6,8 @@ hi Socket     cterm=none              ctermfg=137   ctermbg=none
 hi Device     cterm=none              ctermfg=137   ctermbg=none
 hi Fifo       cterm=none              ctermfg=137   ctermbg=none
 hi Executable cterm=bold              ctermfg=28    ctermbg=none
-hi Selected   cterm=none              ctermfg=3     ctermbg=none
-hi CurrLine   cterm=bold              ctermfg=none  ctermbg=0
+hi Selected   cterm=none              ctermfg=4     ctermbg=none
+hi CurrLine   cterm=bold              ctermfg=3     ctermbg=0
 hi TopLine    cterm=none              ctermfg=none  ctermbg=0
 hi TopLineSel cterm=none              ctermfg=none  ctermbg=0
 hi StatusLine cterm=bold              ctermfg=11    ctermbg=0

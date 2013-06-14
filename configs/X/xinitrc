@@ -1,7 +1,7 @@
 source ${HOME}/prexinit
 
 # run trayer
-trayer --edge bottom --align left --transparent true --widthtype pixel --width 100 --heighttype pixel --height 10 --tint 0x080808 --alpha 0 --SetDockType true &
+trayer --edge bottom --align left --transparent true --widthtype pixel --width 120 --heighttype pixel --height 10 --tint 0x080808 --alpha 0 --SetDockType true &
 
 # run kbdd daemon
 /usr/bin/kbdd &
@@ -21,12 +21,7 @@ unclutter &
 # run ssh-agent
 eval `ssh-agent`
 ssh-add ~/.ssh/id_rsa
-
-# enable wallpaper
-feh --bg-scale ~/img/w/w.jpg
-
-# compositing
-xcompmgr -c &
+ssh-add ~/.ssh/id_dsa
 
 # run xmonad
 exec ck-launch-session dbus-launch xmonad

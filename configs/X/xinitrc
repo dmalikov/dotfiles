@@ -6,9 +6,6 @@ trayer --edge bottom --align left --transparent true --widthtype pixel --width 1
 # run kbdd daemon
 /usr/bin/kbdd &
 
-# run xscreensaver daemon
-xscreensaver -no-splash &
-
 # process urxvt settings
 xrdb ~/.Xdefaults
 xrdb -override ~/.Xresources.scratchpad

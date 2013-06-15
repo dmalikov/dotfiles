@@ -198,7 +198,7 @@ myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", 
 gvim = "gvim"
 hpasteit = "xclip -o -selection primary | hpasteit | xclip -i -selection primary"
 jws_irssi = urxvt ++ " -title jεωs -e ssh jws -t 'export LANG=en_US.UTF-8; tmux attach-session -t irssi'"
-lock_screen = "xscreensaver-command -lock"
+lock_screen = "xtrlock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
 urxvt = "urxvt -name shiva"

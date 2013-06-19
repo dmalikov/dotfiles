@@ -9,10 +9,12 @@ import Options.Applicative
 
 import Biegunka
 
+data Environment = X220 | T510
+
 data Conf = Conf
   { enable_pretend :: Bool
   , enable_verify :: Bool
-  , environment :: String
+  , environment :: Environment
   }
 
 run_with_conf :: Conf -> IO ()
@@ -20,13 +22,11 @@ run_with_conf c = do
   let pretend' = if enable_pretend c then pretend <> pause else mempty
       verify' = if enable_verify c then verify else mempty
       settings' = case (environment c) of
-                    "t510" -> T510.settings
-                    "x220" -> X220.settings
-                    e -> error $ "no such environment " ++ e
+                    T510 -> T510.settings
+                    X220 -> X220.settings
       profiles' = case environment c of
-                    "t510" -> T510.profiles
-                    "x220" -> X220.profiles
-                    e -> error $ "no such environment " ++ e
+                    T510 -> T510.profiles
+                    X220 -> X220.profiles
   biegunka (set root "~") (pretend' <> execute (set templates $ Templates settings') <> verify') profiles'
 
 
@@ -37,4 +37,5 @@ main = execParser opts >>= run_with_conf
    parser = Conf
      <$> switch (long "pretend" <> help "enable pretending: show what will be done")
      <*> switch (long "verify" <> help "enable verifying: check what biegunka done")
-     <*> strOption (long "environment" <> short 'e' <> metavar "ENV" <> help "set current environment: x220 or t510")
+     <*> ( flag' X220 (long "x220" <> help "use x220 as an active environment")
+       <|> flag' T510 (long "t510" <> help "use t510 as an active environment"))

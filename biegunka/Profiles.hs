@@ -79,7 +79,7 @@ profile_x = profile "X" $ do
     substitute "configs/X/Xresources.scratchpad.template" ".Xresources.scratchpad"
     substitute "configs/X/Xresources.shiva.template" ".Xresources.shiva"
     copy "configs/X/inputrc" ".inputrc"
-    copy "configs/X/prexinit" "prexinit"
+    copy "configs/X/prexinit" ".prexinit"
     copy "configs/X/xinitrc" ".xinitrc"
 
 profile_ghc :: Script Profiles ()

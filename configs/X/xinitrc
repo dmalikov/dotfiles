@@ -1,4 +1,4 @@
-source ${HOME}/prexinit
+source ${HOME}/.prexinit
 
 # run trayer
 trayer --edge bottom --align left --transparent true --widthtype pixel --width 120 --heighttype pixel --height 10 --tint 0x080808 --alpha 0 --SetDockType true &

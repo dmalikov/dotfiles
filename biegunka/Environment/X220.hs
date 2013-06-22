@@ -29,7 +29,7 @@ settings = def
     }
   , x = def
     { user = "m"
-    , xft_dpi = 120
+    , xft_dpi = 125
     }
   }
 

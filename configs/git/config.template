@@ -13,6 +13,7 @@ $if(template.git.set_user)$
 $endif$
 
 [merge]
+    log = true
     tool = vimdiff
 
 [alias]

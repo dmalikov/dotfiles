@@ -135,8 +135,9 @@ profile_shell = do
     dotfiles $
       copy "configs/shell/bash/bashrc" ".bashrc"
   profile "shell/zsh" $
-    dotfiles $
+    dotfiles $ do
       copy "configs/shell/zsh/zshrc" ".zshrc"
+      copy "configs/shell/zsh/zprofile" ".zprofile"
 
 profile_java :: Script Profiles ()
 profile_java = do

@@ -1,3 +1,5 @@
+if [ "$TMUX" = "" ]; then tmux; fi
+
 autoload -U compinit promptinit colors
 
 # completion settings
@@ -20,3 +22,29 @@ export HISTFILE=~/.zhistory
 setopt inc_append_history
 # autocompletion of command line switches for aliases
 setopt completealiases
+
+export TERM='rxvt-256color'
+export COLORTERM='rxvt-unicode-256color'
+export EDITOR=vim
+
+alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'
+alias sml='rlwrap sml'
+alias ssh='TERM=xterm-color ssh'
+alias racket='rlwrap racket'
+alias mvn='mvn-2.2'
+alias git-home='cd $(git rev-parse --show-toplevel)'
+alias ihach='iconv -cf inis-cyrillic'
+alias ls='ls --color=auto'
+
+
+# external monitor helper
+declare MAINDISPLAY=LVDS1
+setdisplay() {
+    local -r NEWDISPLAY=${2:-DP1}
+    source ${HOME}/.prexinit
+    case $1 in
+            on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;
+            off)    xrandr --output $NEWDISPLAY --off ;;
+            *)      echo "Wrong argument"; return 1 ;;
+    esac
+}

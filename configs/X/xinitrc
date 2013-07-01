@@ -7,7 +7,7 @@ trayer --edge bottom --align left --transparent true --widthtype pixel --width 1
 /usr/bin/kbdd &
 
 # process urxvt settings
-xrdb ~/.Xdefaults
+xrdb ~/.Xresources
 xrdb -override ~/.Xresources.scratchpad
 xrdb -override ~/.Xresources.shiva
 xrdb -override ~/.Xresources.large

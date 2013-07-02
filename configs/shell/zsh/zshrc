@@ -1,5 +1,3 @@
-if [ "$TMUX" = "" ]; then tmux; fi
-
 autoload -U compinit promptinit colors
 
 # completion settings

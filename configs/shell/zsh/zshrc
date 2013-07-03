@@ -34,7 +34,6 @@ alias git-home='cd $(git rev-parse --show-toplevel)'
 alias ihach='iconv -cf inis-cyrillic'
 alias ls='ls --color=auto'
 
-
 # external monitor helper
 declare MAINDISPLAY=LVDS1
 setdisplay() {
@@ -46,3 +45,7 @@ setdisplay() {
             *)      echo "Wrong argument"; return 1 ;;
     esac
 }
+
+# ruby stuff
+unset RUBYOPT
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

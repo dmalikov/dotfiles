@@ -33,6 +33,7 @@ alias mvn='mvn-2.2'
 alias git-home='cd $(git rev-parse --show-toplevel)'
 alias ihach='iconv -cf inis-cyrillic'
 alias ls='ls --color=auto'
+alias idea='~/downloads/idea-IC-129.713/bin/idea.sh'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

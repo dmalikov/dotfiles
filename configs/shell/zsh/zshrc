@@ -47,6 +47,9 @@ setdisplay() {
     esac
 }
 
+# haskell stuff
+PATH=${HOME}/bin/:$PATH:${HOME}/.cabal/bin
+
 # ruby stuff
 unset RUBYOPT
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -25,10 +25,5 @@ export rvm_install_on_use_flag=1
 # This will create a gemset when the gemset is used if it does not exist
 export rvm_gemset_create_on_use_flag=1
 
-# Make Flags, I have 8 cpu's so I might use 7 make threads:
-export rvm_make_flags="-j3"
-
-
 # Add configure flags for builds
-
 export rvm_configure_flags="--with-openssl-dir=$rvm_path/usr --with-readline-dir=$rvm_path/usr"

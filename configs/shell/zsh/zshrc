@@ -53,3 +53,5 @@ PATH=${HOME}/bin/:$PATH:${HOME}/.cabal/bin
 # ruby stuff
 unset RUBYOPT
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+bindkey '^R' history-incremental-search-backward

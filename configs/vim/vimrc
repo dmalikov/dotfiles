@@ -218,6 +218,10 @@
         execute "set <xLeft>=\e[1;*D"
     endif
 
+    " yank-ring settings
+    let g:yankring_replace_n_pkey = '<Leader>p'
+    let g:yankring_replace_n_nkey = '<Leader>n'
+
 "=====================================
 " GVIM SETTINGS
 "=====================================

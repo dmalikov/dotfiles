@@ -33,7 +33,6 @@ profile_vim = do
     git_ "git@github.com:trefis/coquille.git" ".vim/bundle/coquille"
     git_ "git@github.com:def-lkb/vimbufsync.git" ".vim/bundle/bufsync"
     git_ "git@github.com:suan/vim-instant-markdown.git" ".vim/bundle/instant-markdown"
-    git_ "git@github.com:tpope/vim-markdown.git" ".vim/bundle/markdown"
     git_ "git@github.com:merlinrebrovic/focus.vim.git" ".vim/bundle/focus.vim"
     git_ "git@github.com:vim-scripts/YankRing.vim.git" ".vim/bundle/yankring.vim"
   profile "vim/rc" $

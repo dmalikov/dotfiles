@@ -8,7 +8,7 @@ executable dotfiles
   main-is: Main.hs
   build-depends:
     base >= 4.6,
-    biegunka-core >= 0.1,
+    biegunka >= 0.2,
     data-default >= 0.5.0,
     lens >= 3.9,
     optparse-applicative >= 0.5.2

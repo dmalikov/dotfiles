@@ -6,7 +6,7 @@ import qualified Environment.X220 as X220
 
 import Control.Lens (set)
 
-import Biegunka
+import Control.Biegunka
 
 data Environment = X220 | T510
 
@@ -14,7 +14,7 @@ makeOptionsParser ''Environment
 
 main :: IO ()
 main = do
-  (env, run) <- optionsParser
+  (env, r) <- optionsParser
   case env of
-    X220 -> run (set root "~") (set templates $ Templates X220.settings) X220.profiles
-    T510 -> run (set root "~") (set templates $ Templates T510.settings) T510.profiles
+    X220 -> r (set root "~") (set templates $ Templates X220.settings) X220.profiles
+    T510 -> r (set root "~") (set templates $ Templates T510.settings) T510.profiles

@@ -35,6 +35,7 @@ profile_vim = do
     git_ "git@github.com:suan/vim-instant-markdown.git" ".vim/bundle/instant-markdown"
     git_ "git@github.com:merlinrebrovic/focus.vim.git" ".vim/bundle/focus.vim"
     git_ "git@github.com:vim-scripts/YankRing.vim.git" ".vim/bundle/yankring.vim"
+    git_ "git@github.com:derekwyatt/vim-sbt.git" ".vim/bundle/sbt.vim"
   profile "vim/rc" $
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $

@@ -38,6 +38,7 @@
     let g:neocomplcache_force_overwrite_completefunc = 1
 
     let g:hardtime_default_on = 1
+    let g:hardtime_showmsg = 0
 
 "=====================================
 " FUNCTIONS

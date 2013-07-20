@@ -55,3 +55,7 @@ unset RUBYOPT
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 bindkey '^R' history-incremental-search-backward
+
+# chef stuff
+function knife-load () knife $@ -c ~/.chef/knife.load.rb
+function knife-qa () knife $@ -c ~/.chef/knife.qa.rb

@@ -245,9 +245,6 @@
     " remove trailing whitespaces
     noremap <Leader>rw :%s/ \+$//c<CR>
 
-    " s/tabs/spaces/g
-    noremap <Leader>rt :%s/\t/\ \ \ \ /g
-
     noremap k gk
     noremap j gj
 

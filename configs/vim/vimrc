@@ -83,6 +83,8 @@
     hi CursorLine ctermbg=235
     hi CursorColumn ctermbg=235
 
+    set relativenumber
+
     " enable autocomplete
     set wildmenu
     set wildmode=list:longest,full

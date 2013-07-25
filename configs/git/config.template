@@ -77,9 +77,6 @@ $endif$
 [branch]
     autosetuprebase = always
 
-[push]
-    default = current
-
 [status]
     submodulesummary = true
 

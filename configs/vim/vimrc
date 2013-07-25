@@ -113,7 +113,6 @@
     set expandtab
     set autoindent
 
-
     " matched string is highlighted.
     set incsearch
 
@@ -162,9 +161,9 @@
     let g:syntastic_python_checker_args='--ignore=E501'
 
     " add some hotkeys for rather tedious perd commands
-    nmap <leader>l :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>
-    nmap <leader>L :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>:PerdSwitch<CR>
-    nmap <leader>z :PerdUnload<CR>
+    nmap <Leader>l :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>
+    nmap <Leader>L :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>:PerdSwitch<CR>
+    nmap <Leader>z :PerdUnload<CR>
 
     let g:perd_ghci_settings = '-package-db=cabal-dev/packages-7.6.1.conf'
     let g:perd_ghci_fallback = 1
@@ -244,9 +243,6 @@
     " set paste mode
     set pastetoggle=<F3>
 
-    " remove trailing whitespaces
-    noremap <Leader>rw :%s/ \+$//c<CR>
-
     noremap k gk
     noremap j gj
 
@@ -288,6 +284,9 @@
     autocmd FileType coq call coquille#CoqideMapping()
 
     " add some hotkeys for rather tedious perd commands
-    nmap <leader>l :PerdLoad<CR>
-    nmap <leader>L :PerdLoad<CR>:PerdSwitch<CR>
-    nmap <leader>z :PerdUnload<CR>
+    nmap <Leader>l :PerdLoad<CR>
+    nmap <Leader>L :PerdLoad<CR>:PerdSwitch<CR>
+    nmap <Leader>z :PerdUnload<CR>
+
+    " git splitspace
+    nmap <Leader>s :%!git stripspace<CR>

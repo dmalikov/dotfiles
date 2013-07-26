@@ -132,9 +132,7 @@
 
     set colorcolumn=80
 
-    " don’t worry, I’m using two spaces like a sane person (http://stevelosh.com/blog/2012/10/why-i-two-space/)
-    set cpo+=J
-
+    " I should do nothing, REMOVE ME
     if $TMUX == ''
         set clipboard+=unnamed
     endif
@@ -159,19 +157,6 @@
     let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['haskell','tex'] }
     let g:syntastic_python_checkers=['flake8']
     let g:syntastic_python_checker_args='--ignore=E501'
-
-    " add some hotkeys for rather tedious perd commands
-    nmap <Leader>l :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>
-    nmap <Leader>L :PerdLoad<CR>:call system('tmux select-layout main-vertical')<CR>:PerdSwitch<CR>
-    nmap <Leader>z :PerdUnload<CR>
-
-    let g:perd_ghci_settings = '-package-db=cabal-dev/packages-7.6.1.conf'
-    let g:perd_ghci_fallback = 1
-
-    " for vim-perd
-    autocmd VimResized * normal =
-    autocmd VimLeave * bufdo :if exists(':PerdUnload') | execute 'PerdUnload' | endif
-    autocmd BufDelete *.hs PerdUnload '<afile>'
 
     " Use ruby syntax for capfiles
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby
@@ -282,11 +267,6 @@
     autocmd FileType haskell nnoremap <Leader>sh :%!stylish-haskell<CR>
 
     autocmd FileType coq call coquille#CoqideMapping()
-
-    " add some hotkeys for rather tedious perd commands
-    nmap <Leader>l :PerdLoad<CR>
-    nmap <Leader>L :PerdLoad<CR>:PerdSwitch<CR>
-    nmap <Leader>z :PerdUnload<CR>
 
     " git splitspace
     nmap <Leader>s :%!git stripspace<CR>

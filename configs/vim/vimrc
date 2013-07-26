@@ -169,6 +169,8 @@
     " let g:xml_syntax_folding=1
     autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2 foldmethod=syntax
 
+    autocmd FileType eruby,javascript setlocal expandtab shiftwidth=2 softtabstop=2
+
     " ingore whitespaces (vimdiff)
     set diffopt+=iwhite " ignore whitespaces
 

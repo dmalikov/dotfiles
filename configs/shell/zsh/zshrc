@@ -38,7 +38,7 @@ alias idea='~/downloads/idea-IC-129.713/bin/idea.sh'
 # external monitor helper
 declare MAINDISPLAY=LVDS1
 setdisplay() {
-    local -r NEWDISPLAY=${2:-DP1}
+    local -r NEWDISPLAY=${2:-DP2}
     source ${HOME}/.prexinit
     case $1 in
             on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;

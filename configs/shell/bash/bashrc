@@ -31,7 +31,7 @@ export PS1="\[\033[0;33m\][ \[\033[0;32m\]\w\[\033[0;33m\] ]\[\033[0;33m\] \n\[\
 # external monitor helper
 declare MAINDISPLAY=LVDS1
 setdisplay() {
-    local -r NEWDISPLAY=${2:-DP1}
+    local -r NEWDISPLAY=${2:-DP2}
     source ${HOME}/.prexinit
     case $1 in
             on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;

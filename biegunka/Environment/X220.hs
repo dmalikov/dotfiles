@@ -38,7 +38,6 @@ profiles = sequence_
   , profile_ghc
   , profile_git
   , profile_gtk
-  , profile_misc
   , profile_mpd
   , profile_mplayer
   , profile_pentadactyl

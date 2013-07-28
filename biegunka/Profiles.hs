@@ -1,7 +1,6 @@
 {-# LANGUAGE DataKinds, ScopedTypeVariables #-}
 module Profiles where
 import           Control.Lens
-import           Control.Monad               (forM)
 import           Data.Default                (def)
 import           Text.Regex.PCRE             ((=~))
 
@@ -11,6 +10,9 @@ import           Control.Biegunka.Source.Git
 dotfiles :: Script Actions () -> Script Sources ()
 dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as
 
+pathogenize (repo :: String) = git_ ("git@github.com:" ++ repo ++ ".git") (".vim/bundle/" ++ plugin)
+  where plugin = repo =~ "([^/]+/)(.*)" !! 0 !! 2
+
 profile_vim :: Script Sources ()
 profile_vim = do
   profile "vim/pathogen/meta" $ do
@@ -19,27 +21,27 @@ profile_vim = do
   profile "vim/pathogen/modules" $ do
     git "git@github.com:Shougo/vimproc.git" ".vim/bundle/vimproc" $
       shell "make -f make_unix.mak"
-    pathogenize
-      [ "Shougo/neocomplcache.git"
-      , "Shougo/unite.vim.git"
-      , "airblade/vim-gitgutter.git"
-      , "dahu/Insertlessly.git"
-      , "godlygeek/tabular.git"
-      , "scrooloose/syntastic.git"
-      , "spolu/dwm.vim.git"
-      , "supki/vim-perds.git"
-      , "tpope/vim-commentary.git"
-      , "tpope/vim-markdown.git"
-      , "tpope/vim-surround.git"
-      , "ujihisa/neco-ghc.git"
-      , "jvoorhis/coq.vim.git"
-      , "trefis/coquille.git"
-      , "def-lkb/vimbufsync.git"
-      , "suan/vim-instant-markdown.git"
-      , "merlinrebrovic/focus.vim.git"
-      , "vim-scripts/YankRing.vim.git"
-      , "derekwyatt/vim-sbt.git"
-      , "takac/vim-hardtime.git"
+    mapM pathogenize
+      [ "Shougo/neocomplcache"
+      , "Shougo/unite.vim"
+      , "airblade/vim-gitgutter"
+      , "dahu/Insertlessly"
+      , "godlygeek/tabular"
+      , "scrooloose/syntastic"
+      , "spolu/dwm.vim"
+      , "supki/vim-perds"
+      , "tpope/vim-commentary"
+      , "tpope/vim-markdown"
+      , "tpope/vim-surround"
+      , "ujihisa/neco-ghc"
+      , "jvoorhis/coq.vim"
+      , "trefis/coquille"
+      , "def-lkb/vimbufsync"
+      , "suan/vim-instant-markdown"
+      , "merlinrebrovic/focus.vim"
+      , "vim-scripts/YankRing.vim"
+      , "derekwyatt/vim-sbt"
+      , "takac/vim-hardtime"
       ]
   profile "vim/rc" $
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
@@ -47,10 +49,6 @@ profile_vim = do
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
   profile "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
- where
-  pathogenize repos = forM repos $ \(r :: String) ->
-      let plugin :: String = r =~ ("([^/]+/)(.*)(.git)" :: String) !! 0 !! 2 in
-        git_ ("git@github.com:" ++ r) (".vim/bundle/" ++ plugin)
 
 
 profile_xmonad :: Script Sources ()
@@ -95,10 +93,10 @@ profile_x = profile "X" $ do
 
 profile_ghc :: Script Sources ()
 profile_ghc = profile "ghc" $ do
-  dotfiles $
+  mapM pathogenize ["eagletmt/ghcmod-vim", "bitc/vim-hdevtools"]
+  dotfiles $ do
     copy "configs/ghc/ghci" ".ghci"
-  git_ "git@github.com:eagletmt/ghcmod-vim.git" ".vim/bundle/ghcmod-vim"
-  git_ "git@github.com:bitc/vim-hdevtools.git" ".vim/bundle/hdevtools"
+    copy "configs/ghc/stylish-haskell.yaml" ".stylish-haskell.yaml"
 
 profile_irssi :: Script Sources ()
 profile_irssi = profile "irssi" $
@@ -191,8 +189,3 @@ profile_zathura :: Script Sources ()
 profile_zathura = profile "zathura" $
   dotfiles $
     copy "configs/zathura/zathurarc" ".config/zathura/zathurarc"
-
-profile_misc :: Script Sources ()
-profile_misc = do
-  profile "misc/hpasteit" $
-    git_ "git@github.com:parcs/hpasteit.git" "projects/misc/hpasteit"

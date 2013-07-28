@@ -9,7 +9,8 @@ import           Control.Biegunka.Source.Git
 dotfiles :: Script Actions () -> Script Sources ()
 dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as
 
-pathogenize repo = git_ ("git@github.com:" ++ repo) (".vim/bundle/")
+pathogenize repo = git ("git@github.com:" ++ repo) (".vim/bundle/")
+pathogenize_ repo = pathogenize repo (return ())
 
 profile_vim :: Script Sources ()
 profile_vim = do
@@ -17,9 +18,9 @@ profile_vim = do
     git "git@github.com:tpope/vim-pathogen.git" "projects/misc/vim-pathogen" $
       copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
   profile "vim/pathogen/modules" $ do
-    git "git@github.com:Shougo/vimproc.git" ".vim/bundle/vimproc" $
+    pathogenize "Shougo/vimproc" $
       shell "make -f make_unix.mak"
-    mapM pathogenize
+    mapM pathogenize_
       [ "Shougo/neocomplcache"
       , "Shougo/unite.vim"
       , "airblade/vim-gitgutter"
@@ -91,7 +92,7 @@ profile_x = profile "X" $ do
 
 profile_ghc :: Script Sources ()
 profile_ghc = profile "ghc" $ do
-  mapM pathogenize ["eagletmt/ghcmod-vim", "bitc/vim-hdevtools"]
+  mapM pathogenize_ ["eagletmt/ghcmod-vim", "bitc/vim-hdevtools"]
   dotfiles $ do
     copy "configs/ghc/ghci" ".ghci"
     copy "configs/ghc/stylish-haskell.yaml" ".stylish-haskell.yaml"

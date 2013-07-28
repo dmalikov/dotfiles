@@ -11,4 +11,5 @@ executable dotfiles
     biegunka >= 0.2,
     data-default >= 0.5.0,
     lens >= 3.9,
-    optparse-applicative >= 0.5.2
+    optparse-applicative >= 0.5.2,
+    regex-pcre-builtin >= 0.94.4.7.8.31

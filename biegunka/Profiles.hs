@@ -1,7 +1,9 @@
-{-# LANGUAGE DataKinds     #-}
+{-# LANGUAGE DataKinds, ScopedTypeVariables #-}
 module Profiles where
 import           Control.Lens
-import           Data.Default          (def)
+import           Control.Monad               (forM)
+import           Data.Default                (def)
+import           Text.Regex.PCRE             ((=~))
 
 import           Control.Biegunka
 import           Control.Biegunka.Source.Git
@@ -17,32 +19,39 @@ profile_vim = do
   profile "vim/pathogen/modules" $ do
     git "git@github.com:Shougo/vimproc.git" ".vim/bundle/vimproc" $
       shell "make -f make_unix.mak"
-    git_ "git@github.com:Shougo/neocomplcache.git" ".vim/bundle/neocomplcache"
-    git_ "git@github.com:Shougo/unite.vim.git" ".vim/bundle/unite"
-    git_ "git@github.com:airblade/vim-gitgutter.git" ".vim/bundle/gitgutter"
-    git_ "git@github.com:dahu/Insertlessly.git" ".vim/bundle/Insertlessly"
-    git_ "git@github.com:godlygeek/tabular.git" ".vim/bundle/tabular"
-    git_ "git@github.com:scrooloose/syntastic.git" ".vim/bundle/syntastic"
-    git_ "git@github.com:spolu/dwm.vim.git" ".vim/bundle/dwm"
-    git_ "git@github.com:supki/vim-perds.git" ".vim/bundle/perds"
-    git_ "git@github.com:tpope/vim-commentary.git" ".vim/bundle/commentary"
-    git_ "git@github.com:tpope/vim-markdown.git" ".vim/bundle/markdown"
-    git_ "git@github.com:tpope/vim-surround.git" ".vim/bundle/surround"
-    git_ "git@github.com:ujihisa/neco-ghc.git" ".vim/bundle/neco-ghc"
-    git_ "git@github.com:jvoorhis/coq.vim.git" ".vim/bundle/coq"
-    git_ "git@github.com:trefis/coquille.git" ".vim/bundle/coquille"
-    git_ "git@github.com:def-lkb/vimbufsync.git" ".vim/bundle/bufsync"
-    git_ "git@github.com:suan/vim-instant-markdown.git" ".vim/bundle/instant-markdown"
-    git_ "git@github.com:merlinrebrovic/focus.vim.git" ".vim/bundle/focus.vim"
-    git_ "git@github.com:vim-scripts/YankRing.vim.git" ".vim/bundle/yankring.vim"
-    git_ "git@github.com:derekwyatt/vim-sbt.git" ".vim/bundle/sbt.vim"
-    git_ "git@github.com:takac/vim-hardtime.git" ".vim/bundle/hardtime.vim"
+    pathogenize
+      [ "Shougo/neocomplcache.git"
+      , "Shougo/unite.vim.git"
+      , "airblade/vim-gitgutter.git"
+      , "dahu/Insertlessly.git"
+      , "godlygeek/tabular.git"
+      , "scrooloose/syntastic.git"
+      , "spolu/dwm.vim.git"
+      , "supki/vim-perds.git"
+      , "tpope/vim-commentary.git"
+      , "tpope/vim-markdown.git"
+      , "tpope/vim-surround.git"
+      , "ujihisa/neco-ghc.git"
+      , "jvoorhis/coq.vim.git"
+      , "trefis/coquille.git"
+      , "def-lkb/vimbufsync.git"
+      , "suan/vim-instant-markdown.git"
+      , "merlinrebrovic/focus.vim.git"
+      , "vim-scripts/YankRing.vim.git"
+      , "derekwyatt/vim-sbt.git"
+      , "takac/vim-hardtime.git"
+      ]
   profile "vim/rc" $
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
   profile "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
+ where
+  pathogenize repos = forM repos $ \(r :: String) ->
+      let plugin :: String = r =~ ("([^/]+/)(.*)(.git)" :: String) !! 0 !! 2 in
+        git_ ("git@github.com:" ++ r) (".vim/bundle/" ++ plugin)
+
 
 profile_xmonad :: Script Sources ()
 profile_xmonad = do

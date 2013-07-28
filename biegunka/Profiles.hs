@@ -2,7 +2,6 @@
 module Profiles where
 import           Control.Lens
 import           Data.Default                (def)
-import           Text.Regex.PCRE             ((=~))
 
 import           Control.Biegunka
 import           Control.Biegunka.Source.Git
@@ -10,8 +9,7 @@ import           Control.Biegunka.Source.Git
 dotfiles :: Script Actions () -> Script Sources ()
 dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as
 
-pathogenize (repo :: String) = git_ ("git@github.com:" ++ repo ++ ".git") (".vim/bundle/" ++ plugin)
-  where plugin = repo =~ "([^/]+/)(.*)" !! 0 !! 2
+pathogenize repo = git_ ("git@github.com:" ++ repo) (".vim/bundle/")
 
 profile_vim :: Script Sources ()
 profile_vim = do

@@ -57,9 +57,8 @@ profile_xmonad = do
       substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
   profile "xmonad/xmobar" $ do
     dotfiles $ do
-      copy "configs/xmonad/xmobar-top.hs" ".xmonad/xmobar-top.hs"
       copy "configs/xmonad/xmobar.hs" ".xmonad/xmobar.hs"
-      copy "configs/xmonad/xmobarrc" ".xmobarrc"
+      shell "ghc -O2 ${HOME}/.xmonad/xmobar.hs -o ${HOME}/.xmonad/xmobar -fforce-recomp"
 
 profile_git :: Script Sources ()
 profile_git = profile "git" $ do

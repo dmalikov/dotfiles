@@ -20,7 +20,7 @@ main = xmobar Config
   , borderColor = backgroundColor
   , bgColor = backgroundColor
   , fgColor = foregroundColor
-  , position = BottomP 100 0
+  , position = TopP 100 0
   , commands = [ Run $ Cpu
                  [ "-L", "3"
                  , "-H", "50"
@@ -89,7 +89,7 @@ main = xmobar Config
 withColor ∷ Color → String → String
 withColor = printf "<fc=%s>%s</fc>"
 
-blackBlueColor = "#202020"
+-- blackBlueColor = "#202020"
 blackColor = "#080808"
 blueColor = "#2c3c3c"
 blueColorKeyboardLayout = "#11eebb"

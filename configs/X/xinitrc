@@ -1,7 +1,7 @@
 source ${HOME}/.prexinit
 
 # run trayer
-trayer --edge bottom --align left --transparent true --widthtype pixel --width 120 --heighttype pixel --height 10 --tint 0x080808 --alpha 0 --SetDockType true &
+trayer --edge top --align left --transparent true --widthtype pixel --width 120 --heighttype pixel --height 10 --tint 0x080808 --alpha 0 --SetDockType true &
 
 # run kbdd daemon
 /usr/bin/kbdd &

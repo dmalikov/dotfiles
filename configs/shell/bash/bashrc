@@ -27,7 +27,6 @@ PROMPT_COMMAND=''
 
 export PS1="\[\033[0;33m\][ \[\033[0;32m\]\w\[\033[0;33m\] ]\[\033[0;33m\] \n\[\033[0m\]$> "
 
-
 # external monitor helper
 declare MAINDISPLAY=LVDS1
 setdisplay() {
@@ -46,26 +45,6 @@ alias ssh='TERM=xterm-color ssh'
 alias racket='rlwrap racket'
 alias mvn='mvn-2.2'
 alias git-home='cd $(git rev-parse --show-toplevel)'
-alias ihach='iconv -cf inis-cyrillic'
-
-# xmobar stuff
-setxmobar () {
-    ghc -O2 $HOME/.xmonad/xmobar.hs -o ~/.xmonad/xmobar -fforce-recomp
-}
-
-setxmobar-top () {
-    ghc -O2 $HOME/.xmonad/xmobar-top.hs -o ~/.xmonad/xmobar-top -fforce-recomp
-}
-
-setxmobar-wide () {
-    ghc -O2 $HOME/.xmonad/xmobar-wide.hs -o ~/.xmonad/xmobar -fforce-recomp
-}
-
-# knife stuff
-source ~/.bash-qik-stuff
-function knife-opscode () {
-    knife $@ -c ~/.chef/knife-opscode.rb
-}
 
 # ruby stuff
 unset RUBYOPT

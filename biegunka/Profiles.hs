@@ -56,6 +56,8 @@ profile_xmonad = do
     dotfiles $
       substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
   profile "xmonad/xmobar" $ do
+    git "git@github.com:dmalikov/xmobar-usable" "projects/dmalikov/xmobar-usable" $
+      shell "cabal install --flags=\"all_extensions\""
     dotfiles $ do
       copy "configs/xmonad/xmobar.hs" ".xmonad/xmobar.hs"
       shell "ghc -O2 ${HOME}/.xmonad/xmobar.hs -o ${HOME}/.xmonad/xmobar -fforce-recomp"

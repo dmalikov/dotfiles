@@ -125,14 +125,6 @@ filetype *.jpg,*.jpeg,*.png,*.gif viewnior %c
 " Md5
 filetype *.md5 md5sum -c %f
 
-" FuseZipMount
-filetype *.zip,*.jar,*.war,*.ear FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR
-fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
-
-" ArchiveMount
-filetype *.bz2,*.tgz,*.tar.gz FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
-fileviewer *.bz2,*.tgz,*.tar.gz tar -tzf %c
-
 " Rar2FsMount
 filetype *.rar FUSE_MOUNT|rar2fs %SOURCE_FILE %DESTINATION_DIR
 
@@ -141,6 +133,10 @@ filetype *.iso FUSE_MOUNT|fuseiso %SOURCE_FILE %DESTINATION_DIR
 
 " SshMount
 filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+" Archive
+filetype *.zip unzip %f
+filetype *.rar unrar e %f
 
 " For automated FUSE mounts, you must register an extension with FILETYPE=..
 " in one of following formats:

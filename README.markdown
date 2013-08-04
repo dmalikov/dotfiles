@@ -39,22 +39,38 @@ something executable:
 $> cabal install biegunka/dotfiles.cabal
 ```
 
-Currenty I have only 2 active laptops managed by biegunka - `x220` and `t510`
-(these names is used as identifiers for each of the `Environment`s). I'm
+And now `dotfiles` executable is ready to go:
+
+```
+$> dotfiles
+Usage: dotfiles (--x220 | --macBookPro) ([--run] | [--safe-run] | [--full] | [--dry-run] | [--check])
+
+Available options:
+  -h,--help                Show this help text
+  --x220                   Use x220 settings
+  --macBookPro             Use macBookPro settings
+  --run                    Do real run
+  --safe-run               Do real run (after confirmation)
+  --full                   Do dry run, real run (after confirmation) and then check results
+  --dry-run                Do only dry run, do not touch anything
+  --check                  Compare current filesystem state against script
+```
+
+Currenty there is only one active laptop managed by biegunka - `x220`
+(this name is used as identifier for each of the `Environment`s). I'm
 updating my `github:dotfiles` repository from time to time, and biegunka helps
 here that each of working station could have up to date configuration.
 
 Dotfiles installation with `x220` profile:
 
 ```
-$> dotfiles -e x220
+$> dotfiles --x220 --run
 ```
 
-`pretend` flag shows what [`biegunka`][biegunka] gonna install:
+`--dry-run` flag shows what [`biegunka`][biegunka] gonna install:
 
 ```
-$> dotfiles -e x220 --pretend
-Print full log? [yN]: y
+$> dotfiles --x220 --dry-run
 update git source git@github.com:dmalikov/dotfiles at /home/m/projects/dmalikov/dotfiles
   /home/m/.ackrc is a copy of /home/m/projects/dmalikov/dotfiles/configs/ack/ackrc
 ...
@@ -65,16 +81,15 @@ update git source git@github.com:dmalikov/dotfiles at /home/m/projects/dmalikov/
   /home/m/.xmonad/xmobar.hs is a copy of /home/m/projects/dmalikov/dotfiles/configs/xmonad/xmobar.hs
   /home/m/.xmobarrc is a copy of /home/m/projects/dmalikov/dotfiles/configs/xmonad/xmobarrc
 
-Press any key to continue
 ```
 This is a full log of what [`biegunka`][biegunka] is preparing to do. It is
 kinda usable when you're managing some important files or it is a first
 [`biegunka`][biegunka] run on experementative machine.
 
 
-There is another useful command named `verify`:
+There is another useful command named `check`:
 ```
-$> dotfiles --verify -e x220
+$> dotfiles --x220 --check
 ...
 [localhost] (git@github.com:tpope/vim-surround.git) update git source at /home/m/.vim/bundle/surround
 [localhost] (git@github.com:ujihisa/neco-ghc.git) update git source at /home/m/.vim/bundle/neco-ghc
@@ -97,33 +112,41 @@ $> dotfiles --pretend --verify -e t510
 
 ## How it works?
 
-`dotfiles` package consist of `Main.hs`, `Profiles.hs` and `Environment/*`
+`dotfiles` package consist of `Main.hs`, `Profiles.hs` and `Environment/'
 modules.
 
-`Main.hs` is a main module. It contains command-line options parser and
-`biegunka` function call:
+`Main.hs` is a main module. It contains a very important `TH` call
 
 ```haskell
-biegunka (set root "~") (pretend' <> execute (set templates $ Templates settings') <> verify') profiles'
+makeOptionParser ''Environment
 ```
 
-`profiles` is a variable of `:: Script Profiles ()` type. It contains all
+which automatically generate all necessary cmdline options and stuff.
+
+```haskell
+  (env, r) <- optionsParser
+  case env of
+    X220 -> r (set root "~" . set templates (hStringTemplate X220.settings)) X220.profiles
+```
+
+`profiles` is a variable of `:: Script Sources ()` type. It contains all
 information about what _profiles_ will be installed.
 
 `Profiles.hs` file contains all profiles that I have. Here is example of xmonad
 profile:
 
 ```haskell
-profile_xmonad :: Script Profiles ()
+profile_xmonad :: Script Sources ()
 profile_xmonad = do
   profile "xmonad/xmonad.hs" $
     dotfiles $
       substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
   profile "xmonad/xmobar" $ do
+    git "git@github.com:dmalikov/xmobar-usable" "projects/dmalikov/xmobar-usable" $
+      shell "cabal install --flags=\"all_extensions\""
     dotfiles $ do
-      copy "configs/xmonad/xmobar-top.hs" ".xmonad/xmobar-top.hs"
       copy "configs/xmonad/xmobar.hs" ".xmonad/xmobar.hs"
-      copy "configs/xmonad/xmobarrc" ".xmobarrc"
+      shell "ghc -O2 ${HOME}/.xmonad/xmobar.hs -o ${HOME}/.xmonad/xmobar -fforce-recomp"
 ```
 
 `dotfiles` is a function stands for a link to my dotfile repository:
@@ -168,9 +191,6 @@ settings = def
     }
 ...
 ```
-
-`T510` environment doesn't have these variables and `set_user` is equal to
-`False` for it.
 
 `git` profiles has these call:
 

@@ -103,13 +103,6 @@ So this `verify` command force [`biegunka`][biegunka] to check that all actions
 defined in `Profiles` is done. `--verify` and `--pretend` options could be used
 the same time.
 
-Configuring dotfiles on the other working station (`t510`) looks similar:
-
-```
-$> dotfiles --pretend --verify -e t510
-...
-```
-
 ## How it works?
 
 `dotfiles` package consist of `Main.hs`, `Profiles.hs` and `Environment/'

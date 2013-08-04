@@ -162,6 +162,8 @@
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 
+    autocmd Bufenter *.md setfiletype markdown
+
     " Use haskell syntax for biegunkofiles
     autocmd Bufenter *.biegunka setfiletype haskell
 

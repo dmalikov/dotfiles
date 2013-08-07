@@ -10,11 +10,11 @@ import Control.Biegunka.Templates.HStringTemplate
 
 data Environment = X220 | MacBookPro
 
-makeOptionsParser ''Environment
+biegunkaOptions ''Environment
 
 main :: IO ()
 main = do
-  (env, r) <- optionsParser
+  (env, r) <- options
   case env of
     X220 -> r (set root "~" . set templates (hStringTemplate X220.settings)) X220.profiles
     MacBookPro -> error "not ready yet"

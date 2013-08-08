@@ -39,6 +39,7 @@ profile_vim = do
       , "vim-scripts/YankRing.vim"
       , "derekwyatt/vim-sbt"
       , "takac/vim-hardtime"
+      , "elzr/vim-json"
       ]
   profile "vim/rc" $
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"

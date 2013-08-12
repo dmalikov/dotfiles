@@ -11,3 +11,5 @@ af=scaletempo
 
 # https://wiki.archlinux.org/index.php/MPlayer#SMPlayer:_Fail_to_resume_playback_after_pause
 ao=pulse
+
+vo=xv

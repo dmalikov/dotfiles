@@ -115,6 +115,11 @@ profile_mplayer = profile "mplayer" $
     copy "configs/mplayer/config" ".mplayer/config"
     copy "configs/mplayer/input.conf" ".mplayer/input.conf"
 
+profile_mpv :: Script Sources ()
+profile_mpv = profile "mpv" $
+  dotfiles $ do
+    copy "configs/mpv/input.conf" ".mpv/input.conf"
+
 profile_pentadactyl :: Script Sources ()
 profile_pentadactyl = profile "pentadactyl" $
   dotfiles $ do

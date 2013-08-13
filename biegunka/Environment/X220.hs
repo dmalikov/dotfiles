@@ -40,6 +40,7 @@ profiles = sequence_
   , profile_gtk
   , profile_mpd
   , profile_mplayer
+  , profile_mpv
   , profile_pentadactyl
   , profile_ruby
   , profile_shell

@@ -9,12 +9,10 @@ import           Control.Biegunka.Source.Git
 dotfiles :: Script Actions () -> Script Sources ()
 dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as
 
-pathogenize repo = git ("git@github.com:" ++ repo) (".vim/bundle/")
-pathogenize_ repo = pathogenize repo (return ())
-
 profile_vim :: Script Sources ()
 profile_vim = do
-  profile "vim/rc" $
+  profile "vim/rc" $ do
+    git_ "Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
@@ -64,8 +62,7 @@ profile_x = profile "X" $ do
     copy "configs/X/xinitrc" ".xinitrc"
 
 profile_ghc :: Script Sources ()
-profile_ghc = profile "ghc" $ do
-  mapM pathogenize_ ["eagletmt/ghcmod-vim", "bitc/vim-hdevtools"]
+profile_ghc = profile "ghc" $
   dotfiles $ do
     copy "configs/ghc/ghci" ".ghci"
     copy "configs/ghc/stylish-haskell.yaml" ".stylish-haskell.yaml"

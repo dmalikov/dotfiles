@@ -83,6 +83,8 @@
  NeoBundle "derekwyatt/vim-sbt"
  NeoBundle "takac/vim-hardtime"
  NeoBundle "elzr/vim-json"
+ NeoBundle "eagletmt/ghcmod-vim"
+ NeoBundle "bitc/vim-hdevtools"
 
  NeoBundleCheck
 

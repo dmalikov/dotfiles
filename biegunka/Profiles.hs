@@ -14,33 +14,6 @@ pathogenize_ repo = pathogenize repo (return ())
 
 profile_vim :: Script Sources ()
 profile_vim = do
-  profile "vim/pathogen/meta" $ do
-    git "git@github.com:tpope/vim-pathogen.git" "projects/misc/vim-pathogen" $
-      copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
-  profile "vim/pathogen/modules" $ do
-    pathogenize "Shougo/vimproc" $
-      shell "make -f make_unix.mak"
-    mapM pathogenize_
-      [ "Shougo/neocomplcache"
-      , "Shougo/unite.vim"
-      , "airblade/vim-gitgutter"
-      , "dahu/Insertlessly"
-      , "godlygeek/tabular"
-      , "scrooloose/syntastic"
-      , "spolu/dwm.vim"
-      , "supki/vim-perds"
-      , "tpope/vim-commentary"
-      , "tpope/vim-surround"
-      , "ujihisa/neco-ghc"
-      , "jvoorhis/coq.vim"
-      , "trefis/coquille"
-      , "def-lkb/vimbufsync"
-      , "merlinrebrovic/focus.vim"
-      , "vim-scripts/YankRing.vim"
-      , "derekwyatt/vim-sbt"
-      , "takac/vim-hardtime"
-      , "elzr/vim-json"
-      ]
   profile "vim/rc" $
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $

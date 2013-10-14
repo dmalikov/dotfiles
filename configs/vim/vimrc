@@ -85,6 +85,7 @@
  NeoBundle "elzr/vim-json"
  NeoBundle "eagletmt/ghcmod-vim"
  NeoBundle "bitc/vim-hdevtools"
+ NeoBundle "git@github.com:kongo2002/fsharp-vim.git"
 
  NeoBundleCheck
 

@@ -313,3 +313,5 @@
 
     " git splitspace
     nmap <Leader>s :%!git stripspace<CR>
+
+    nnoremap <F6> :%s/<c-r><c-w>//gc<left><left><left>

@@ -38,6 +38,7 @@ $endif$
     branch = auto
     diff = auto
     status = auto
+    ui = true
 
 [color "branch"]
     current = yellow reverse

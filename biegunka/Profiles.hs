@@ -117,7 +117,8 @@ profile_shell = do
   profile "shell/bash" $
     dotfiles $
       copy "configs/shell/bash/bashrc" ".bashrc"
-  profile "shell/zsh" $
+  profile "shell/zsh" $ do
+    git_ "git@github.com:zsh-users/zsh-completions" "projects/misc/"
     dotfiles $ do
       copy "configs/shell/zsh/zshrc" ".zshrc"
       copy "configs/shell/zsh/zprofile" ".zprofile"

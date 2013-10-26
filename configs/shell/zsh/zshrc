@@ -1,6 +1,7 @@
 autoload -U compinit promptinit colors
 
 # completion settings
+fpath=(~/projects/misc/zsh-completions/src $fpath)
 compinit
 zstyle ':completion::complete:*' use-cache 1
 

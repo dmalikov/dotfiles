@@ -37,9 +37,6 @@
     let g:neocomplcache_enable_at_startup = 1
     let g:neocomplcache_force_overwrite_completefunc = 1
 
-    let g:hardtime_default_on = 1
-    let g:hardtime_showmsg = 0
-
 "=====================================
 " FUNCTIONS
 "=====================================
@@ -81,7 +78,6 @@
  NeoBundle "merlinrebrovic/focus.vim"
  NeoBundle "vim-scripts/YankRing.vim"
  NeoBundle "derekwyatt/vim-sbt"
- NeoBundle "takac/vim-hardtime"
  NeoBundle "elzr/vim-json"
  NeoBundle "eagletmt/ghcmod-vim"
  NeoBundle "bitc/vim-hdevtools"

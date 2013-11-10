@@ -16,3 +16,5 @@ setxkbmap -option compose:ralt
 # fix xcompose in gtk applications
 export GTK_IM_MODULE=xim
 
+# disable Display Power Managing Signaling
+xset -dpms

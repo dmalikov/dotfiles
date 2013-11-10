@@ -79,3 +79,4 @@ bind generic P !git pull --rebase origin %(branch)
 bind generic R !git revert %(commit)
 bind generic ^r !git reset --soft %(commit)
 bind generic + !git commit --amend
+bind generic > !git push origin %(branch)

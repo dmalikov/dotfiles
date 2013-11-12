@@ -64,7 +64,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList \$
   , ( ( modm .|. controlMask, xK_0      ), spawn volume_increase )
   , ( ( modm .|. controlMask, xK_m      ), spawn volume_toggle_mute )
   , ( ( modm .|. controlMask, xK_u      ), spawn uzbl_tabbed )
-  , ( ( modm .|. controlMask, xK_j      ), spawnOn "t" jws_irssi )
+  , ( ( modm .|. controlMask, xK_j      ), spawnOn "t" do_weechat )
   , ( ( modm .|. controlMask, xK_p      ), spawn mpc_toggle )
   , ( ( modm .|. controlMask, xK_period ), spawn mpc_next )
   , ( ( modm                , xK_j      ), CWS.prevWS )
@@ -197,7 +197,7 @@ myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", 
 -- applications
 gvim = "gvim"
 hpasteit = "xclip -o -selection primary | hpasteit | xclip -i -selection primary"
-jws_irssi = urxvt ++ " -title jεωs -e ssh jws -t 'export LANG=en_US.UTF-8; tmux attach-session -t irssi'"
+do_weechat = urxvt ++ " -title jεωs -e ssh do -t 'export LANG=en_US.UTF-8; tmux attach-session -t weechat'"
 lock_screen = "xtrlock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"

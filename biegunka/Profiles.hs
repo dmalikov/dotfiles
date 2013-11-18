@@ -154,6 +154,11 @@ profile_uzbl = profile "uzbl" $
   dotfiles $
     copy "configs/uzbl/config" ".config/uzbl/config"
 
+profile_dwb :: Script Sources ()
+profile_dwb = profile "dwb" $
+  dotfiles $
+    copy "configs/dwb/settings" ".config/dwb/settings"
+
 profile_vifm :: Script Sources ()
 profile_vifm = profile "vifm" $
   dotfiles $ do

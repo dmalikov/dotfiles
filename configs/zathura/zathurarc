@@ -12,4 +12,7 @@ set inputbar-fg "#9e4a00"
 set statusbar-bg "#121212"
 set statusbar-fg "#9e4a00"
 
-set font "Terminus normal 6"
+set font "Terminus normal 8"
+
+map <Space> navigate next
+map <S-Space> navigate previous

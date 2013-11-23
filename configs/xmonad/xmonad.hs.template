@@ -1,4 +1,5 @@
-{-# LANGUAGE UnicodeSyntax #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
 import           Control.Applicative             ((<\$>))
 import           Control.Monad                   (liftM2)
 import           Data.List                       (isPrefixOf)
@@ -37,20 +38,20 @@ import           XMonad.Util.Run                 (runProcessWithInput,
 import           XMonad.Util.Scratchpad
 import           XMonad.Util.WorkspaceScreenshot
 
-main ∷ IO ()
+main :: IO ()
 main = do
   initCapturing
-  xmproc <- spawnPipe xmobar_run
-  xmonad \$ defaultConfig
-    { borderWidth        = 1
-    , focusFollowsMouse  = False
+  xmproc <- spawnPipe xmobar'
+  xmonad \$ def
+    { borderWidth        = 7
     , focusedBorderColor = orangeDarkestColor
-    , keys               = liftM2 union myKeys (keys defaultConfig)
+    , normalBorderColor  = blackDarkColor
+    , focusFollowsMouse  = False
+    , keys               = liftM2 union myKeys (keys def)
     , layoutHook         = myLayoutHook
     , logHook            = myLogHook xmproc
-    , manageHook         = manageDocks <+> manageHook defaultConfig <+> myManageHook
+    , manageHook         = manageDocks <+> manageHook def <+> myManageHook
     , modMask            = mod4Mask
-    , normalBorderColor  = blackDarkColor
     , startupHook        = myStartupHook
     , terminal           = myTerminal
     , workspaces         = myWorkspaces
@@ -70,7 +71,6 @@ myKeys conf@(XConfig {modMask = modm}) = fromList \$
   , ( ( modm                , xK_j      ), CWS.prevWS )
   , ( ( modm                , xK_k      ), CWS.nextWS )
   , ( ( modm                , xK_s      ), scratchpadSpawnAction conf )
-  , ( ( modm                , xK_g      ), spawn gvim )
   , ( ( modm                , xK_a      ), sendMessage MirrorShrink )
   , ( ( modm                , xK_z      ), sendMessage MirrorExpand )
   , ( ( modm                , xK_m      ), windows S.swapMaster )
@@ -87,22 +87,16 @@ myKeys conf@(XConfig {modMask = modm}) = fromList \$
             windows \$ swapWithCurrent i
             windows \$ S.greedyView \$ S.currentTag s
   ]
+    where
+      visible :: WindowSpace -> X Bool = return . isJust . S.stack
+      current :: WindowSpace -> X Bool = \\w -> withWindowSet \$ (\\ws -> return \$ (S.tag . S.workspace . S.current \$ ws) == S.tag w)
+      moveToImg :: FilePath -> IO () = \\filepath -> do
+        hd <- getHomeDirectory
+        date <- formatTime defaultTimeLocale "%F-%X" <\$> getCurrentTime
+        let newFileName = joinPath [hd, "img", "screen", "own", "xmonad", date] <.> "png"
+        renameFile filepath newFileName
 
--- xmonad-screenshoter stuff
-visible ∷ WindowSpace → X Bool
-visible = return . isJust . S.stack
-
-current ∷ WindowSpace → X Bool
-current w = withWindowSet \$ (\\ws → return \$ (S.tag . S.workspace . S.current \$ ws) == S.tag w)
-
-moveToImg ∷ FilePath → IO ()
-moveToImg filepath = do
-  hd ← getHomeDirectory
-  date ← formatTime defaultTimeLocale "%F-%X" <\$> getCurrentTime
-  let newFileName = joinPath [hd, "img", "screen", "own", "xmonad", date] <.> "png"
-  renameFile filepath newFileName
-
-myLogHook ∷ Handle → X ()
+myLogHook :: Handle -> X ()
 myLogHook h = do
   ewmhDesktopsLogHook
   updatePointer (Relative 0.5 0.5)
@@ -116,7 +110,7 @@ myLogHook h = do
     }
   fadeInactiveLogHook 0.7
 
-myManageHook ∷ ManageHook
+myManageHook :: ManageHook
 myManageHook = scratchpadHook <+> composeAll
   [ myIgnores --> doIgnore
   , myFloats  --> doFloat
@@ -127,12 +121,10 @@ myManageHook = scratchpadHook <+> composeAll
       , className =? "feh"
       , className =? "gimp"
       , className =? "Virtual Box"
-      , className =? "Git-cola"
       ]
     myIgnores = foldr1 (<||>)
       [ resource =? "panel"
       , resource =? "trayer"
-      , className =? "stalonetray"
       ]
 
 scratchpadHook = scratchpadManageHook (S.RationalRect paddingLeft paddingTop width height')
@@ -150,7 +142,7 @@ myLayoutHook = smartBorders . avoidStruts \$
     myTwoPaneRight = windowNavigation \$ combineTwo (TwoPane (1/10) (2/3)) Full (tabbedAlways shrinkText myTheme)
     myTabbed       = tabbed shrinkText myTheme
 
-myXPConfig ∷ XPConfig
+myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig
   { font = terminusFont
   , bgColor = blackDarkColor
@@ -172,30 +164,32 @@ myTheme = defaultTheme
   , decoHeight = 22
 }
 
-tmuxRun ∷ IO [String]
+tmuxRun :: IO [String]
 tmuxRun = lines <\$> runProcessWithInput "tmux" ["list-sessions", "-F", "#{session_name}"] ""
 
-tmuxPrompt ∷ XPConfig → X ()
+tmuxPrompt :: XPConfig -> X ()
 tmuxPrompt c = io tmuxRun >>= \\as -> inputPromptWithCompl c "tmux" (mkComplFunFromList' as) ?+ tmuxStart as
 
-tmuxStart ∷ [String] → String → X ()
+tmuxStart :: [String] -> String -> X ()
 tmuxStart ss s = asks (terminal . config) >>= \\term -> if s `elem` ss then attach term s else create term s
  where
   attach = \\t s' -> spawn \$ t ++ " -e tmux attach -t " ++ s'
   create = \\t s' -> spawn \$ t ++ " -e tmux new -s " ++ s'
 
 
+myStartupHook :: X ()
+myStartupHook = do
 -- Sets the WM name to a given string, so that it could be
 -- detected using _NET_SUPPORTING_WM_CHECK protocol
-myStartupHook ∷ X ()
-myStartupHook = setWMName "LG3D"
+  setWMName "LG3D"
+  spawn "~/.startup"
+
 
 myTerminal = urxvt ++ " -cd ~/"
 
 myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", "ρ", "«", "»" ]
 
 -- applications
-gvim = "gvim"
 hpasteit = "xclip -o -selection primary | hpasteit | xclip -i -selection primary"
 do_weechat = urxvt ++ " -title jεωs -e ssh do -t 'export LANG=en_US.UTF-8; tmux attach-session -t weechat'"
 lock_screen = "xtrlock"
@@ -206,7 +200,7 @@ uzbl_tabbed = "uzbl-tabbed"
 volume_decrease = "amixer sset 'Master',0 5%-"
 volume_increase = "amixer sset 'Master',0 5%+"
 volume_toggle_mute = "amixer set Master toggle"
-xmobar_run = "~/.xmonad/xmobar"
+xmobar' = "~/.xmonad/xmobar"
 
 -- colors
 orangeColor = "#ee9a00"

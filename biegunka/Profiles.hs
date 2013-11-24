@@ -66,6 +66,7 @@ profile_ghc = profile "ghc" $
   dotfiles $ do
     copy "configs/ghc/ghci" ".ghci"
     copy "configs/ghc/stylish-haskell.yaml" ".stylish-haskell.yaml"
+    copy "configs/ghc/haskeline" ".haskeline"
 
 profile_irssi :: Script Sources ()
 profile_irssi = profile "irssi" $

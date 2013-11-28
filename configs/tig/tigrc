@@ -14,6 +14,7 @@ set show-refs = yes
 set show-rev-graph = yes
 set status-untracked-dirs = off
 set tab-size = 2
+set show-id = false
 
 #==================================
 # COLOR SETTINGS

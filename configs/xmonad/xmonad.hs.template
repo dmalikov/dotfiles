@@ -191,7 +191,7 @@ myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", 
 
 -- applications
 hpasteit = "xclip -o -selection primary | hpasteit | xclip -i -selection primary"
-do_weechat = urxvt ++ " -title jεωs -e ssh do -t 'export LANG=en_US.UTF-8; tmux attach-session -t weechat'"
+do_weechat = urxvt ++ " -title jεωs -e ssh do -t 'export LANG=en_US.UTF-8 && W=weechat && (tmux attach-session -t \$W || tmux new-session -s \$W)'"
 lock_screen = "xtrlock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"

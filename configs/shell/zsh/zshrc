@@ -40,7 +40,6 @@ alias idea='~/downloads/idea-IC-129.713/bin/idea.sh'
 declare MAINDISPLAY=LVDS1
 setdisplay() {
     local -r NEWDISPLAY=${2:-DP2}
-    source ${HOME}/.prexinit
     case $1 in
             on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;
             off)    xrandr --output $NEWDISPLAY --off ;;
@@ -56,7 +55,3 @@ unset RUBYOPT
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 bindkey '^R' history-incremental-search-backward
-
-# chef stuff
-function knife-load () knife $@ -c ~/.chef/knife.load.rb
-function knife-qa () knife $@ -c ~/.chef/knife.qa.rb

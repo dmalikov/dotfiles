@@ -193,8 +193,8 @@
     let g:syntastic_python_checkers=['flake8']
     let g:syntastic_python_checker_args='--ignore=E501'
 
-    " Use ruby syntax for capfiles
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby
+    autocmd Bufenter *[vV]agrantfile setfiletype ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 
     autocmd Bufenter *.md setfiletype markdown

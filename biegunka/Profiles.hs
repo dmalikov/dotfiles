@@ -38,8 +38,6 @@ profile_git = profile "git" $ do
     substitute "configs/git/config.template" ".gitconfig"
     copy "configs/git/ignore" ".gitignore"
     copy "configs/tig/tigrc" ".tigrc"
-  git_ "git@github.com:nvie/gitflow.git" "projects/misc/gitflow"
-    -- install?
   git_ "git@github.com:arc90/git-sweep.git" "projects/misc/git-sweep"
     -- install?
 

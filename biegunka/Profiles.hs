@@ -147,8 +147,9 @@ profile_mocp = profile "mocp" $
 
 profile_tmux :: Script Sources ()
 profile_tmux = profile "tmux" $
-  dotfiles $
+  dotfiles $ do
     copy "configs/tmux/conf" ".tmux.conf"
+    copy "configs/tmux/keybindings" ".tmux.keybindings"
 
 profile_uzbl :: Script Sources ()
 profile_uzbl = profile "uzbl" $

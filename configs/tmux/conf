@@ -1,5 +1,4 @@
-unbind C-b
-set -g prefix C-a
+source ~/.tmux.keybindings
 
 set-option -g default-shell /bin/zsh
 
@@ -14,18 +13,8 @@ set-option -g xterm-keys on
 set-window-option -g aggressive-resize on
 
 # reload config without killing server
-bind R source-file ~/.tmux.conf \; display-message "  Config reloaded..".
 
 setw -g mode-keys vi
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
-
-# copy tmux buffer to clipboard
-bind C-y run "tmux show-buffer | xsel --primary"
-# move x clipboard into tmux paste buffer
-bind C-p run "tmux set-buffer \"$(xsel -o)\"; tmux paste-buffer"
-
-bind-key b set-option status
 
 set -g set-titles on
 set -g set-titles-string '[#S:#I #H] #W'

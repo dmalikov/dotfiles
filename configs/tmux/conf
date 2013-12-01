@@ -45,8 +45,8 @@ setw -g automatic-rename on
 set-option -g pane-active-border-fg colour202
 
 bind-key C-k kill-session
-bind-key -n M-j previous-window
-bind-key -n M-k next-window
+bind-key -n M-p previous-window
+bind-key -n M-n next-window
 
 setw -g mode-mouse on
 set-option -g mouse-select-pane on

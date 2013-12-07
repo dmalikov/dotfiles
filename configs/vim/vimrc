@@ -36,6 +36,7 @@
     " enable neocomplcache
     let g:neocomplcache_enable_at_startup = 1
     let g:neocomplcache_force_overwrite_completefunc = 1
+    let g:necoghc_enable_detailed_browse = 1
 
 "=====================================
 " FUNCTIONS
@@ -68,7 +69,6 @@
  NeoBundle "godlygeek/tabular"
  NeoBundle "scrooloose/syntastic"
  NeoBundle "spolu/dwm.vim"
- NeoBundle "supki/vim-perds"
  NeoBundle "tpope/vim-commentary"
  NeoBundle "tpope/vim-surround"
  NeoBundle "ujihisa/neco-ghc"
@@ -77,11 +77,10 @@
  NeoBundle "def-lkb/vimbufsync"
  NeoBundle "merlinrebrovic/focus.vim"
  NeoBundle "vim-scripts/YankRing.vim"
- NeoBundle "derekwyatt/vim-sbt"
  NeoBundle "elzr/vim-json"
  NeoBundle "eagletmt/ghcmod-vim"
  NeoBundle "bitc/vim-hdevtools"
- NeoBundle "git@github.com:kongo2002/fsharp-vim.git"
+ NeoBundle "kongo2002/fsharp-vim"
 
  NeoBundleCheck
 
@@ -100,7 +99,7 @@
 
     set statusline=#%n\ %f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=%l,%c/%L
 
-    " Show the current command in the lower right corner
+    " Show the current command in the bottom right
     set showcmd
     " Show status line for all files
     set laststatus=2

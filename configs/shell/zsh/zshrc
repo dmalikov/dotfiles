@@ -47,6 +47,12 @@ setdisplay() {
     esac
 }
 
+flac2mp3() {
+    in=${1}
+    out=${in:r}.mp3
+    flac -d ${in} -c | lame - ${out} -b 320
+}
+
 # haskell stuff
 PATH=${HOME}/bin/:$PATH:${HOME}/.cabal/bin
 

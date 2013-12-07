@@ -17,12 +17,10 @@ settings = def
     { font_size = 8
     }
   , xresource_shiva = def
-    { shiva_bold_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
-    , shiva_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
+    { shiva_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
     }
   , xresource_scratchpad = def
-    { scratchpad_bold_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
-    , scratchpad_font = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1"
+    { scratchpad_font = "-*-termsyn-medium-r-normal-*-14-*-100-100-c-70-iso8859-*"
     }
   , xmonad = def
     { terminus_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*"

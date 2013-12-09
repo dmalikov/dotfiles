@@ -61,7 +61,6 @@
  NeoBundleFetch 'Shougo/neobundle.vim'
 
  NeoBundle 'Shougo/vimproc', {'build': {'linux': 'make -f make_unix.mak' } }
-
  NeoBundle "Shougo/neocomplcache"
  NeoBundle "Shougo/unite.vim"
  NeoBundle "airblade/vim-gitgutter"
@@ -78,7 +77,6 @@
  NeoBundle "merlinrebrovic/focus.vim"
  NeoBundle "vim-scripts/YankRing.vim"
  NeoBundle "elzr/vim-json"
- NeoBundle "eagletmt/ghcmod-vim"
  NeoBundle "bitc/vim-hdevtools"
  NeoBundle "kongo2002/fsharp-vim"
  NeoBundle "kchmck/vim-coffee-script"
@@ -183,9 +181,8 @@
     let hs_highlight_debug = 1
     let hs_highlight_more_types = 1
     let hs_highlight_types = 1
-    " ghc-mod customs
-    let g:ghcmod_ghc_options = ['-Wall','-fno-warn-missing-signatures', '-fno-warn-unused-do-bind', '-fno-warn-type-defaults']
-    autocmd bufwritepost *.hs :GhcModCheck
+
+    autocmd bufwritepost *.hs :HdevtoolsClear
     " for vim-commentary
     autocmd FileType haskell set commentstring=--\ %s
 
@@ -299,10 +296,7 @@
     nnoremap <right> <nop>
 
     " Haskell maps
-    autocmd FileType haskell nnoremap <buffer> <F3> :GhcModLint<CR>
-    autocmd FileType haskell nnoremap <buffer> <F4> :GhcModCheck<CR>
-    autocmd FileType haskell nnoremap <buffer> <F5> :HdevtoolsType<CR>
-    autocmd FileType haskell nnoremap <buffer> <F6> :HdevtoolsClear<CR>
+    autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
     autocmd FileType haskell nnoremap <Leader>sh :%!stylish-haskell<CR>
 
     autocmd FileType coq call coquille#CoqideMapping()

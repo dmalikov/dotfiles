@@ -186,9 +186,13 @@
     " for vim-commentary
     autocmd FileType haskell set commentstring=--\ %s
 
-    let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['haskell','tex','java']}
-    let g:syntastic_python_checkers=['flake8']
-    let g:syntastic_python_checker_args='--ignore=E501'
+    let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'], 'passive_filetypes': ['tex','java']}
+    let g:syntastic_python_checkers = ['flake8']
+    let g:syntastic_python_checker_args = '--ignore=E501'
+    let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_auto_jump = 1
 
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby
     autocmd Bufenter *[vV]agrantfile setfiletype ruby
@@ -230,10 +234,10 @@
 
     " clear signcolumn for Syntastic and GitGutter
     highlight clear SignColumn
-    highlight GitGutterAdd ctermfg=000 ctermbg=003
-    highlight GitGutterChange ctermfg=000 ctermbg=022
-    highlight GitGutterDelete ctermfg=000 ctermbg=010
-    highlight GitGutterChangeDelete ctermfg=000 ctermbg=010
+    highlight GitGutterAdd          ctermfg=003 ctermbg=003
+    highlight GitGutterChange       ctermfg=022 ctermbg=022
+    highlight GitGutterDelete       ctermfg=010 ctermbg=010
+    highlight GitGutterChangeDelete ctermfg=010 ctermbg=010
 
     if &term =~ '^screen'
         " tmux will send xterm-style keys when xterm-keys is on
@@ -247,11 +251,6 @@
     let g:yankring_replace_n_pkey = '<Leader>p'
     let g:yankring_replace_n_nkey = '<Leader>n'
 
-"=====================================
-" GVIM SETTINGS
-"=====================================
-    set guifont=Terminus\ 8
-    set guioptions=ac
 
 "=====================================
 " KEY MAPPING SETTINGS

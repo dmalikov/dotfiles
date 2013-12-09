@@ -81,6 +81,7 @@
  NeoBundle "eagletmt/ghcmod-vim"
  NeoBundle "bitc/vim-hdevtools"
  NeoBundle "kongo2002/fsharp-vim"
+ NeoBundle "kchmck/vim-coffee-script"
 
  NeoBundleCheck
 

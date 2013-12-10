@@ -38,9 +38,9 @@ bind-key          d detach-client
 bind-key          f command-prompt "find-window '%%'"
 bind-key          i display-message
 bind-key          m last-window
-bind-key          n next-window
+bind-key -r       n next-window
+bind-key -r       p previous-window
 bind-key          o select-pane -t :.+
-bind-key          p previous-window
 bind-key          q display-panes
 bind-key          r refresh-client
 bind-key          s choose-tree

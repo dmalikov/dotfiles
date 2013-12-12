@@ -1,0 +1,12 @@
+language: haskell
+
+before_install:
+ - sudo apt-get update
+ - sudo apt-get install c2hs git # waiting for https://github.com/travis-ci/travis-ci/issues/1710
+ - cabal install cabalg
+
+install:
+ - cabalg git://github.com/biegunka/biegunka.git --branch=develop
+ - cabal install biegunka/dotfiles.cabal
+
+script: true

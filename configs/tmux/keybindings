@@ -1,6 +1,6 @@
 unbind-key -a
+set -g prefix   C-a
 
-bind-key        C-a send-prefix
 bind-key        C-o rotate-window
 bind-key        C-z suspend-client
 bind-key      Space next-layout

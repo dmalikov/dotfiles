@@ -1,0 +1,16 @@
+# number of lines kept in history
+export HISTSIZE=1000
+# number of lines saved in the history after logout
+export SAVEHIST=1000
+# location of history
+export HISTFILE=~/.zhistory
+# append command to history file once executed
+setopt inc_append_history
+# autocompletion of command line switches for aliases
+setopt completealiases
+
+export TERM='rxvt-256color'
+export COLORTERM='rxvt-unicode-256color'
+export EDITOR=vim
+typeset -U path
+path=(~/bin ~/.cabal/bin ~/.rvm/bin $path)

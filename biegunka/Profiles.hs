@@ -120,6 +120,7 @@ profile_shell = do
     git_ "git@github.com:zsh-users/zsh-completions" "projects/misc/"
     dotfiles $ do
       copy "configs/shell/zsh/zshrc" ".zshrc"
+      copy "configs/shell/zsh/zshenv" ".zshenv"
       copy "configs/shell/zsh/zprofile" ".zprofile"
 
 profile_java :: Script Sources ()

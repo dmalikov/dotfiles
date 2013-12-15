@@ -13,3 +13,5 @@ colorscheme pemees
 
 hi BufTab color: #ee9a00; background: #080808; font-weight: normal;
 hi BufTabSelected color: #ee9a00; background: #080808; font-weight: bold;
+
+set editor='urxvt -name shiva -e vim -f +<line> +"sil! call cursor(0, <column>)" <file>'

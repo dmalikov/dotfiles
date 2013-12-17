@@ -43,3 +43,4 @@ flac2mp3() {
 unset RUBYOPT
 
 bindkey '^R' history-incremental-search-backward
+source ~/.zshenv

@@ -194,6 +194,8 @@
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_auto_jump = 1
 
+    let g:hdevtools_options = '-g-Wall -g-O0'
+
     autocmd Bufenter *.[cC]apfile,[cC]apfile setfiletype ruby
     autocmd Bufenter *[vV]agrantfile setfiletype ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2

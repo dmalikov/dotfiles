@@ -79,7 +79,6 @@
  NeoBundle "trefis/coquille"
  NeoBundle "def-lkb/vimbufsync"
  NeoBundle "merlinrebrovic/focus.vim"
- NeoBundle "vim-scripts/YankRing.vim"
  NeoBundle "elzr/vim-json"
  NeoBundle "bitc/vim-hdevtools"
  NeoBundle "kongo2002/fsharp-vim"
@@ -258,10 +257,6 @@
         execute "set <xLeft>=\e[1;*D"
     endif
 
-    " yank-ring settings
-    let g:yankring_replace_n_pkey = '<Leader>p'
-    let g:yankring_replace_n_nkey = '<Leader>n'
-
     if filereadable('.vim.custom')
         source .vim.custom
     endif
@@ -285,7 +280,7 @@
     cnoremap W w
     cnoremap ц w
 
-    noremap <Leader>u :Unite file buffer<CR>
+    nmap <Leader>u :Unite file buffer<CR>
 
     " save as root with w!!
     cmap w!! w !sudo tee % > /dev/null
@@ -315,7 +310,8 @@
 
     autocmd FileType coq call coquille#CoqideMapping()
 
-    " git splitspace
     nmap <Leader>s :%!git stripspace<CR>
 
-    nnoremap <F6> :%s/<c-r><c-w>//gc<left><left><left>
+    nmap <F6> :%s/<c-r><c-w>//gc<left><left><left>
+
+    nmap gd :tjump <c-r><c-w><CR>

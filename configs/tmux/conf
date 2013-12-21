@@ -28,6 +28,7 @@ set -g status-bg default
 set -g status-interval 1
 set -g status-justify centre
 set -g status-left-length 100
+set-option -sg escape-time 0
 
 setw -g automatic-rename on
 

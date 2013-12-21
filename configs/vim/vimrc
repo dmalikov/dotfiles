@@ -48,6 +48,10 @@
         endif
     endfunction
 
+    function GenerateHasktags()
+        call system('hasktags --ignore-close-implementation --ctags . &')
+    endfunction
+
 
 "=====================================
 " PLUGINS
@@ -165,6 +169,8 @@
 
     set colorcolumn=80
 
+    set shell=zsh
+
     " I should do nothing, REMOVE ME
     if $TMUX == ''
         set clipboard+=unnamed
@@ -183,6 +189,9 @@
     let hs_highlight_types = 1
 
     autocmd bufwritepost *.hs :HdevtoolsClear
+    autocmd bufwritepost *.hs call GenerateHasktags()
+    " TODO: why `E488: Trailing characters: :HdevtoolsClear | call " GenerateHasktags()'?
+
     " for vim-commentary
     autocmd FileType haskell set commentstring=--\ %s
 

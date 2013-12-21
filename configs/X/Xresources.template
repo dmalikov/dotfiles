@@ -21,7 +21,7 @@
 *.scrollstyle: plain
 *.scrollBar: false
 *.cursorBlink: false
-*.cursorUnderline: true
+*.cursorUnderline: false
 
 ! urxvt tabs settings:
 *.tabbed.tabbar-fg: 2

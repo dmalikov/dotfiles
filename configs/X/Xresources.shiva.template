@@ -4,6 +4,8 @@ shiva.foreground: #ddd7ff
 shiva.font:     $template.xresource_shiva.shiva_font$
 shiva.boldFont: $template.xresource_shiva.shiva_font$
 
+shiva.cursorColor: #ff8f00
+
 shiva.color0:   #121212
 shiva.color1:   #404040
 shiva.color2:   #4d4c4c

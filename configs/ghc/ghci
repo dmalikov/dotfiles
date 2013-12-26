@@ -1,6 +1,6 @@
 :set +s
 :set +t
-:set prompt "> "
+:set prompt "\ESC[33m> \ESC[m"
 :m + Data.List
 :m + Control.Arrow
 :m + Control.Applicative

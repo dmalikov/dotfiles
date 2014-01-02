@@ -10,7 +10,7 @@ promptinit
 colors
 function precmd() {
     if [[ -n "$TMUX" ]]; then
-        tmux set-environment TMUXPWD_$(tmux display -p "#D" | sed 's/%//') $PWD
+        tmux set-environment TMUXPWD_$(tmux display -p "#D" | sed 's/%//') "${PWD/#$HOME/~}"
     fi
     print -rP ""
 }

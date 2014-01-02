@@ -113,16 +113,16 @@ profile_apvlv = profile "apvlv" $
 
 profile_shell :: Script Sources ()
 profile_shell = do
-  profile "shell/bash" $
+  profile "bash" $
     dotfiles $
-      copy "configs/shell/bash/bashrc" ".bashrc"
-  profile "shell/zsh" $ do
+      copy "configs/bash/bashrc" ".bashrc"
+  profile "zsh" $ do
     git_ "git@github.com:zsh-users/zsh-completions" "projects/misc/"
     dotfiles $ do
-      copy "configs/shell/zsh/zshrc" ".zshrc"
-      copy "configs/shell/zsh/zshenv" ".zshenv"
-      copy "configs/shell/zsh/zprofile" ".zprofile"
-      copy "configs/shell/zsh/tmux" ".zsh/tmux"
+      copy "configs/zsh/zshrc" ".zshrc"
+      copy "configs/zsh/zshenv" ".zshenv"
+      copy "configs/zsh/zprofile" ".zprofile"
+      copy "configs/zsh/tmux" ".zsh/tmux"
 
 profile_java :: Script Sources ()
 profile_java =

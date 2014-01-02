@@ -1,44 +1,38 @@
 source ~/.tmux.keybindings
 
-set-option -g default-shell /bin/zsh
+bind-key -n M-n next-window
+bind-key -n M-p previous-window
+bind-key C-k kill-session
 
+set -g bell-action any
+set -g default-path ""
+set -g default-shell /bin/zsh
 set -g default-terminal "xterm-256color"
 set -g display-panes-time 2000
 set -g history-limit 10000
-set -g visual-activity on
-set -g bell-action any
-set -g default-path ""
-set-option -g xterm-keys on
-
-set-window-option -g aggressive-resize on
-
-# reload config without killing server
-
-setw -g mode-keys vi
-
+set -g mouse-select-pane on
+set -g pane-active-border-fg colour202
 set -g set-titles on
 set -g set-titles-string '[#S:#I #H] #W'
-set -g status-keys vi
+set -g status-bg default
+set -g status-fg green
+set -g status-interval 1
 set -g status-interval 1
 set -g status-justify "centre"
-set -g status-left '#[fg=colour106]#(~/.zsh/tmux)#[fg=colour1] |'
-set -g status-right '#[fg=colour3]#S#[fg=colour1] (#(tmux list-sessions | wc -l))#[default]'
-set -g window-status-format '#I:#W'
-set -g window-status-current-format '#[fg=colour1]#I:#[fg=colour3]#W'
-set -g status-fg green
-set -g status-bg default
-set -g status-interval 1
 set -g status-justify centre
+set -g status-keys vi
+set -g status-left '#[fg=colour239]#(~/.zsh/tmux get_tmux_pwd)#[fg=colour1] #(~/.zsh/tmux git_branch) #[fg=colour232]#[bg=colour64]#(~/.zsh/tmux git_diff_insertions)#[fg=colour232]#[bg=colour172]#(~/.zsh/tmux git_diff_deletions)#[bg=default]'
 set -g status-left-length 100
-set-option -sg escape-time 0
+set -g status-right '#[fg=colour3]#S#[fg=colour1] (#(tmux list-sessions | wc -l))#[default]'
+set -g visual-activity on
+set -g window-status-current-format '#[fg=colour1]#I:#[fg=colour3]#W'
+set -g window-status-format '#I:#W'
+set -g xterm-keys on
 
+set -sg escape-time 0
+
+setw -g aggressive-resize on
 setw -g automatic-rename on
-
-set-option -g pane-active-border-fg colour202
-
-bind-key C-k kill-session
-bind-key -n M-p previous-window
-bind-key -n M-n next-window
-
+setw -g mode-keys vi
 setw -g mode-mouse on
-set-option -g mouse-select-pane on
+

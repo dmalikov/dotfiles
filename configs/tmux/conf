@@ -19,8 +19,10 @@ setw -g mode-keys vi
 set -g set-titles on
 set -g set-titles-string '[#S:#I #H] #W'
 set -g status-keys vi
-set -g status-left '#[fg=colour3]#S#[fg=colour106]'
-set -g status-right 'active sessions: #[fg=colour3]#(tmux list-sessions | wc -l)#[default]'
+set -g status-interval 1
+set -g status-justify "centre"
+set -g status-left '#[fg=colour106]#(~/.zsh/tmux)#[fg=colour1] |'
+set -g status-right '#[fg=colour3]#S#[fg=colour1] (#(tmux list-sessions | wc -l))#[default]'
 set -g window-status-format '#I:#W'
 set -g window-status-current-format '#[fg=colour1]#I:#[fg=colour3]#W'
 set -g status-fg green

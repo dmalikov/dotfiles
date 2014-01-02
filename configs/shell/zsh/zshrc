@@ -8,9 +8,13 @@ zstyle ':completion::complete:*' use-cache 1
 # prompt settings
 promptinit
 colors
-precmd() { print -rP ""; print -rP "$fg[yellow][ $fg[green]%~ $fg[yellow]]" }
-export PROMPT="$> "
-
+function precmd() {
+    if [[ -n "$TMUX" ]]; then
+        tmux set-environment TMUXPWD_$(tmux display -p "#D" | sed 's/%//') $PWD
+    fi
+    print -rP ""
+}
+export PROMPT="%F{106}>> %f"
 
 alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'
 alias sml='rlwrap sml'
@@ -24,7 +28,7 @@ alias idea='~/downloads/idea-IC-129.713/bin/idea.sh'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1
-setdisplay() {
+function setdisplay() {
     local -r NEWDISPLAY=${2:-DP2}
     case $1 in
             on)     xrandr --output $NEWDISPLAY --same-as $MAINDISPLAY --auto ;;
@@ -33,7 +37,7 @@ setdisplay() {
     esac
 }
 
-flac2mp3() {
+function flac2mp3() {
     in=${1}
     out=${in:r}.mp3
     flac -d ${in} -c | lame - ${out} -b 320

@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+function get_tmux_pwd() {
+    tmux show-environment $(tmux display -p "TMUXPWD_#D" | sed 's/%//') | sed 's/.*=//'
+}
+
+get_tmux_pwd
+

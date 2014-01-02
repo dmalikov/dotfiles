@@ -42,13 +42,13 @@ profile_git = profile "git" $ do
     -- install?
 
 profile_ruby :: Script Sources ()
-profile_ruby = profile "ruby" $ do
+profile_ruby = profile "ruby" $
   dotfiles $ do
     copy "configs/ruby/irbrc" ".irbrc"
     copy "configs/ruby/rvmrc" ".rvmrc"
 
 profile_x :: Script Sources ()
-profile_x = profile "X" $ do
+profile_x = profile "X" $
   dotfiles $ do
     copy "configs/X/XCompose" ".XCompose"
     substitute "configs/X/Xresources.template" ".Xresources"
@@ -86,7 +86,7 @@ profile_mplayer = profile "mplayer" $
 
 profile_mpv :: Script Sources ()
 profile_mpv = profile "mpv" $
-  dotfiles $ do
+  dotfiles $
     copy "configs/mpv/input.conf" ".mpv/input.conf"
 
 profile_pentadactyl :: Script Sources ()
@@ -122,9 +122,10 @@ profile_shell = do
       copy "configs/shell/zsh/zshrc" ".zshrc"
       copy "configs/shell/zsh/zshenv" ".zshenv"
       copy "configs/shell/zsh/zprofile" ".zprofile"
+      copy "configs/shell/zsh/tmux" ".zsh/tmux"
 
 profile_java :: Script Sources ()
-profile_java = do
+profile_java =
   profile "idea" $
     dotfiles $
       copy "configs/idea/config/colors/bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"

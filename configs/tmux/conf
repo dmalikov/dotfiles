@@ -21,7 +21,7 @@ set -g status-interval 1
 set -g status-justify "centre"
 set -g status-justify centre
 set -g status-keys vi
-set -g status-left '#[fg=colour239]#(~/.zsh/tmux get_tmux_pwd)#[fg=colour1] #(~/.zsh/tmux git_branch) #[fg=colour232]#[bg=colour64]#(~/.zsh/tmux git_diff_insertions)#[fg=colour232]#[bg=colour172]#(~/.zsh/tmux git_diff_deletions)#[bg=default]'
+set -g status-left '#[bg=colour16]#[fg=colour239]#(~/.zsh/tmux get_tmux_pwd)#[bg=default]#[fg=default] #(~/.zsh/tmux git_branch) #[fg=colour232]#[bg=colour64]#(~/.zsh/tmux git_diff_insertions)#[fg=colour232]#[bg=colour172]#(~/.zsh/tmux git_diff_deletions)#[bg=default]'
 set -g status-left-length 100
 set -g status-right '#[fg=colour3]#S#[fg=colour1] (#(tmux list-sessions | wc -l))#[default]'
 set -g visual-activity on

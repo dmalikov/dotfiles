@@ -23,7 +23,7 @@ function gitable() {
 
 function git_branch() {
     if gitable; then
-        echo "/ $(git -C ${~$(get_tmux_pwd)} rev-parse --abbrev-ref HEAD)"
+        echo "$(git -C ${~$(get_tmux_pwd)} rev-parse --abbrev-ref HEAD)"
     fi
 }
 

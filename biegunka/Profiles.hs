@@ -38,8 +38,6 @@ profile_git = profile "git" $ do
     substitute "configs/git/config.template" ".gitconfig"
     copy "configs/git/ignore" ".gitignore"
     copy "configs/tig/tigrc" ".tigrc"
-  git_ "git@github.com:arc90/git-sweep.git" "projects/misc/git-sweep"
-    -- install?
 
 profile_ruby :: Script Sources ()
 profile_ruby = profile "ruby" $
@@ -150,6 +148,11 @@ profile_tmux = profile "tmux" $
   dotfiles $ do
     copy "configs/tmux/conf" ".tmux.conf"
     copy "configs/tmux/keybindings" ".tmux.keybindings"
+
+profile_guard :: Script Sources ()
+profile_guard = profile "guard" $
+  dotfiles $ do
+    copy "configs/guard/guard.rb" ".guard.rb"
 
 profile_uzbl :: Script Sources ()
 profile_uzbl = profile "uzbl" $

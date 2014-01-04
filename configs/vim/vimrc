@@ -314,3 +314,5 @@
     nmap <F6> :%s/<c-r><c-w>//gc<left><left><left>
 
     nmap gd :tjump <c-r><c-w><CR>
+
+    nmap <Leader>p :bp<CR>

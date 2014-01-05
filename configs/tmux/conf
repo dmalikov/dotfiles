@@ -7,7 +7,7 @@ bind-key C-k kill-session
 set -g bell-action any
 set -g default-path ""
 set -g default-shell /bin/zsh
-set -g default-terminal "xterm-256color"
+set -g default-terminal "screen-256color"
 set -g display-panes-time 2000
 set -g history-limit 10000
 set -g mouse-select-pane on

@@ -9,8 +9,8 @@ setopt inc_append_history
 # autocompletion of command line switches for aliases
 setopt completealiases
 
-export TERM='rxvt-256color'
-export COLORTERM='rxvt-unicode-256color'
+export TERM='screen-256color'
+export COLORTERM='screen--256color'
 export EDITOR=vim
 typeset -U path
 path=(~/bin ~/.cabal/bin ~/.rvm/bin $path)

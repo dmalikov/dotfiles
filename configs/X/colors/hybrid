@@ -1,7 +1,7 @@
 ! vim: set filetype=xdefaults:
 !
-! based on w0ng colorscheme by @strayradiated
-! https://raw.github.com/stayradiated/dotfiles/master/Terminal/colors/w0ng
+! based on hybrid colorscheme by @w0ng
+! https://gist.github.com/w0ng/3278077
 
 ! Tomorrow-Night Palette
 #define t_background #1D1F21

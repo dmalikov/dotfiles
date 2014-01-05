@@ -32,7 +32,7 @@ profile_xmonad = do
       [sh| ghc -O2 ${HOME}/.xmonad/xmobar.hs -o ${HOME}/.xmonad/xmobar -fforce-recomp |]
 
 profile_git :: Script Sources ()
-profile_git = profile "git" $ do
+profile_git = profile "git" $
   dotfiles $ do
     substitute "configs/git/config.template" ".gitconfig"
     copy "configs/git/ignore" ".gitignore"
@@ -50,7 +50,7 @@ profile_x = profile "X" $
     copy "configs/X/XCompose" ".XCompose"
     substitute "configs/X/Xresources.template" ".Xresources"
     copy "configs/X/colors/shiva" ".urxvt/colors/shiva"
-    copy "configs/X/colors/w0ng" ".urxvt/colors/w0ng"
+    copy "configs/X/colors/hybrid" ".urxvt/colors/hybrid"
     copy "configs/X/inputrc" ".inputrc"
     copy "configs/X/startup" ".startup"
     copy "configs/X/xinitrc" ".xinitrc"

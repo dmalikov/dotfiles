@@ -82,6 +82,7 @@
  NeoBundle "bitc/vim-hdevtools"
  NeoBundle "kongo2002/fsharp-vim"
  NeoBundle "kchmck/vim-coffee-script"
+ NeoBundle "w0ng/vim-hybrid"
 
  NeoBundleCheck
 
@@ -111,7 +112,7 @@
     " Ignore case when the pattern contains lowercase letters only.
     set smartcase
 
-    colorscheme neverland-darker
+    colorscheme hybrid
 
     set cursorline
     set cursorcolumn

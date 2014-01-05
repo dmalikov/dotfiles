@@ -21,7 +21,7 @@ xset -dpms
 
 # process urxvt settings
 xrdb ~/.Xresources
-xrdb -merge ~/.urxvt/colors/w0ng
+xrdb -merge ~/.urxvt/colors/hybrid
 
 # run trayer
 killall trayer

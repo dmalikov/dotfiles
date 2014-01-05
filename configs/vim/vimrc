@@ -28,8 +28,7 @@
     " share clipboard among instances
     set clipboard=unnamed
 
-    " prevents some security exploits having to do with modelines in files
-    set modelines=0
+    set modelines=1
 
     set ttyfast
 

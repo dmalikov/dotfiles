@@ -6,7 +6,6 @@ setxkbmap -option "" -layout "us,ru" -option grp:caps_toggle
 
 # urxvt fonts
 xset +fp /usr/share/fonts/terminus
-xset +fp /usr/share/fonts/termsyn
 
 # set up delay and rate
 xset r rate 300 50
@@ -22,13 +21,10 @@ xset -dpms
 
 # process urxvt settings
 xrdb ~/.Xresources
-xrdb -override ~/.Xresources.scratchpad
-xrdb -override ~/.Xresources.shiva
-xrdb -override ~/.Xresources.large
+xrdb -merge ~/.urxvt/colors/w0ng
 
 # run trayer
 killall trayer
-
 trayer --edge top --align left --transparent true --widthtype pixel --width 120 --heighttype pixel --height 10 --tint 0x080808 --alpha 0 --SetDockType true &
 
 # run kbdd daemon

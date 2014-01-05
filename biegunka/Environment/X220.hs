@@ -16,26 +16,22 @@ settings = def
   , pentadactyl = def
     { font_size = 8
     }
-  , xresource_shiva = def
-    { shiva_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
-    }
-  , xresource_scratchpad = def
-    { scratchpad_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
+  , urxvt = def
+    { font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
+    , boldFont = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
+    , user = "m"
+    , xft_dpi = 125
     }
   , xmonad = def
     { terminus_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
-    }
-  , x = def
-    { user = "m"
-    , xft_dpi = 125
     }
   }
 
 profiles = sequence_
   [ profile_ackrc
-  , profile_ghc
   , profile_git
   , profile_gtk
+  , profile_haskell
   , profile_mpd
   , profile_mplayer
   , profile_mpv
@@ -43,10 +39,10 @@ profiles = sequence_
   , profile_ruby
   , profile_shell
   , profile_tmux
-  , profile_uzbl
   , profile_vifm
   , profile_vim
   , profile_x
   , profile_xmonad
+  , profile_zathura
   ]
 

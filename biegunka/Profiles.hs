@@ -19,7 +19,6 @@ profile_vim = do
   profile "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
 
-
 profile_xmonad :: Script Sources ()
 profile_xmonad = do
   profile "xmonad/xmonad.hs" $
@@ -50,19 +49,19 @@ profile_x = profile "X" $
   dotfiles $ do
     copy "configs/X/XCompose" ".XCompose"
     substitute "configs/X/Xresources.template" ".Xresources"
-    copy "configs/X/Xresources.large" ".Xresources.large"
-    substitute "configs/X/Xresources.scratchpad.template" ".Xresources.scratchpad"
-    substitute "configs/X/Xresources.shiva.template" ".Xresources.shiva"
+    copy "configs/X/colors/shiva" ".urxvt/colors/shiva"
+    copy "configs/X/colors/w0ng" ".urxvt/colors/w0ng"
     copy "configs/X/inputrc" ".inputrc"
     copy "configs/X/startup" ".startup"
     copy "configs/X/xinitrc" ".xinitrc"
 
-profile_ghc :: Script Sources ()
-profile_ghc = profile "ghc" $
+profile_haskell :: Script Sources ()
+profile_haskell = profile "haskell" $
   dotfiles $ do
     copy "configs/ghc/ghci" ".ghci"
     copy "configs/ghc/stylish-haskell.yaml" ".stylish-haskell.yaml"
     copy "configs/ghc/haskeline" ".haskeline"
+    copy "configs/guard/guard.rb" ".guard.rb"
 
 profile_irssi :: Script Sources ()
 profile_irssi = profile "irssi" $
@@ -109,6 +108,7 @@ profile_apvlv = profile "apvlv" $
   dotfiles $
     copy "configs/apvlv/apvlvrc" ".apvlvrc"
 
+-- TODO: split to bash and zsh
 profile_shell :: Script Sources ()
 profile_shell = do
   profile "bash" $
@@ -148,11 +148,6 @@ profile_tmux = profile "tmux" $
   dotfiles $ do
     copy "configs/tmux/conf" ".tmux.conf"
     copy "configs/tmux/keybindings" ".tmux.keybindings"
-
-profile_guard :: Script Sources ()
-profile_guard = profile "guard" $
-  dotfiles $ do
-    copy "configs/guard/guard.rb" ".guard.rb"
 
 profile_uzbl :: Script Sources ()
 profile_uzbl = profile "uzbl" $

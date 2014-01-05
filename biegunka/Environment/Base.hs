@@ -9,20 +9,16 @@ import Data.Default
 data Template = Template
   { git :: Git
   , pentadactyl :: Pentadactyl
-  , xresource_scratchpad :: XresourceScratchpad
-  , xresource_shiva :: XresourceShiva
+  , urxvt :: Urxvt
   , xmonad :: Xmonad
-  , x :: X
   } deriving (Data, Typeable)
 
 instance Default Template where
   def = Template
     { git = def
     , pentadactyl = def
-    , xresource_scratchpad = def
-    , xresource_shiva = def
+    , urxvt = def
     , xmonad = def
-    , x = def
     }
 
 data Git = Git
@@ -35,21 +31,15 @@ data Pentadactyl = Pentadactyl
   { font_size :: Int
   } deriving (Data, Typeable)
 
-data XresourceScratchpad = XresourceScratchpad
-  { scratchpad_font :: String
-  } deriving (Data, Typeable)
-
-data XresourceShiva = XresourceShiva
-  { shiva_font :: String
+data Urxvt = Urxvt
+  { font :: String
+  , boldFont :: String
+  , user :: String
+  , xft_dpi :: Int
   } deriving (Data, Typeable)
 
 data Xmonad = Xmonad
   { terminus_font :: String
-  } deriving (Data, Typeable)
-
-data X = X
-  { user :: String
-  , xft_dpi :: Int
   } deriving (Data, Typeable)
 
 instance Default Git where
@@ -64,23 +54,15 @@ instance Default Pentadactyl where
     { font_size = def
     }
 
-instance Default XresourceShiva where
-  def = XresourceShiva
-    { shiva_font = def
-    }
-
-instance Default XresourceScratchpad where
-  def = XresourceScratchpad
-    { scratchpad_font = def
+instance Default Urxvt where
+  def = Urxvt
+    { font = def
+    , boldFont = def
+    , user = def
+    , xft_dpi = def
     }
 
 instance Default Xmonad where
   def = Xmonad
     { terminus_font = def
-    }
-
-instance Default X where
-  def = X
-    { user = def
-    , xft_dpi = def
     }

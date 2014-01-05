@@ -243,7 +243,7 @@ playlist_show_remaining_time = "yes"
 #
 #playlist_shorten_total_times = "no"
 #
-playlist_separate_albums = "yes"
+playlist_separate_albums = "no"
 #
 playlist_display_mode = "columns" # (classic/columns)
 #
@@ -265,7 +265,7 @@ autocenter_mode = "yes"
 ## Note: You can specify third character which will
 ## be used to build 'empty' part of progressbar.
 ##
-progressbar_look = "|>-"
+progressbar_look = "─  "
 #
 #default_place_to_search_in = "database" (database/playlist)
 #
@@ -283,7 +283,7 @@ user_interface = "alternative" # (classic/alternative)
 #
 #header_visibility = "yes"
 #
-statusbar_visibility = "yes"
+statusbar_visibility = "no"
 #
 #titles_visibility = "yes"
 #
@@ -434,11 +434,11 @@ colors_enabled = "yes"
 #
 #main_window_highlight_color = "yellow"
 #
-progressbar_color = "black"
+progressbar_color = "yellow"
 #
-statusbar_color = "yellow"
+statusbar_color = "black"
 #
-alternative_ui_separator_color = "green"
+alternative_ui_separator_color = "black"
 #
 #active_column_color = "red"
 #

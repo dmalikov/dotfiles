@@ -10,6 +10,7 @@ data Template = Template
   { git :: Git
   , pentadactyl :: Pentadactyl
   , urxvt :: Urxvt
+  , x :: X
   , xmonad :: Xmonad
   } deriving (Data, Typeable)
 
@@ -18,6 +19,7 @@ instance Default Template where
     { git = def
     , pentadactyl = def
     , urxvt = def
+    , x = def
     , xmonad = def
     }
 
@@ -34,8 +36,10 @@ data Pentadactyl = Pentadactyl
 data Urxvt = Urxvt
   { font :: String
   , boldFont :: String
-  , user :: String
-  , xft_dpi :: Int
+  } deriving (Data, Typeable)
+
+data X = X
+  { xft_dpi :: Int
   } deriving (Data, Typeable)
 
 data Xmonad = Xmonad
@@ -50,16 +54,15 @@ instance Default Git where
     }
 
 instance Default Pentadactyl where
-  def = Pentadactyl
-    { font_size = def
-    }
+  def = Pentadactyl { font_size = def }
+
+instance Default X where
+  def = X { xft_dpi = def }
 
 instance Default Urxvt where
   def = Urxvt
     { font = def
     , boldFont = def
-    , user = def
-    , xft_dpi = def
     }
 
 instance Default Xmonad where

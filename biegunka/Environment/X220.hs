@@ -19,8 +19,9 @@ settings = def
   , urxvt = def
     { font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
     , boldFont = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
-    , user = "m"
-    , xft_dpi = 125
+    }
+  , x = def
+    { xft_dpi = 125
     }
   , xmonad = def
     { terminus_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"

@@ -18,7 +18,6 @@ settings = def
     }
   , urxvt = def
     { font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
-    , boldFont = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
     }
   , x = def
     { xft_dpi = 125

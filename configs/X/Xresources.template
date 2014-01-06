@@ -24,7 +24,9 @@
 *.cursorUnderline: false
 
 *.font: $template.urxvt.font$
-*.boldFont: $template.urxvt.boldFont$
+*.boldFont: $template.urxvt.font$
+*.italicFont: $template.urxvt.font$
+*.boldItalicFont: $template.urxvt.font$
 
 *.keysym.Home: \033[1~
 *.keysym.End: \033[4~

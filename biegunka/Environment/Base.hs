@@ -35,7 +35,6 @@ data Pentadactyl = Pentadactyl
 
 data Urxvt = Urxvt
   { font :: String
-  , boldFont :: String
   } deriving (Data, Typeable)
 
 data X = X
@@ -62,7 +61,6 @@ instance Default X where
 instance Default Urxvt where
   def = Urxvt
     { font = def
-    , boldFont = def
     }
 
 instance Default Xmonad where

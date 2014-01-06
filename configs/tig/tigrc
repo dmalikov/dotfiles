@@ -20,54 +20,54 @@ set show-id = false
 # COLOR SETTINGS
 #==================================
 # general
-color author      color137 color232 bold
-color commit      color244 color232 normal
-color cursor      color106 color235 bold
-color default     color250 color232 normal
-color id          color3   color232 normal
-color parent      color44  color232 normal
-color status      color197 color232 normal
-color title-blur  color197 color232 normal
-color title-focus color3   color233 bold
+color author      3       default
+color commit      11      default
+color cursor      2       0
+color default     default default
+color id          3       default
+color parent      default default
+color status      default default
+color title-blur  default default
+color title-focus 3       default
 
 # diff highlighting
-color diff-add           color34  color232 normal
-color diff-chunk         color226 color232 bold
-color diff-copy-from     color124 color232 bold
-color diff-copy-to       color76  color232 bold
-color diff-del           color196 color232 normal
-color diff-dissimilarity color136 color232 normal
-color diff-header        color196 color232 normal
-color diff-index         color27  color232 normal
-color diff-newmode       color34  color232 bold
-color diff-oldmode       color196 color232 bold
-color diff-rename-from   color160 color232 bold
-color diff-rename-to     color70  color232 bold
-color diff-similarity    color208 color232 normal
-color diff-tree          color35  color232 normal
+color diff-add           default default
+color diff-chunk         3       default
+color diff-copy-from     9       default
+color diff-copy-to       2       default
+color diff-del           default default
+color diff-dissimilarity default default
+color diff-header        4       default
+color diff-index         default default
+color diff-newmode       2       default
+color diff-oldmode       9       default
+color diff-rename-from   9       default
+color diff-rename-to     2       default
+color diff-similarity    default default
+color diff-tree          default default
 
 # commit headers pretty prints
-color pp-adate  color138 color232 normal
-color pp-author color137 color232 normal
-color pp-cdate  color138 color232 normal
-color pp-commit color244 color232 bold
-color pp-date   color138 color232 normal
-color pp-merge  color88  color232 normal
-color pp-refs   color202 color232 normal
+color pp-adate  11      default
+color pp-author 3       default
+color pp-cdate  11      default
+color pp-commit 3       default
+color pp-date   11      default
+color pp-merge  default default
+color pp-refs   default default
 
 # main view colors
-color main-date      color138 color232 normal
-color main-head      color202 color232 normal
-color main-local-tag color202 color232 normal
-color main-ref       color202 color232 normal
-color main-remote    color202 color232 normal
-color main-tag       color202 color232 normal
-color main-tracked   color202 color232 normal
+color main-date      11      default
+color main-head      default default
+color main-local-tag default default
+color main-ref       default default
+color main-remote    default default
+color main-tag       default default
+color main-tracked   default default
 
 # tree view
-color tree-head color27 color232 normal
-color tree-dir  color27 color232 normal
-color tree-file color27 color232 normal
+color tree-head default default
+color tree-dir  default default
+color tree-file default default
 
 #==================================
 # KEYBINDINGS SETTINGS

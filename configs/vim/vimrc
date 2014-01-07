@@ -112,12 +112,13 @@
     " Ignore case when the pattern contains lowercase letters only.
     set smartcase
 
+    let g:hybrid_use_Xresources = 1
     colorscheme hybrid
 
     set cursorline
     set cursorcolumn
-    hi CursorLine ctermbg=235
-    hi CursorColumn ctermbg=235
+    hi CursorLine ctermbg=000
+    hi CursorColumn ctermbg=000
 
     set relativenumber
 
@@ -243,10 +244,10 @@
 
     " clear signcolumn for Syntastic and GitGutter
     highlight clear SignColumn
-    highlight GitGutterAdd          ctermfg=003 ctermbg=003
-    highlight GitGutterChange       ctermfg=022 ctermbg=022
-    highlight GitGutterDelete       ctermfg=010 ctermbg=010
-    highlight GitGutterChangeDelete ctermfg=010 ctermbg=010
+    highlight GitGutterAdd          ctermfg=002 ctermbg=002
+    highlight GitGutterChange       ctermfg=002 ctermbg=002
+    highlight GitGutterDelete       ctermfg=009 ctermbg=009
+    highlight GitGutterChangeDelete ctermfg=009 ctermbg=009
 
     if &term =~ '^screen'
         " tmux will send xterm-style keys when xterm-keys is on

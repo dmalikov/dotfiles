@@ -1,20 +1,26 @@
 :set +s
 :set +t
 :set prompt "\ESC[33m> \ESC[m"
-:m + Data.List
-:m + Control.Arrow
 :m + Control.Applicative
+:m + Control.Arrow
 :m + Control.Monad
+:m + Data.Bits
+:m + Data.Function
+:m + Data.List
 :m + Data.List.Split
 :m + Data.Maybe
-:m + Data.Function
-:m + Data.Numbers.Primes
 :m + Data.Monoid
+:m + Data.Numbers.Primes
+:m + Data.Word
 :m + Text.Printf
 
 import qualified Data.ByteString.Lazy.Char8 as BSC
 import qualified Data.Text as Text
 
+:set -XOverloadedStrings
+:set -XRankNTypes
+:set -XScopedTypeVariables
+:set -XUnicodeSyntax
 :set -fwarn-alternative-layout-rule-transitional
 :set -fwarn-deprecated-flags
 :set -fwarn-deprecations
@@ -37,8 +43,3 @@ import qualified Data.Text as Text
 :set -fwarn-unused-imports
 :set -fwarn-unused-matches
 :set -fwarn-warnings-deprecations
-:set -XUnicodeSyntax
-:set -XOverloadedStrings
-:set -XRankNTypes
-:set -XScopedTypeVariables
-

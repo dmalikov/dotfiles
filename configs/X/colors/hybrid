@@ -18,7 +18,7 @@
 #define t_purple #B294BB
 
 ! base16-default Palette (slightly darker)
-#define b_background #151515
+#define b_background #1c1c1c
 #define b_current_line #202020
 #define b_selection #303030
 #define b_foreground #C5C8C6

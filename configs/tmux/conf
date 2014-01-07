@@ -13,20 +13,20 @@ set -g history-limit 10000
 set -g mouse-select-pane on
 set -g pane-active-border-fg colour202
 set -g set-titles on
-set -g set-titles-string '[#S:#I #H] #W'
+set -g set-titles-string 'Tmux: #W [#S (#(tmux list-sessions | wc -l))]'
 set -g status-bg default
-set -g status-fg green
+set -g status-fg default
 set -g status-interval 1
 set -g status-interval 1
 set -g status-justify "centre"
 set -g status-justify centre
 set -g status-keys vi
-set -g status-left '#[bg=colour16]#[fg=colour239]#(~/.zsh/tmux get_tmux_pwd) #[bg=colour16]#[fg=colour94]#(~/.zsh/tmux git_branch) #[fg=colour232]#[bg=colour64]#(~/.zsh/tmux git_diff_insertions)#[fg=colour232]#[bg=colour172]#(~/.zsh/tmux git_diff_deletions)'
-set -g status-left-length 100
-set -g status-right '#[fg=colour3]#S#[fg=colour1] (#(tmux list-sessions | wc -l))#[default]'
+set -g status-left '#[fg=colour7]#(~/.zsh/tmux get_tmux_pwd) #[fg=colour3]#(~/.zsh/tmux git_branch) #[fg=colour0]#[bg=colour2]#(~/.zsh/tmux git_diff_insertions)#[bg=colour9]#(~/.zsh/tmux git_diff_deletions)'
+set -g status-left-length 300
+set -g status-right ''
 set -g visual-activity on
-set -g window-status-current-format '#[fg=colour1]#I:#[fg=colour3]#W'
-set -g window-status-format '#I:#W'
+set -g window-status-current-format ' #[bg=colour6]#[fg=colour0] #W #[bg=default]#[fg=default] '
+set -g window-status-format '#[fg=colour6] #W #[bg=default]#[fg=default] '
 set -g xterm-keys on
 
 set -sg escape-time 0

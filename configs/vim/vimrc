@@ -167,8 +167,6 @@
     " set word-wrap, not symbol-wrap
     set linebreak
 
-    set colorcolumn=80
-
     set shell=zsh
 
     " I should do nothing, REMOVE ME

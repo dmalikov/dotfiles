@@ -301,6 +301,7 @@
     " Haskell maps
     autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
     autocmd FileType haskell nnoremap <Leader>sh :%!stylish-haskell<CR>
+    autocmd FileType haskell iabbrev <buffer> lang {-# LANGUAGE #-}<esc>3hi
 
     autocmd FileType coq call coquille#CoqideMapping()
 

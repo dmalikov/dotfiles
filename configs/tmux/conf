@@ -11,7 +11,7 @@ set -g default-terminal "screen-256color"
 set -g display-panes-time 2000
 set -g history-limit 10000
 set -g mouse-select-pane on
-set -g pane-active-border-fg colour202
+set -g pane-active-border-fg colour2
 set -g set-titles on
 set -g set-titles-string 'Tmux: #W [#S (#(tmux list-sessions | wc -l))]'
 set -g status-bg default

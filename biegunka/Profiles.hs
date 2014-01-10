@@ -108,7 +108,6 @@ profile_apvlv = profile "apvlv" $
   dotfiles $
     copy "configs/apvlv/apvlvrc" ".apvlvrc"
 
--- TODO: split to bash and zsh
 profile_shell :: Script Sources ()
 profile_shell = do
   profile "bash" $

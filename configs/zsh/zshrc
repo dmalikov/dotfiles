@@ -14,7 +14,7 @@ function precmd() {
     fi
     print -rP ""
 }
-export PROMPT="%(?,%F{106},%F{6})>> %f"
+export PROMPT="%(?,%F{2},%F{1})>> %f"
 
 alias xinit_='cp ~/.xinit_log{,_old} && xinit |& tee ~/.xinit_log'
 alias sml='rlwrap sml'

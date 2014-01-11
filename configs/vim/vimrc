@@ -1,314 +1,306 @@
-"=====================================
-" GENERAL SETTINGS
-"=====================================
-    " drop vi shit
-    set nocompatible
+" General settings ----------------- {{{
 
-    " do not making backup before editing file
-    set nobackup
+" drop vi shit
+set nocompatible
 
-    " do not using swapfile
-    set noswapfile
+" do not making backup before editing file
+set nobackup
 
-    " number of lines that are remembered
-    set history=100
+" do not using swapfile
+set noswapfile
 
-    " automatically reload file, when it's changed outside of Vim
-    set autoread
+" number of lines that are remembered
+set history=100
 
-    " Maximum number of changes that can be undone
-    set undolevels=100
+" automatically reload file, when it's changed outside of Vim
+set autoread
 
-    "  list of character encodings considered when starting to edit an existing file
-    set fileencodings=utf-8
+" Maximum number of changes that can be undone
+set undolevels=100
 
-    call pathogen#infect()
-    filetype plugin indent on
+"  list of character encodings considered when starting to edit an existing file
+set fileencodings=utf-8
 
-    " share clipboard among instances
-    set clipboard=unnamed
+call pathogen#infect()
+filetype plugin indent on
 
-    set modelines=1
+" share clipboard among instances
+set clipboard=unnamed
 
-    set ttyfast
+set modelines=1
 
-    " enable neocomplcache
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_force_overwrite_completefunc = 1
-    let g:necoghc_enable_detailed_browse = 1
+set ttyfast
 
-"=====================================
-" FUNCTIONS
-"=====================================
-    " chmod +х to scripts
-    function ModeChange()
-        if getline(1) =~ '^#!'
-            silent !chmod a+x <afile>
-        endif
-    endfunction
+" enable neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:necoghc_enable_detailed_browse = 1
 
-    function GenerateHasktags()
-        call system('hasktags --ignore-close-implementation --ctags . &')
-    endfunction
+" }}}
+
+" Neobundle plugins ---------------- {{{
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc', {'build': {'linux': 'make -f make_unix.mak' } }
+NeoBundle "Shougo/neocomplcache"
+NeoBundle "Shougo/unite.vim"
+NeoBundle "airblade/vim-gitgutter"
+NeoBundle "dahu/Insertlessly"
+NeoBundle "godlygeek/tabular"
+NeoBundle "scrooloose/syntastic"
+NeoBundle "spolu/dwm.vim"
+NeoBundle "tpope/vim-commentary"
+NeoBundle "tpope/vim-surround"
+NeoBundle "ujihisa/neco-ghc"
+NeoBundle "jvoorhis/coq.vim"
+NeoBundle "trefis/coquille"
+NeoBundle "def-lkb/vimbufsync"
+NeoBundle "merlinrebrovic/focus.vim"
+NeoBundle "elzr/vim-json"
+NeoBundle "bitc/vim-hdevtools"
+NeoBundle "kongo2002/fsharp-vim"
+NeoBundle "kchmck/vim-coffee-script"
+NeoBundle "w0ng/vim-hybrid"
+
+NeoBundleCheck
+
+" }}}
+
+" Appearance settings ------------- {{{
+syntax on
+
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=2048
+
+set background=dark
+
+" Show the current mode
+set showmode
+
+set statusline=%f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=%l,%c/%L
+
+" Show the current command in the bottom right
+set showcmd
+" Show status line for all files
+set laststatus=2
+" Show matching brackets
+set showmatch
+" Do case insensitive matching
+set ignorecase
+" Ignore case when the pattern contains lowercase letters only.
+set smartcase
+
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+
+set cursorline
+set cursorcolumn
+highlight CursorLine ctermbg=000
+highlight CursorColumn ctermbg=000
+
+set relativenumber
+
+" enable autocomplete
+set wildmenu
+set wildmode=list:longest,full
+
+" make vim message not to annoy
+set shortmess=aoOIT
+
+" always report about changed lines
+set report=0
+
+" Don't update the display while executing macros
+set lazyredraw
+
+" Nice-looking vertical separator
+set fillchars=vert:│
+
+" Cyrillic mapping
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+" }}}
+
+" Misc settings ------------------- {{{
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+
+" matched string is highlighted.
+set incsearch
+
+" lines to scroll when cursor leaves screen
+set scrolljump=10
+" lines before screen edge to scroll
+set scrolloff=1000
+
+" Don't searches wrap around the end of the file
+set nowrapscan
+" enable wrap
+set wrap
+" wrap backspace, space, h, l, <-, ->, [ and ] keys
+set whichwrap=b,s,<,>,[,],l,h
+" set word-wrap, not symbol-wrap
+set linebreak
+
+set shell=zsh
+
+" I should do nothing, REMOVE ME
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
+
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'], 'passive_filetypes': ['tex','java']}
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checker_args = '--ignore=E501'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_jump = 1
+
+autocmd Bufenter *.[cC]apfile,[cC]apfile,*[vV]agrantfile,Guardfile setfiletype ruby
+autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
+
+autocmd Bufenter *.md setfiletype markdown
+
+" Use haskell syntax for biegunkofiles
+autocmd Bufenter *.biegunka setfiletype haskell
+
+" set XML style
+" let g:xml_syntax_folding=1
+autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2 foldmethod=syntax
+
+autocmd FileType eruby,javascript,sh setlocal expandtab shiftwidth=2 softtabstop=2
+
+" ingore whitespaces (vimdiff)
+set diffopt+=iwhite " ignore whitespaces
+
+" highlight trailing spaces
+set list!
+set listchars=tab:»»,trail:∘
+" disable matches in help buffers
+autocmd BufEnter,FileType help call clearmatches()
 
 
-"=====================================
-" PLUGINS
-"=====================================
- if has('vim_starting')
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
-
- call neobundle#rc(expand('~/.vim/bundle/'))
-
- NeoBundleFetch 'Shougo/neobundle.vim'
-
- NeoBundle 'Shougo/vimproc', {'build': {'linux': 'make -f make_unix.mak' } }
- NeoBundle "Shougo/neocomplcache"
- NeoBundle "Shougo/unite.vim"
- NeoBundle "airblade/vim-gitgutter"
- NeoBundle "dahu/Insertlessly"
- NeoBundle "godlygeek/tabular"
- NeoBundle "scrooloose/syntastic"
- NeoBundle "spolu/dwm.vim"
- NeoBundle "tpope/vim-commentary"
- NeoBundle "tpope/vim-surround"
- NeoBundle "ujihisa/neco-ghc"
- NeoBundle "jvoorhis/coq.vim"
- NeoBundle "trefis/coquille"
- NeoBundle "def-lkb/vimbufsync"
- NeoBundle "merlinrebrovic/focus.vim"
- NeoBundle "elzr/vim-json"
- NeoBundle "bitc/vim-hdevtools"
- NeoBundle "kongo2002/fsharp-vim"
- NeoBundle "kchmck/vim-coffee-script"
- NeoBundle "w0ng/vim-hybrid"
-
- NeoBundleCheck
-
-"=====================================
-" APPEARANCE SETTINGS
-"=====================================
-    syntax on
-
-    " Syntax coloring lines that are too long just slows down the world
-    set synmaxcol=2048
-
-    set background=dark
-
-    " Show the current mode
-    set showmode
-
-    set statusline=%f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=%l,%c/%L
-
-    " Show the current command in the bottom right
-    set showcmd
-    " Show status line for all files
-    set laststatus=2
-    " Show matching brackets
-    set showmatch
-    " Do case insensitive matching
-    set ignorecase
-    " Ignore case when the pattern contains lowercase letters only.
-    set smartcase
-
-    let g:hybrid_use_Xresources = 1
-    colorscheme hybrid
-
-    set cursorline
-    set cursorcolumn
-    hi CursorLine ctermbg=000
-    hi CursorColumn ctermbg=000
-
-    set relativenumber
-
-    " enable autocomplete
-    set wildmenu
-    set wildmode=list:longest,full
-
-    " make vim message not to annoy
-    set shortmess=aoOIT
-
-    " always report about changed lines
-    set report=0
-
-    " Don't update the display while executing macros
-    set lazyredraw
-
-    " Nice-looking vertical separator
-    set fillchars=vert:│
-
-    " Cyrillic mapping
-    set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
-
-"=====================================
-" MISC SETTINGS
-"=====================================
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
-    set expandtab
-    set autoindent
-
-    " matched string is highlighted.
-    set incsearch
-
-    " lines to scroll when cursor leaves screen
-    set scrolljump=10
-    " lines before screen edge to scroll
-    set scrolloff=1000
-
-    " Don't searches wrap around the end of the file
-    set nowrapscan
-    " enable wrap
-    set wrap
-    " wrap backspace, space, h, l, <-, ->, [ and ] keys
-    set whichwrap=b,s,<,>,[,],l,h
-    " set word-wrap, not symbol-wrap
-    set linebreak
-
-    set shell=zsh
-
-    " I should do nothing, REMOVE ME
-    if $TMUX == ''
-        set clipboard+=unnamed
+" chmod +х
+function ModeChange()
+    if getline(1) =~ '^#!'
+        silent !chmod a+x <afile>
     endif
+endfunction
 
-    " some Haskell properties
-    hi hsNiceOperator ctermfg=none ctermbg=black
+autocmd BufWritePost * call ModeChange()
+
+" preserve undo actions even after file has closed
+set undolevels=1000
+set undofile
+
+" vim-latex settings
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+
+" save after losing focus
+autocmd FocusLost * :wa
+
+" clear signcolumn for Syntastic and GitGutter
+highlight clear SignColumn
+highlight GitGutterAdd          ctermfg=002 ctermbg=002
+highlight GitGutterChange       ctermfg=002 ctermbg=002
+highlight GitGutterDelete       ctermfg=009 ctermbg=009
+highlight GitGutterChangeDelete ctermfg=009 ctermbg=009
+
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when xterm-keys is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+if filereadable('.vim.custom')
+    source .vim.custom
+endif
+" }}}
+
+" Key mapping settings ------------ {{{
+let mapleader = ","
+
+" remove search highlighting
+nmap <Leader>nh :nohlsearch<CR>
+
+" set paste mode
+set pastetoggle=<F3>
+
+noremap k gk
+noremap j gj
+
+nmap <Leader>u :Unite file buffer<CR>
+
+" save as root with w!!
+cmap w!! w !sudo tee % > /dev/null
+
+" disable arrow keys in insert and normal modes
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+autocmd FileType coq call coquille#CoqideMapping()
+
+nmap <Leader>s :%!git stripspace<CR>
+
+nmap <F6> :%s/<c-r><c-w>//gc<left><left><left>
+
+nmap gd :tjump <c-r><c-w><CR>
+" }}}
+
+" Vimscript file settings ---------- {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" Haskell settings ------------ {{{
+function GenerateHasktags()
+    call system('hasktags --ignore-close-implementation --ctags . &')
+endfunction
+
+augroup filetype_haskell
+    autocmd!
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
-    " configure browser for haskell_doc.vim
-    let g:haddock_browser = "firefox-bin"
-    " syntax rules
-    let hs_highlight_delimiters = 1
-    let hs_highlight_boolean = 1
-    let hs_highlight_debug = 1
-    let hs_highlight_more_types = 1
-    let hs_highlight_types = 1
-
-    autocmd bufwritepost *.hs :HdevtoolsClear
-    autocmd bufwritepost *.hs call GenerateHasktags()
-    " TODO: why `E488: Trailing characters: :HdevtoolsClear | call " GenerateHasktags()'?
-
-    " for vim-commentary
-    autocmd FileType haskell set commentstring=--\ %s
-
-    let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'], 'passive_filetypes': ['tex','java']}
-    let g:syntastic_python_checkers = ['flake8']
-    let g:syntastic_python_checker_args = '--ignore=E501'
-    let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_auto_jump = 1
-
-    let g:hdevtools_options = '-g-Wall -g-O0'
-
-    autocmd Bufenter *.[cC]apfile,[cC]apfile,*[vV]agrantfile,Guardfile setfiletype ruby
-    autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
-
-    autocmd Bufenter *.md setfiletype markdown
-
-    " Use haskell syntax for biegunkofiles
-    autocmd Bufenter *.biegunka setfiletype haskell
-
-    " set XML style
-    " let g:xml_syntax_folding=1
-    autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2 foldmethod=syntax
-
-    autocmd FileType eruby,javascript,sh setlocal expandtab shiftwidth=2 softtabstop=2
-
-    " ingore whitespaces (vimdiff)
-    set diffopt+=iwhite " ignore whitespaces
-
-    " highlight trailing spaces
-    set list!
-    set listchars=tab:»»,trail:∘
-    " disable matches in help buffers
-    autocmd BufEnter,FileType help call clearmatches()
-
-    " Automatically chmod +x
-    autocmd BufWritePost * call ModeChange()
-
-    " preserve undo actions even after file has closed
-    set undolevels=1000
-    set undofile
-
-    " vim-latex settings
-    set grepprg=grep\ -nH\ $*
-    let g:tex_flavor='latex'
-
-    " save after losing focus
-    autocmd FocusLost * :wa
-
-    " clear signcolumn for Syntastic and GitGutter
-    highlight clear SignColumn
-    highlight GitGutterAdd          ctermfg=002 ctermbg=002
-    highlight GitGutterChange       ctermfg=002 ctermbg=002
-    highlight GitGutterDelete       ctermfg=009 ctermbg=009
-    highlight GitGutterChangeDelete ctermfg=009 ctermbg=009
-
-    if &term =~ '^screen'
-        " tmux will send xterm-style keys when xterm-keys is on
-        execute "set <xUp>=\e[1;*A"
-        execute "set <xDown>=\e[1;*B"
-        execute "set <xRight>=\e[1;*C"
-        execute "set <xLeft>=\e[1;*D"
-    endif
-
-    if filereadable('.vim.custom')
-        source .vim.custom
-    endif
-
-
-"=====================================
-" KEY MAPPING SETTINGS
-"=====================================
-    let mapleader = ","
-
-    " remove search highlighting
-    nmap <Leader>nh :nohlsearch<CR>
-
-    " set paste mode
-    set pastetoggle=<F3>
-
-    noremap k gk
-    noremap j gj
-
-    nmap <Leader>u :Unite file buffer<CR>
-
-    " save as root with w!!
-    cmap w!! w !sudo tee % > /dev/null
-
-    " Edit the vimrc file
-    nmap <silent> <Leader>sv :so $MYVIMRC<CR>
-
-    " Close current buffer
-    nmap <Leader>d :bd<CR>
-
-    " Close all buffers except current
-    nmap <Leader>a :BufOnly<CR>
-
-    " disable arrow keys in insert and normal modes
-    inoremap <up> <nop>
-    inoremap <down> <nop>
-    inoremap <left> <nop>
-    inoremap <right> <nop>
-    nnoremap <up> <nop>
-    nnoremap <down> <nop>
-    nnoremap <left> <nop>
-    nnoremap <right> <nop>
-
-    " Haskell maps
     autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-    autocmd FileType haskell nnoremap <Leader>sh :%!stylish-haskell<CR>
+    autocmd FileType haskell nnoremap <buffer> <Leader>sh :%!stylish-haskell<CR>
     autocmd FileType haskell iabbrev <buffer> lang {-# LANGUAGE #-}<esc>3hi
+    autocmd BufWritePost *.hs :HdevtoolsClear " TODO use filetype haskell?
+    autocmd BufWritePost *.hs call GenerateHasktags() " TODO: why `E488: Trailing characters: :HdevtoolsClear | call " GenerateHasktags()'?
+    autocmd FileType haskell set commentstring=--\ %s " for vim-commentary
+augroup END
 
-    autocmd FileType coq call coquille#CoqideMapping()
+highlight hsNiceOperator ctermfg=none ctermbg=black
 
-    nmap <Leader>s :%!git stripspace<CR>
+" configure browser for haskell_doc.vim
+let g:haddock_browser = "firefox-bin"
 
-    nmap <F6> :%s/<c-r><c-w>//gc<left><left><left>
+" syntax rules
+let hs_highlight_delimiters = 1
+let hs_highlight_boolean = 1
+let hs_highlight_debug = 1
+let hs_highlight_more_types = 1
+let hs_highlight_types = 1
 
-    nmap gd :tjump <c-r><c-w><CR>
+let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
 
-    nmap <Leader>p :bp<CR>
+let g:hdevtools_options = '-g-Wall -g-O0'
+
+" }}}

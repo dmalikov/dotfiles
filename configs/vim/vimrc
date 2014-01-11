@@ -104,6 +104,7 @@ set cursorcolumn
 highlight CursorLine ctermbg=000
 highlight CursorColumn ctermbg=000
 
+set number
 set relativenumber
 
 " enable autocomplete

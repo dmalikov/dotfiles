@@ -99,7 +99,7 @@
     " Show the current mode
     set showmode
 
-    set statusline=#%n\ %f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=%l,%c/%L
+    set statusline=%f\ %y\ %{'['.(&fenc!=''?&fenc:&enc).':'.']'}\ %m\ %r\ %=%l,%c/%L
 
     " Show the current command in the bottom right
     set showcmd

@@ -176,9 +176,9 @@ song_status_format = "{(%l) }{%a - }{%t}|{%f}"
 ## text attributes listed above.
 ##
 #
-#now_playing_prefix = "$b"
+now_playing_prefix = "$b"
 #
-#now_playing_suffix = "$/b"
+now_playing_suffix = "$/b"
 #
 #browser_playlist_prefix = "$2playlist$9 "
 #
@@ -189,7 +189,7 @@ song_status_format = "{(%l) }{%a - }{%t}|{%f}"
 ## colors are not supported for below variable
 #
 #song_window_title_format = "{%a - }{%t}|{%f}"
-#
+
 ##### columns settings #####
 ##
 ## syntax of song columns list format is "column column etc."
@@ -226,7 +226,7 @@ song_status_format = "{(%l) }{%a - }{%t}|{%f}"
 ##   not available.
 ##
 #
-song_columns_list_format = "(7f)[green]{l} (20)[cyan]{a} (40)[]{t|f} (30)[red]{b} (7)[magenta]{y}"
+song_columns_list_format = " (7)[black]{N} (20)[cyan]{a} (20)[]{t|f} (30)[red]{b} (4)[black]{y} (7)[black]{lr}"
 #
 ##### various settings #####
 #
@@ -265,7 +265,7 @@ autocenter_mode = "yes"
 ## Note: You can specify third character which will
 ## be used to build 'empty' part of progressbar.
 ##
-progressbar_look = "─  "
+progressbar_look = "━■ "
 #
 #default_place_to_search_in = "database" (database/playlist)
 #

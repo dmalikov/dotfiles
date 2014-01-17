@@ -17,9 +17,7 @@ set -g set-titles-string 'Tmux: #W'
 set -g status-bg default
 set -g status-fg default
 set -g status-interval 1
-set -g status-interval 1
 set -g status-justify "centre"
-set -g status-justify centre
 set -g status-keys vi
 set -g status-left '#[fg=colour7]#(~/.zsh/tmux get_tmux_pwd) #[fg=colour3]#(~/.zsh/tmux git_branch) #[fg=colour0]#[bg=colour2]#(~/.zsh/tmux git_diff_insertions)#[bg=colour9]#(~/.zsh/tmux git_diff_deletions)'
 set -g status-left-length 300

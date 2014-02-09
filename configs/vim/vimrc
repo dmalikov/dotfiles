@@ -153,11 +153,6 @@ set linebreak
 
 set shell=zsh
 
-" I should do nothing, REMOVE ME
-if $TMUX == ''
-    set clipboard+=unnamed
-endif
-
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'], 'passive_filetypes': ['tex','java']}
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_checker_args = '--ignore=E501'
@@ -187,7 +182,6 @@ set list!
 set listchars=tab:»»,trail:∘
 " disable matches in help buffers
 autocmd BufEnter,FileType help call clearmatches()
-
 
 " chmod +х
 function ModeChange()
@@ -224,8 +218,9 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
-if filereadable('.vim.custom')
-    source .vim.custom
+let custom_filename = '.vim.custom'
+if filereadable(custom_filename)
+    execute "source" custom_filename
 endif
 " }}}
 
@@ -301,7 +296,5 @@ let hs_highlight_more_types = 1
 let hs_highlight_types = 1
 
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
-
-let g:hdevtools_options = '-g-Wall -g-O0'
 
 " }}}

@@ -33,27 +33,27 @@ color title-focus 3       default
 # diff highlighting
 color diff-add           default default
 color diff-chunk         3       default
-color diff-copy-from     9       default
-color diff-copy-to       2       default
+color "copy from "       9       default
+color "copy to "         2       default
 color diff-del           default default
-color diff-dissimilarity default default
+color "dissimilarity "   default default
 color diff-header        4       default
 color diff-index         default default
 color diff-newmode       2       default
 color diff-oldmode       9       default
-color diff-rename-from   9       default
-color diff-rename-to     2       default
+color "rename from "     9       default
+color "rename to "       2       default
 color diff-similarity    default default
-color diff-tree          default default
+color "diff-tree "       default default
 
 # commit headers pretty prints
-color pp-adate  11      default
-color pp-author 3       default
-color pp-cdate  11      default
-color pp-commit 3       default
-color pp-date   11      default
-color pp-merge  default default
-color pp-refs   default default
+color "AuthorDate: " 11      default
+color "author "      3       default
+color "CommitDate: " 11      default
+color "commit "      3       default
+color date           11      default
+color "Merge: "      default default
+color "Refs: "       default default
 
 # main view colors
 color main-date      11      default

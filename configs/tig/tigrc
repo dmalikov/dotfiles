@@ -56,7 +56,6 @@ color "Merge: "      default default
 color "Refs: "       default default
 
 # main view colors
-color main-date      11      default
 color main-head      default default
 color main-local-tag default default
 color main-ref       default default
@@ -66,8 +65,8 @@ color main-tracked   default default
 
 # tree view
 color tree-head default default
-color tree-dir  default default
-color tree-file default default
+color tree.directory    default default
+color tree.file default default
 
 #==================================
 # KEYBINDINGS SETTINGS

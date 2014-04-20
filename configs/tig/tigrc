@@ -10,13 +10,13 @@ set show-author = full
 set show-changes = true
 set show-date = local
 set show-id = true
-set show-refs = no
 set show-rev-graph = yes
 set status-untracked-dirs = off
 set tab-size = 2
 set show-id = false
 set vertical-split = horizontal
 set wrap-lines = yes
+set reference-format = hide:branch hide:remote hide:replace
 
 #==================================
 # COLOR SETTINGS

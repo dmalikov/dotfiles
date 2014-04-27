@@ -16,7 +16,6 @@ set tab-size = 2
 set show-id = false
 set vertical-split = horizontal
 set wrap-lines = yes
-set reference-format = hide:branch hide:remote hide:replace
 
 #==================================
 # COLOR SETTINGS
@@ -75,7 +74,7 @@ color tree.file default default
 #==================================
 bind generic C !git cherry-pick %(commit)
 bind generic I !git commit
-bind generic F !git fetch --prune
+bind generic ^f !git fetch --prune
 bind generic L !git log %(file)
 bind generic P !git pull --rebase origin %(branch)
 bind generic R !git revert %(commit)

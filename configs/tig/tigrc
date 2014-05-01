@@ -1,19 +1,13 @@
 #==================================
 # GENERAL SETTINGS
 #==================================
-set author-width = 20
+set main-view = line-number:no,interval=5 id:yes date:local author:full commit-title:yes,graph,refs,overflow=no
 set diff-context = 5
 set horizontal-scroll = 20%
 set line-graphics = "utf8"
-set line-number-interval = 1
-set show-author = full
 set show-changes = true
-set show-date = local
-set show-id = true
-set show-rev-graph = yes
-set status-untracked-dirs = off
+set status-untracked-dirs = false
 set tab-size = 2
-set show-id = false
 set vertical-split = horizontal
 set wrap-lines = yes
 
@@ -65,7 +59,7 @@ color main-tag       default default
 color main-tracked   default default
 
 # tree view
-color tree-head default default
+color tree.header default default
 color tree.directory    default default
 color tree.file default default
 
@@ -74,12 +68,12 @@ color tree.file default default
 #==================================
 bind generic C !git cherry-pick %(commit)
 bind generic I !git commit
-bind generic ^f !git fetch --prune
+bind generic <Ctrl-f> !git fetch --prune
 bind generic L !git log %(file)
 bind generic P !git pull --rebase origin %(branch)
 bind generic R !git revert %(commit)
-bind generic ^r !git reset --soft %(commit)
+bind generic <Ctrl-r> !git reset --soft %(commit)
 bind generic + !git commit --amend
 bind generic > !git push origin %(branch)
 bind generic x !git branch -d %(branch)
-bind generic ^x !git branch -D %(branch)
+bind generic <Ctrl-x> !git branch -D %(branch)

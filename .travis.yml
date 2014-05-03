@@ -1,11 +1,16 @@
 language: haskell
 
+ghc:
+ - 7.6
+ - 7.8
+
 before_install:
  - sudo apt-get update
- - sudo apt-get install c2hs git # waiting for https://github.com/travis-ci/travis-ci/issues/1710
+ - sudo apt-get install c2hs
  - cabal install cabalg
 
 install:
+ - cabalg git://github.com/acid-state/acid-state.git
  - cabalg git://github.com/biegunka/biegunka.git --branch=develop
  - cabal install biegunka/dotfiles.cabal
 

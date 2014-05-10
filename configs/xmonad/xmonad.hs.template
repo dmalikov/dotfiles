@@ -95,7 +95,7 @@ myKeys conf@(XConfig {modMask = modm}) = fromList \$
 myLogHook :: Handle -> X ()
 myLogHook h = do
   ewmhDesktopsLogHook
-  updatePointer (Relative 0.5 0.5)
+  updatePointer (0.5,0.5) (0,0)
   dynamicLogWithPP \$ xmobarPP
     { ppCurrent = xmobarColor orangeColor ""
     , ppLayout  = const ""

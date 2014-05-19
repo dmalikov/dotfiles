@@ -23,10 +23,6 @@ xset -dpms
 xrdb ~/.Xresources
 xrdb -merge ~/.urxvt/colors/hybrid
 
-# run trayer
-killall trayer
-trayer --edge top --align left --transparent true --widthtype pixel --width 120 --heighttype pixel --height 10 --tint 0x1c1c1c --alpha 0 --SetDockType true &
-
 # run kbdd daemon
 /usr/bin/kbdd &
 

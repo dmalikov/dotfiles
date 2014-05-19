@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds, QuasiQuotes, ScopedTypeVariables #-}
+{-# LANGUAGE DataKinds, ScopedTypeVariables #-}
 module Profiles where
 import           Control.Lens
 import           Data.Default                (def)
@@ -20,16 +20,10 @@ profile_vim = do
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
 
 profile_xmonad :: Script Sources ()
-profile_xmonad = do
+profile_xmonad =
   profile "xmonad/xmonad.hs" $
     dotfiles $
       substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
-  profile "xmonad/xmobar" $ do
-    git "git@github.com:dmalikov/xmobar-usable" "projects/dmalikov/xmobar-usable" $
-      [sh| cabal install --flags="all_extensions" |]
-    dotfiles $ do
-      copy "configs/xmonad/xmobar.hs" ".xmonad/xmobar.hs"
-      [sh| ghc -O2 ${HOME}/.xmonad/xmobar.hs -o ${HOME}/.xmonad/xmobar -fforce-recomp |]
 
 profile_git :: Script Sources ()
 profile_git = profile "git" $

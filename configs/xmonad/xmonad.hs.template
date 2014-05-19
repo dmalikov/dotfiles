@@ -10,7 +10,7 @@ import           Data.Time                       (getCurrentTime)
 import           Data.Time.Format                (formatTime)
 import           System.Directory                (getHomeDirectory, renameFile)
 import           System.FilePath.Posix           (joinPath, (<.>))
-import           System.IO                       (Handle, hPutStrLn)
+import           System.IO                       (Handle)
 import           System.Locale                   (defaultTimeLocale)
 
 import           XMonad
@@ -18,7 +18,6 @@ import qualified XMonad.Actions.CycleWS          as CWS
 import           XMonad.Actions.SpawnOn          (spawnOn)
 import           XMonad.Actions.SwapWorkspaces   (swapWithCurrent)
 import           XMonad.Actions.UpdatePointer
-import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
@@ -30,8 +29,7 @@ import           XMonad.Prompt
 import           XMonad.Prompt.Input             (inputPromptWithCompl, (?+))
 import           XMonad.Prompt.Shell
 import qualified XMonad.StackSet                 as S
-import           XMonad.Util.Run                 (runProcessWithInput,
-                                                  spawnPipe)
+import           XMonad.Util.Run                 (runProcessWithInput, spawnPipe)
 import           XMonad.Util.Scratchpad
 import           XMonad.Util.WorkspaceScreenshot
 
@@ -96,14 +94,6 @@ myLogHook :: Handle -> X ()
 myLogHook h = do
   ewmhDesktopsLogHook
   updatePointer (0.5,0.5) (0,0)
-  dynamicLogWithPP \$ xmobarPP
-    { ppCurrent = xmobarColor orangeColor ""
-    , ppLayout  = const ""
-    , ppOutput  = hPutStrLn h
-    , ppSep     = " | "
-    , ppSort    = fmap (. scratchpadFilterOutWorkspace) \$ ppSort xmobarPP
-    , ppTitle   = xmobarColor orangeDarkColor ""
-    }
   fadeInactiveLogHook 0.7
 
 myManageHook :: ManageHook

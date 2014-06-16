@@ -4,9 +4,11 @@ ghc:
  - 7.6
  - 7.8
 
-install:
+before_install:
     - cabal install cabalg
-    - cabalg https://github.com/supki/temporary https://github.com/acid-state/acid-state https://github.com/biegunka/biegunka@develop -- biegunka/dotfiles.cabal
+
+install:
+    - cabalg https://github.com/biegunka/biegunka@develop -- biegunka/dotfiles.cabal
 
 script: true
 

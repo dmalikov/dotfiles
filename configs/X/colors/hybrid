@@ -37,3 +37,6 @@
 ! white
 *.color7:  #707880
 *.color15: #C5C8C6
+
+! background saved in 16 color for vim and others
+*.color16: #1C1C1C

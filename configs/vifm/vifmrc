@@ -46,7 +46,7 @@ set undolevels=100
 " If you installed the vim.txt help file set vimhelp.
 " If would rather use a plain text help file set novimhelp.
 
-set novimhelp
+set vimhelp
 
 " If you would like to run an executable file when you
 " press return on the file name set this.
@@ -92,7 +92,7 @@ set incsearch
 
 " Try to leave some space from cursor to upper/lower border in lists
 
-set scrolloff=4
+set scrolloff=999
 
 " Don't do to much requests to slow file systems
 
@@ -172,14 +172,7 @@ fileviewer *.mp3 mp3info
 
 " Video
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.vob,*.flv
-        \ {View using ffplay}
-        \ ffplay -fs %c,
-        \ {View using Dragon}
-        \ dragon %f,
-        \ {View using mplayer}
-        \ mplayer %f,
-fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.vob
-         \ ffprobe -pretty %c 2>&1
+        \ mpv %f,
 
 " Web
 filetype *.html,*.htm links,mozilla,uzbl-browser %f %i &
@@ -305,6 +298,12 @@ nmap ,C :!vim --remote-tab-silent $MYVIFMRC &<cr>
 
 " Toggle wrap setting on ,w key
 nmap ,w :set wrap!<cr>
+
+" Sort by creation time
+nmap ,s :set sort=-ctime<cr>
+
+" Sort alphabetically
+nmap ,d :set sort=name<cr>
 
 " Example of standard two-panel file managers mappings
 nmap <f3> :!less %f<cr>

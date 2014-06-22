@@ -17,7 +17,6 @@
 *.url-select.underline: true
 
 !urxvt scrolling options and cursor style:
-*.loginShell: true
 *.scrollstyle: plain
 *.scrollBar: false
 *.cursorBlink: false

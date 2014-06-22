@@ -158,7 +158,7 @@ profile_dwb = profile "dwb" $
 profile_vifm :: Script Sources ()
 profile_vifm = profile "vifm" $
   dotfiles $ do
-    copy "configs/vifm/colors/neverland" ".vifm/colors/neverland"
+    copy "configs/vifm/colors/hybrid" ".vifm/colors/hybrid"
     copy "configs/vifm/vifmrc" ".vifm/vifmrc"
 
 profile_zathura :: Script Sources ()

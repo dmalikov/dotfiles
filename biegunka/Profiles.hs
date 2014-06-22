@@ -18,6 +18,8 @@ profile_vim = do
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
   profile "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
+  profile "vim/plugins" $
+    dotfiles $ copy "configs/vim/MyTabularMaps.vim" ".vim/bundle/tabular/after/plugin/MyTabularMaps.vim"
 
 profile_xmonad :: Script Sources ()
 profile_xmonad =

@@ -251,6 +251,10 @@ filextype */
         \ Thunar %f &,
 fileview .*/,*/ tree %f
 
+" Archive
+filetype *.zip unzip %f
+filetype *.rar unrar e %f
+
 " Open all other files with default system programs (you can also remove all
 " :file[x]type commands above to ensure they don't interfere with system-wide
 " settings).  By default all unknown files are opened with 'vi[x]cmd'

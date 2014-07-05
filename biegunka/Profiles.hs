@@ -133,11 +133,6 @@ profile_gtk = profile "gtk" $
   dotfiles $
     copy "configs/gtk/gtkrc-2.0.mine" ".gtkrc-2.0.mine"
 
-profile_mocp :: Script Sources ()
-profile_mocp = profile "mocp" $
-  dotfiles $
-    copy "configs/moc/config" ".moc/config"
-
 profile_tmux :: Script Sources ()
 profile_tmux = profile "tmux" $
   dotfiles $ do

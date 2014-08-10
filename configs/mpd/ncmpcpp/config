@@ -365,6 +365,9 @@ display_remaining_time = "no"
 ## media library, etc.
 ##
 #ignore_leading_the = "no"
+browser_sort_mode = "track"
+
+browser_sort_format = "{%a - }{%t}|{%f} {(%l)}"
 #
 #block_search_constraints_change_if_items_found = "yes"
 #

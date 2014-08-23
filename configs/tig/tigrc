@@ -66,7 +66,7 @@ color tree.file default default
 #==================================
 # KEYBINDINGS SETTINGS
 #==================================
-bind generic C !git cherry-pick %(commit)
+bind generic P !git cherry-pick %(commit)
 bind generic I !git commit
 bind generic <Ctrl-f> !git fetch --prune
 bind generic L !git log %(file)

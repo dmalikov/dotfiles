@@ -75,5 +75,5 @@ bind generic R !git revert %(commit)
 bind generic <Ctrl-r> !git reset --soft %(commit)
 bind generic + !git commit --amend
 bind generic > !git push origin %(branch)
-bind generic x !git branch -d %(branch)
 bind generic <Ctrl-x> !git branch -D %(branch)
+bind generic <Ctrl-b> !git push %(remote) --delete %(branch)

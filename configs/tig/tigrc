@@ -4,7 +4,7 @@
 set main-view = line-number:no,interval=5 id:yes date:local author:full commit-title:yes,graph,refs,overflow=no
 set diff-context = 5
 set horizontal-scroll = 20%
-set line-graphics = "utf8"
+set line-graphics = ascii
 set show-changes = true
 set status-untracked-dirs = false
 set tab-size = 2

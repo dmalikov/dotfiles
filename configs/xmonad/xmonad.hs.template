@@ -3,6 +3,7 @@
 
 import           Control.Applicative             ((<\$>))
 import           Control.Monad                   (liftM2)
+import           Data.Default
 import           Data.List                       (isPrefixOf)
 import           Data.Map                        (fromList, union)
 import           Data.Maybe                      (isJust)

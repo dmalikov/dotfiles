@@ -179,17 +179,14 @@ filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.vob,*.flv
         \ mpv %f,
 
 " Web
-filetype *.html,*.htm links,mozilla,uzbl-browser %f %i &
+filetype *.html,*.htm firefox-bin %f %i &
 
 " Object
 filetype *.o nm %f | less
 
 " Image
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ {View in sxiv}
-        \ sxiv,
-        \ {View in gpicview}
-        \ gpicview %c,
+        \ viewnior --fullscreen %c,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm convert -identify %f -verbose /dev/null
 
 " MD5
@@ -244,12 +241,6 @@ fileview *.docx, docx2txt.pl %f -
 
 " Qt projects
 filextype *.pro qtcreator %f &
-
-" Directories
-filextype */
-        \ {View in thunar}
-        \ Thunar %f &,
-fileview .*/,*/ tree %f
 
 " Archive
 filetype *.zip unzip %f

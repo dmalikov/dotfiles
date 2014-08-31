@@ -17,13 +17,13 @@ settings = def
     { font_size = 8
     }
   , urxvt = def
-    { font = "-*-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1"
+    { font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
     }
   , x = def
     { xft_dpi = 125
     }
   , xmonad = def
-    { terminus_font = "-*-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1"
+    { terminus_font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
     }
   }
 

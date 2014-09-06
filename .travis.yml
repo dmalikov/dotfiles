@@ -1,14 +1,17 @@
 language: haskell
 
 ghc:
- - 7.6
  - 7.8
 
 before_install:
-    - cabal install cabalg
+    - cabal install alex happy
+    - cabal install c2hs
+    - cabal install cabal-install cabalg
+    - cabal install data-default
 
 install:
-    - cabalg https://github.com/biegunka/biegunka@develop -- biegunka/dotfiles.cabal
+    - cabalg https://github.com/biegunka/biegunka@develop
 
-script: true
-
+script:
+    - biegunka run biegunka/ -- --x220 --changes
+    - biegunka run biegunka/ -- --s10 --changes

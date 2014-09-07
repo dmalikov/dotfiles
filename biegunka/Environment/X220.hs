@@ -29,6 +29,7 @@ settings = def
 
 profiles = sequence_
   [ profile_ackrc
+  , profile_bash
   , profile_git
   , profile_gtk
   , profile_haskell
@@ -37,12 +38,12 @@ profiles = sequence_
   , profile_mpv
   , profile_pentadactyl
   , profile_ruby
-  , profile_shell
   , profile_tmux
   , profile_vifm
   , profile_vim
   , profile_x
   , profile_xmonad
   , profile_zathura
+  , profile_zsh
   ]
 

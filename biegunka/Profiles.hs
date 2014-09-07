@@ -7,12 +7,14 @@ import           Control.Biegunka
 import           Control.Biegunka.Source.Git
 
 dotfiles :: Script Actions () -> Script Sources ()
-dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as
+dotfiles as = git' "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ def & actions .~ as
 
 profile_vim :: Script Sources ()
 profile_vim = do
   profile "vim/rc" $ do
-    git_ "Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
+    git_ "git@github.com:Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
+    git "git@github.com:tpope/vim-pathogen" ".vim/bundle/vim-pathogen" $
+      copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
@@ -104,11 +106,14 @@ profile_apvlv = profile "apvlv" $
   dotfiles $
     copy "configs/apvlv/apvlvrc" ".apvlvrc"
 
-profile_shell :: Script Sources ()
-profile_shell = do
+profile_bash :: Script Sources ()
+profile_bash = do
   profile "bash" $
     dotfiles $
       copy "configs/bash/bashrc" ".bashrc"
+
+profile_zsh :: Script Sources ()
+profile_zsh = do
   profile "zsh" $ do
     git_ "git@github.com:zsh-users/zsh-completions" "projects/misc/"
     dotfiles $ do

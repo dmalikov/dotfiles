@@ -6,12 +6,12 @@
     editor = vim
     pager = cat
     excludesfile = ~/.gitignore
+
 $if(template.git.set_user)$
 [user]
     name = $template.git.user_name$
     email = $template.git.user_email$
 $endif$
-
 [merge]
     log = true
     tool = vimdiff

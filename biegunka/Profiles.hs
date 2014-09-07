@@ -141,7 +141,7 @@ profile_gtk = profile "gtk" $
 profile_tmux :: Script Sources ()
 profile_tmux = profile "tmux" $
   dotfiles $ do
-    copy "configs/tmux/conf" ".tmux.conf"
+    substitute "configs/tmux/conf.template" ".tmux.conf"
     copy "configs/tmux/keybindings" ".tmux.keybindings"
 
 profile_uzbl :: Script Sources ()

@@ -9,6 +9,7 @@ import Data.Default
 data Template = Template
   { git :: Git
   , pentadactyl :: Pentadactyl
+  , tmux :: Tmux
   , urxvt :: Urxvt
   , x :: X
   , xmonad :: Xmonad
@@ -18,6 +19,7 @@ instance Default Template where
   def = Template
     { git = def
     , pentadactyl = def
+    , tmux = def
     , urxvt = def
     , x = def
     , xmonad = def
@@ -31,6 +33,11 @@ data Git = Git
 
 data Pentadactyl = Pentadactyl
   { font_size :: Int
+  } deriving (Data, Typeable)
+
+data Tmux = Tmux
+  { set_shell :: Bool
+  , shell :: String
   } deriving (Data, Typeable)
 
 data Urxvt = Urxvt
@@ -54,6 +61,12 @@ instance Default Git where
 
 instance Default Pentadactyl where
   def = Pentadactyl { font_size = def }
+
+instance Default Tmux where
+  def = Tmux
+    { set_shell = False
+    , shell = def
+    }
 
 instance Default X where
   def = X { xft_dpi = def }

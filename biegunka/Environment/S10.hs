@@ -13,6 +13,9 @@ settings = def
     , user_name = "Dmitry Malikov"
     , user_email = "malikov.d.y@gmail.com"
     }
+  , tmux = def
+    { set_shell = False
+    }
   }
 
 

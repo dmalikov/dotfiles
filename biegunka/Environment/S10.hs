@@ -15,7 +15,8 @@ settings = def
     , user_email = "malikov.d.y@gmail.com"
     }
   , tmux = def
-    { set_shell = False
+    { set_shell = True
+    , shell = "/var/run/current-system/sw/bin/zsh"
     }
   }
 

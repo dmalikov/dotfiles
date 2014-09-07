@@ -37,7 +37,7 @@
     ];
   };
 
-  environment = with pkgs; { 
+  environment = with pkgs; {
     systemPackages = [
       curl
       dhcp
@@ -62,13 +62,16 @@
     enable = true;
   };
 
-  users.extraUsers.yep = {
-    name = "yep";
-    group = "users";
-    uid = 1000;
-    createHome = true;
-    home = "/home/yep";
-    extraGroups = [ "wheel" ];
-    useDefaultShell = true;
+  users = {
+    defaultUserShell = "/var/run/current-system/sw/bin/zsh";
+    extraUsers.yep = {
+      name = "yep";
+      group = "users";
+      uid = 1000;
+      createHome = true;
+      home = "/home/yep";
+      extraGroups = [ "wheel" ];
+      useDefaultShell = true;
+    };
   };
 }

@@ -115,7 +115,7 @@ profile_bash = do
 profile_zsh :: Script Sources ()
 profile_zsh = do
   profile "zsh" $ do
-    git_ "git@github.com:zsh-users/zsh-completions" "projects/misc/"
+    git_ "git@github.com:zsh-users/zsh-completions" "git/zsh-completions"
     dotfiles $ do
       copy "configs/zsh/zshrc" ".zshrc"
       copy "configs/zsh/zshenv" ".zshenv"

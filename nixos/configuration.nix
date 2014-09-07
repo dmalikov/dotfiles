@@ -71,5 +71,4 @@
     extraGroups = [ "wheel" ];
     useDefaultShell = true;
   };
- 
 }

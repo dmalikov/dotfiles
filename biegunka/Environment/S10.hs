@@ -1,3 +1,4 @@
+{-# LANGUAGE OverloadedStrings #-}
 module Environment.S10 where
 
 import           Data.Default     (def)

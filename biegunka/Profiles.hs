@@ -169,7 +169,6 @@ profile_zathura = profile "zathura" $
 profile_nixpkgs :: Script Sources ()
 profile_nixpkgs = profile "nixpkgs" $
   dotfiles $ do
-    sudo (Username "root") (copy "nixos/configuration.nix" "/etc/nixos/configuration.nix")
     copy "nixpkgs/config.nix" ".nixpkgs/config.nix"
     copy "nixpkgs/biegunka/default.nix" ".nixpkgs/biegunka/default.nix"
     copy "nixpkgs/cabal2nix/default.nix" ".nixpkgs/cabal2nix/default.nix"

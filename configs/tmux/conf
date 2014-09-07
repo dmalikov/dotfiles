@@ -5,7 +5,6 @@ bind-key -n M-p previous-window
 bind-key C-k kill-session
 
 set -g bell-action any
-set -g default-path ""
 set -g default-shell /bin/zsh
 set -g default-terminal "screen-256color"
 set -g display-panes-time 2000

@@ -33,7 +33,7 @@ bind          D choose-client
 bind          L switch-client -l
 bind          [ copy-mode
 bind          ] paste-buffer
-bind          c new-window
+bind          c new-window -c "#{pane_current_path}"
 bind          d detach-client
 bind          f command-prompt "find-window '%%'"
 bind          i display-message

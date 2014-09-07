@@ -25,5 +25,6 @@ profiles = sequence_
   , profile_zsh
   , profile_vim
   , profile_haskell
+  , profile_nixpkgs
   ]
 

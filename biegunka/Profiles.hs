@@ -165,3 +165,11 @@ profile_zathura :: Script Sources ()
 profile_zathura = profile "zathura" $
   dotfiles $
     copy "configs/zathura/zathurarc" ".config/zathura/zathurarc"
+
+profile_nixpkgs :: Script Sources ()
+profile_nixpkgs = profile "nixpkgs" $
+  dotfiles $ do
+    copy "nixpkgs/config.nix" ".nixpkgs/config.nix"
+    copy "nixpkgs/biegunka/default.nix" ".nixpkgs/biegunka/default.nix"
+    copy "nixpkgs/cabal2nix/default.nix" ".nixpkgs/cabal2nix/default.nix"
+    copy "nixpkgs/dotfiles/default.nix" ".nixpkgs/dotfiles/default.nix"

@@ -42,6 +42,7 @@
       curl
       dhcp
       git
+      haskellPackages.hdevtools
       htop
       iotop
       nix-repl
@@ -52,6 +53,7 @@
       vim
       wget
       wgetpaste
+      zsh
     ];
   };
 

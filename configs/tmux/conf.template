@@ -6,7 +6,7 @@ bind-key C-k kill-session
 
 set -g bell-action any
 $if(template.tmux.set_shell)$
-    set -g default-shell /bin/zsh
+set -g default-shell "$template.tmux.shell$"
 $endif$
 set -g default-terminal "screen-256color"
 set -g display-panes-time 2000

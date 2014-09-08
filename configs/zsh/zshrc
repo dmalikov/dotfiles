@@ -49,7 +49,7 @@ unset RUBYOPT
 # nixos stuff
 if [[ -n "$(uname -a | grep -i -o "nixos")" ]]; then
     nixpkgs_head=/home/yep/git/nixpkgs/
-    [[ -z "$(grep -o ${nixpkgs_head} <<< ${NIX_PATH}))" ]] && export NIX_PATH=nixpkgs=${nixpkgs_head}:${NIX_PATH}
+    [[ -z "$(grep -o ${nixpkgs_head} <<< ${NIX_PATH})" ]] && export NIX_PATH=nixpkgs=${nixpkgs_head}:${NIX_PATH}
 fi
 
 bindkey '^R' history-incremental-search-backward

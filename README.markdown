@@ -2,9 +2,7 @@
 
 World of configuration files managed by [`biegunka`][biegunka].
 
-[![Build Status](https://drone.io/github.com/dmalikov/dotfiles/status.png)](https://drone.io/github.com/dmalikov/dotfiles/latest)
 [![Build Status](https://secure.travis-ci.org/dmalikov/dotfiles.png?branch=master)](http://travis-ci.org/dmalikov/dotfiles)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dmalikov/dotfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## What is it?
 

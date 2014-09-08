@@ -120,7 +120,6 @@ profile_zsh = do
       copy "configs/zsh/zshrc" ".zshrc"
       copy "configs/zsh/zshenv" ".zshenv"
       copy "configs/zsh/zprofile" ".zprofile"
-      copy "configs/zsh/tmux" ".zsh/tmux"
 
 profile_java :: Script Sources ()
 profile_java =

@@ -1,4 +1,4 @@
--- vim: set ft=tmux:
+# vim: set ft=tmux:
 source ~/.tmux.keybindings
 
 bind-key -n M-n next-window
@@ -6,7 +6,7 @@ bind-key -n M-p previous-window
 bind-key C-k kill-session
 
 set -g bell-action any
-set -g default-shell "$template.tmux.shell$
+set -g default-shell $template.tmux.shell$
 set -g default-terminal "screen-256color"
 set -g display-panes-time 2000
 set -g history-limit 10000
@@ -19,7 +19,7 @@ set -g status-fg default
 set -g status-interval 1
 set -g status-justify "centre"
 set -g status-keys vi
-set -g status-left '#[fg=colour7]#(~/.zsh/tmux get_tmux_pwd) #[fg=colour3]#(~/.zsh/tmux git_branch) #[fg=colour0]#[bg=colour2]#(~/.zsh/tmux git_diff_insertions)#[bg=colour9]#(~/.zsh/tmux git_diff_deletions)'
+set -g status-left ''
 set -g status-left-length 300
 set -g status-right '#[fg=colour3]#S'
 set -g visual-activity on

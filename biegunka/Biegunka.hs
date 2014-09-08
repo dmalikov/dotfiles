@@ -1,13 +1,13 @@
 {-# LANGUAGE DataKinds, DeriveDataTypeable #-}
 module Main where
 
-import qualified Environment.X220 as X220
-import qualified Environment.S10 as S10
+import qualified Environment.S10                            as S10
+import qualified Environment.X220                           as X220
 
-import Control.Lens (set)
+import           Control.Lens                               (set)
 
-import Control.Biegunka
-import Control.Biegunka.Templates.HStringTemplate
+import           Control.Biegunka
+import           Control.Biegunka.Templates.HStringTemplate
 
 data Environment = X220 | S10
   deriving (Data, Typeable)

@@ -43,6 +43,7 @@
       dhcp
       git
       haskellPackages.hdevtools
+      haskellPackages.stylishHaskell
       htop
       iotop
       nix-repl

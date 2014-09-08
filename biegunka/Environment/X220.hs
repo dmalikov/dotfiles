@@ -1,9 +1,9 @@
 module Environment.X220 where
 
-import Data.Default (def)
+import           Data.Default     (def)
 
-import Environment.Base
-import Profiles
+import           Environment.Base
+import           Profiles
 
 
 settings :: Template

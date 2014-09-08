@@ -15,7 +15,7 @@ settings = def
     , user_email = "malikov.d.y@gmail.com"
     }
   , tmux = def
-    { shell = "${HOME}/.nix-profile/bin/zsh"
+    { shell = "~/.nix-profile/bin/zsh"
     }
   }
 

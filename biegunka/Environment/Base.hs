@@ -36,8 +36,7 @@ data Pentadactyl = Pentadactyl
   } deriving (Data, Typeable)
 
 data Tmux = Tmux
-  { set_shell :: Bool
-  , shell :: String
+  { shell :: String
   } deriving (Data, Typeable)
 
 data Urxvt = Urxvt
@@ -64,8 +63,7 @@ instance Default Pentadactyl where
 
 instance Default Tmux where
   def = Tmux
-    { set_shell = False
-    , shell = def
+    { shell = def
     }
 
 instance Default X where

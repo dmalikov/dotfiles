@@ -17,8 +17,7 @@ settings = def
     { font_size = 8
     }
   , tmux = def
-    { set_shell = True
-    , shell = "/bin/zsh"
+    { shell = "/bin/zsh"
     }
   , urxvt = def
     { font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"

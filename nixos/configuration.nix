@@ -37,6 +37,8 @@
     ];
   };
 
+  programs.zsh.enable = true;
+
   environment = with pkgs; {
     systemPackages = [
       curl

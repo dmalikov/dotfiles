@@ -15,12 +15,13 @@ export KEYTIMEOUT=1
 promptinit
 colors
 setopt transientrprompt
+PROMPT=$'%F{3}%n@%M%f : %~ %(?,%F{2},%F{1})>> %f'
 function zle-line-init zle-keymap-select {
-    RPROMPT=""
-    [[ ${IN_NIX_SHELL} -eq 1 ]] && RPROMPT+=" %F{8}[%F{3}nix-shelled%F{8}]%f "
-    [[ -d ".cabal-sandbox" ]] && RPROMPT+=" %F{8}[%F{3}sandboxed%F{8}]%f "
-    [[ "${KEYMAP}" -eq "vicmd" ]] && RPROMPT+="%F{2}--INSERT--%f"
-    PROMPT=$'%F{3}%n@%M%f : %~ %(?,%F{2},%F{1})>> %f'
+    RPS1=""
+    [[ ${IN_NIX_SHELL} -eq 1 ]] && RPS1+=" %F{8}[%F{3}nix-shelled%F{8}]%f "
+    [[ -d ".cabal-sandbox" ]] && RPS1+=" %F{8}[%F{3}sandboxed%F{8}]%f "
+    RPS1+="%F{2}${${KEYMAP/vicmd/NORMAL}/(main|viins)/}%f"
+    RPS2=$RPS1
     zle reset-prompt
 }
 zle -N zle-line-init

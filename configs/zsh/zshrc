@@ -1,5 +1,7 @@
 autoload -U compinit promptinit colors
 
+setopt autocd autopushd cdablevars correct interactivecomments noclobber sunkeyboardhack extendedglob
+
 # completion settings
 fpath=(~/git/zsh-completions/src $fpath)
 compinit
@@ -8,8 +10,6 @@ zstyle ':completion::complete:*' use-cache 1
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
-
-
 
 # prompt settings
 promptinit

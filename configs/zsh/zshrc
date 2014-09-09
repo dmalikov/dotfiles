@@ -18,7 +18,7 @@ setopt transientrprompt
 function zle-line-init zle-keymap-select {
     RPROMPT=""
     [[ ${IN_NIX_SHELL} -eq 1 ]] && RPROMPT+=" %F{8}[%F{3}nix-shelled%F{8}]%f "
-    [[ -d "cabal.sandbox.config" ]] && RPROMPT+=" %F{8}[%F{3}sandboxed%F{8}]%f "
+    [[ -d ".cabal-sandbox" ]] && RPROMPT+=" %F{8}[%F{3}sandboxed%F{8}]%f "
     [[ "${KEYMAP}" -eq "vicmd" ]] && RPROMPT+="%F{2}--INSERT--%f"
     PROMPT=$'%F{3}%n@%M%f : %~ %(?,%F{2},%F{1})>> %f'
     zle reset-prompt

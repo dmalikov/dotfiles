@@ -16,7 +16,7 @@ profile_vim = do
     git "git@github.com:tpope/vim-pathogen" ".vim/bundle/vim-pathogen" $
       copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
-  profile "vim/syntax" $
+  profile "vim/syntax" $ do
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
     dotfiles $ copy "configs/vim/syntax/nix.vim" ".vim/after/syntax/nix.vim"
   profile "vim/colorschemes" $

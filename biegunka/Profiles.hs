@@ -18,6 +18,7 @@ profile_vim = do
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
+    dotfiles $ copy "configs/vim/syntax/nix.vim" ".vim/after/syntax/nix.vim"
   profile "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
   profile "vim/plugins" $

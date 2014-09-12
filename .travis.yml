@@ -10,7 +10,7 @@ before_install:
     - cabal install data-default
 
 install:
-    - cabalg https://github.com/biegunka/biegunka@develop
+    - cabalg https://github.com/biegunka/biegunka@develop -- --force-reinstalls
 
 script:
     - biegunka run biegunka/ -- --x220 --changes

@@ -289,6 +289,8 @@ highlight hsNiceOperator ctermfg=none ctermbg=black
 " configure browser for haskell_doc.vim
 let g:haddock_browser = "firefox-bin"
 
+autocmd BufNewFile,BufRead,Bufenter *.nix setfiletype nix
+
 " syntax rules
 let hs_highlight_delimiters = 1
 let hs_highlight_boolean = 1

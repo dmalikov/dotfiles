@@ -10,28 +10,6 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda";
 
-  nixpkgs.config.allowUnfree = true;
-
-  networking.firewall.enable = false;
-  networking.hostName = "nixos";
-  networking.wireless.enable = false;
-
-  i18n = {
-    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-i16n.psf.gz";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
-
-  fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fonts = [
-      pkgs.terminus_font
-    ];
-  };
-
-  programs.zsh.enable = true;
-
   environment = with pkgs; {
     systemPackages = [
       curl
@@ -53,11 +31,40 @@
     ];
   };
 
+  fileSystems."/mnt/wdt" = {
+    device = "/dev/disk/by-label/wdt";
+    fsType = "ext4";
+  };
+
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = [
+      pkgs.terminus_font
+    ];
+  };
+
+  i18n = {
+    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-i16n.psf.gz";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
+
+  networking.firewall.enable = false;
+  networking.hostName = "nixos";
+  networking.wireless.enable = false;
+
+  nixpkgs.config.allowUnfree = true;
+
+  programs.zsh.enable = true;
+
   services.openssh.enable = true;
 
   services.transmission = {
     enable = true;
   };
+
+  services.logind.extraConfig = "HandleLidSwitch=ignore";
 
   users = {
     defaultUserShell = "/var/run/current-system/sw/bin/zsh";
@@ -70,10 +77,5 @@
       extraGroups = [ "wheel" ];
       useDefaultShell = true;
     };
-  };
-
-  fileSystems."/mnt/wdt" = {
-    device = "/dev/disk/by-label/wdt";
-    fsType = "ext4";
   };
 }

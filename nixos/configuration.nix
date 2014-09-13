@@ -24,7 +24,7 @@
 
   # Select internationalisation properties.
   i18n = {
-    consoleFont = "Lat2-Terminus16";
+    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-i16n.psf.gz";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };

@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -10,19 +6,16 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda";
 
   nixpkgs.config.allowUnfree = true;
 
   networking.firewall.enable = false;
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless.
+  networking.hostName = "nixos";
+  networking.wireless.enable = false;
 
-  # Select internationalisation properties.
   i18n = {
     consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-i16n.psf.gz";
     consoleKeyMap = "us";
@@ -60,7 +53,6 @@
     ];
   };
 
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   services.transmission = {

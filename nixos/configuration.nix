@@ -58,6 +58,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  powerManagement.cpuFreqGovernor = "ondemand";
+
   programs.zsh.enable = true;
 
   security.sudo = {

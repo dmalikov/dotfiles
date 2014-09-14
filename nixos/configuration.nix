@@ -60,6 +60,11 @@
 
   programs.zsh.enable = true;
 
+  security.sudo = {
+    enable = true;
+    wheelNeedsPassword = false;
+  };
+
   services.openssh.enable = true;
 
   services.transmission = {

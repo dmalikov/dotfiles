@@ -50,9 +50,11 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  networking.firewall.enable = false;
-  networking.hostName = "nixos";
-  networking.wireless.enable = false;
+  networking = {
+    firewall.enable = false;
+    hostName = "nixos";
+    wireless.enable = false;
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -65,6 +67,8 @@
   };
 
   services.logind.extraConfig = "HandleLidSwitch=ignore";
+
+  time.timeZone = "Europe/Moscow";
 
   users = {
     defaultUserShell = "/var/run/current-system/sw/bin/zsh";

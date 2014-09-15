@@ -22,10 +22,11 @@ settings = def
 
 profiles = sequence_
   [ profile_git
-  , profile_tmux
-  , profile_zsh
-  , profile_vim
   , profile_haskell
   , profile_nixpkgs
+  , profile_tmux
+  , profile_vifm
+  , profile_vim
+  , profile_zsh
   ]
 

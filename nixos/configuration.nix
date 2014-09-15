@@ -24,6 +24,7 @@
       tig
       tmux
       tree
+      vifm
       vim
       wget
       wgetpaste

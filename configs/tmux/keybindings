@@ -1,3 +1,4 @@
+# vim: set ft=tmux:
 unbind-key -a
 set -g prefix   C-a
 
@@ -9,7 +10,7 @@ bind        '"' split-window
 bind        '#' list-buffers
 bind        '$' command-prompt -I "#S" "rename-session '%%'"
 bind          % split-window -h
-bind          & confirm-before -p "kill-window #W? (y/n)" kill-window
+bind -n     M-c kill-window
 bind        "'" command-prompt -p index "select-window -t ':%%'"
 bind          ( switch-client -p
 bind          ) switch-client -n
@@ -38,15 +39,16 @@ bind          d detach-client
 bind          f command-prompt "find-window '%%'"
 bind          i display-message
 bind          m last-window
-bind          n next-window
-bind          p previous-window
+bind -n     M-n next-window
+bind -n     M-p previous-window
 bind          o select-pane -t :.+
 bind          q display-panes
 bind          r refresh-client
 bind          s choose-tree
 bind          t clock-mode
 bind          w choose-window
-bind          x confirm-before -p "kill-pane #P? (y/n)" kill-pane
+bind        M-x confirm-before -p "kill-pane #P? (y/n)" kill-pane
+bind        C-k kill-session
 bind          z resize-pane -Z
 bind          { swap-pane -U
 bind          } swap-pane -D

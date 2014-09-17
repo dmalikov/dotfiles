@@ -1,11 +1,8 @@
 # vim: set ft=tmux:
 source ~/.tmux.keybindings
 
-bind-key -n M-n next-window
-bind-key -n M-p previous-window
-bind-key C-k kill-session
-
 set -g bell-action any
+set -g default-command $template.tmux.shell$
 set -g default-shell $template.tmux.shell$
 set -g default-terminal "screen-256color"
 set -g display-panes-time 2000
@@ -14,23 +11,22 @@ set -g mouse-select-pane on
 set -g pane-active-border-fg colour2
 set -g set-titles on
 set -g set-titles-string 'Tmux: #W'
+set -g status-position top
 set -g status-bg default
 set -g status-fg default
 set -g status-interval 1
-set -g status-justify "centre"
+set -g status-justify left
 set -g status-keys vi
 set -g status-left ''
-set -g status-left-length 300
-set -g status-right '#[fg=colour3]#S'
-set -g visual-activity on
-set -g window-status-current-format ' #[bg=colour6]#[fg=colour0] #W #[bg=default]#[fg=default] '
-set -g window-status-format '#[fg=colour6] #W #[bg=default]#[fg=default] '
+set -g status-right '#[fg=colour3]<#S>'
+set -g visual-activity off
+set -g window-status-current-format '#[bg=colour3]#[fg=colour0] #I #[bg=default]#[fg=colour3] #W '
+set -g window-status-format '#[fg=colour6] #I #[bg=default]#[fg=colour0] #W '
 set -g xterm-keys on
-
 set -sg escape-time 0
-
 setw -g aggressive-resize on
 setw -g automatic-rename on
 setw -g mode-keys vi
 setw -g mode-mouse on
-
+set -g utf8
+setw -g utf8 on

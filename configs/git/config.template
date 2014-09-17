@@ -21,6 +21,7 @@ $endif$
     ci = commit
     co = checkout
     sm = submodule
+    h = "!f() { cd `git rev-parse --show-toplevel`; }; f"
 
 [color]
     branch = auto

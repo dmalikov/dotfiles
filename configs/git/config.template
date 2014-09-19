@@ -81,3 +81,6 @@ $endif$
 
 [help]
     autocorrect = 1
+
+[credential]
+    helper = cache --timeout=2592000

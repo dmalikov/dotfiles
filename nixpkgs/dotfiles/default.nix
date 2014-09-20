@@ -7,7 +7,7 @@
 cabal.mkDerivation (self: {
   pname = "dotfiles";
   version = "9999";
-  src = /home/yep/dmalikov/dotfiles/biegunka; 
+  src = src = if lib.inNixShell then null else /home/yep/dmalikov/dotfiles/biegunka;
   isLibrary = false;
   isExecutable = true;
   buildDepends = [

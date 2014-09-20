@@ -76,12 +76,8 @@ bind -r     C-l resize-pane -R
 
 bind R source-file ~/.tmux.conf \; display-message "Config reloaded!".
 
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
-
-# copy tmux buffer to clipboard
-bind C-y run "tmux show-buffer | xsel --primary"
-# move x clipboard into tmux paste buffer
-bind C-p run "tmux set-buffer \"$(xsel -o)\"; tmux paste-buffer"
+bind -t vi-copy v begin-selection
+bind -t vi-copy y copy-pipe "xclip -i -sel p -f | xclip -i -sel c "
+bind -t vi-copy p run "xclip -o | tmux load-buffer - ; tmux paste-buffer"
 
 bind b set-option status

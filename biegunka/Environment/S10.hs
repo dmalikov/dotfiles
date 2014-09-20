@@ -23,6 +23,7 @@ settings = def
 profiles = sequence_
   [ profile_git
   , profile_haskell
+  , profile_ncmpcpp
   , profile_nixpkgs
   , profile_tmux
   , profile_vifm

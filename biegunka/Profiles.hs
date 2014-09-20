@@ -70,8 +70,12 @@ profile_irssi = profile "irssi" $
 
 profile_mpd :: Script Sources ()
 profile_mpd = profile "mpd" $
-  dotfiles $ do
-    copy "configs/mpd/mpdconf" ".mpdconf"
+  dotfiles $
+    copy "configs/mpd/conf" ".mpdconf"
+
+profile_ncmpcpp :: Script Sources ()
+profile_ncmpcpp = profile "ncmpcpp" $
+  dotfiles $
     copy "configs/mpd/ncmpcpp/config" ".ncmpcpp/config"
 
 profile_mplayer :: Script Sources ()

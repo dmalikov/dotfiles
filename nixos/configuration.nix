@@ -20,6 +20,7 @@
       htop
       iotop
       nix-repl
+      ncmpcpp
       nmap
       tig
       tmux
@@ -68,6 +69,18 @@
     wheelNeedsPassword = false;
   };
 
+  services.mpd = {
+    enable = true;
+    extraConfig = ''
+        audio_output {
+            type "alsa"
+            name "E-MU 0204 USB"
+            device "plughw:1,0"
+            format "88200:16:2"
+        }
+    '';
+  };
+
   services.openssh.enable = true;
 
   services.transmission = {
@@ -86,7 +99,7 @@
       uid = 1000;
       createHome = true;
       home = "/home/yep";
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "audio" ];
       useDefaultShell = true;
     };
   };

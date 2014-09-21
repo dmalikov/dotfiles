@@ -7,7 +7,7 @@
 cabal.mkDerivation (self: {
   pname = "dotfiles";
   version = "9999";
-  src = src = if lib.inNixShell then null else /home/yep/dmalikov/dotfiles/biegunka;
+  src = builtins.filterSource (path: type: builtins.baseNameOf path != ".hdevtools.sock") /home/yep/dmalikov/dotfiles/biegunka;
   isLibrary = false;
   isExecutable = true;
   buildDepends = [

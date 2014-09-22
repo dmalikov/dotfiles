@@ -1,4 +1,4 @@
-# dotfiles [![Build Status](https://secure.travis-ci.org/dmalikov/dotfiles.png?branch=master)](http://travis-ci.org/dmalikov/dotfiles)
+# dotfiles [![Build Status](http://img.shields.io/travis/dmalikov/dotfiles/master.svg?style=flat-square)](http://travis-ci.org/dmalikov/dotfiles)
 
 [`biegunka`][biegunka] scripts for keeping working environment configuration up-to-date
 

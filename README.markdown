@@ -1,204 +1,161 @@
-# dotfiles
+# dotfiles [![Build Status](https://secure.travis-ci.org/dmalikov/dotfiles.png?branch=master)](http://travis-ci.org/dmalikov/dotfiles)
 
-World of configuration files managed by [`biegunka`][biegunka].
+[`biegunka`][biegunka] scripts for keeping working environment configuration up-to-date
 
-[![Build Status](https://secure.travis-ci.org/dmalikov/dotfiles.png?branch=master)](http://travis-ci.org/dmalikov/dotfiles)
-
-## What is it?
-
-This is [`biegunka`][biegunka]-powered repository containing my configuration
-files. It has nice mechanism for maintain many working environments with
-different configurations.
+## tl;dr
+- >1 environments
+- configuration is stored in a template files, not in a ready-to-use format
+- provisioning by [`biegunka`][biegunka]
+- CI via Travis
 
 ## Why biegunka?
+- regular `install.sh` is not enough when number of working environments is more than 1.
+- regular `install.sh` is not enough when you need to remove all installed shit out of your system.
+- regular `install.sh` is not enough when you need to rollback all changes.
+- regular `install.sh` is not enough when you need some declarative syntax describing your configuration.
+- regular `install.sh` is not enough actually because of `bash`.
 
-Usual `install.sh` script sucks when number of working environments that should
-be maintained is more than 1. Simple scripts sucks when you want to synchronize
-git repositories regulary. All these reinvent-the-wheel scripts suck when you
-want to clean all shit out of your system, that your installation script
-produced.
+Biegunka could do that for you.
 
-[`Chef`][chef] and
-[`chef-solo`][chef-solo] could be helpful here
-with all these recipes and roles power, but I'm too lazy for writing a cookbook
-for every application that I have.
+## Another solutions
 
-[`biegunka`][biegunka] could be used not just for dummy copying files to
-specific directories, but for syncing git or darcs repositories. It is quite
-usable when you have many repositories and almost die of boredom updating them
-every day.  It could be successfully done by another `sh` script, but
-[`biegunka`][biegunka] offers nice readable declarative syntax and beatiful
-methods to formalize all that logic nicely.
+[`Chef`][chef] and [`chef-solo`][chef-solo] could be helpful here with all these recipes and roles power,
+but I'm too lazy for writing a cookbook for every application that I have.
 
-## How I'm using it?
+[`nix`][nix] language and package manager fits our needs perfectly here.
+Installing nix over existed package manager and rewriting all dotfiles as a `nix` expressions can take much time.
+But it is a perfect solution for a `nixos`.
 
-`dotfiles` is a simple `cabal` package. So, at first, it should be compiled to
-something executable:
+## Usage
 
-```
-$> cabal install biegunka/dotfiles.cabal
-```
+Particular working environment could be provisioned in a number of different ways:
+- run biegunka executable with an updated version of [`Biegunka.hs`][biegunka-hs] (all necessary dependencies should be installed before that)
+- compile [`dotfiles.cabal`][dotfiles-cabal] project pointed at [`Biegunka.hs`][biegunka-hs] and run builded `dotfiles` executable manually
 
-And now `dotfiles` executable is ready to go:
+### Nixos
 
 ```
-$> dotfiles
-Usage: dotfiles (--x220 | --macBookPro) ([--run] | [--safe-run] | [--full] | [--dry-run] | [--check])
-
-Available options:
-  -h,--help                Show this help text
-  --x220                   Use x220 settings
-  --macBookPro             Use macBookPro settings
-  --run                    Do real run
-  --safe-run               Do real run (after confirmation)
-  --full                   Do dry run, real run (after confirmation) and then check results
-  --dry-run                Do only dry run, do not touch anything
-  --check                  Compare current filesystem state against script
+$> nix-shell -p myHaskellPackages.dotfiles
+nix-shell $> dotfiles --s10
 ```
 
-Currenty there is only one active laptop managed by biegunka - `x220`
-(this name is used as identifier for each of the `Environment`s). I'm
-updating my `github:dotfiles` repository from time to time, and biegunka helps
-here that each of working station could have up to date configuration.
+[`myHaskellPackages.dotfiles` expression][dotfiles-nix] is defined in the local [`nixpkgs`][nixpkgs-config-nix].
 
-Dotfiles installation with `x220` profile:
+### Gentoo
 
 ```
-$> dotfiles --x220 --run
+$> cabal install biegunka/Biegunka.hs
+$> dotfiles --x220
 ```
 
-`--dry-run` flag shows what [`biegunka`][biegunka] gonna install:
+TODO: use `biegunka` executable properly without breaking cabal package
 
-```
-$> dotfiles --x220 --dry-run
-update git source git@github.com:dmalikov/dotfiles at /home/m/projects/dmalikov/dotfiles
-  /home/m/.ackrc is a copy of /home/m/projects/dmalikov/dotfiles/configs/ack/ackrc
-...
-update git source git@github.com:dmalikov/dotfiles at /home/m/projects/dmalikov/dotfiles
-  /home/m/.xmonad/xmonad.hs is copied with substituted templates from /home/m/projects/dmalikov/dotfiles/configs/xmonad/xmonad.hs.template
-update git source git@github.com:dmalikov/dotfiles at /home/m/projects/dmalikov/dotfiles
-  /home/m/.xmonad/xmobar-top.hs is a copy of /home/m/projects/dmalikov/dotfiles/configs/xmonad/xmobar-top.hs
-  /home/m/.xmonad/xmobar.hs is a copy of /home/m/projects/dmalikov/dotfiles/configs/xmonad/xmobar.hs
-  /home/m/.xmobarrc is a copy of /home/m/projects/dmalikov/dotfiles/configs/xmonad/xmobarrc
+### Windows
+TODO: `biegunka` package depends on a `unix` package which is impossible to use inside a windows.
 
-```
-This is a full log of what [`biegunka`][biegunka] is preparing to do. It is
-kinda usable when you're managing some important files or it is a first
-[`biegunka`][biegunka] run on experementative machine.
+## Modularity
+All dotfiles could be split into a number of modules. Each working environment is using only a subset of a all dotfiles stored in git repository.
+that it is really needed.
 
-
-There is another useful command named `check`:
-```
-$> dotfiles --x220 --check
-...
-[localhost] (git@github.com:tpope/vim-surround.git) update git source at /home/m/.vim/bundle/surround
-[localhost] (git@github.com:ujihisa/neco-ghc.git) update git source at /home/m/.vim/bundle/neco-ghc
-[localhost] (git@github.com:jvoorhis/coq.vim.git) update git source at /home/m/.vim/bundle/coq
-[localhost] (git@github.com:trefis/coquille.git) update git source at /home/m/.vim/bundle/coquille
-[localhost] (git@github.com:def-lkb/vimbufsync.git) update git source at /home/m/.vim/bundle/bufsync
-Verification:
-OK
-```
-So this `verify` command force [`biegunka`][biegunka] to check that all actions
-defined in `Profiles` is done. `--verify` and `--pretend` options could be used
-the same time.
-
-## How it works?
-
-`dotfiles` package consist of `Main.hs`, `Profiles.hs` and `Environment/'
-modules.
-
-`Main.hs` is a main module. It contains a very important `TH` call
+E.g. `X`-less `nixos` environment doesn't need no `pentadactyl` or `mpv`
 
 ```haskell
-makeOptionParser ''Environment
+profiles = sequence_
+[ profile_git
+, profile_haskell
+, profile_nixpkgs
+, profile_tmux
+, profile_vifm
+, profile_vim
+, profile_zsh
+]
 ```
 
-which automatically generate all necessary cmdline options and stuff.
+which describes pretty well what is gonna be installed by running `biegunka`'s provisioning for this environment.
+
+All profiles are defined in [`Profiles.hs`][profiles].  Almost all of them are using `dotfiles` function
 
 ```haskell
-  (env, r) <- optionsParser
-  case env of
-    X220 -> r (set root "~" . set templates (hStringTemplate X220.settings)) X220.profiles
-```
-
-`profiles` is a variable of `:: Script Sources ()` type. It contains all
-information about what _profiles_ will be installed.
-
-`Profiles.hs` file contains all profiles that I have. Here is example of xmonad
-profile:
-
-```haskell
-profile_xmonad :: Script Sources ()
-profile_xmonad = do
-  profile "xmonad/xmonad.hs" $
-    dotfiles $
-      substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
-  profile "xmonad/xmobar" $ do
-    git "git@github.com:dmalikov/xmobar-usable" "projects/dmalikov/xmobar-usable" $
-      shell "cabal install --flags=\"all_extensions\""
-    dotfiles $ do
-      copy "configs/xmonad/xmobar.hs" ".xmonad/xmobar.hs"
-      shell "ghc -O2 ${HOME}/.xmonad/xmobar.hs -o ${HOME}/.xmonad/xmobar -fforce-recomp"
-```
-
-`dotfiles` is a function stands for a link to my dotfile repository:
-
-``` haskell
 dotfiles :: Script Actions () -> Script Sources ()
-dotfiles as = git' "git@github.com:dmalikov/dotfiles" "projects/dmalikov/dotfiles" $ def & actions .~ as
+dotfiles as = git' "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ def & actions .~ as
 ```
 
-`copy` action take given file and put it to the specific place.
-
-`substitute` action do the same thing but with completing all template
-variables for template.
-
-`settings` is a variable of `:: Template` type. It contains all necessary
-template variables that completes all templates holes.
-
-There are 2 environments in `Environment` directory. Each environment specifies
-actions and template variables for completing templates hole.
-
-For example, suppose I need to have `user.name` and `user.email` git options in
-`~/.gitconfig` file only in one environment. `gitconfig` template looks like
-that:
-
-```
-$if(template.git.set_user)$
-[user]
-    name = $template.git.user_name$
-    email = $template.git.user_email$
-$endif$
+Here is an example of `vim` profile:
+```haskell
+profile_vim :: Script Sources ()
+profile_vim = do
+  profile "vim/rc" $ do
+    git_ "git@github.com:Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
+    git "git@github.com:tpope/vim-pathogen" ".vim/bundle/vim-pathogen" $
+      copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
+    dotfiles $ copy "configs/vim/vimrc" ".vimrc"
+  profile "vim/syntax" $ do
+    dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
+    dotfiles $ copy "configs/vim/syntax/nix.vim" ".vim/after/syntax/nix.vim"
+  profile "vim/colorschemes" $
+    dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
+  profile "vim/plugins" $
+    dotfiles $ copy "configs/vim/MyTabularMaps.vim" ".vim/bundle/tabular/after/plugin/MyTabularMaps.vim"
 ```
 
-`X220` environment contains definition for these template placeholders:
+It's just a bunch of [script sources][biegunka-doc-script-sources] with a type `Script Sources ()`.
 
+## Templating
+
+Working with a number of different environments produce a lot of interesting problems. E.g. some parts
+of a configuration files become dependant on a particular environment.
+
+I.e. configuring tmux with a different default shell path.
+
+tmux.conf:
+
+```
+set -g default-command $template.tmux.shell$
+set -g default-shell $template.tmux.shell$
+```
+
+Tmux configuration in a [`Base.hs`][base-hs]:
+```
+data Tmux = Tmux
+  { shell :: String
+  } deriving (Data, Typeable)
+```
+
+Different environments has a different Tmux settings:
+
+X220:
 ```haskell
 settings :: Template
 settings = def
-  { git = def
-    { set_user = True
-    , user_name = "Dmitry Malikov"
-    , user_email = "malikov.d.y@gmail.com"
+  {
+...
+  , tmux = def
+    { shell = "/bin/zsh"
     }
 ...
+  }
 ```
 
-`git` profiles has these call:
-
+S10:
+```haskell
+settings :: Template
+settings = def
+  {
+...
+  , tmux = def
+    { shell = "~/.nix-profile/bin/zsh"
+    }
+...
+  }
 ```
-substitute "configs/git/config.template" ".gitconfig"
-```
 
-So it produces `[user]` part of gitconfig only for `X220` environment:
-
-```
-[user]
-    name = Dmitry Malikov
-    email = malikov.d.y@gmail.com
-```
-
+[biegunka-doc-script-sources]: http://biegunka.budueba.com/pages/script/actions.html
+[biegunka-hs]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/Biegunka.hs
 [biegunka]: https://github.com/biegunka
-[chef]: https://github.com/opscode/chef
 [chef-solo]: http://docs.opscode.com/chef_solo.html
+[chef]: https://github.com/opscode/chef
+[dotfiles-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/dotfiles/default.nix
+[nix]: http://nixos.org/nix/manual/
+[nixpkgs-config-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/config.nix
+[profiles]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Profiles.hs
+[base-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Base.hs

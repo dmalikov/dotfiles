@@ -177,3 +177,6 @@ profile_nixpkgs = profile "nixpkgs" $
     copy "nixpkgs/biegunka/default.nix" ".nixpkgs/biegunka/default.nix"
     copy "nixpkgs/cabal2nix/default.nix" ".nixpkgs/cabal2nix/default.nix"
     copy "nixpkgs/dotfiles/default.nix" ".nixpkgs/dotfiles/default.nix"
+    copy "nixpkgs/lens-aeson/default.nix" ".nixpkgs/lens-aeson/default.nix"
+    copy "nixpkgs/liblastfm/default.nix" ".nixpkgs/liblastfm/default.nix"
+    copy "nixpkgs/scrobblers/default.nix" ".nixpkgs/scrobblers/default.nix"

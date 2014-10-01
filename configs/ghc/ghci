@@ -10,7 +10,6 @@
 :m + Data.List.Split
 :m + Data.Maybe
 :m + Data.Monoid
-:m + Data.Numbers.Primes
 :m + Data.Word
 :m + Text.Printf
 

@@ -1,18 +1,19 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 module Environment.Base where
 
-import Data.Data (Data)
-import Data.Typeable (Typeable)
+import           Data.Data     (Data)
+import           Data.Default
+import           Data.Typeable (Typeable)
 
-import Data.Default
+{-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
 data Template = Template
-  { git :: Git
+  { git         :: Git
   , pentadactyl :: Pentadactyl
-  , tmux :: Tmux
-  , urxvt :: Urxvt
-  , x :: X
-  , xmonad :: Xmonad
+  , tmux        :: Tmux
+  , urxvt       :: Urxvt
+  , x           :: X
+  , xmonad      :: Xmonad
   } deriving (Data, Typeable)
 
 instance Default Template where
@@ -26,9 +27,9 @@ instance Default Template where
     }
 
 data Git = Git
-  { set_user :: Bool
+  { set_user   :: Bool
   , user_email :: String
-  , user_name :: String
+  , user_name  :: String
   } deriving (Data, Typeable)
 
 data Pentadactyl = Pentadactyl

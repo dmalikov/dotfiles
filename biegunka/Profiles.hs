@@ -6,6 +6,8 @@ import           Data.Default                (def)
 import           Control.Biegunka
 import           Control.Biegunka.Source.Git
 
+{-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
+
 dotfiles :: Script Actions () -> Script Sources ()
 dotfiles as = git' "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ def & actions .~ as
 
@@ -112,25 +114,22 @@ profile_apvlv = profile "apvlv" $
     copy "configs/apvlv/apvlvrc" ".apvlvrc"
 
 profile_bash :: Script Sources ()
-profile_bash = do
-  profile "bash" $
-    dotfiles $
-      copy "configs/bash/bashrc" ".bashrc"
+profile_bash = profile "bash" $
+  dotfiles $
+    copy "configs/bash/bashrc" ".bashrc"
 
 profile_zsh :: Script Sources ()
-profile_zsh = do
-  profile "zsh" $ do
-    git_ "git@github.com:zsh-users/zsh-completions" "git/zsh-completions"
-    dotfiles $ do
-      copy "configs/zsh/zshrc" ".zshrc"
-      copy "configs/zsh/zshenv" ".zshenv"
-      copy "configs/zsh/zprofile" ".zprofile"
+profile_zsh = profile "zsh" $ do
+  git_ "git@github.com:zsh-users/zsh-completions" "git/zsh-completions"
+  dotfiles $ do
+    copy "configs/zsh/zshrc" ".zshrc"
+    copy "configs/zsh/zshenv" ".zshenv"
+    copy "configs/zsh/zprofile" ".zprofile"
 
 profile_java :: Script Sources ()
-profile_java =
-  profile "idea" $
-    dotfiles $
-      copy "configs/idea/config/colors/bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"
+profile_java = profile "idea" $
+  dotfiles $
+    copy "configs/idea/config/colors/bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"
 
 profile_conky :: Script Sources ()
 profile_conky = profile "conky" $
@@ -143,7 +142,8 @@ profile_gtk = profile "gtk" $
     copy "configs/gtk/gtkrc-2.0.mine" ".gtkrc-2.0.mine"
 
 profile_tmux :: Script Sources ()
-profile_tmux = profile "tmux" $
+profile_tmux = profile "tmux" $ do
+  git_ "git@github.com:richo/battery" "git/tmux-battery"
   dotfiles $ do
     substitute "configs/tmux/conf.template" ".tmux.conf"
     copy "configs/tmux/keybindings" ".tmux.keybindings"

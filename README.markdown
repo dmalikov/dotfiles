@@ -154,6 +154,7 @@ settings = def
 [biegunka]: https://github.com/biegunka
 [chef-solo]: http://docs.opscode.com/chef_solo.html
 [chef]: https://github.com/opscode/chef
+[dotfiles-cabal]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/dotfiles.cabal
 [dotfiles-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/dotfiles/default.nix
 [nix]: http://nixos.org/nix/manual/
 [nixpkgs-config-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/config.nix

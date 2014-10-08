@@ -13,7 +13,7 @@
 *.keysym.M-u: perl:url-select:select_next
 *.url-select.autocopy: false
 *.url-select.button: 1
-*.url-select.launcher: /usr/bin/firefox-bin
+*.url-select.launcher: /usr/bin/google-chrome-stable
 *.url-select.underline: true
 
 !urxvt scrolling options and cursor style:

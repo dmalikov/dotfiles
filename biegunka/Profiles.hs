@@ -96,7 +96,6 @@ profile_pentadactyl = profile "pentadactyl" $
   dotfiles $ do
     substitute "configs/pentadactyl/colors/pemees.penta.template" ".pentadactyl/colors/pemees.penta"
     copy "configs/pentadactyl/pentadactylrc" ".pentadactylrc"
-    copy "configs/pentadactyl/plugins/buftabs.js" ".pentadactyl/plugins/buftabs.js"
 
 profile_screen :: Script Sources ()
 profile_screen = profile "screen" $

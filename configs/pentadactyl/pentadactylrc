@@ -9,6 +9,19 @@ imap -builtin <F1> <ESC>
 nmap -builtin <F1> <ESC>
 vmap -builtin <F1> <ESC>
 
+" disable smoothscroll
+set scrollsteps=1
+set scrolltime=0
+
+" Show pattern matches
+set incfind
+
+" highlight previuos search pattern matches
+set hlfind
+
+" Ignore case in search unless pattern has uppercase chars
+set findcase=smart
+
 colorscheme pemees
 
 hi BufTab color: #ee9a00; background: #080808; font-weight: normal;

@@ -11,7 +11,7 @@
 cabal.mkDerivation (self: {
   pname = "biegunka";
   version = "0.2";
-  src = /home/yep/git/biegunka/.;
+  src = (builtins.getEnv "HOME") + "/git/biegunka";
   isLibrary = true;
   isExecutable = true;
   buildDepends = [

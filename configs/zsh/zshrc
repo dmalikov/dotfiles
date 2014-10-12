@@ -14,13 +14,34 @@ export KEYTIMEOUT=1
 # prompt settings
 promptinit
 colors
-setopt transientrprompt prompt_subst
+setopt transientrprompt
+
+function prompt_hostname() {
+    echo $'%F{3}%n@%M%f : %~'
+}
+
+function prompt_exit_code() {
+    echo $'%(?,%F{2},%F{1})>>%f'
+}
+
+function prompt_static() {
+    PROMPT="$(prompt_hostname) $(prompt_exit_code) "
+}
+
+function promt_dynamic() {
+    PROMPT="$(prompt_hostname) "
+    if [[ ${IN_NIX_SHELL} -eq 1 ]] then
+        PROMPT+="%F{8}[%F{3}nix-shelled%F{8}]%f "
+    fi
+    if [[ -d ".cabal-sandbox" ]] then
+        PROMPT+="%F{8}[%F{3}sandboxed%F{8}]%f "
+    fi
+    PROMPT+="$(prompt_exit_code) "
+}
+
+prompt_static
 function zle-line-init zle-keymap-select {
-    PROMPT=""
-    PROMPT+=$'%F{3}%n@%M%f : %~'
-    [[ ${IN_NIX_SHELL} -eq 1 ]] && PROMPT+=" %F{8}[%F{3}nix-shelled%F{8}]%f"
-    [[ -d ".cabal-sandbox" ]] && PROMPT+=" %F{8}[%F{3}sandboxed%F{8}]%f"
-    PROMPT+=$' %(?,%F{2},%F{1})>> %f'
+    promt_dynamic
     RPS1=""
     RPS1+="%F{2}${${KEYMAP/vicmd/NORMAL}/(main|viins)/}%f"
     RPS2=$RPS1

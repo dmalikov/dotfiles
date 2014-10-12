@@ -9,6 +9,7 @@ pkgs: {
           biegunka = callPackage ../.nixpkgs/biegunka {};
           cabal2nix = callPackage ../.nixpkgs/cabal2nix {};
           dotfiles = callPackage ../.nixpkgs/dotfiles {};
+          hstorrent = callPackage ../.nixpkgs/hstorrent {};
           liblastfm = callPackage ../.nixpkgs/liblastfm {};
           lensAeson = callPackage ../.nixpkgs/lens-aeson {};
           scrobblers = callPackage ../.nixpkgs/scrobblers {};

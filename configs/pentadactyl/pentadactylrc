@@ -4,8 +4,8 @@ set showtabline=always
 
 map -builtin <space> <C-d>
 
-unmap :tabclose
 map -builtin dc :tabclose<CR>
+map d <Nop>
 
 " disable F1
 imap -builtin <F1> <ESC>

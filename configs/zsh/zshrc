@@ -83,3 +83,8 @@ fi
 
 bindkey '^R' history-incremental-search-backward
 source ~/.zshenv
+
+nix_profile=~/.nix-profile/etc/profile.d/nix.sh
+if [[ -e $nix_profile ]]; then
+    source $nix_profile
+fi

@@ -3,7 +3,7 @@
 { cabal, acidState, aeson, ansiWlPprint, async, commandQq
 , dataDefaultClass, directoryLayout, exceptions, filepath, free
 , hspec, hspecExpectationsLens, HStringTemplate, lens, meep, mtl
-, optparseApplicative_0_10_0, pointed, reflection, safecopy, semigroups
+, optparseApplicative, pointed, reflection, safecopy, semigroups
 , stm, tagged, taggedTransformer, temporary, terminalSize, text
 , transformers, void
 }:
@@ -17,12 +17,12 @@ cabal.mkDerivation (self: {
   buildDepends = [
     acidState aeson ansiWlPprint async commandQq dataDefaultClass
     directoryLayout exceptions filepath free hspec HStringTemplate lens
-    meep mtl optparseApplicative_0_10_0 pointed reflection safecopy semigroups
+    meep mtl optparseApplicative pointed reflection safecopy semigroups
     stm tagged taggedTransformer terminalSize text transformers void
   ];
   testDepends = [
     dataDefaultClass directoryLayout filepath free hspec
-    hspecExpectationsLens lens optparseApplicative_0_10_0 semigroups temporary
+    hspecExpectationsLens lens optparseApplicative semigroups temporary
     text transformers
   ];
   meta = {

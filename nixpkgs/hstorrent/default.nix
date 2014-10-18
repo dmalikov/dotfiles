@@ -7,7 +7,7 @@
 cabal.mkDerivation (self: {
   pname = "hstorrent";
   version = "0.1.0.0";
-  src = (builtins.getEnv "HOME") + "/git/hstorrent";
+  src = ../../git/hstorrent/.;
   buildDepends = [
     bencoding binary dataDefault lens QuickCheck quickcheckInstances
   ];

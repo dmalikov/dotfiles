@@ -9,7 +9,7 @@
 cabal.mkDerivation (self: {
   pname = "scrobblers";
   version = "0.1.0.0";
-  src = (builtins.getEnv "HOME") + "/git/scrobblers";
+  src = ../../git/scrobblers/.;
   buildDepends = [
     aeson cereal cipherAes128 cryptoApi dataDefaultClass exceptions
     httpConduit httpTypes lens lensAeson liblastfm libmpd mtl netwire

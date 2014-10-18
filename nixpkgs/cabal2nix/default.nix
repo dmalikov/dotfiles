@@ -7,7 +7,7 @@
 cabal.mkDerivation (self: {
   pname = "cabal2nix";
   version = "1.70";
-  src = (builtins.getEnv "HOME") + "/git/cabal2nix";
+  src = ../../git/cabal2nix/.;
   isLibrary = false;
   isExecutable = true;
   buildDepends = [

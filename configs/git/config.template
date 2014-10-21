@@ -22,6 +22,7 @@ $endif$
     co = checkout
     sm = submodule
     h = "!f() { cd `git rev-parse --show-toplevel`; }; f"
+    rh = reset --hard
 
 [color]
     branch = auto

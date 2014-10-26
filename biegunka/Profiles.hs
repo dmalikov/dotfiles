@@ -120,6 +120,7 @@ profile_bash = profile "bash" $
 profile_zsh :: Script Sources ()
 profile_zsh = profile "zsh" $ do
   git_ "git@github.com:zsh-users/zsh-completions" "git/zsh-completions"
+  git_ "git@github.com:zsh-users/zsh-syntax-highlighting" "git/zsh-syntax-highlighting"
   dotfiles $ do
     copy "configs/zsh/zshrc" ".zshrc"
     copy "configs/zsh/zshenv" ".zshenv"

@@ -50,6 +50,8 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+source ~/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 alias ssh='TERM=xterm-color ssh'
 alias ihach='iconv -cf inis-cyrillic'
 alias ls='ls --color=auto'

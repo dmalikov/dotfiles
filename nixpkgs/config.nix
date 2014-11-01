@@ -6,13 +6,14 @@ pkgs: {
       let callPackage = pkgs.lib.callPackageWith myHaskellPackages; in
       pkgs.recurseIntoAttrs (pkgs.haskellPackages.override {
         extension = self: super: {
-          biegunka = callPackage ../.nixpkgs/biegunka {};
-          cabal2nix = callPackage ../.nixpkgs/cabal2nix {};
-          dotfiles = callPackage ../.nixpkgs/dotfiles {};
-          hstorrent = callPackage ../.nixpkgs/hstorrent {};
-          liblastfm = callPackage ../.nixpkgs/liblastfm {};
-          lensAeson = callPackage ../.nixpkgs/lens-aeson {};
-          scrobblers = callPackage ../.nixpkgs/scrobblers {};
+          asn1Encoding = pkgs.stdenv.lib.overrideDerivation super.asn1Encoding (oldAttrs : { doCheck = false; } );
+          biegunka = self.callPackage ../.nixpkgs/biegunka {};
+          cabal2nix = self.callPackage ../.nixpkgs/cabal2nix {};
+          dotfiles = self.callPackage ../.nixpkgs/dotfiles {};
+          hstorrent = self.callPackage ../.nixpkgs/hstorrent {};
+          liblastfm = self.callPackage ../.nixpkgs/liblastfm {};
+          lensAeson = self.callPackage ../.nixpkgs/lens-aeson {};
+          scrobblers = self.callPackage ../.nixpkgs/scrobblers {};
         };
       });
   };

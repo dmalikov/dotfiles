@@ -15,13 +15,12 @@
       curl
       dhcp
       git
-      haskellPackages.hdevtools
-      haskellPackages.stylishHaskell
       htop
       iotop
       nix-repl
       ncmpcpp
       nmap
+      sshfsFuse
       tig
       tmux
       tree

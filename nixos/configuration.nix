@@ -33,11 +33,6 @@
     ];
   };
 
-  fileSystems."/mnt/wdt" = {
-    device = "/dev/disk/by-label/wdt";
-    fsType = "ext4";
-  };
-
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;

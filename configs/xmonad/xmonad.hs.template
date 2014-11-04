@@ -126,7 +126,7 @@ myLayoutHook = smartBorders . avoidStruts \$
   tabbed shrinkText myTheme
 
 myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig
+myXPConfig = def
   { font = terminusFont
   , bgColor = blackDarkColor
   , borderColor = blackColor
@@ -136,7 +136,7 @@ myXPConfig = defaultXPConfig
   , autoComplete = Nothing
   }
 
-myTheme = defaultTheme
+myTheme = def
   { activeColor = blackDarkColor
   , activeBorderColor = blackDarkColor
   , activeTextColor = orangeColor
@@ -154,10 +154,9 @@ tmuxPrompt :: XPConfig -> X ()
 tmuxPrompt c = io tmuxRun >>= \\as -> inputPromptWithCompl c "tmux" (mkComplFunFromList' as) ?+ tmuxStart as
 
 tmuxStart :: [String] -> String -> X ()
-tmuxStart ss s = asks (terminal . config) >>= \\term -> if s `elem` ss then attach term s else create term s
+tmuxStart ss s = asks (terminal . config) >>= \\term -> attachOrCreate term s
  where
-  attach = \\t s' -> spawn \$ t ++ " -e tmux attach -t " ++ s'
-  create = \\t s' -> spawn \$ t ++ " -e tmux new -s " ++ s'
+  attachOrCreate = \\t s' -> spawn \$ t ++ " -e tmux new -s " ++ s' ++ " -A"
 
 
 myStartupHook :: X ()
@@ -174,7 +173,7 @@ myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", 
 
 -- applications
 hpasteit = "xclip -o -selection primary | hpasteit | xclip -i -selection primary"
-do_weechat = urxvt ++ " -title jεωs -e ssh m@toje.ws -t 'export LANG=en_US.UTF-8 && W=weechat && (tmux attach-session -t \$W || tmux new-session -s \$W)'"
+do_weechat = urxvt ++ " -title jεωs -e ssh m@toje.ws -t 'export LANG=en_US.UTF-8 && W=weechat && tmux new -s \$W -A'"
 lock_screen = "xtrlock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"

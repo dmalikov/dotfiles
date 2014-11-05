@@ -6,7 +6,6 @@ pkgs: {
       let callPackage = pkgs.lib.callPackageWith myHaskellPackages; in
       pkgs.recurseIntoAttrs (pkgs.haskellPackages.override {
         extension = self: super: {
-          asn1Encoding = pkgs.stdenv.lib.overrideDerivation super.asn1Encoding (oldAttrs : { doCheck = false; } );
           biegunka = self.callPackage ../.nixpkgs/biegunka {};
           cabal2nix = self.callPackage ../.nixpkgs/cabal2nix {};
           dotfiles = self.callPackage ../.nixpkgs/dotfiles {};

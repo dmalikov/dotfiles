@@ -12,7 +12,6 @@ pkgs: {
           dotfiles = self.callPackage ../.nixpkgs/dotfiles {};
           hstorrent = self.callPackage ../.nixpkgs/hstorrent {};
           liblastfm = self.callPackage ../.nixpkgs/liblastfm {};
-          lensAeson = self.callPackage ../.nixpkgs/lens-aeson {};
           scrobblers = self.callPackage ../.nixpkgs/scrobblers {};
         };
       });

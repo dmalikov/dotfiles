@@ -10,8 +10,8 @@ pkgs: {
           cabal2nix = self.callPackage ../.nixpkgs/cabal2nix {};
           dotfiles = self.callPackage ../.nixpkgs/dotfiles {};
           hstorrent = self.callPackage ../.nixpkgs/hstorrent {};
-          liblastfm = self.callPackage ../.nixpkgs/liblastfm {};
-          scrobblers = self.callPackage ../.nixpkgs/scrobblers {};
+          liblastfm = self.callPackage ../git/liblastfm {};
+          scrobblers = self.callPackage ../git/scrobblers {};
         };
       });
   };

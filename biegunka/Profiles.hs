@@ -174,7 +174,6 @@ profile_nixpkgs :: Script Sources ()
 profile_nixpkgs = profile "nixpkgs" $
   dotfiles $ do
     copy "nixpkgs/config.nix" ".nixpkgs/config.nix"
-    copy "nixpkgs/biegunka/default.nix" ".nixpkgs/biegunka/default.nix"
     copy "nixpkgs/cabal2nix/default.nix" ".nixpkgs/cabal2nix/default.nix"
     copy "nixpkgs/dotfiles/default.nix" ".nixpkgs/dotfiles/default.nix"
     copy "nixpkgs/hstorrent/default.nix" ".nixpkgs/hstorrent/default.nix"

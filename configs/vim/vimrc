@@ -292,6 +292,7 @@ highlight hsNiceOperator ctermfg=none ctermbg=black
 let g:haddock_browser = "firefox-bin"
 
 autocmd BufNewFile,BufRead,Bufenter *.nix setfiletype nix
+autocmd FileType nix setlocal expandtab shiftwidth=2 softtabstop=2
 
 " syntax rules
 let hs_highlight_delimiters = 1

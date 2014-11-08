@@ -9,7 +9,7 @@ import           Control.Biegunka.Source.Git
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
 dotfiles :: Script Actions () -> Script Sources ()
-dotfiles as = git' "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ def & actions .~ as
+dotfiles as = git' "git@github.com:dmalikov/dotfiles" "git/dotfiles" $ def & actions .~ as
 
 profile_vim :: Script Sources ()
 profile_vim = do

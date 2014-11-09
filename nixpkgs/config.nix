@@ -4,7 +4,7 @@ pkgs: {
       let callPackage = pkgs.lib.callPackageWith myHaskellPackages; in
       pkgs.recurseIntoAttrs (pkgs.haskellPackages.override {
         extension = self: _: {
-          biegunka = self.callPackage ../git/biegunka {};
+          biegunka = self.callPackage ../git/biegunka { haskellPackages = myHaskellPackages; };
           cabal2nix = self.callPackage ../.nixpkgs/cabal2nix {};
           dotfiles = self.callPackage ../git/dotfiles { haskellPackages = myHaskellPackages; };
           hstorrent = self.callPackage ../git/hstorrent {};

@@ -1,4 +1,4 @@
-{ haskellPackages ? (import <nixpkgs> {}) }:
+{ haskellPackages ? (import <nixpkgs> {}).haskellPackages }:
 
 haskellPackages.cabal.mkDerivation (self: {
   pname = "dotfiles";

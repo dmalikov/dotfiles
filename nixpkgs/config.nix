@@ -6,7 +6,7 @@ pkgs: {
         extension = self: _: {
           biegunka = self.callPackage ../git/biegunka {};
           cabal2nix = self.callPackage ../.nixpkgs/cabal2nix {};
-          dotfiles = self.callPackage ../git/dotfiles {};
+          dotfiles = self.callPackage ../git/dotfiles { haskellPackages = myHaskellPackages; };
           hstorrent = self.callPackage ../git/hstorrent {};
           liblastfm = self.callPackage ../git/liblastfm { haskellPackages = myHaskellPackages; };
           scrobblers = self.callPackage ../git/scrobblers { haskellPackages = myHaskellPackages; };

@@ -14,6 +14,7 @@
     systemPackages = [
       curl
       dhcp
+      fuse_exfat
       git
       htop
       iotop

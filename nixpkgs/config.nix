@@ -9,6 +9,7 @@ pkgs: {
           dotfiles = self.callPackage ../git/dotfiles { haskellPackages = myHaskellPackages; };
           hstorrent = self.callPackage ../git/hstorrent {};
           liblastfm = self.callPackage ../git/liblastfm { haskellPackages = myHaskellPackages; };
+          liblastfmExample = self.callPackage ../git/liblastfm/example { haskellPackages = myHaskellPackages; };
           scrobblers = self.callPackage ../git/scrobblers { haskellPackages = myHaskellPackages; };
         };
       });

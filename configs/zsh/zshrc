@@ -55,7 +55,7 @@ source ~/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ssh='TERM=xterm-color ssh'
 alias ihach='iconv -cf inis-cyrillic'
 alias ls='ls --color=auto'
-alias nix-shell='nix-shell --command zsh'
+alias ns="nix-env -qaP '*' | grep"
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

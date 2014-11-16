@@ -5,7 +5,7 @@ pkgs: {
       pkgs.recurseIntoAttrs (pkgs.haskellPackages.override {
         extension = self: _: {
           biegunka = self.callPackage ../git/biegunka { haskellPackages = myHaskellPackages; };
-          cabal2nix = self.callPackage ../.nixpkgs/cabal2nix {};
+          cabal2nix = self.callPackage ../.nixpkgs/cabal2nix { haskellPackages = myHaskellPackages; };
           dotfiles = self.callPackage ../git/dotfiles { haskellPackages = myHaskellPackages; };
           hstorrent = self.callPackage ../git/hstorrent {};
           liblastfm = self.callPackage ../git/liblastfm { haskellPackages = myHaskellPackages; };

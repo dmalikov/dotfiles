@@ -36,6 +36,9 @@ function promt_dynamic() {
     if [[ -d ".cabal-sandbox" ]] then
         PROMPT+="%F{8}[%F{3}sandboxed%F{8}]%f "
     fi
+    if [[ -n ${NIX_MYENV_NAME} ]] then
+        PROMPT+="%F{8}[%F{6}${NIX_MYENV_NAME}%F{8}]%f "
+    fi
     PROMPT+="$(prompt_exit_code) "
 }
 

@@ -1,6 +1,6 @@
 # dotfiles [![Build Status](http://img.shields.io/travis/dmalikov/dotfiles/master.svg?style=flat-square)](http://travis-ci.org/dmalikov/dotfiles)
 
-[`biegunka`][biegunka] scripts for keeping working environment configuration up-to-date
+[`biegunka`][biegunka] scripts to keep various environments' configuration updated
 
 ## tl;dr
 - >1 environments

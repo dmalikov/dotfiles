@@ -171,7 +171,12 @@ profile_zathura = profile "zathura" $
     copy "configs/zathura/zathurarc" ".config/zathura/zathurarc"
 
 profile_nixpkgs :: Script Sources ()
-profile_nixpkgs = profile "nixpkgs" $
+profile_nixpkgs = profile "nixpkgs" $ do
+  git_ "git@github.com:dmalikov/hstorrent" "git/hstorrent"
+  git' "git@github.com:biegunka/biegunka" "git/biegunka" (def & branch .~ "develop")
+  git_ "git@github.com:nixos/cabal2nix" "git/cabal2nix"
+  git_ "git@github.com:supki/scrobblers" "git/scrobblers"
+  git_ "git@github.com:supki/liblastfm" "git/liblastfm"
   dotfiles $ do
     copy "nixpkgs/config.nix" ".nixpkgs/config.nix"
     copy "nixpkgs/cabal2nix/default.nix" ".nixpkgs/cabal2nix/default.nix"

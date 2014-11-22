@@ -439,7 +439,7 @@ colors_enabled = "yes"
 #
 progressbar_color = "yellow"
 #
-statusbar_color = "black"
+statusbar_color = "cyan"
 #
 alternative_ui_separator_color = "black"
 #

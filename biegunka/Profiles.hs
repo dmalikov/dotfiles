@@ -77,8 +77,9 @@ profile_mpd = profile "mpd" $
 
 profile_ncmpcpp :: Script Sources ()
 profile_ncmpcpp = profile "ncmpcpp" $
-  dotfiles $
-    copy "configs/mpd/ncmpcpp/config" ".ncmpcpp/config"
+  dotfiles $ do
+    copy "configs/ncmpcpp/config" ".ncmpcpp/config"
+    copy "configs/ncmpcpp/bindings" ".ncmpcpp/bindings"
 
 profile_mplayer :: Script Sources ()
 profile_mplayer = profile "mplayer" $

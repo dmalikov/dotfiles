@@ -21,9 +21,6 @@ set undolevels=100
 "  list of character encodings considered when starting to edit an existing file
 set fileencodings=utf-8
 
-call pathogen#infect()
-filetype plugin indent on
-
 " share clipboard among instances
 set clipboard=unnamed
 
@@ -71,6 +68,8 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "w0ng/vim-hybrid"
 NeoBundle "PProvost/vim-ps1"
 
+call neobundle#end()
+filetype plugin indent on
 NeoBundleCheck
 
 " }}}

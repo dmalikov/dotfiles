@@ -2,7 +2,7 @@
 
 haskellPackages.cabal.mkDerivation (self: {
   pname = "cabal2nix";
-  version = "1.71";
+  version = "1.72";
   src = ../../git/cabal2nix/.;
   isLibrary = false;
   isExecutable = true;

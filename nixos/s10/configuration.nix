@@ -18,6 +18,7 @@
       git
       htop
       iotop
+      lsof
       nix-repl
       ncmpcpp
       nmap

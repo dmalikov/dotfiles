@@ -8,7 +8,7 @@ haskellPackages.cabal.mkDerivation (self: rec {
     bencoding binary dataDefault lens QuickCheck quickcheckInstances
   ];
   testDepends = with haskellPackages; buildDepends ++ [
-    filepath hspec HUnit QuickCheck quickcheckInstances
+    filepath hspec hspecContrib HUnit QuickCheck quickcheckInstances
   ];
   meta = {
     homepage = "https://github.com/hstorrent/hstorrent";

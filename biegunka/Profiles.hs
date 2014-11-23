@@ -180,3 +180,4 @@ profile_nixpkgs = profile "nixpkgs" $ do
     copy "nixpkgs/config.nix" ".nixpkgs/config.nix"
     copy "nixpkgs/cabal2nix/default.nix" ".nixpkgs/cabal2nix/default.nix"
     copy "nixpkgs/hstorrent/default.nix" ".nixpkgs/hstorrent/default.nix"
+    copy "nixpkgs/hspecContrib/default.nix" ".nixpkgs/hspecContrib/default.nix"

@@ -19,7 +19,7 @@ set scrolltime=0
 " Show pattern matches
 set incfind
 
-" highlight previuos search pattern matches
+" highlight previous search pattern matches
 set hlfind
 
 " Ignore case in search unless pattern has uppercase chars

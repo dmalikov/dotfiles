@@ -82,10 +82,6 @@
     passwordAuthentication = false;
   };
 
-  services.transmission = {
-    enable = true;
-  };
-
   services.logind.extraConfig = "HandleLidSwitch=ignore";
 
   time.timeZone = "Europe/Moscow";

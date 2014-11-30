@@ -20,9 +20,11 @@ $endif$
     br = branch
     ci = commit
     co = checkout
-    sm = submodule
+    f = fetch
     h = "!f() { cd `git rev-parse --show-toplevel`; }; f"
+    pr = pull --rebase
     rh = reset --hard
+    sm = submodule
 
 [color]
     branch = auto

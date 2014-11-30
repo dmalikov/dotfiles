@@ -1,3 +1,4 @@
+# vim: set ft=gitconfig:
 [core]
     repositoryformatversion = 0
     filemode = true
@@ -21,7 +22,7 @@ $endif$
     ci = commit
     co = checkout
     f = fetch
-    h = "!f() { cd `git rev-parse --show-toplevel`; }; f"
+    h = !sh -c 'git rev-parse --show-toplevel'
     pr = pull --rebase
     rh = reset --hard
     sm = submodule

@@ -1,15 +1,17 @@
 name: dotfiles
 version: 9999
+category: System
+maintainer: Dmitry Malikov
 
 build-type: Simple
 cabal-version: >=1.2
 
 executable dotfiles
-  main-is: Biegunka.hs
+  main-is: Main.hs
   build-depends:
-    base >= 4.6,
-    biegunka >= 0.2,
-    data-default >= 0.5.0,
-    lens >= 3.9,
-    optparse-applicative >= 0.5.2,
-    regex-pcre-builtin >= 0.94.4.7.8.31
+      base >= 4.6
+    , biegunka >= 0.2
+    , data-default
+    , lens
+    , optparse-applicative
+    , regex-pcre-builtin

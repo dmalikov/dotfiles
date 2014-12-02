@@ -1,13 +1,28 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-module Environment.Base where
+{-# LANGUAGE DataKinds, DeriveDataTypeable #-}
+module Environment.Defaults where
 
-import           Data.Data     (Data)
+import           Control.Lens                               (set)
+import           Control.Monad                              (void)
 import           Data.Default
-import           Data.Typeable (Typeable)
+
+import           Control.Biegunka                           hiding (shell)
+import           Control.Biegunka.Templates.HStringTemplate
 
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
-data Template = Template
+type Runner a = (Settings () -> Settings ()) -> Script Sources () -> IO a
+
+class Environmentable a where
+  configs :: a -> Configs
+  profiles :: a -> Script Sources ()
+
+  rollout :: a -> Runner a -> IO ()
+  rollout x r = void $ r (set root "~" . set templates (hStringTemplate (configs x))) (profiles x)
+
+data Environment = X220 | S10 | W530
+  deriving (Data, Typeable)
+
+data Configs = Configs
   { git         :: Git
   , pentadactyl :: Pentadactyl
   , tmux        :: Tmux
@@ -16,8 +31,8 @@ data Template = Template
   , xmonad      :: Xmonad
   } deriving (Data, Typeable)
 
-instance Default Template where
-  def = Template
+instance Default Configs where
+  def = Configs
     { git = def
     , pentadactyl = def
     , tmux = def

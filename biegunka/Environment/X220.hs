@@ -1,13 +1,12 @@
 module Environment.X220 where
 
-import           Data.Default     (def)
+import           Data.Default         (def)
 
-import           Environment.Base
+import           Environment.Defaults
 import           Profiles
 
-
-settings :: Template
-settings = def
+configs :: Configs
+configs = def
   { git = def
     { set_user = True
     , user_name = "Dmitry Malikov"

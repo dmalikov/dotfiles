@@ -3,7 +3,7 @@
 haskellPackages.cabal.mkDerivation (self: {
   pname = "dotfiles";
   version = "9999";
-  src = builtins.filterSource (path: type: builtins.baseNameOf path != ".hdevtools.sock") ./biegunka/.;
+  src = builtins.filterSource (_: type: type != "unknown") ./biegunka/.;
   isLibrary = false;
   isExecutable = true;
   buildDepends = with haskellPackages; [

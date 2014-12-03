@@ -140,7 +140,7 @@ configs = def
 [biegunka]: https://github.com/biegunka
 [chef-solo]: http://docs.opscode.com/chef_solo.html
 [chef]: https://github.com/opscode/chef
-[default-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Default.hs
+[defaults-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Defaults.hs
 [dotfiles-cabal]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/dotfiles.cabal
 [dotfiles-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/dotfiles/default.nix
 [main-hs]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/Main.hs

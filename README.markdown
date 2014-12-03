@@ -24,7 +24,7 @@ but I'm too lazy for writing a cookbook for every application that I have.
 
 [`nix`][nix] language and package manager fits our needs perfectly here.
 Installing nix over existed package manager and rewriting all dotfiles as a `nix` expressions can take much time.
-But it is a perfect solution for a `NixOS`[nixos].
+But it is a perfect solution for a [`NixOS`][nixos].
 
 ## Usage
 
@@ -101,7 +101,7 @@ set -g default-command $template.tmux.shell$
 set -g default-shell $template.tmux.shell$
 ```
 
-Tmux configuration in a [`Base.hs`][base-hs]:
+Tmux configuration is defined in a [`Defaults.hs`][defaults-hs]:
 ```
 data Tmux = Tmux
   { shell :: String
@@ -136,11 +136,11 @@ configs = def
   }
 ```
 
-[base-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Base.hs
 [biegunka-doc-script-sources]: http://biegunka.budueba.com/pages/script/actions.html
 [biegunka]: https://github.com/biegunka
 [chef-solo]: http://docs.opscode.com/chef_solo.html
 [chef]: https://github.com/opscode/chef
+[default-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Default.hs
 [dotfiles-cabal]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/dotfiles.cabal
 [dotfiles-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/dotfiles/default.nix
 [main-hs]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/Main.hs

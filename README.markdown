@@ -24,31 +24,18 @@ but I'm too lazy for writing a cookbook for every application that I have.
 
 [`nix`][nix] language and package manager fits our needs perfectly here.
 Installing nix over existed package manager and rewriting all dotfiles as a `nix` expressions can take much time.
-But it is a perfect solution for a `nixos`.
+But it is a perfect solution for a `NixOS`[nixos].
 
 ## Usage
 
-Particular working environment could be provisioned in a number of different ways:
-- run biegunka executable with an updated version of [`Biegunka.hs`][biegunka-hs] (all necessary dependencies should be installed before that)
-- compile [`dotfiles.cabal`][dotfiles-cabal] project pointed at [`Biegunka.hs`][biegunka-hs] and run builded `dotfiles` executable manually
-
-### Nixos
+There is a [`dotfiles.cabal`][dotfiles-cabal] project pointed at [`Main.hs`][main-hs]. It compiles to a `dotfiles` executable.
+Currently I'm provisioning all these dotfiles using [`nix`][nix] only.
 
 ```
-$> nix-shell -p myHaskellPackages.dotfiles
-nix-shell $> dotfiles --s10
+$> nix-shell --pure -p myHaskellPackages.dotfiles --command 'dotfiles --s10'
 ```
 
 [`myHaskellPackages.dotfiles` expression][dotfiles-nix] is defined in the local [`nixpkgs`][nixpkgs-config-nix].
-
-### Gentoo
-
-```
-$> cabal install biegunka/Biegunka.hs
-$> dotfiles --x220
-```
-
-TODO: use `biegunka` executable properly without breaking cabal package
 
 ### Windows
 TODO: `biegunka` package depends on a `unix` package which is impossible to use inside a windows.
@@ -125,8 +112,8 @@ Different environments has a different Tmux settings:
 
 X220:
 ```haskell
-settings :: Template
-settings = def
+configs :: Configs
+configs = def
   {
 ...
   , tmux = def
@@ -138,8 +125,8 @@ settings = def
 
 S10:
 ```haskell
-settings :: Template
-settings = def
+configs :: Configs
+configs = def
   {
 ...
   , tmux = def
@@ -149,14 +136,15 @@ settings = def
   }
 ```
 
+[base-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Base.hs
 [biegunka-doc-script-sources]: http://biegunka.budueba.com/pages/script/actions.html
-[biegunka-hs]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/Biegunka.hs
 [biegunka]: https://github.com/biegunka
 [chef-solo]: http://docs.opscode.com/chef_solo.html
 [chef]: https://github.com/opscode/chef
 [dotfiles-cabal]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/dotfiles.cabal
 [dotfiles-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/dotfiles/default.nix
+[main-hs]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/Main.hs
 [nix]: http://nixos.org/nix/manual/
+[nixos]: http://nixos.org/
 [nixpkgs-config-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/config.nix
 [profiles]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Profiles.hs
-[base-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Base.hs

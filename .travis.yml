@@ -4,14 +4,12 @@ ghc:
  - 7.8
 
 before_install:
-    - cabal install alex happy
-    - cabal install c2hs
-    - cabal install cabal-install cabalg
-    - cabal install data-default
+    - |
+      bash <(curl -sS https://nixos.org/nix/install)
+      source $HOME/.nix-profile/etc/profile.d/nix.sh
+      nix-channel --update
 
 install:
-    - cabalg https://github.com/biegunka/biegunka@develop -- --force-reinstalls
+    - nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --x220 --changes'
 
-script:
-    - biegunka run biegunka/ -- --x220 --changes
-    - biegunka run biegunka/ -- --s10 --changes
+script: true

@@ -9,13 +9,13 @@ import           Control.Biegunka.Source.Git
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
 dotfiles :: Script Actions () -> Script Sources ()
-dotfiles as = git' "git@github.com:dmalikov/dotfiles" "git/dotfiles" $ def & actions .~ as
+dotfiles as = git' "https://github.com/dmalikov/dotfiles" "git/dotfiles" $ def & actions .~ as
 
 profile_vim :: Script Sources ()
 profile_vim = do
   profile "vim/rc" $ do
-    git_ "git@github.com:Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
-    git "git@github.com:tpope/vim-pathogen" ".vim/bundle/vim-pathogen" $
+    git_ "https://github.com/Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
+    git "https://github.com/tpope/vim-pathogen" ".vim/bundle/vim-pathogen" $
       copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   profile "vim/syntax" $ do
@@ -120,8 +120,8 @@ profile_bash = profile "bash" $
 
 profile_zsh :: Script Sources ()
 profile_zsh = profile "zsh" $ do
-  git_ "git@github.com:zsh-users/zsh-completions" "git/zsh-completions"
-  git_ "git@github.com:zsh-users/zsh-syntax-highlighting" "git/zsh-syntax-highlighting"
+  git_ "https://github.com/zsh-users/zsh-completions" "git/zsh-completions"
+  git_ "https://github.com/zsh-users/zsh-syntax-highlighting" "git/zsh-syntax-highlighting"
   dotfiles $ do
     copy "configs/zsh/zshrc" ".zshrc"
     copy "configs/zsh/zshenv" ".zshenv"
@@ -144,7 +144,7 @@ profile_gtk = profile "gtk" $
 
 profile_tmux :: Script Sources ()
 profile_tmux = profile "tmux" $ do
-  git_ "git@github.com:richo/battery" "git/tmux-battery"
+  git_ "https://github.com/richo/battery" "git/tmux-battery"
   dotfiles $ do
     substitute "configs/tmux/conf.template" ".tmux.conf"
     copy "configs/tmux/keybindings" ".tmux.keybindings"

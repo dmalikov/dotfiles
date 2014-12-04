@@ -39,7 +39,6 @@ profiles = sequence_
   , profile_mplayer
   , profile_mpv
   , profile_ncmpcpp
-  , profile_nixpkgs
   , profile_pentadactyl
   , profile_ruby
   , profile_tmux

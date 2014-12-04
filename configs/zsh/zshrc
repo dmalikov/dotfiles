@@ -60,7 +60,7 @@ alias ihach='iconv -cf inis-cyrillic'
 alias ls='ls --color=auto'
 alias ns="nix-env -qaP '*' | grep"
 alias g='git'
-alias t='t'
+alias t='tig'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

@@ -1,14 +1,14 @@
-{ haskellPackages ? (import <nixpkgs> {}).haskellPackages }:
+{ pkgs ? (import <nixpkgs> {}) }:
 
-with import ../biegunka/. {};
+let biegunka = import ./biegunka.nix {}; in
 
-haskellPackages.cabal.mkDerivation (self: {
+pkgs.haskellPackages.cabal.mkDerivation (self: {
   pname = "dotfiles";
   version = "9999";
   src = builtins.filterSource (_: type: type != "unknown") ./biegunka/.;
   isLibrary = false;
   isExecutable = true;
-  buildDepends = with haskellPackages; [
+  buildDepends = with pkgs.haskellPackages; [
     biegunka dataDefault lens optparseApplicative regexPcreBuiltin
   ];
   meta = {

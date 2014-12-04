@@ -32,7 +32,7 @@ There is a [`dotfiles.cabal`][dotfiles-cabal] project pointed at [`Main.hs`][mai
 Currently I'm provisioning all these dotfiles using [`nix`][nix] only.
 
 ```
-$> nix-shell --pure -p myHaskellPackages.dotfiles --command 'dotfiles --s10'
+$> nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --x220'
 ```
 
 [`myHaskellPackages.dotfiles` expression][dotfiles-nix] is defined in the local [`nixpkgs`][nixpkgs-config-nix].

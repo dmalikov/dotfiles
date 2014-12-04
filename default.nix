@@ -1,5 +1,7 @@
 { haskellPackages ? (import <nixpkgs> {}).haskellPackages }:
 
+with import ../biegunka/. {};
+
 haskellPackages.cabal.mkDerivation (self: {
   pname = "dotfiles";
   version = "9999";

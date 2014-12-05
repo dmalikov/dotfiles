@@ -10,6 +10,6 @@ before_install:
       nix-channel --update
 
 install:
-    - nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --x220 --changes'
+    - for env in `s10 x220 w530`; do nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --${env} --changes'; done
 
 script: true

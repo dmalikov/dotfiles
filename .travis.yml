@@ -1,7 +1,13 @@
 language: haskell
 
 ghc:
- - 7.8
+    - 7.8
+
+env:
+    matrix:
+        - ENV=s10
+        - ENV=x220
+        - ENV=w530
 
 before_install:
     - |
@@ -10,6 +16,6 @@ before_install:
       nix-channel --update
 
 install:
-    - for env in `s10 x220 w530`; do nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --${env} --changes'; done
+    - nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --${ENV} --changes'
 
 script: true

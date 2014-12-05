@@ -24,6 +24,7 @@ $endif$
     f = fetch
     h = !sh -c 'git rev-parse --show-toplevel'
     pr = pull --rebase
+    rb = rebase
     rh = reset --hard
     sm = submodule
 

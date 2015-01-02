@@ -5,8 +5,8 @@ pkgs.haskellPackages.cabal.mkDerivation (self: {
   version = "0.2";
   src = pkgs.fetchgit {
     url = "https://github.com/biegunka/biegunka.git";
-    sha256 = "545e6e86f229e6f5c53faa581a607c4be14c81948c8d6ab861881edceee66e59";
-    rev = "e61187c74a089411d2b23b5234a7cd93de5d8c92";
+    sha256 = "3c3216314d4f798647f9e56d439e31119093fe76a6cad5a132c6478b15307c15";
+    rev = "b5adfa6dcb2fe579f3d78bb1e51ce3889ec9daad";
     fetchSubmodules = false;
   };
   isLibrary = true;

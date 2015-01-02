@@ -2,7 +2,7 @@
 *.perl-lib: /usr/lib64/urxvt/perl/
 
 !enabling clickable links:
-*.urlLauncher: /usr/bin/firefox-bin
+*.urlLauncher: /usr/bin/google-chrome-stable
 *.matcher.button: 1
 
 !keyboard-select mappings

@@ -26,6 +26,8 @@ profiles = sequence_
   , profile_tmux
   , profile_vifm
   , profile_vim
+  , profile_x
+  , profile_xmonad
   , profile_zsh
   ]
 

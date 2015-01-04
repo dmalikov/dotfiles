@@ -12,16 +12,20 @@
 
   environment = with pkgs; {
     systemPackages = [
+      chromium
       curl
       dhcp
+      dmenu
       fuse_exfat
       git
       htop
+      i3status
       iotop
       lsof
-      nix-repl
       ncmpcpp
+      nix-repl
       nmap
+      rxvt_unicode
       sshfsFuse
       tig
       tmux
@@ -54,7 +58,17 @@
     wireless.enable = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+
+    allowUnfree = true;
+    
+    chromium = {
+      enablePerpperFlash = true;
+      enablePepperPDF = true;
+    };
+
+  };    
+    
 
   powerManagement.cpuFreqGovernor = "ondemand";
 
@@ -65,21 +79,22 @@
     wheelNeedsPassword = false;
   };
 
-  services.mpd = {
-    enable = true;
-    extraConfig = ''
-        audio_output {
-            type "alsa"
-            name "E-MU 0204 USB"
-            device "plughw:1,0"
-            format "88200:16:2"
-        }
-    '';
-  };
-
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
+  };
+
+  services.xserver = {
+    enable = true;
+    synaptics.enable = true;
+    windowManager = {
+      default = "i3";
+      i3.enable = true;
+    };
+    desktopManager = {
+      default = "none";
+      xterm.enable = false;
+    };
   };
 
   services.logind.extraConfig = "HandleLidSwitch=ignore";

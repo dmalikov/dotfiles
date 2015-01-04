@@ -51,7 +51,7 @@
   networking = {
     firewall.enable = false;
     hostName = "nixos";
-    wireless.enable = false;
+    wireless.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;

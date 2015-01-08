@@ -67,6 +67,7 @@ NeoBundle "kongo2002/fsharp-vim"
 NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "w0ng/vim-hybrid"
 NeoBundle "PProvost/vim-ps1"
+NeoBundle "kien/rainbow_parentheses.vim"
 
 call neobundle#end()
 filetype plugin indent on
@@ -224,6 +225,11 @@ let custom_filename = '.vim.custom'
 if filereadable(custom_filename)
     execute "source" custom_filename
 endif
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 " }}}
 
 " Key mapping settings ------------ {{{

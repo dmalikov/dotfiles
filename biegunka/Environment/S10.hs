@@ -13,6 +13,12 @@ configs = def
     , user_name = "Dmitry Malikov"
     , user_email = "malikov.d.y@gmail.com"
     }
+  , urxvt = def
+    { font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
+    }
+  , x = def
+    { xft_dpi = 125
+    }
   , tmux = def
     { shell = "~/.nix-profile/bin/zsh"
     }

@@ -30,6 +30,7 @@
       tig
       tmux
       tree
+      unclutter
       vifm
       vim
       wget

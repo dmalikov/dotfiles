@@ -100,7 +100,7 @@
 
   services.logind.extraConfig = "HandleLidSwitch=ignore";
 
-  time.timeZone = "Europe/Moscow";
+  time.timeZone = "Europe/Prague";
 
   users = {
     defaultUserShell = "/var/run/current-system/sw/bin/zsh";

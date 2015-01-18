@@ -25,6 +25,7 @@
       ncmpcpp
       nix-repl
       nmap
+      pmutils
       rxvt_unicode
       sshfsFuse
       tig

@@ -53,8 +53,6 @@ profile_x = profile "X" $
     copy "configs/X/colors/shiva" ".urxvt/colors/shiva"
     copy "configs/X/colors/hybrid" ".urxvt/colors/hybrid"
     copy "configs/X/inputrc" ".inputrc"
-    copy "configs/X/startup" ".startup"
-    copy "configs/X/xinitrc" ".xinitrc"
 
 profile_haskell :: Script Sources ()
 profile_haskell = profile "haskell" $

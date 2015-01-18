@@ -62,14 +62,14 @@
   nixpkgs.config = {
 
     allowUnfree = true;
-    
+
     chromium = {
       enablePerpperFlash = true;
       enablePepperPDF = true;
     };
 
-  };    
-    
+  };
+
 
   powerManagement.cpuFreqGovernor = "ondemand";
 
@@ -95,6 +95,46 @@
     desktopManager = {
       default = "none";
       xterm.enable = false;
+    };
+    displayManager = {
+      sessionCommands = ''
+# enable ctrl-alt-backspace sequence
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# enable keyboard layout
+setxkbmap -option "" -layout "us,ru" -option grp:caps_toggle
+
+# urxvt fonts
+# xset +fp /usr/share/fonts/terminus
+
+# set up delay and rate
+xset r rate 300 50
+
+# enable right alt for xcompose
+setxkbmap -option compose:ralt
+
+# fix xcompose in gtk applications
+export GTK_IM_MODULE=xim
+
+# disable Display Power Managing Signaling
+xset -dpms
+
+# process urxvt settings
+xrdb ~/.Xresources
+xrdb -merge ~/.urxvt/colors/hybrid
+
+# run unclutter to hide cursor
+killall unclutter
+unclutter &
+
+# run ssh-agent
+killall ssh-agent
+ssh-agent
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_dsa
+
+exec i3 -V >> ~/.i3/logs 2>&1
+      '';
     };
   };
 

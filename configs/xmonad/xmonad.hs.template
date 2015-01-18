@@ -164,7 +164,6 @@ myStartupHook = do
 -- Sets the WM name to a given string, so that it could be
 -- detected using _NET_SUPPORTING_WM_CHECK protocol
   setWMName "LG3D"
-  spawn "~/.startup"
 
 
 myTerminal = urxvt ++ " -cd ~/"

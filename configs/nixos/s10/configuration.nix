@@ -20,6 +20,7 @@
       git
       htop
       i3status
+      imagemagick
       iotop
       lsof
       ncmpcpp

@@ -32,7 +32,7 @@ There is a [`dotfiles.cabal`][dotfiles-cabal] project pointed at [`Main.hs`][mai
 Currently I'm provisioning all these dotfiles using [`nix`][nix] only.
 
 ```
-$> nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --x220'
+$> nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --S10'
 ```
 
 [`myHaskellPackages.dotfiles` expression][dotfiles-nix] is defined in the local [`nixpkgs`][nixpkgs-config-nix].
@@ -110,7 +110,7 @@ data Tmux = Tmux
 
 Different environments has a different Tmux settings:
 
-X220:
+X220 (R.I.P.):
 ```haskell
 configs :: Configs
 configs = def

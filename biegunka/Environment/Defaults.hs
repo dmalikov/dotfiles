@@ -19,7 +19,7 @@ class Environmentable a where
   rollout :: a -> Runner a -> IO ()
   rollout x r = void $ r (set root "~" . set templates (hStringTemplate (configs x))) (profiles x)
 
-data Environment = X220 | S10 | W530
+data Environment = S10 | W530
   deriving (Data, Typeable)
 
 data Configs = Configs

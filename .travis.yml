@@ -6,7 +6,6 @@ ghc:
 env:
     matrix:
         - ENV=s10
-        - ENV=w530
 
 before_install:
     - |

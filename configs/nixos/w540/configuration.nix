@@ -23,6 +23,7 @@
     systemPackages = [
       curl
       git
+      gnumake
       htop
       iotop
       nix-repl
@@ -45,6 +46,8 @@
     wheelNeedsPassword = false;
   };
 
+  boot.initrd.checkJournalingFS = false;
+
   programs.zsh.enable = true;
 
   users = {
@@ -63,7 +66,7 @@
     };
   };
 
-  fileSystems."/mnt/src" = { 
+  fileSystems."/mnt/src" = {
     fsType = "vboxsf";
     device = "src";
     options = "rw";

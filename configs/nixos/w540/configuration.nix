@@ -23,13 +23,16 @@
     systemPackages = [
       curl
       git
+      gcc49
       gnumake
       htop
       iotop
       nix-repl
       nmap
+      python
       tig
       tmux
+      transmission
       tree
       vifm
       vim

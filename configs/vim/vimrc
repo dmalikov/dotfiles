@@ -68,6 +68,7 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "w0ng/vim-hybrid"
 NeoBundle "PProvost/vim-ps1"
 NeoBundle "kien/rainbow_parentheses.vim"
+NeoBundle "wakatime/vim-wakatime"
 
 call neobundle#end()
 filetype plugin indent on

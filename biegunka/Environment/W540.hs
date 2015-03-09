@@ -14,6 +14,12 @@ configs = def
     , user_name = "Dmitry Malikov"
     , user_email = "malikov.d.y@gmail.com"
     }
+  , urxvt = def
+    { font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
+    }
+  , x = def
+    { xft_dpi = 125
+    }
   , tmux = def
     { shell = "/run/current-system/sw/bin/zsh"
     }
@@ -23,9 +29,11 @@ configs = def
 profiles = sequence_
   [ profile_git
   , profile_haskell
+  , profile_i3
   , profile_tmux
   , profile_vifm
   , profile_vim
+  , profile_x
   , profile_zsh
   ]
 

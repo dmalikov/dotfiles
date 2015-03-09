@@ -2,4 +2,3 @@ cabal-dev
 dist
 tags
 result
-env.nix

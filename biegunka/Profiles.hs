@@ -28,9 +28,15 @@ profile_vim = do
 
 profile_xmonad :: Script Sources ()
 profile_xmonad =
-  profile "xmonad/xmonad.hs" $
+  profile "xmonad" $
     dotfiles $
       substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
+
+profile_i3 :: Script Sources ()
+profile_i3 =
+  profile "i3" $
+    dotfiles $
+      copy "configs/i3/config" ".i3/config"
 
 profile_git :: Script Sources ()
 profile_git = profile "git" $

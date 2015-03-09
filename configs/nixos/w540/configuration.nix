@@ -1,8 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
+
+let
+  basic = with pkgs; [ curl dhcp fuse_exfat git gcc49 gnumake htop imagemagick iotop lsof nix-repl nmap python tig tmux transmission tree unzip vifm vim wget wgetpaste zsh ];
+  x = with pkgs; [ dmenu i3status rxvt_unicode unclutter ];
+in
 
 {
   imports =
@@ -19,30 +20,68 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless.
 
-  environment = with pkgs; {
-    systemPackages = [
-      curl
-      git
-      gcc49
-      gnumake
-      htop
-      iotop
-      nix-repl
-      nmap
-      python
-      tig
-      tmux
-      transmission
-      tree
-      vifm
-      vim
-      wget
-      zsh
+  environment.systemPackages = basic ++ x;
+
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = [
+      pkgs.terminus_font
     ];
+  };
+
+  i18n = {
+    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-i16n.psf.gz";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
   };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.xserver = {
+    enable = true;
+    synaptics.enable = true;
+    windowManager = {
+      default = "i3";
+      i3.enable = true;
+    };
+    desktopManager = {
+      default = "none";
+      xterm.enable = false;
+    };
+    displayManager = {
+      sessionCommands = ''
+# enable ctrl-alt-backspace sequence
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# enable keyboard layout
+setxkbmap -option "" -layout "us,ru" -option grp:caps_toggle
+
+# urxvt fonts
+xset +fp /usr/share/fonts/terminus
+
+# set up delay and rate
+xset r rate 300 50
+
+# enable right alt for xcompose
+setxkbmap -option compose:ralt
+
+# disable Display Power Managing Signaling
+xset -dpms
+
+# process urxvt settings
+xrdb ~/.Xresources
+xrdb -merge ~/.urxvt/colors/hybrid
+
+# run unclutter to hide cursor
+killall unclutter
+unclutter &
+
+exec i3 -V >> ~/.i3/logs 2>&1
+      '';
+    };
+  };
 
   security.sudo = {
     enable = true;

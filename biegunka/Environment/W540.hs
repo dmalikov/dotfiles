@@ -30,6 +30,7 @@ profiles = sequence_
   [ profile_git
   , profile_haskell
   , profile_i3
+  , profile_shell
   , profile_tmux
   , profile_vifm
   , profile_vim

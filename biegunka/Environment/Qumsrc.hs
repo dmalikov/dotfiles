@@ -7,7 +7,7 @@ import Environment.Defaults
 import Profiles
 
 configs :: Configs
-configs = def 
+configs = def
   { git = def
     { set_user = True
     , user_name = "Dmitry Malikov"
@@ -22,6 +22,7 @@ profiles = sequence_
   [ profile_git
   , profile_haskell
   , profile_ncmpcpp
+  , profile_shell
   , profile_tmux
   , profile_vifm
   , profile_vim

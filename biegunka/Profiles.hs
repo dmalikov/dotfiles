@@ -58,7 +58,6 @@ profile_x = profile "X" $
     substitute "configs/X/Xresources.template" ".Xresources"
     copy "configs/X/colors/shiva" ".urxvt/colors/shiva"
     copy "configs/X/colors/hybrid" ".urxvt/colors/hybrid"
-    copy "configs/X/inputrc" ".inputrc"
 
 profile_haskell :: Script Sources ()
 profile_haskell = profile "haskell" $
@@ -116,6 +115,11 @@ profile_apvlv :: Script Sources ()
 profile_apvlv = profile "apvlv" $
   dotfiles $
     copy "configs/apvlv/apvlvrc" ".apvlvrc"
+
+profile_shell :: Script Sources ()
+profile_shell = profile "shell" $
+  dotfiles $
+    copy "configs/shell/inputrc" ".inputrc"
 
 profile_bash :: Script Sources ()
 profile_bash = profile "bash" $

@@ -42,8 +42,11 @@ instance Default Configs where
     }
 
 data Git = Git
-  { set_user   :: Bool
-  , user_email :: String
+  { credentials :: Maybe GitCredentials
+  } deriving (Data, Typeable)
+
+data GitCredentials = GitCredentials
+  { user_email :: String
   , user_name  :: String
   } deriving (Data, Typeable)
 
@@ -68,29 +71,19 @@ data Xmonad = Xmonad
   } deriving (Data, Typeable)
 
 instance Default Git where
-  def = Git
-    { set_user = False
-    , user_name = def
-    , user_email = def
-    }
+  def = Git { credentials = Nothing }
 
 instance Default Pentadactyl where
   def = Pentadactyl { font_size = def }
 
 instance Default Tmux where
-  def = Tmux
-    { shell = def
-    }
+  def = Tmux { shell = def }
 
 instance Default X where
   def = X { xft_dpi = def }
 
 instance Default Urxvt where
-  def = Urxvt
-    { font = def
-    }
+  def = Urxvt { font = def }
 
 instance Default Xmonad where
-  def = Xmonad
-    { terminus_font = def
-    }
+  def = Xmonad { terminus_font = def }

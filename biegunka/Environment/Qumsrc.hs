@@ -9,9 +9,10 @@ import Profiles
 configs :: Configs
 configs = def
   { git = def
-    { set_user = True
-    , user_name = "Dmitry Malikov"
-    , user_email = "malikov.d.y@gmail.com"
+    { credentials = Just GitCredentials
+      { user_name = "Dmitry Malikov"
+      , user_email = "malikov.d.y@gmail.com"
+      }
     }
   , tmux = def
     { shell = "/bin/zsh"

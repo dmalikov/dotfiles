@@ -23,6 +23,7 @@ profiles = sequence_
   [ profile_git
   , profile_haskell
   , profile_ncmpcpp
+  , profile_mpd
   , profile_shell
   , profile_tmux
   , profile_vifm

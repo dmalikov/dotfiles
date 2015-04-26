@@ -11,8 +11,9 @@ input {
 }
 
 audio_output {
-    type                    "alsa"
+    type                    "osx"
     name                    "USB Audio"
+    mixer_type              "software"
 }
 
 filesystem_charset          "UTF-8"

@@ -41,7 +41,7 @@ profile_i3 =
 profile_git :: Script Sources ()
 profile_git = profile "git" $
   dotfiles $ do
-    substitute "configs/git/config.template" ".gitconfig"
+    copy "configs/git/config" ".gitconfig"
     copy "configs/git/ignore" ".gitignore"
     copy "configs/tig/tigrc" ".tigrc"
 

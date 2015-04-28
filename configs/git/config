@@ -8,11 +8,10 @@
     pager = cat
     excludesfile = ~/.gitignore
 
-$if(template.git.set_user)$
 [user]
-    name = $template.git.user_name$
-    email = $template.git.user_email$
-$endif$
+    name = "Dmitry Malikov"
+    email = "malikov.d.y@gmail.com"
+
 [merge]
     log = true
     tool = vimdiff

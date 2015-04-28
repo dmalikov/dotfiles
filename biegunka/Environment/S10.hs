@@ -1,20 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Environment.S10 where
 
-import           Data.Default     (def)
+import           Data.Default         (def)
 
 import           Environment.Defaults
 import           Profiles
 
 configs :: Configs
 configs = def
-  { git = def
-    { credentials = Just GitCredentials
-      { user_name = "Dmitry Malikov"
-      , user_email = "malikov.d.y@gmail.com"
-      }
-    }
-  , urxvt = def
+  { urxvt = def
     { font = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
     }
   , x = def
@@ -24,7 +18,6 @@ configs = def
     { shell = "~/.nix-profile/bin/zsh"
     }
   }
-
 
 profiles = sequence_
   [ profile_git
@@ -38,4 +31,3 @@ profiles = sequence_
   , profile_xmonad
   , profile_zsh
   ]
-

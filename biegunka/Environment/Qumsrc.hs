@@ -8,13 +8,7 @@ import           Profiles
 
 configs :: Configs
 configs = def
-  { git = def
-    { credentials = Just GitCredentials
-      { user_name = "Dmitry Malikov"
-      , user_email = "malikov.d.y@gmail.com"
-      }
-    }
-  , tmux = def
+  { tmux = def
     { shell = "/bin/zsh"
     }
   }

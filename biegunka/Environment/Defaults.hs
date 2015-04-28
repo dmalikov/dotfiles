@@ -23,8 +23,7 @@ data Environment = W540 | S10 | Qumsrc
   deriving (Data, Typeable)
 
 data Configs = Configs
-  { git         :: Git
-  , pentadactyl :: Pentadactyl
+  { pentadactyl :: Pentadactyl
   , tmux        :: Tmux
   , urxvt       :: Urxvt
   , x           :: X
@@ -33,22 +32,12 @@ data Configs = Configs
 
 instance Default Configs where
   def = Configs
-    { git = def
-    , pentadactyl = def
+    { pentadactyl = def
     , tmux = def
     , urxvt = def
     , x = def
     , xmonad = def
     }
-
-data Git = Git
-  { credentials :: Maybe GitCredentials
-  } deriving (Data, Typeable)
-
-data GitCredentials = GitCredentials
-  { user_email :: String
-  , user_name  :: String
-  } deriving (Data, Typeable)
 
 data Pentadactyl = Pentadactyl
   { font_size :: Int
@@ -69,9 +58,6 @@ data X = X
 data Xmonad = Xmonad
   { terminus_font :: String
   } deriving (Data, Typeable)
-
-instance Default Git where
-  def = Git { credentials = Nothing }
 
 instance Default Pentadactyl where
   def = Pentadactyl { font_size = def }

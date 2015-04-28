@@ -286,16 +286,12 @@ augroup filetype_haskell
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
     autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
     autocmd FileType haskell nnoremap <buffer> <Leader>sh :%!stylish-haskell<CR>
-    autocmd FileType haskell iabbrev <buffer> lang {-# LANGUAGE #-}<esc>3hi
-    autocmd BufWritePost *.hs :HdevtoolsClear " TODO use filetype haskell?
-    autocmd BufWritePost *.hs call GenerateHasktags() " TODO: why `E488: Trailing characters: :HdevtoolsClear | call " GenerateHasktags()'?
+    autocmd BufWritePost *.hs :HdevtoolsClear
+    autocmd BufWritePost *.hs call GenerateHasktags()
     autocmd FileType haskell set commentstring=--\ %s " for vim-commentary
 augroup END
 
 highlight hsNiceOperator ctermfg=none ctermbg=black
-
-" configure browser for haskell_doc.vim
-let g:haddock_browser = "firefox-bin"
 
 autocmd BufNewFile,BufRead,Bufenter *.nix setfiletype nix
 autocmd FileType nix setlocal expandtab shiftwidth=2 softtabstop=2

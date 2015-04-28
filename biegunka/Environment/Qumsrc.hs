@@ -1,10 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Environment.Qumsrc where
 
-import Data.Default (def)
+import           Data.Default         (def)
 
-import Environment.Defaults
-import Profiles
+import           Environment.Defaults
+import           Profiles
 
 configs :: Configs
 configs = def

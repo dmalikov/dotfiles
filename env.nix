@@ -1,10 +1,8 @@
 let
   pkgs = import <nixpkgs> {};
   env = pkgs.haskellPackages.ghcWithPackagesOld (self: ( with self; [
-    hlint
-    hdevtools
-    doctest ] ++
-    (self.callPackage ./. { pkgs = pkgs ; }).nativeBuildInputs));
+    hlint hdevtools doctest stylishHaskell
+    ] ++ (self.callPackage ./. { pkgs = pkgs ; }).nativeBuildInputs));
 in
   pkgs.myEnvFun {
     name = "dotfiles";

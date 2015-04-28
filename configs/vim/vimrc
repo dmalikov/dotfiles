@@ -69,6 +69,7 @@ NeoBundle "w0ng/vim-hybrid"
 NeoBundle "PProvost/vim-ps1"
 NeoBundle "kien/rainbow_parentheses.vim"
 NeoBundle "wakatime/vim-wakatime"
+NeoBundle "dmalikov/vim-stylish-haskell"
 
 call neobundle#end()
 filetype plugin indent on
@@ -304,5 +305,7 @@ let hs_highlight_more_types = 1
 let hs_highlight_types = 1
 
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
+
+let g:stylish_haskell_disable_if_not_in_path = 1
 
 " }}}

@@ -2,17 +2,14 @@
 
 let biegunka = import ./biegunka.nix {}; in
 
-pkgs.haskellPackages.cabal.mkDerivation (self: {
+pkgs.haskellngPackages.mkDerivation {
   pname = "dotfiles";
   version = "9999";
   src = builtins.filterSource (_: type: type != "unknown") ./biegunka/.;
   isLibrary = false;
   isExecutable = true;
-  buildDepends = with pkgs.haskellPackages; [
-    biegunka dataDefault lens optparseApplicative regexPcreBuiltin
+  buildDepends = with pkgs.haskellngPackages; [
+    biegunka data-default lens optparse-applicative regex-pcre-builtin
   ];
-  meta = {
-    license = self.stdenv.lib.licenses.mit;
-    platforms = self.ghc.meta.platforms;
-  };
-})
+  license = pkgs.stdenv.lib.licenses.mit;
+}

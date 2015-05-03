@@ -1,32 +1,29 @@
 { pkgs ? (import <nixpkgs> {}) }:
 
-pkgs.haskellPackages.cabal.mkDerivation (self: {
+pkgs.haskellngPackages.mkDerivation {
   pname = "biegunka";
   version = "0.2";
   src = pkgs.fetchgit {
     url = "https://github.com/biegunka/biegunka.git";
-    sha256 = "3c3216314d4f798647f9e56d439e31119093fe76a6cad5a132c6478b15307c15";
-    rev = "b5adfa6dcb2fe579f3d78bb1e51ce3889ec9daad";
+    sha256 = "7bef293063dfb6bb89fd37fac9533267a66f764e42fcdaf3face92f0aee4f160";
+    rev = "adf703ce6ecb6197c4838ad1a7ae5e25a044c7d7";
     fetchSubmodules = false;
   };
   isLibrary = true;
   isExecutable = false;
-  buildDepends = with pkgs.haskellPackages; [
-    acidState aeson ansiWlPprint async commandQq dataDefaultClass
-    directoryLayout exceptions filepath free hspec HStringTemplate lens
-    meep mtl optparseApplicative pointed reflection safecopy semigroups
-    stm tagged taggedTransformer terminalSize text transformers void
+  buildDepends = with pkgs.haskellngPackages; [
+    acid-state aeson ansi-wl-pprint async command-qq data-default-class
+    directory-layout exceptions filepath free hspec HStringTemplate lens
+    meep mtl optparse-applicative pointed reflection safecopy semigroups
+    stm tagged tagged-transformer terminal-size text transformers void
   ];
-  testDepends = with pkgs.haskellPackages; [
-    dataDefaultClass directoryLayout filepath free hspec
-    hspecExpectationsLens lens optparseApplicative semigroups temporary
+  testDepends = with pkgs.haskellngPackages; [
+    data-default-class directory-layout filepath free hspec
+    hspec-expectations-lens lens optparseApplicative semigroups temporary
     text transformers
   ];
-  meta = {
-    homepage = "http://biegunka.budueba.com/";
-    description = "Configuration development";
-    license = self.stdenv.lib.licenses.mit;
-    platforms = self.ghc.meta.platforms;
-  };
+  homepage = "http://biegunka.budueba.com/";
+  description = "Configuration development";
+  license = pkgs.stdenv.lib.licenses.mit;
   doCheck = false; # https://github.com/biegunka/biegunka/issues/62
-})
+}

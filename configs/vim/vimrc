@@ -68,6 +68,7 @@ NeoBundle "kien/rainbow_parentheses.vim"
 NeoBundle "wakatime/vim-wakatime"
 NeoBundle "dmalikov/vim-stylish-haskell"
 NeoBundle "wincent/command-t"
+NeoBundle "junegunn/vim-easy-align"
 
 call neobundle#end()
 filetype plugin indent on
@@ -266,6 +267,8 @@ nmap <Leader>s :%!git stripspace<CR>
 nmap <F6> :%s/<c-r><c-w>//gc<left><left><left>
 
 nmap gd :tjump <c-r><c-w><CR>
+
+vmap <Enter> <Plug>(EasyAlign)
 " }}}
 
 " Vimscript file settings ---------- {{{

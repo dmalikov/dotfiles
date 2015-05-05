@@ -69,6 +69,7 @@ NeoBundle "wakatime/vim-wakatime"
 NeoBundle "dmalikov/vim-stylish-haskell"
 NeoBundle "wincent/command-t"
 NeoBundle "junegunn/vim-easy-align"
+NeoBundle "chrisbra/vim-diff-enhanced"
 
 call neobundle#end()
 filetype plugin indent on

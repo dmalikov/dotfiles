@@ -15,6 +15,7 @@ configs = def
 
 profiles = sequence_
   [ profile_git
+  , profile_emacs
   , profile_haskell
   , profile_ncmpcpp
   , profile_mpd

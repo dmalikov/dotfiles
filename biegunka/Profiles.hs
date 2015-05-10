@@ -26,6 +26,11 @@ profile_vim = do
   profile "vim/plugins" $
     dotfiles $ copy "configs/vim/MyTabularMaps.vim" ".vim/bundle/tabular/after/plugin/MyTabularMaps.vim"
 
+profile_emacs :: Script Sources ()
+profile_emacs =
+  profile "emacs/spacemacs" $
+    dotfiles $ copy "configs/emacs/spacemacs" ".spacemacs"
+
 profile_xmonad :: Script Sources ()
 profile_xmonad =
   profile "xmonad" $

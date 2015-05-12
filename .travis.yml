@@ -16,6 +16,6 @@ before_install:
       nix-channel --update
 
 install:
-    - nix-shell -p '(haskellPackages.callPackage ./default.nix { })' --command 'dotfiles --${ENV} --changes'
+    - nix-shell -p '(haskellngPackages.callPackage ./default.nix { })' --command 'dotfiles --${ENV} --changes'
 
 script: true

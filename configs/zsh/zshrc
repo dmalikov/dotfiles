@@ -61,6 +61,7 @@ alias ls='ls --color=auto'
 alias eix="nix-env -qaP '*' | grep"
 alias g='git'
 alias t='tig'
+alias 'flac-remove-pics-from-tags'='metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING ./*.flac'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

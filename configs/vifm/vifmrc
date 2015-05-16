@@ -194,15 +194,6 @@ filetype *.md5
        \ {Check MD5 hash sum}
        \ md5sum -c %f,
 
-" FuseZipMount
-filetype *.zip,*.jar,*.war,*.ear
-       \ {Mount with fuse-zip}
-       \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
-       \ {View contents}
-       \ zip -sf %c | less,
-       \ tar -xf %c,
-fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
-
 " ArchiveMount
 filetype *.tar.bz2,*.tbz2,*.tgz,*.tar.gz
        \ {Mount with archivemount}

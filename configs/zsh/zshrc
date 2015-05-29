@@ -33,12 +33,6 @@ function promt_dynamic() {
     if [[ ${IN_NIX_SHELL} -eq 1 ]] then
         PROMPT+="%F{8}[%F{3}nix-shelled%F{8}]%f "
     fi
-    if [[ -d ".cabal-sandbox" ]] then
-        PROMPT+="%F{8}[%F{3}sandboxed%F{8}]%f "
-    fi
-    if [[ -n ${NIX_MYENV_NAME} ]] then
-        PROMPT+="%F{8}[%F{6}${NIX_MYENV_NAME}%F{8}]%f "
-    fi
     PROMPT+="$(prompt_exit_code) "
 }
 
@@ -62,7 +56,7 @@ alias eix="nix-env -qaP '*' | grep"
 alias g='git'
 alias t='tig'
 alias 'flac-remove-pics-from-tags'='metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING ./*.flac'
-alias nix-shell-peti='nix-shell --option extra-binary-caches http://hydra.cryp.to'
+alias nix-shell-peti='nix-shell --option binary-caches http://hydra.cryp.to'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

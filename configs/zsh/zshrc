@@ -56,7 +56,8 @@ alias eix="nix-env -qaP '*' | grep"
 alias g='git'
 alias t='tig'
 alias 'flac-remove-pics-from-tags'='metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING ./*.flac'
-alias nix-shell-peti='nix-shell --option binary-caches http://hydra.cryp.to'
+alias ns='nix-shell --command zsh'
+alias nsp='nix-shell --command zsh --option binary-caches http://hydra.cryp.to'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

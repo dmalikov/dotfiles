@@ -40,11 +40,11 @@ in
   services.openssh.enable = true;
 
   services.xserver = {
-    enable = true;
+    enable = false;
     synaptics.enable = true;
     windowManager = {
       default = "i3";
-      i3.enable = true;
+      i3.enable = false;
     };
     desktopManager = {
       default = "none";
@@ -107,11 +107,4 @@ exec i3 -V >> ~/.i3/logs 2>&1
       ];
     };
   };
-
-  fileSystems."/mnt/src" = {
-    fsType = "vboxsf";
-    device = "src";
-    options = "rw";
-  };
-
 }

@@ -140,11 +140,11 @@ configs = def
 [biegunka]: https://github.com/biegunka
 [chef-solo]: http://docs.opscode.com/chef_solo.html
 [chef]: https://github.com/opscode/chef
-[defaults-hs]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Environment/Defaults.hs
-[dotfiles-cabal]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/dotfiles.cabal
+[defaults-hs]: https://github.com/dmalikov/dotfiles/blob/master/Environment/Defaults.hs
+[dotfiles-cabal]:  https://github.com/dmalikov/dotfiles/blob/master/dotfiles.cabal
 [dotfiles-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/dotfiles/default.nix
-[main-hs]:  https://github.com/dmalikov/dotfiles/blob/master/biegunka/Main.hs
+[main-hs]:  https://github.com/dmalikov/dotfiles/blob/master/Main.hs
 [nix]: http://nixos.org/nix/manual/
 [nixos]: http://nixos.org/
 [nixpkgs-config-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/config.nix
-[profiles]: https://github.com/dmalikov/dotfiles/blob/master/biegunka/Profiles.hs
+[profiles]: https://github.com/dmalikov/dotfiles/blob/master/Profiles.hs

@@ -1,36 +1,36 @@
-{ mkDerivation, acid-state, aeson, ansi-wl-pprint, async, base
-, bytestring, command-qq, containers, data-default-class, directory
-, directory-layout, exceptions, filepath, free, hspec
-, hspec-expectations-lens, HStringTemplate, lens, meep, mtl
-, optparse-applicative, pointed, process, reflection, safecopy, semigroupoids, semigroups
-, stdenv, stm, template-haskell, temporary, terminal-size, tagged, tagged-transformer,  text
-, transformers, unix, void, fetchgit
+{ mkDerivation, acid-state, aeson, async, base, bytestring
+, command-qq, conduit, conduit-extra, containers, cryptohash
+, data-default-class, directory, directory-layout, exceptions
+, filepath, free, hspec, hspec-expectations-lens, HStringTemplate
+, lens, meep, mtl, optparse-applicative, process, resourcet
+, safecopy, semigroups, stdenv, stm, template-haskell, temporary
+, text, transformers, unix, fetchgit
 }:
 mkDerivation {
   pname = "biegunka";
   version = "0.2";
   src = fetchgit {
     url = "https://github.com/biegunka/biegunka.git";
-    sha256 = "507abcec041d6e7adb1d32eef16eb6a6f70ebf701932fe7e3e4d941059a7867e";
-    rev = "aba20074eb9eb79edbefbdd2b89f02eb6df5d929";
+    sha256 = "26b496498a4047c46c6cc8d8fe8762c42beede8e2c3f06f76b9087e7d37f3034";
+    rev = "d46624126b6edd08aa87cb5b9cad0b262e901a1a";
     fetchSubmodules = false;
   };
   isLibrary = true;
-  isExecutable = false;
+  isExecutable = true;
   buildDepends = [
-    acid-state aeson ansi-wl-pprint async command-qq data-default-class
-    directory-layout exceptions filepath free hspec HStringTemplate lens
-    meep mtl optparse-applicative pointed reflection safecopy semigroups
-    semigroupoids
-    stm tagged tagged-transformer terminal-size text transformers void
+    acid-state aeson async base bytestring command-qq conduit
+    conduit-extra containers cryptohash data-default-class directory
+    directory-layout exceptions filepath free hspec HStringTemplate
+    lens meep mtl optparse-applicative process resourcet safecopy
+    semigroups stm template-haskell temporary text transformers unix
   ];
   testDepends = [
-    data-default-class directory-layout filepath free hspec
-    hspec-expectations-lens lens optparse-applicative semigroups temporary
-    text transformers
+    base containers data-default-class directory directory-layout
+    filepath free hspec hspec-expectations-lens lens
+    optparse-applicative semigroups temporary text transformers unix
   ];
   homepage = "http://biegunka.budueba.com/";
   description = "Configuration development";
   license = stdenv.lib.licenses.mit;
-  doCheck = false; # https://github.com/biegunka/biegunka/issues/62
+  doCheck = false;
 }

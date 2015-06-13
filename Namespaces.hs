@@ -1,5 +1,5 @@
 {-# LANGUAGE DataKinds, ScopedTypeVariables #-}
-module Profiles where
+module Namespaces where
 import           Control.Lens
 import           Data.Default                (def)
 
@@ -9,130 +9,130 @@ import           Control.Biegunka.Source.Git
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
 dotfiles :: Script Actions () -> Script Sources ()
-dotfiles as = git' "https://github.com/dmalikov/dotfiles" "git/dotfiles" $ def & actions .~ as
+dotfiles = git "https://github.com/dmalikov/dotfiles" "git/dotfiles"
 
-profile_vim :: Script Sources ()
-profile_vim = do
-  profile "vim/rc" $ do
+namespace_vim :: Script Sources ()
+namespace_vim = do
+  namespace "vim/rc" $ do
     git_ "https://github.com/Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
     git "https://github.com/tpope/vim-pathogen" ".vim/bundle/vim-pathogen" $
       copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
-  profile "vim/syntax" $ do
+  namespace "vim/syntax" $ do
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
     dotfiles $ copy "configs/vim/syntax/nix.vim" ".vim/after/syntax/nix.vim"
-  profile "vim/colorschemes" $
+  namespace "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
-  profile "vim/plugins" $
+  namespace "vim/plugins" $
     dotfiles $ copy "configs/vim/MyTabularMaps.vim" ".vim/bundle/tabular/after/plugin/MyTabularMaps.vim"
 
-profile_emacs :: Script Sources ()
-profile_emacs =
-  profile "emacs/spacemacs" $
+namespace_emacs :: Script Sources ()
+namespace_emacs =
+  namespace "emacs/spacemacs" $
     dotfiles $ copy "configs/emacs/spacemacs" ".spacemacs"
 
-profile_xmonad :: Script Sources ()
-profile_xmonad =
-  profile "xmonad" $
+namespace_xmonad :: Script Sources ()
+namespace_xmonad =
+  namespace "xmonad" $
     dotfiles $
       substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
 
-profile_i3 :: Script Sources ()
-profile_i3 =
-  profile "i3" $
+namespace_i3 :: Script Sources ()
+namespace_i3 =
+  namespace "i3" $
     dotfiles $
       copy "configs/i3/config" ".i3/config"
 
-profile_git :: Script Sources ()
-profile_git = profile "git" $
+namespace_git :: Script Sources ()
+namespace_git = namespace "git" $
   dotfiles $ do
     copy "configs/git/config" ".gitconfig"
     copy "configs/git/ignore" ".gitignore"
     copy "configs/tig/tigrc" ".tigrc"
 
-profile_ruby :: Script Sources ()
-profile_ruby = profile "ruby" $
+namespace_ruby :: Script Sources ()
+namespace_ruby = namespace "ruby" $
   dotfiles $ do
     copy "configs/ruby/irbrc" ".irbrc"
     copy "configs/ruby/rvmrc" ".rvmrc"
 
-profile_x :: Script Sources ()
-profile_x = profile "X" $
+namespace_x :: Script Sources ()
+namespace_x = namespace "X" $
   dotfiles $ do
     copy "configs/X/XCompose" ".XCompose"
     substitute "configs/X/Xresources.template" ".Xresources"
     copy "configs/X/colors/shiva" ".urxvt/colors/shiva"
     copy "configs/X/colors/hybrid" ".urxvt/colors/hybrid"
 
-profile_haskell :: Script Sources ()
-profile_haskell = profile "haskell" $
+namespace_haskell :: Script Sources ()
+namespace_haskell = namespace "haskell" $
   dotfiles $ do
     copy "configs/ghc/ghci" ".ghci"
     copy "configs/ghc/stylish-haskell.yaml" ".stylish-haskell.yaml"
     copy "configs/ghc/haskeline" ".haskeline"
     copy "configs/guard/guard.rb" ".guard.rb"
 
-profile_irssi :: Script Sources ()
-profile_irssi = profile "irssi" $
+namespace_irssi :: Script Sources ()
+namespace_irssi = namespace "irssi" $
   dotfiles $ do
     copy "configs/irssi/bleeding.theme" ".irssi/bleeding.theme"
     copy "configs/irssi/config" ".irssi/config"
 
-profile_mpd :: Script Sources ()
-profile_mpd = profile "mpd" $
+namespace_mpd :: Script Sources ()
+namespace_mpd = namespace "mpd" $
   dotfiles $
     copy "configs/mpd/conf" ".mpdconf"
 
-profile_ncmpcpp :: Script Sources ()
-profile_ncmpcpp = profile "ncmpcpp" $
+namespace_ncmpcpp :: Script Sources ()
+namespace_ncmpcpp = namespace "ncmpcpp" $
   dotfiles $ do
     copy "configs/ncmpcpp/config" ".ncmpcpp/config"
     copy "configs/ncmpcpp/bindings" ".ncmpcpp/bindings"
 
-profile_mplayer :: Script Sources ()
-profile_mplayer = profile "mplayer" $
+namespace_mplayer :: Script Sources ()
+namespace_mplayer = namespace "mplayer" $
   dotfiles $ do
     copy "configs/mplayer/config" ".mplayer/config"
     copy "configs/mplayer/input.conf" ".mplayer/input.conf"
 
-profile_mpv :: Script Sources ()
-profile_mpv = profile "mpv" $
+namespace_mpv :: Script Sources ()
+namespace_mpv = namespace "mpv" $
   dotfiles $
     copy "configs/mpv/input.conf" ".mpv/input.conf"
 
-profile_pentadactyl :: Script Sources ()
-profile_pentadactyl = profile "pentadactyl" $
+namespace_pentadactyl :: Script Sources ()
+namespace_pentadactyl = namespace "pentadactyl" $
   dotfiles $ do
     substitute "configs/pentadactyl/colors/pemees.penta.template" ".pentadactyl/colors/pemees.penta"
     copy "configs/pentadactyl/pentadactylrc" ".pentadactylrc"
 
-profile_screen :: Script Sources ()
-profile_screen = profile "screen" $
+namespace_screen :: Script Sources ()
+namespace_screen = namespace "screen" $
   dotfiles $
     copy "configs/screen/screenrc" ".screenrc"
 
-profile_ackrc :: Script Sources ()
-profile_ackrc = profile "ack" $
+namespace_ackrc :: Script Sources ()
+namespace_ackrc = namespace "ack" $
   dotfiles $
     copy "configs/ack/ackrc" ".ackrc"
 
-profile_apvlv :: Script Sources ()
-profile_apvlv = profile "apvlv" $
+namespace_apvlv :: Script Sources ()
+namespace_apvlv = namespace "apvlv" $
   dotfiles $
     copy "configs/apvlv/apvlvrc" ".apvlvrc"
 
-profile_shell :: Script Sources ()
-profile_shell = profile "shell" $
+namespace_shell :: Script Sources ()
+namespace_shell = namespace "shell" $
   dotfiles $
     copy "configs/shell/inputrc" ".inputrc"
 
-profile_bash :: Script Sources ()
-profile_bash = profile "bash" $
+namespace_bash :: Script Sources ()
+namespace_bash = namespace "bash" $
   dotfiles $
     copy "configs/bash/bashrc" ".bashrc"
 
-profile_zsh :: Script Sources ()
-profile_zsh = profile "zsh" $ do
+namespace_zsh :: Script Sources ()
+namespace_zsh = namespace "zsh" $ do
   git_ "https://github.com/zsh-users/zsh-completions" "git/zsh-completions"
   git_ "https://github.com/zsh-users/zsh-syntax-highlighting" "git/zsh-syntax-highlighting"
   dotfiles $ do
@@ -141,46 +141,46 @@ profile_zsh = profile "zsh" $ do
     copy "configs/zsh/zshnix" ".zshnix"
     copy "configs/zsh/zprofile" ".zprofile"
 
-profile_java :: Script Sources ()
-profile_java = profile "idea" $
+namespace_java :: Script Sources ()
+namespace_java = namespace "idea" $
   dotfiles $
     copy "configs/idea/config/colors/bleedie.xml" ".IdeaIC12/config/colors/bleedie.xml"
 
-profile_conky :: Script Sources ()
-profile_conky = profile "conky" $
+namespace_conky :: Script Sources ()
+namespace_conky = namespace "conky" $
   dotfiles $
     copy "configs/conky/conkyrc" ".conkyrc"
 
-profile_gtk :: Script Sources ()
-profile_gtk = profile "gtk" $
+namespace_gtk :: Script Sources ()
+namespace_gtk = namespace "gtk" $
   dotfiles $
     copy "configs/gtk/gtkrc-2.0.mine" ".gtkrc-2.0.mine"
 
-profile_tmux :: Script Sources ()
-profile_tmux = profile "tmux" $ do
+namespace_tmux :: Script Sources ()
+namespace_tmux = namespace "tmux" $ do
   git_ "https://github.com/richo/battery" "git/tmux-battery"
   dotfiles $ do
     substitute "configs/tmux/conf.template" ".tmux.conf"
     copy "configs/tmux/keybindings" ".tmux.keybindings"
 
-profile_uzbl :: Script Sources ()
-profile_uzbl = profile "uzbl" $
+namespace_uzbl :: Script Sources ()
+namespace_uzbl = namespace "uzbl" $
   dotfiles $
     copy "configs/uzbl/config" ".config/uzbl/config"
 
-profile_dwb :: Script Sources ()
-profile_dwb = profile "dwb" $
+namespace_dwb :: Script Sources ()
+namespace_dwb = namespace "dwb" $
   dotfiles $ do
     copy "configs/dwb/settings" ".config/dwb/settings"
     copy "configs/dwb/keys" ".config/dwb/keys"
 
-profile_vifm :: Script Sources ()
-profile_vifm = profile "vifm" $
+namespace_vifm :: Script Sources ()
+namespace_vifm = namespace "vifm" $
   dotfiles $ do
     copy "configs/vifm/colors/hybrid" ".vifm/colors/hybrid"
     copy "configs/vifm/vifmrc" ".vifm/vifmrc"
 
-profile_zathura :: Script Sources ()
-profile_zathura = profile "zathura" $
+namespace_zathura :: Script Sources ()
+namespace_zathura = namespace "zathura" $
   dotfiles $
     copy "configs/zathura/zathurarc" ".config/zathura/zathurarc"

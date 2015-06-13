@@ -13,9 +13,9 @@ instance Environmentable Environment where
   configs S10    = S10.configs
   configs W540   = W540.configs
 
-  profiles Qumsrc = Qumsrc.profiles
-  profiles S10    = S10.profiles
-  profiles W540   = W540.profiles
+  namespaces Qumsrc = Qumsrc.namespaces
+  namespaces S10    = S10.namespaces
+  namespaces W540   = W540.namespaces
 
 main :: IO ()
-main = uncurry rollout =<< options [Qumsrc, S10, W540]
+main = uncurry rollout =<< runnerOf (Proxy :: Proxy Environment)

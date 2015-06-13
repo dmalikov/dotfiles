@@ -4,7 +4,7 @@ module Environment.Qumsrc where
 import           Data.Default         (def)
 
 import           Environment.Defaults
-import           Profiles
+import           Namespaces
 
 configs :: Configs
 configs = def
@@ -13,15 +13,15 @@ configs = def
     }
   }
 
-profiles = sequence_
-  [ profile_git
-  , profile_emacs
-  , profile_haskell
-  , profile_ncmpcpp
-  , profile_mpd
-  , profile_shell
-  , profile_tmux
-  , profile_vifm
-  , profile_vim
-  , profile_zsh
+namespaces = sequence_
+  [ namespace_git
+  , namespace_emacs
+  , namespace_haskell
+  , namespace_ncmpcpp
+  , namespace_mpd
+  , namespace_shell
+  , namespace_tmux
+  , namespace_vifm
+  , namespace_vim
+  , namespace_zsh
   ]

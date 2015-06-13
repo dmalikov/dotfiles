@@ -1,26 +1,28 @@
-{-# LANGUAGE DataKinds, DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds, DeriveDataTypeable, DeriveGeneric #-}
 module Environment.Defaults where
 
 import           Control.Lens                               (set)
 import           Control.Monad                              (void)
+import           Data.Data
 import           Data.Default
 
 import           Control.Biegunka                           hiding (shell)
+import           Control.Biegunka.Options
 import           Control.Biegunka.Templates.HStringTemplate
 
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
-type Runner a = (Settings () -> Settings ()) -> Script Sources () -> IO a
-
 class Environmentable a where
   configs :: a -> Configs
-  profiles :: a -> Script Sources ()
+  namespaces :: a -> Script Sources ()
 
   rollout :: a -> Runner a -> IO ()
-  rollout x r = void $ r (set root "~" . set templates (hStringTemplate (configs x))) (profiles x)
+  rollout x r = void $ r (set templates (hStringTemplate (configs x))) (namespaces x)
 
 data Environment = W540 | S10 | Qumsrc
-  deriving (Data, Typeable)
+  deriving (Bounded, Enum, Generic)
+
+instance Environments Environment
 
 data Configs = Configs
   { pentadactyl :: Pentadactyl
@@ -28,7 +30,7 @@ data Configs = Configs
   , urxvt       :: Urxvt
   , x           :: X
   , xmonad      :: Xmonad
-  } deriving (Data, Typeable)
+  } deriving (Data, Generic)
 
 instance Default Configs where
   def = Configs
@@ -41,23 +43,23 @@ instance Default Configs where
 
 data Pentadactyl = Pentadactyl
   { font_size :: Int
-  } deriving (Data, Typeable)
+  } deriving (Data, Generic)
 
 data Tmux = Tmux
   { shell :: String
-  } deriving (Data, Typeable)
+  } deriving (Data, Generic)
 
 data Urxvt = Urxvt
   { font :: String
-  } deriving (Data, Typeable)
+  } deriving (Data, Generic)
 
 data X = X
   { xft_dpi :: Int
-  } deriving (Data, Typeable)
+  } deriving (Data, Generic)
 
 data Xmonad = Xmonad
   { terminus_font :: String
-  } deriving (Data, Typeable)
+  } deriving (Data, Generic)
 
 instance Default Pentadactyl where
   def = Pentadactyl { font_size = def }

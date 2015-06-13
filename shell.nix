@@ -2,7 +2,7 @@
   inherit (nixpkgs) pkgs;
   biegunka = pkgs.haskell.packages.${compiler}.callPackage ./biegunka.nix {};
   cabal-install = pkgs.haskell.packages.${compiler}.cabal-install;
-  ghc = pkgs.haskell.packages.${compiler}.ghcWithPackages (ps: with ps; [ biegunka ]);
+  ghc = pkgs.haskell.packages.${compiler}.ghcWithPackages (ps: with ps; [ biegunka hdevtools stylish-haskell ]);
   pkg = (import ./default.nix { inherit nixpkgs compiler biegunka; });
 in
   pkgs.stdenv.mkDerivation rec {

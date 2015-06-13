@@ -4,7 +4,7 @@ module Environment.S10 where
 import           Data.Default         (def)
 
 import           Environment.Defaults
-import           Profiles
+import           Namespaces
 
 configs :: Configs
 configs = def
@@ -19,15 +19,15 @@ configs = def
     }
   }
 
-profiles = sequence_
-  [ profile_git
-  , profile_haskell
-  , profile_ncmpcpp
-  , profile_shell
-  , profile_tmux
-  , profile_vifm
-  , profile_vim
-  , profile_x
-  , profile_xmonad
-  , profile_zsh
+namespaces = sequence_
+  [ namespace_git
+  , namespace_haskell
+  , namespace_ncmpcpp
+  , namespace_shell
+  , namespace_tmux
+  , namespace_vifm
+  , namespace_vim
+  , namespace_x
+  , namespace_xmonad
+  , namespace_zsh
   ]

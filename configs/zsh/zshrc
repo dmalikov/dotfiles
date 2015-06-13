@@ -52,12 +52,9 @@ source ~/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ssh='TERM=xterm-color ssh'
 alias ihach='iconv -cf inis-cyrillic'
 alias ls='ls --color=auto'
-alias eix="nix-env -qaP '*' | grep"
 alias g='git'
 alias t='tig'
 alias 'flac-remove-pics-from-tags'='metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING ./*.flac'
-alias ns='nix-shell --command zsh'
-alias nsp='nix-shell --command zsh --option binary-caches http://hydra.cryp.to'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1
@@ -81,8 +78,4 @@ unset RUBYOPT
 
 bindkey '^R' history-incremental-search-backward
 source ~/.zshenv
-
-nix_profile=~/.nix-profile/etc/profile.d/nix.sh
-if [[ -e $nix_profile ]]; then
-    source $nix_profile
-fi
+source ~/.zshnix

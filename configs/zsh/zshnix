@@ -1,0 +1,9 @@
+nix_profile=~/.nix-profile/etc/profile.d/nix.sh
+if [[ -e $nix_profile ]]; then
+    source $nix_profile
+fi
+
+export NIX_PATH=nixpkgs=${HOME}/git/nixpkgs/
+
+alias eix="nix-env -qaP '*' | grep"
+alias ns='nix-shell --command zsh'

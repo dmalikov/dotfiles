@@ -1,7 +1,6 @@
 language: haskell
 
-ghc:
-    - 7.8
+ghc: 7.8
 
 env:
     matrix:
@@ -16,6 +15,6 @@ before_install:
       nix-channel --update
 
 install:
-    - nix-shell --command 'dotfiles --${ENV} --changes'
+    - nix-shell --run 'cabal install && dotfiles --${ENV} --changes'
 
 script: true

@@ -32,10 +32,8 @@ There is a [`dotfiles.cabal`][dotfiles-cabal] project pointed at [`Main.hs`][mai
 Currently I'm provisioning all these dotfiles using [`nix`][nix] only.
 
 ```
-$> nix-shell --command 'dotfiles --qumsrc'
+$> nix-shell --run 'cabal install && dotfiles --qumsrc --force'
 ```
-
-[`myHaskellPackages.dotfiles` expression][dotfiles-nix] is defined in the local [`nixpkgs`][nixpkgs-config-nix].
 
 ### Windows
 TODO: `biegunka` package depends on a `unix` package which is impossible to use inside a windows.
@@ -47,41 +45,41 @@ that it is really needed.
 E.g. `X`-less `nixos` environment doesn't need no `pentadactyl` or `mpv`
 
 ```haskell
-profiles = sequence_
-[ profile_git
-, profile_haskell
-, profile_nixpkgs
-, profile_tmux
-, profile_vifm
-, profile_vim
-, profile_zsh
-]
+namespaces = sequence_
+  [ namespace_git
+  , namespace_haskell
+  , namespace_nixpkgs
+  , namespace_tmux
+  , namespace_vifm
+  , namespace_vim
+  , namespace_zsh
+  ]
 ```
 
-which describes pretty well what is gonna be installed by running `biegunka`'s provisioning for this environment.
+which describes pretty well what is going t` be installed by running `biegunka`'s provisioning for this environment.
 
-All profiles are defined in [`Profiles.hs`][profiles].  Almost all of them are using `dotfiles` function
+All namespaces are defined in [`Namespaces.hs`][namespaces].  Almost all of them are using `dotfiles` function
 
 ```haskell
 dotfiles :: Script Actions () -> Script Sources ()
-dotfiles as = git' "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles" $ def & actions .~ as
+dotfiles as = git "git@github.com:dmalikov/dotfiles" "dmalikov/dotfiles"
 ```
 
-Here is an example of `vim` profile:
+Here is an example of `vim` namespace:
 ```haskell
-profile_vim :: Script Sources ()
-profile_vim = do
-  profile "vim/rc" $ do
+namespace_vim :: Script Sources ()
+namespace_vim = do
+  namespace "vim/rc" $ do
     git_ "git@github.com:Shougo/neobundle.vim" ".vim/bundle/neobundle.vim"
     git "git@github.com:tpope/vim-pathogen" ".vim/bundle/vim-pathogen" $
       copy "autoload/pathogen.vim" ".vim/autoload/pathogen.vim"
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
-  profile "vim/syntax" $ do
+  namespace "vim/syntax" $ do
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
     dotfiles $ copy "configs/vim/syntax/nix.vim" ".vim/after/syntax/nix.vim"
-  profile "vim/colorschemes" $
+  namespace "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"
-  profile "vim/plugins" $
+  namespace "vim/plugins" $
     dotfiles $ copy "configs/vim/MyTabularMaps.vim" ".vim/bundle/tabular/after/plugin/MyTabularMaps.vim"
 ```
 
@@ -142,9 +140,7 @@ configs = def
 [chef]: https://github.com/opscode/chef
 [defaults-hs]: https://github.com/dmalikov/dotfiles/blob/master/Environment/Defaults.hs
 [dotfiles-cabal]:  https://github.com/dmalikov/dotfiles/blob/master/dotfiles.cabal
-[dotfiles-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/dotfiles/default.nix
 [main-hs]:  https://github.com/dmalikov/dotfiles/blob/master/Main.hs
 [nix]: http://nixos.org/nix/manual/
 [nixos]: http://nixos.org/
-[nixpkgs-config-nix]: https://github.com/dmalikov/dotfiles/blob/master/nixpkgs/config.nix
-[profiles]: https://github.com/dmalikov/dotfiles/blob/master/Profiles.hs
+[namespaces]: https://github.com/dmalikov/dotfiles/blob/master/Namespaces.hs

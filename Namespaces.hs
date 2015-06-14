@@ -160,8 +160,8 @@ namespace_tmux :: Script Sources ()
 namespace_tmux = namespace "tmux" $ do
   git_ "https://github.com/tmux-plugins/tpm" ".tmux/plugins/tpm"
   dotfiles $ do
-    substitute "configs/tmux/conf.template" ".tmux.conf"
-    copy "configs/tmux/keybindings" ".tmux.keybindings"
+    substitute "configs/tmux/tmux.conf.template" ".tmux.conf"
+    copy "configs/tmux/tmux.keybindings" ".tmux.keybindings"
 
 namespace_uzbl :: Script Sources ()
 namespace_uzbl = namespace "uzbl" $

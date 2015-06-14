@@ -35,5 +35,6 @@ setw -g utf8 on
 set -g @tpm_plugins '              \\
   tmux-plugins/tpm                 \\
   tmux-plugins/tmux-battery        \\
+  tmux-plugins/tmux-yank           \\
 '
 run-shell '~/.tmux/plugins/tpm/tpm'

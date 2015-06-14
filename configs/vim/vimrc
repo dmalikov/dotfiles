@@ -156,6 +156,9 @@ set whichwrap=b,s,<,>,[,],l,h
 " set word-wrap, not symbol-wrap
 set linebreak
 
+" ignore list for command-t
+set wildignore+=*/.git/*,dist/*,*.un~
+
 set shell=zsh
 
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'], 'passive_filetypes': ['tex','java']}

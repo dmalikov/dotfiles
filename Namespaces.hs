@@ -158,7 +158,6 @@ namespace_gtk = namespace "gtk" $
 
 namespace_tmux :: Script Sources ()
 namespace_tmux = namespace "tmux" $ do
-  git_ "https://github.com/richo/battery" "git/tmux-battery"
   git_ "https://github.com/tmux-plugins/tpm" ".tmux/plugins/tpm"
   dotfiles $ do
     substitute "configs/tmux/conf.template" ".tmux.conf"

@@ -18,7 +18,7 @@ set -g status-interval 1
 set -g status-justify left
 set -g status-keys vi
 set -g status-left ''
-set -g status-right '#(~/git/tmux-battery/bin/battery Discharging; ~/git/tmux-battery/bin/battery Charging) #[fg=colour3]<#S>'
+set -g status-right 'batt: #{battery_percentage} (#{battery_remain}) <#S>'
 set -g visual-activity off
 set -g window-status-current-format '#[bg=colour3]#[fg=colour0] #I #[bg=default]#[fg=colour3] #W '
 set -g window-status-format '#[fg=colour6] #I #[bg=default]#[fg=colour0] #W '
@@ -32,7 +32,8 @@ set -g utf8
 setw -g utf8 on
 
 # plugins
-set -g @tpm_plugins '              \
-  tmux-plugins/tpm                 \
+set -g @tpm_plugins '              \\
+  tmux-plugins/tpm                 \\
+  tmux-plugins/tmux-battery        \\
 '
 run-shell '~/.tmux/plugins/tpm/tpm'

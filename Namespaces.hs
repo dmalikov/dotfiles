@@ -35,7 +35,7 @@ namespace_xmonad :: Script Sources ()
 namespace_xmonad =
   namespace "xmonad" $
     dotfiles $
-      substitute "configs/xmonad/xmonad.hs.template" ".xmonad/xmonad.hs"
+      copy "configs/xmonad/xmonad.hs" ".xmonad/xmonad.hs"
 
 namespace_i3 :: Script Sources ()
 namespace_i3 =

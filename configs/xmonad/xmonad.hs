@@ -1,7 +1,7 @@
 -- vim: set ft=haskell:
 {-# LANGUAGE ScopedTypeVariables #-}
 
-import           Control.Applicative             ((<\$>))
+import           Control.Applicative             ((<$>))
 import           Control.Monad                   (liftM2)
 import           Data.Default
 import           Data.List                       (isPrefixOf)
@@ -38,7 +38,7 @@ main :: IO ()
 main = do
   initCapturing
   xmproc <- spawnPipe xmobar'
-  xmonad \$ def
+  xmonad $ def
     { borderWidth        = 1
     , focusedBorderColor = orangeDarkestColor
     , normalBorderColor  = blackDarkColor
@@ -53,7 +53,7 @@ main = do
     , workspaces         = myWorkspaces
     }
 
-myKeys conf@(XConfig {modMask = modm}) = fromList \$
+myKeys conf@(XConfig {modMask = modm}) = fromList $
   [ ( ( modm                , xK_p      ), shellPrompt myXPConfig )
   , ( ( modm .|. shiftMask  , xK_t      ), tmuxPrompt myXPConfig )
   , ( ( modm .|. controlMask, xK_l      ), spawn lock_screen )
@@ -79,15 +79,15 @@ myKeys conf@(XConfig {modMask = modm}) = fromList \$
   [ ( ( modm .|. controlMask, k         ), withWindowSet swapWindows )
     | (i, k) <- zip myWorkspaces [xK_1..xK_8]
     , let swapWindows s = do
-            windows \$ swapWithCurrent i
-            windows \$ S.greedyView \$ S.currentTag s
+            windows $ swapWithCurrent i
+            windows $ S.greedyView $ S.currentTag s
   ]
     where
       visible :: WindowSpace -> X Bool = return . isJust . S.stack
-      current :: WindowSpace -> X Bool = \\w -> withWindowSet \$ (\\ws -> return \$ (S.tag . S.workspace . S.current \$ ws) == S.tag w)
+      current :: WindowSpace -> X Bool = \\w -> withWindowSet $ (\\ws -> return $ (S.tag . S.workspace . S.current $ ws) == S.tag w)
       moveToImg :: FilePath -> IO () = \\filepath -> do
         hd <- getHomeDirectory
-        date <- formatTime defaultTimeLocale "%F-%X" <\$> getCurrentTime
+        date <- formatTime defaultTimeLocale "%F-%X" <$> getCurrentTime
         let newFileName = joinPath [hd, "img", "screen", "own", "xmonad", date] <.> "png"
         renameFile filepath newFileName
 
@@ -104,7 +104,7 @@ myManageHook = scratchpadHook <+> composeAll
   ]
   where
     myFloats = foldr1 (<||>)
-      [ ("Figure" `isPrefixOf`) <\$> title
+      [ ("Figure" `isPrefixOf`) <$> title
       , className =? "feh"
       , className =? "gimp"
       , className =? "Virtual Box"
@@ -121,7 +121,7 @@ scratchpadHook = scratchpadManageHook (S.RationalRect paddingLeft paddingTop wid
     paddingTop  = 0.05
     paddingLeft = (1 - width) / 2
 
-myLayoutHook = smartBorders . avoidStruts \$
+myLayoutHook = smartBorders . avoidStruts $
   ResizableTall 1 (1/30) (1/2) [] |||
   tabbed shrinkText myTheme
 
@@ -148,7 +148,7 @@ myTheme = def
 }
 
 tmuxRun :: IO [String]
-tmuxRun = lines <\$> runProcessWithInput "tmux" ["list-sessions", "-F", "#{session_name}"] ""
+tmuxRun = lines <$> runProcessWithInput "tmux" ["list-sessions", "-F", "#{session_name}"] ""
 
 tmuxPrompt :: XPConfig -> X ()
 tmuxPrompt c = io tmuxRun >>= \\as -> inputPromptWithCompl c "tmux" (mkComplFunFromList' as) ?+ tmuxStart as
@@ -156,7 +156,7 @@ tmuxPrompt c = io tmuxRun >>= \\as -> inputPromptWithCompl c "tmux" (mkComplFunF
 tmuxStart :: [String] -> String -> X ()
 tmuxStart ss s = asks (terminal . config) >>= \\term -> attachOrCreate term s
  where
-  attachOrCreate = \\t s' -> spawn \$ t ++ " -e tmux new -s " ++ s' ++ " -A"
+  attachOrCreate = \\t s' -> spawn $ t ++ " -e tmux new -s " ++ s' ++ " -A"
 
 
 myStartupHook :: X ()
@@ -172,7 +172,7 @@ myWorkspaces  = [ "♫", "τ", "Λ" ] ++ map show [4..9] ++ [ "α", "β", "λ", 
 
 -- applications
 hpasteit = "xclip -o -selection primary | hpasteit | xclip -i -selection primary"
-do_weechat = urxvt ++ " -title jεωs -e ssh m@toje.ws -t 'export LANG=en_US.UTF-8 && W=weechat && tmux new -s \$W -A'"
+do_weechat = urxvt ++ " -title jεωs -e ssh m@toje.ws -t 'export LANG=en_US.UTF-8 && W=weechat && tmux new -s $W -A'"
 lock_screen = "xtrlock"
 mpc_next = "mpc next"
 mpc_toggle = "mpc toggle"
@@ -194,4 +194,4 @@ whiteColor = "#9999ff"
 purpleColor = "#404051"
 
 -- fonts
-terminusFont = "$template.xmonad.terminus_font$"
+terminusFont = "-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"

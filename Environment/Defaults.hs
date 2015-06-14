@@ -25,25 +25,17 @@ data Environment = W540 | S10 | Qumsrc
 instance Environments Environment
 
 data Configs = Configs
-  { pentadactyl :: Pentadactyl
-  , tmux        :: Tmux
-  , urxvt       :: Urxvt
-  , x           :: X
-  , xmonad      :: Xmonad
+  { tmux  :: Tmux
+  , urxvt :: Urxvt
+  , x     :: X
   } deriving (Data, Generic)
 
 instance Default Configs where
   def = Configs
-    { pentadactyl = def
-    , tmux = def
+    { tmux = def
     , urxvt = def
     , x = def
-    , xmonad = def
     }
-
-data Pentadactyl = Pentadactyl
-  { font_size :: Int
-  } deriving (Data, Generic)
 
 data Tmux = Tmux
   { shell :: String
@@ -57,13 +49,6 @@ data X = X
   { xft_dpi :: Int
   } deriving (Data, Generic)
 
-data Xmonad = Xmonad
-  { terminus_font :: String
-  } deriving (Data, Generic)
-
-instance Default Pentadactyl where
-  def = Pentadactyl { font_size = def }
-
 instance Default Tmux where
   def = Tmux { shell = def }
 
@@ -72,6 +57,3 @@ instance Default X where
 
 instance Default Urxvt where
   def = Urxvt { font = def }
-
-instance Default Xmonad where
-  def = Xmonad { terminus_font = def }

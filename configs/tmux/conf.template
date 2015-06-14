@@ -30,3 +30,9 @@ setw -g mode-keys vi
 setw -g mode-mouse on
 set -g utf8
 setw -g utf8 on
+
+# plugins
+set -g @tpm_plugins '              \
+  tmux-plugins/tpm                 \
+'
+run-shell '~/.tmux/plugins/tpm/tpm'

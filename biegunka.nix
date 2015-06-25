@@ -11,8 +11,8 @@ mkDerivation {
   version = "0.2";
   src = if biegunkaSrc == "remote" then fetchgit {
     url = "https://github.com/biegunka/biegunka.git";
-    sha256 = "26b496498a4047c46c6cc8d8fe8762c42beede8e2c3f06f76b9087e7d37f3034";
-    rev = "d46624126b6edd08aa87cb5b9cad0b262e901a1a";
+    sha256 = "38f00404ead627190561e9c6576f80f57b4fc7894b98be3dd0c1572a003b88cc";
+    rev = "332376ccddba1ad12b33d7900d9c3fa4caa420a5";
     fetchSubmodules = false;
   } else ../biegunka/.;
   isLibrary = true;

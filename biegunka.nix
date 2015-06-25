@@ -4,17 +4,17 @@
 , filepath, free, hspec, hspec-expectations-lens, HStringTemplate
 , lens, meep, mtl, optparse-applicative, process, resourcet
 , safecopy, semigroups, stdenv, stm, template-haskell, temporary
-, text, transformers, unix, fetchgit, biegunkaSrc ? "remote"
+, text, transformers, unix, fetchgit, biegunkaLocal ? false
 }:
 mkDerivation {
   pname = "biegunka";
   version = "0.2";
-  src = if biegunkaSrc == "remote" then fetchgit {
+  src = if biegunkaLocal then ../biegunka/. else fetchgit {
     url = "https://github.com/biegunka/biegunka.git";
     sha256 = "38f00404ead627190561e9c6576f80f57b4fc7894b98be3dd0c1572a003b88cc";
     rev = "332376ccddba1ad12b33d7900d9c3fa4caa420a5";
     fetchSubmodules = false;
-  } else ../biegunka/.;
+  };
   isLibrary = true;
   isExecutable = true;
   buildDepends = [

@@ -1,6 +1,6 @@
-{ nixpkgs ? import <nixpkgs> {}, compiler ? "ghc7101", biegunkaSrc ? "remote" }: let
+{ nixpkgs ? import <nixpkgs> {}, compiler ? "ghc7101", biegunkaLocal ? false }: let
   inherit (nixpkgs) pkgs;
-  biegunka = pkgs.haskell.packages.${compiler}.callPackage ./biegunka.nix { inherit biegunkaSrc; };
+  biegunka = pkgs.haskell.packages.${compiler}.callPackage ./biegunka.nix { inherit biegunkaLocal; };
   cabal-install = pkgs.haskell.packages.${compiler}.cabal-install;
   ghc = pkgs.haskell.packages.${compiler}.ghcWithPackages (ps: with ps; [ biegunka hdevtools stylish-haskell ]);
   pkg = (import ./default.nix { inherit nixpkgs compiler biegunka; });

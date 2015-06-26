@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  basic = with pkgs; [ curl dhcp fuse_exfat git gcc49 gnumake htop imagemagick iotop lsof nix-repl nmap python tig tmux transmission tree unzip vifm vim wget wgetpaste zsh ];
+  basic = with pkgs; [ curl dhcp fuse_exfat git gcc49 gnumake htop imagemagick iotop lsof nix-prefetch-scripts nix-repl nmap python tig tmux transmission tree unzip vifm vim wget wgetpaste zsh ];
   x = with pkgs; [ dmenu i3status rxvt_unicode unclutter ];
 in
 

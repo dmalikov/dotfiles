@@ -1,16 +1,17 @@
-{ nixpkgs ? import <nixpkgs> {}, compiler ? "ghc7101", biegunkaLocal ? false }: let
+{ nixpkgs ? import <nixpkgs> {}, compiler ? "ghc7101", biegunka ? ./biegunka.nix }: let
   inherit (nixpkgs) pkgs;
-  biegunka = pkgs.haskell.packages.${compiler}.callPackage ./biegunka.nix { inherit biegunkaLocal; };
-  cabal-install = pkgs.haskell.packages.${compiler}.cabal-install;
-  ghc = pkgs.haskell.packages.${compiler}.ghcWithPackages (ps: with ps; [ biegunka hdevtools stylish-haskell ]);
-  pkg = (import ./default.nix { inherit nixpkgs compiler biegunka; });
+  h = pkgs.haskell.packages.${compiler};
+  biegunka- = pkgs.stdenv.lib.overrideDerivation (h.callPackage biegunka {}) (_ : {
+    doCheck = false;
+    doHaddock = false;
+  });
+  ghc = h.ghcWithPackages (ps: with ps; [ biegunka- cabal2nix cabal-install data-default hdevtools stylish-haskell ]);
 in
   pkgs.stdenv.mkDerivation rec {
-    name = pkg.pname;
-    buildInputs = [ ghc cabal-install ] ++ pkg.env.buildInputs;
+    name = "dotfiles";
+    buildInputs = [ ghc ];
     shellHook = ''
-      ${pkg.env.shellHook}
+      eval $(egrep ^export ${ghc}/bin/ghc)
       export IN_WHICH_NIX_SHELL=${name}
-      cabal configure --package-db=$NIX_GHC_LIBDIR/package.conf.d
     '';
   }

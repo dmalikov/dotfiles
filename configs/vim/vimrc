@@ -316,6 +316,4 @@ let hs_highlight_types = 1
 
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
 
-let g:stylish_haskell_disable_if_not_in_path = 1
-
 " }}}

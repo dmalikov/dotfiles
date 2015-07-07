@@ -7,3 +7,11 @@ export NIX_PATH=nixpkgs=${HOME}/git/nixpkgs/
 
 alias eix="nix-env -qaP '*' | grep"
 alias ns='nix-shell --command zsh'
+
+function ghci-ns () {
+    if [[ -n "$NIX_GHC_LIBDIR" ]]; then
+        ghci -isrc -package-db=$NIX_GHC_LIBDIR/package.conf.d -itest
+    else
+        echo "\$NIX_GHC_LIBDIR isn't set"
+    fi
+}

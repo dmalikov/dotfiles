@@ -1,15 +1,17 @@
-{-# LANGUAGE DataKinds, DeriveDataTypeable, DeriveGeneric #-}
+{-# LANGUAGE DataKinds          #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
 module Environment.Defaults where
 
 import           Data.Data
 import           Data.Default
 
-import           Control.Biegunka                           hiding (shell)
+import           Control.Biegunka hiding (shell)
 
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
 data Environment = W540 | S10 | Qumsrc
-  deriving (Bounded, Enum, Generic)
+  deriving (Generic)
 
 instance Environments Environment
 

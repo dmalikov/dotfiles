@@ -1,8 +1,10 @@
+{-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Environment.W540 where
 
 import           Data.Default         (def)
 
+import           Control.Biegunka     hiding (shell)
 import           Environment.Defaults
 import           Namespaces
 
@@ -20,6 +22,7 @@ configs = def
     }
   }
 
+namespaces :: Script 'Sources ()
 namespaces = sequence_
   [ namespace_git
   , namespace_haskell

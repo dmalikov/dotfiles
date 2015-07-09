@@ -8,7 +8,7 @@ import           Control.Biegunka.Source.Git
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
 dotfiles :: Script 'Actions () -> Script 'Sources ()
-dotfiles = git (url "https://github.com/dmalikov/dotfiles" . path "git/dotfiles")
+dotfiles = git (url "git@github.com:dmalikov/dotfiles.git" . path "git/dotfiles")
 
 namespace_vim :: Script 'Sources ()
 namespace_vim = do

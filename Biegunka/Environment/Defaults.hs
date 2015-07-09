@@ -1,23 +1,12 @@
 {-# LANGUAGE DataKinds, DeriveDataTypeable, DeriveGeneric #-}
 module Environment.Defaults where
 
-import           Control.Lens                               (set)
-import           Control.Monad                              (void)
 import           Data.Data
 import           Data.Default
 
 import           Control.Biegunka                           hiding (shell)
-import           Control.Biegunka.Options
-import           Control.Biegunka.Templates.HStringTemplate
 
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
-
-class Environmentable a where
-  configs :: a -> Configs
-  namespaces :: a -> Script Sources ()
-
-  rollout :: a -> Runner a -> IO ()
-  rollout x r = void $ r (set templates (hStringTemplate (configs x))) (namespaces x)
 
 data Environment = W540 | S10 | Qumsrc
   deriving (Bounded, Enum, Generic)

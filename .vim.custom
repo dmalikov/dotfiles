@@ -1,0 +1,15 @@
+function s:hdevtools_options(rgs)
+	return join(["-s", "/tmp/" . substitute(system("sha1sum <<< $PWD | cut -d' ' -f1"), '\n\+$', '', '') . ".sock"] + map(a:rgs, "'-g ' . v:val"))
+endfunction
+
+let g:syntastic_haskell_hdevtools_args = s:hdevtools_options
+	\ (
+	\ [ '-iBiegunka'
+	\ , '-O0'
+	\ , '-fdefer-type-errors'
+	\ , '-Wall'
+	\ , '-fno-warn-unused-do-bind'
+	\ , '-fno-warn-type-defaults'
+	\ , '-optP-include'
+	\ ]
+	\ )

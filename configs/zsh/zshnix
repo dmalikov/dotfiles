@@ -3,7 +3,9 @@ if [[ -e $nix_profile ]]; then
     source $nix_profile
 fi
 
-export NIX_PATH=nixpkgs=${HOME}/git/nixpkgs/
+if [[ $(hostname) -ne "nixos" ]]; then
+    export NIX_PATH=nixpkgs=${HOME}/git/nixpkgs/
+fi
 
 alias eix="nix-env -qaP '*' | grep"
 alias ns='nix-shell --command zsh'

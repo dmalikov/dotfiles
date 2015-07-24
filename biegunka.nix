@@ -10,9 +10,9 @@ mkDerivation {
   pname = "biegunka";
   version = "0.2";
   src = fetchgit {
-    url = "https://github.com/biegunka/biegunka";
-    sha256 = "d2b008ea30bab20934f587a4af4374809a568d316afda43aaa901c26ddc39262";
-    rev = "c6e0ef118f83e34800f75e50565d9f4814d41f5a";
+    url = "http://github.com/biegunka/biegunka.git";
+    sha256 = "88641b4e44ed80fc4a44598554b6b654cb1f27e0852271d9a1dc3338bdf021ed";
+    rev = "38dc810a39c0162aa06cb43cc4fa60f5a5d21019";
   };
   isLibrary = true;
   isExecutable = true;
@@ -24,10 +24,10 @@ mkDerivation {
     semigroups stm template-haskell temporary text transformers unix
   ];
   testDepends = [
-    base containers data-default-class directory directory-layout
-    filepath free hspec hspec-expectations-lens lens
-    optparse-applicative process semigroups temporary text transformers
-    unix
+    base conduit conduit-extra containers data-default-class directory
+    directory-layout filepath free hspec hspec-expectations-lens lens
+    optparse-applicative process resourcet semigroups temporary text
+    transformers unix
   ];
   homepage = "http://biegunka.budueba.com/";
   description = "Configuration development";

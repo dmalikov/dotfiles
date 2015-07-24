@@ -14,6 +14,6 @@ before_install:
       source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 install:
-    - nix-shell --run "biegunka run Biegunka -- --${ENV} --diff"
+    - nix-shell --run "biegunka run -- --${ENV} --diff"
 
 script: true

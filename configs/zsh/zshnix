@@ -3,7 +3,7 @@ if [[ -e $nix_profile ]]; then
     source $nix_profile
 fi
 
-if [[ -z "$(hostname | grep nixos)" ]]; then
+if ! hostname | grep --silent nixos; then
     export NIX_PATH=nixpkgs=${HOME}/git/nixpkgs/
 fi
 

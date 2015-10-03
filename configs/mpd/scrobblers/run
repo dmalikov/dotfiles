@@ -1,0 +1,1 @@
+nix-shell -p 'let scr = haskellPackages.callPackage ./scrobblers.nix {}; in haskellPackages.ghcWithPackages (s: with s; [ scr ])' --command 'runhaskell ./Main.hs'

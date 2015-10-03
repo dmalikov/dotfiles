@@ -2,7 +2,6 @@
 module Main where
 
 import           Control.Biegunka
-import           Control.Biegunka.Options                   (Runner)
 import           Control.Biegunka.Templates.HStringTemplate (hStringTemplate)
 import           Control.Lens                               (set)
 import           Control.Monad                              (void)
@@ -15,7 +14,6 @@ import qualified Environment.W540                           as W540
 main :: IO ()
 main = uncurry rollout =<< runnerOf
 
-rollout :: Environment -> Runner Environment -> IO ()
 rollout a r = void $ r (set templates (hStringTemplate (configs a))) (namespaces a)
 
 configs :: Environment -> Configs

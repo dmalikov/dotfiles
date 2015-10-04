@@ -45,7 +45,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc', {'build': {'linux': 'make -f make_unix.mak' } }
 NeoBundle "Shougo/neocomplcache"
-NeoBundle "Shougo/unite.vim"
 NeoBundle "airblade/vim-gitgutter"
 NeoBundle "dahu/Insertlessly"
 NeoBundle "godlygeek/tabular"
@@ -248,8 +247,6 @@ set pastetoggle=<F3>
 
 noremap k gk
 noremap j gj
-
-nmap <Leader>u :Unite file buffer<CR>
 
 " save as root with w!!
 cmap w!! w !sudo tee % > /dev/null

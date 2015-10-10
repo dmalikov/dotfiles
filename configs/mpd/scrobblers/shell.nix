@@ -1,4 +1,4 @@
-{ nixpkgs ? import <nixpkgs> {}, compiler ? "ghc7101" }:
+{ nixpkgs ? import <nixpkgs> {}, compiler ? "ghc7102" }:
 let
   inherit (nixpkgs) pkgs;
   s = pkgs.haskell.packages.${compiler}.callPackage ./scrobblers.nix {};

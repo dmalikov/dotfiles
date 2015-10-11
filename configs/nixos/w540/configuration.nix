@@ -3,7 +3,7 @@
 let
   vim = pkgs.lib.overrideDerivation pkgs.vim_configurable (_: { rubySupport = true; } );
   basic = with pkgs; [ curl dhcp fuse_exfat git gcc49 gnumake htop imagemagick iotop lsof nix-prefetch-scripts nix-repl nmap python tig tmux transmission tree unzip vifm vim wget wgetpaste zsh ];
-  x = with pkgs; [ dmenu i3status rxvt_unicode unclutter ];
+  x = with pkgs; [ chromium dmenu i3status rxvt_unicode unclutter ];
 in
 
 {
@@ -41,11 +41,11 @@ in
   services.openssh.enable = true;
 
   services.xserver = {
-    enable = false;
+    enable = true;
     synaptics.enable = true;
     windowManager = {
       default = "i3";
-      i3.enable = false;
+      i3.enable = true;
     };
     desktopManager = {
       default = "none";

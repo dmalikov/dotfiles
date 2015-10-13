@@ -12,7 +12,15 @@ alias ns='nix-shell --command zsh'
 
 function ghci-ns () {
     if [[ -n "$NIX_GHC_LIBDIR" ]]; then
-        ghci -isrc -package-db=$NIX_GHC_LIBDIR/package.conf.d -itest
+        ghci -package-db=$NIX_GHC_LIBDIR/package.conf.d $@
+    else
+        echo "\$NIX_GHC_LIBDIR isn't set"
+    fi
+}
+
+function standalone-haddock () {
+    if [[ -n "$NIX_GHC_LIBDIR" ]]; then
+        standalone-haddock --package-db=$NIX_GHC_LIBDIR/package.conf.d $@
     else
         echo "\$NIX_GHC_LIBDIR isn't set"
     fi

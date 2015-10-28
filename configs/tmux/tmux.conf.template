@@ -14,7 +14,7 @@ set -g set-titles-string 'Tmux: #W'
 set -g status-position top
 set -g status-bg default
 set -g status-fg default
-set -g status-interval 1
+set -g status-interval 0
 set -g status-justify left
 set -g status-keys vi
 set -g status-left ''

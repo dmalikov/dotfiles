@@ -193,3 +193,8 @@ namespace_zathura :: Script 'Sources ()
 namespace_zathura = namespace "zathura" $
   dotfiles $
     copy "configs/zathura/zathurarc" ".config/zathura/zathurarc"
+
+namespace_transmission :: Script 'Sources ()
+namespace_transmission = namespace "transmission" $
+  dotfiles $
+    decrypt "configs/transmission/servantrc" ".servantrc"

@@ -24,6 +24,7 @@ namespaces = sequence_
   , namespace_mpd
   , namespace_shell
   , namespace_tmux
+  , namespace_transmission
   , namespace_vifm
   , namespace_vim
   , namespace_zsh

@@ -3,12 +3,12 @@ if [[ -e $nix_profile ]]; then
     source $nix_profile
 fi
 
-if ! hostname | grep --silent nixos; then
-    export NIX_PATH=nixpkgs=${HOME}/git/nixpkgs/
-fi
-
 alias eix="nix-env -qaP '*' | grep"
 alias ns='nix-shell --command zsh'
+
+function nix-find () {
+    nix-env -qa \* -P | grep -i "$1"
+}
 
 function ghci-ns () {
     if [[ -n "$NIX_GHC_LIBDIR" ]]; then

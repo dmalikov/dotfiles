@@ -233,6 +233,16 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" CommandT options
+let g:CommandTFileScanner = 'find'
+let g:CommandTSelectNextMap = ['Down', '<C-n>']
+let g:CommandTCancelMap = ['<C-c>', '<Esc>']
+let g:CommandTBackspaceMap = ['<BS>', '<C-h>']
+let g:CommandTDeleteMap = ['<DEL>', '<C-l>']
+let g:CommandTCursorLeftMap = '<Left>'
+let g:CommandTCursorRightMap = '<Right>'
+let g:CommandTWildIgnore = &wildignore . 'dist/*,build/*,result/*'
 " }}}
 
 " Key mapping settings ------------ {{{
@@ -270,10 +280,11 @@ nmap gd :tjump <c-r><c-w><CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 
-" CommandT keybindings
+" Command-T keybindings
 nnoremap <leader>t :CommandT .<CR>
 nnoremap <leader>b :CommandTMRU<CR>
 nnoremap <leader>f :CommandTFlush<CR>
+
 " }}}
 
 " Vimscript file settings ---------- {{{
@@ -309,7 +320,5 @@ let hs_highlight_boolean = 1
 let hs_highlight_debug = 1
 let hs_highlight_more_types = 1
 let hs_highlight_types = 1
-
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
-
 " }}}

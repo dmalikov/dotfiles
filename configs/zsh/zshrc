@@ -57,6 +57,7 @@ alias ihach='iconv -cf inis-cyrillic'
 alias ls='ls --color=auto'
 alias g='git'
 alias t='tig'
+alias v='vim'
 alias 'flac-remove-pics-from-tags'='metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING ./*.flac'
 
 # external monitor helper

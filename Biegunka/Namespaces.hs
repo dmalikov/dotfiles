@@ -82,8 +82,6 @@ namespace_mpd = namespace "mpd" $
   dotfiles $ do
     copy    "configs/mpd/conf"                      ".mpdconf"
     decrypt "configs/mpd/scrobblers/Main.hs"        ".mpd/scrobblers/Main.hs"
-    copy    "configs/mpd/scrobblers/run"            ".mpd/scrobblers/run"
-    copy    "configs/mpd/scrobblers/scrobblers.nix" ".mpd/scrobblers/scrobblers.nix"
     copy    "configs/mpd/scrobblers/shell.nix"      ".mpd/scrobblers/shell.nix"
 
 namespace_ncmpcpp :: Script 'Sources ()

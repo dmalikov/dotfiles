@@ -145,6 +145,7 @@ namespace_zsh = namespace "zsh" $ do
   dotfiles $ do
     copy "configs/zsh/zshrc" ".zshrc"
     copy "configs/zsh/zshenv" ".zshenv"
+    copy "configs/zsh/zshless" ".zshless"
     copy "configs/zsh/zshnix" ".zshnix"
     copy "configs/zsh/zprofile" ".zprofile"
 

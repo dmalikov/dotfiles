@@ -82,4 +82,5 @@ unset RUBYOPT
 
 bindkey '^R' history-incremental-search-backward
 source ~/.zshenv
+source ~/.zshless
 source ~/.zshnix

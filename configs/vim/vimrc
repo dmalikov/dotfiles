@@ -140,6 +140,9 @@ set autoindent
 " matched string is highlighted.
 set incsearch
 
+" search highlighting
+set hlsearch
+
 " lines to scroll when cursor leaves screen
 set scrolljump=10
 " lines before screen edge to scroll

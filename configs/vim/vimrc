@@ -236,12 +236,11 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " CommandT options
 let g:CommandTFileScanner = 'find'
-let g:CommandTSelectNextMap = ['Down', '<C-n>']
+let g:CommandTSelectNextMap = ['<C-j>']
+let g:CommandTSelectPrevMap = ['<C-k>']
 let g:CommandTCancelMap = ['<C-c>', '<Esc>']
-let g:CommandTBackspaceMap = ['<BS>', '<C-h>']
-let g:CommandTDeleteMap = ['<DEL>', '<C-l>']
-let g:CommandTCursorLeftMap = '<Left>'
-let g:CommandTCursorRightMap = '<Right>'
+let g:CommandTBackspaceMap = ['<BS>']
+let g:CommandTDeleteMap = ['<DEL>']
 let g:CommandTWildIgnore = &wildignore . 'dist/*,build/*,result/*'
 " }}}
 

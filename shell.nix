@@ -17,6 +17,7 @@
       doHaddock = false;
     });
     e = e;
+    meep = h.callPackage ../meep/package.nix { };
   };
   ghc = h.ghcWithPackages (ps: [ ps.data-default biegunka e ]);
 in
@@ -25,6 +26,5 @@ in
     buildInputs = with h; [ biegunka cabal-install cabal2nix hdevtools e ghc ];
     shellHook = ''
       eval $(egrep ^export ${ghc}/bin/ghc)
-      export IN_WHICH_NIX_SHELL=${name}
     '';
   }

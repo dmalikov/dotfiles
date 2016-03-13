@@ -10,7 +10,7 @@ import           Control.Biegunka hiding (shell)
 
 {-# ANN module ("HLint: ignore Use camelCase" :: String) #-}
 
-data Environment = W540 | S10 | Qumsrc
+data Environment = Lnd | Qumsrc | W540 | S10
   deriving (Generic)
 
 instance Environments Environment

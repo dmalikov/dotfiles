@@ -19,7 +19,7 @@
 
   environment = with pkgs; {
     systemPackages = [
-      git htop iotop lsof nix-repl python tig tmux tree vim wget
+      git htop iotop lsof nix-repl python tig tmux tree vim wget zsh
     ];
   };
 

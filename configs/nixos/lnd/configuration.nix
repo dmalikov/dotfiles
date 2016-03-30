@@ -61,4 +61,31 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
 
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+  services.nginx = {
+    enable = true;
+    httpConfig = ''
+      sendfile on;
+      tcp_nopush on;
+      tcp_nodelay on;
+      keepalive_timeout 65;
+      types_hash_max_size 2048;
+
+      gzip on;
+      gzip_disable "msie6";
+
+      server {
+        listen 80;
+        listen [::]:80 ipv6only=on;
+
+        root /srv/whatever;
+        index index.html index.htm;
+
+        location / {
+          try_files $uri $uri/ /index.html;
+        }
+      }
+    '';
+  };
 }

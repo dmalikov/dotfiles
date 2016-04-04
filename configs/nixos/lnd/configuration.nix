@@ -33,7 +33,12 @@ in
 
   time.timeZone = "Europe/Amsterdam";
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "no";
+    ports = [22229];
+    passwordAuthentication = false;
+  };
 
   security.sudo = {
     enable = true;

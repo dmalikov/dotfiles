@@ -80,6 +80,9 @@ function flac2mp3() {
 # ruby stuff
 unset RUBYOPT
 
+# https://github.com/keybase/keybase-issues/issues/1712#issuecomment-141226705
+export GPG_TTY=$(tty)
+
 bindkey '^R' history-incremental-search-backward
 source ~/.zshenv
 source ~/.zshless

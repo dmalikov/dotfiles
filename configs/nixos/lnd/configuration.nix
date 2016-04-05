@@ -21,7 +21,7 @@ in
 
   environment = with pkgs; {
     systemPackages = [
-      git gnumake htop iotop lsof nix-repl python tig tmux tree vim wget zsh
+      git gnumake gnupg htop iotop lsof nix-repl python tig tmux tree vim wget zsh
     ];
   };
 

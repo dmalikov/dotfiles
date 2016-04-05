@@ -11,6 +11,10 @@
 [user]
     name = "Dmitry Malikov"
     email = "malikov.d.y@gmail.com"
+    signingkey = "8FCB631E"
+
+[gpg]
+    program = gpg2
 
 [merge]
     log = true

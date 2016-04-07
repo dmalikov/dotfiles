@@ -25,6 +25,13 @@ in
     ];
   };
 
+  nix = {
+    nixPath = [
+      "nixpkgs=https://nixos.org/channels/nixos-16.03/nixexprs.tar.xz"
+      "nixos-config=/etc/nixos/configuration.nix"
+    ];
+  };
+
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
@@ -66,5 +73,5 @@ in
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "15.09";
+  system.stateVersion = "16.03";
 }

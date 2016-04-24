@@ -52,6 +52,7 @@
 
         location / {
           try_files $uri $uri/ /index.html;
+          proxy_pass http://127.0.0.1:8081$request_uri;
         }
 
         location ~ /.well-known {

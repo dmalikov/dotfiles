@@ -83,6 +83,7 @@ namespace_mpd = namespace "mpd" $
     copy    "configs/mpd/conf"                      ".mpdconf"
     decrypt "configs/mpd/scrobblers/Main.hs"        ".mpd/scrobblers/Main.hs"
     copy    "configs/mpd/scrobblers/scrobblers.nix" ".mpd/scrobblers/scrobblers.nix"
+    copy    "configs/mpd/scrobblers/run"            ".mpd/scrobblers/run"
 
 namespace_ncmpcpp :: Script 'Sources ()
 namespace_ncmpcpp = namespace "ncmpcpp" $

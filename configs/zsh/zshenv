@@ -13,4 +13,4 @@ export TERM='screen-256color'
 export COLORTERM='screen--256color'
 export EDITOR=vim
 typeset -U path
-path=(/usr/local/tranquil/bin /usr/local/opt/coreutils/libexec/gnubin/ ~/bin ~/.cabal/bin /usr/local/bin/ $path)
+path=(/usr/local/tranquil/bin /usr/local/opt/coreutils/libexec/gnubin/ ~/bin ~/.cabal/bin /usr/local/bin/ ~/.local/bin/ $path)

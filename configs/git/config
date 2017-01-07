@@ -13,6 +13,9 @@
     email = "malikov.d.y@gmail.com"
     signingkey = "8FCB631E"
 
+[commit]
+    gpgsign = true
+
 [gpg]
     program = gpg2
 

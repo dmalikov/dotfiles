@@ -1,0 +1,15 @@
+flags: {}
+extra-package-dbs: []
+packages:
+  - location:
+      git: https://github.com/dmalikov/e.git
+      commit: d6914ed2c6ec9ebf6cdc7b8bafa1c9b160ea7551
+  - location:
+      git: https://github.com/biegunka/biegunka.git
+      commit: fa3f22186ce4c4b07e6b96d68466fdfbef3540d5
+extra-deps:
+  - command-qq-0.3.0.0
+  - directory-layout-0.7.4.1
+  - hspec-expectations-lens-0.4.0
+  - meep-0.1.2.1
+resolver: lts-7.15

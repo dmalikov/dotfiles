@@ -1,6 +1,12 @@
-language: haskell
 
-ghc: 7.8
+# https://github.com/commercialhaskell/stack/blob/master/doc/travis_ci.md
+# https://raw.githubusercontent.com/commercialhaskell/stack/master/doc/travis-simple.yml
+
+# Use new container infrastructure to enable caching
+sudo: false
+
+# Do not choose a language; we provide our own build tools.
+language: generic
 
 env:
     matrix:
@@ -8,12 +14,25 @@ env:
         - ENV=s10
         - ENV=w540
 
+# Caching so the next build will be fast too.
+cache:
+  directories:
+  - $HOME/.stack
+
+# Ensure necessary system libraries are present
+addons:
+  apt:
+    packages:
+      - libgmp-dev
+
 before_install:
-    - |
-      bash <(curl -sS https://nixos.org/nix/install)
-      source $HOME/.nix-profile/etc/profile.d/nix.sh
+# Download and unpack the stack executable
+- mkdir -p ~/.local/bin
+- export PATH=$HOME/.local/bin:$PATH
+- travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 
 install:
-    - nix-shell --run "biegunka run -- --${ENV} --diff"
+- stack --no-terminal --install-ghc build
 
-script: true
+script:
+  - stack exec biegunka run -- --${ENV} --diff

@@ -12,5 +12,6 @@ setopt completealiases
 export TERM='screen-256color'
 export COLORTERM='screen--256color'
 export EDITOR=vim
+export SSL_CERT_FILE='' # deleting nix considered harmful
 typeset -U path
 path=(/usr/local/tranquil/bin /usr/local/opt/coreutils/libexec/gnubin/ ~/bin ~/.cabal/bin /usr/local/bin/ ~/.local/bin/ $path)

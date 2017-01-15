@@ -1,7 +1,7 @@
 #==================================
 # GENERAL SETTINGS
 #==================================
-set main-view = line-number:no,interval=5 id:yes date:local author:full commit-title:yes,graph,refs,overflow=no
+set main-view = line-number:no,interval=5 id:yes date author:full commit-title:yes,graph,refs,overflow=no
 set diff-context = 5
 set horizontal-scroll = 20%
 set line-graphics = ascii

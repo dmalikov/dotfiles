@@ -1,0 +1,17 @@
+flags: {}
+extra-package-dbs: []
+packages:
+- '.'
+- location:
+    git: https://github.com/supki/liblastfm.git
+    commit: da9a361b0b9a84fa3c3d7f1b07b8c7251cf81836
+- location:
+    git: https://github.com/supki/scrobblers.git
+    commit: c11e90c0cb2dd6b3a5fd4d62ef945aa515d59137
+extra-deps:
+- hspec-expectations-lens-0.4.0
+- http-client-0.5.4
+- http-client-tls-0.3.3
+- netwire-5.0.2
+- xml-html-conduit-lens-0.3.2.2
+resolver: lts-7.15

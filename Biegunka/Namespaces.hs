@@ -80,10 +80,10 @@ namespace_irssi = namespace "irssi" $
 namespace_mpd :: Script 'Sources ()
 namespace_mpd = namespace "mpd" $
   dotfiles $ do
-    copy    "configs/mpd/conf"                      ".mpdconf"
-    decrypt "configs/mpd/scrobblers/Main.hs"        ".mpd/scrobblers/Main.hs"
-    copy    "configs/mpd/scrobblers/scrobblers.nix" ".mpd/scrobblers/scrobblers.nix"
-    copy    "configs/mpd/scrobblers/run"            ".mpd/scrobblers/run"
+    copy    "configs/mpd/conf" ".mpdconf"
+    decrypt "configs/mpd/scrobblers/Main.hs" ".mpd/scrobblers/Main.hs"
+    copy    "configs/mpd/scrobblers/mpd-scrobbler.cabal" ".mpd/scrobblers/mpd-scrobbler.cabal"
+    copy    "configs/mpd/scrobblers/stack.yaml" ".mpd/scrobblers/stack.yaml"
 
 namespace_ncmpcpp :: Script 'Sources ()
 namespace_ncmpcpp = namespace "ncmpcpp" $

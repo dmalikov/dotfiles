@@ -57,7 +57,6 @@ NeoBundle "trefis/coquille"
 NeoBundle "def-lkb/vimbufsync"
 NeoBundle "merlinrebrovic/focus.vim"
 NeoBundle "elzr/vim-json"
-NeoBundle "bitc/vim-hdevtools"
 NeoBundle "kongo2002/fsharp-vim"
 NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "w0ng/vim-hybrid"
@@ -69,6 +68,7 @@ NeoBundle "wincent/command-t"
 NeoBundle "junegunn/vim-easy-align"
 NeoBundle "chrisbra/vim-diff-enhanced"
 NeoBundle "adimit/prolog.vim"
+NeoBundle "eagletmt/ghcmod-vim"
 
 call neobundle#end()
 filetype plugin indent on
@@ -302,20 +302,12 @@ function GenerateHasktags()
     call system('hasktags --ignore-close-implementation --ctags . &')
 endfunction
 
-augroup filetype_haskell
-    autocmd!
-    autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
-    autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-    autocmd FileType haskell nnoremap <buffer> <Leader>sh :%!stylish-haskell<CR>
-    autocmd BufWritePost *.hs :HdevtoolsClear
-    autocmd BufWritePost *.hs call GenerateHasktags()
-    autocmd FileType haskell set commentstring=--\ %s " for vim-commentary
-augroup END
-
 highlight hsNiceOperator ctermfg=none ctermbg=black
 
 autocmd BufNewFile,BufRead,Bufenter *.nix setfiletype nix
 autocmd FileType nix setlocal expandtab shiftwidth=2 softtabstop=2
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " syntax rules
 let hs_highlight_delimiters = 1
@@ -323,5 +315,5 @@ let hs_highlight_boolean = 1
 let hs_highlight_debug = 1
 let hs_highlight_more_types = 1
 let hs_highlight_types = 1
-let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
+let g:syntastic_haskell_checkers = []
 " }}}

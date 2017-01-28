@@ -24,7 +24,7 @@ configs S10    = S10.configs
 configs W540   = W540.configs
 
 namespaces :: Environment -> Script 'Sources ()
-namespaces Lnd 	  = Lnd.namespaces
+namespaces Lnd    = Lnd.namespaces
 namespaces Qumsrc = Qumsrc.namespaces
 namespaces S10    = S10.namespaces
 namespaces W540   = W540.namespaces

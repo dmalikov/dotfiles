@@ -3,7 +3,7 @@ extra-package-dbs: []
 packages:
   - location:
       git: https://github.com/dmalikov/e.git
-      commit: d6914ed2c6ec9ebf6cdc7b8bafa1c9b160ea7551
+      commit: f14aa66d9d318e81f997276e1b311f2b225b3627
   - location:
       git: https://github.com/biegunka/biegunka.git
       commit: fa3f22186ce4c4b07e6b96d68466fdfbef3540d5

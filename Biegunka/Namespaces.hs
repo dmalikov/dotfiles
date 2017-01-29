@@ -197,4 +197,4 @@ namespace_zathura = namespace "zathura" $
 namespace_transmission :: Script 'Sources ()
 namespace_transmission = namespace "transmission" $
   dotfiles $
-    decrypt "configs/transmission/servantrc" ".servantrc"
+    decrypt "configs/transmission/proxyrc" ".transmission.proxy.rc"

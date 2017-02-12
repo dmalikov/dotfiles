@@ -1,4 +1,4 @@
-playlist_disable_highlight_delay = 2
+playlist_disable_highlight_delay = 0
 message_delay_time               = 2
 song_list_format                 = "{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}"
 song_status_format               = "{(%l) }{%a - }{%t}|{%f}"

@@ -71,6 +71,7 @@ NeoBundle "junegunn/vim-easy-align"
 NeoBundle "chrisbra/vim-diff-enhanced"
 NeoBundle "adimit/prolog.vim"
 NeoBundle "eagletmt/ghcmod-vim"
+NeoBundle "idris-hackers/idris-vim"
 
 call neobundle#end()
 filetype plugin indent on

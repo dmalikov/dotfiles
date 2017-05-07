@@ -47,6 +47,8 @@ in
     passwordAuthentication = false;
   };
 
+  services.logind.extraConfig = "RuntimeDirectorySize=1G";
+
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;

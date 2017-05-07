@@ -22,7 +22,9 @@ set undolevels=100
 set fileencodings=utf-8
 
 " share clipboard among instances
-set clipboard=unnamed
+if $TMUX == '' " http://stackoverflow.com/a/11421329
+    set clipboard+=unnamed
+endif
 
 set modelines=1
 

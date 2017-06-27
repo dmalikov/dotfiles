@@ -288,8 +288,10 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Command-T keybindings
 nnoremap <leader>t :CommandT .<CR>
-nnoremap <leader>b :CommandTMRU<CR>
 nnoremap <leader>f :CommandTFlush<CR>
+
+" idris-vim
+nnoremap <leader>b :call IdrisAddClause(0)<CR>
 
 " }}}
 

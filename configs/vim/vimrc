@@ -162,7 +162,7 @@ set whichwrap=b,s,<,>,[,],l,h
 set linebreak
 
 " ignore list for command-t
-set wildignore+=*/.git/*,dist/*,*.un~
+set wildignore+=*/.git/*,dist/*,*.un~,*.ibc,*.idr~,
 
 set shell=zsh
 

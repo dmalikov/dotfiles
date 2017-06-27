@@ -292,6 +292,7 @@ nnoremap <leader>f :CommandTFlush<CR>
 
 " idris-vim
 nnoremap <leader>b :call IdrisAddClause(0)<CR>
+let g:idris_conceal = 1
 
 " }}}
 

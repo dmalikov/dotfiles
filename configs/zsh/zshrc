@@ -1,4 +1,4 @@
-autoload -U compinit promptinit colors
+autoload -Uz compinit promptinit colors vcs_info
 
 setopt autocd autopushd cdablevars correct interactivecomments noclobber sunkeyboardhack extendedglob
 
@@ -6,6 +6,12 @@ setopt autocd autopushd cdablevars correct interactivecomments noclobber sunkeyb
 fpath=(~/git/zsh-completions/src $fpath)
 compinit
 zstyle ':completion::complete:*' use-cache 1
+
+precmd() { vcs_info }
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Configuration-3
+# https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats '%b'
 
 # vi mode
 bindkey -v
@@ -42,9 +48,9 @@ function promt_dynamic() {
 prompt_static
 function zle-line-init zle-keymap-select {
     promt_dynamic
-    RPS1=""
+    RPS1="%F{3}${vcs_info_msg_0_}%f "
     RPS1+="%F{2}${${KEYMAP/vicmd/NORMAL}/(main|viins)/}%f"
-    RPS2=$RPS1
+    RPS2=""
     zle reset-prompt
 }
 zle -N zle-line-init

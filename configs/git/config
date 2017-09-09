@@ -74,7 +74,7 @@
     default = current
 
 [rerere]
-    enabled = true
+    enabled = false
 
 [fetch]
     prune = true

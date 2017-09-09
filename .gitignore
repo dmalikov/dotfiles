@@ -1,5 +1,7 @@
 cabal-dev
 dist
+.ghc.environment*
+dist-newstyle
 tags
 result
 .stack-work

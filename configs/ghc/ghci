@@ -7,14 +7,10 @@
 :m + Data.Bits
 :m + Data.Function
 :m + Data.List
-:m + Data.List.Split
 :m + Data.Maybe
 :m + Data.Monoid
 :m + Data.Word
 :m + Text.Printf
-
-import qualified Data.ByteString.Lazy.Char8 as BSC
-import qualified Data.Text as Text
 
 :set -XOverloadedStrings
 :set -XRankNTypes

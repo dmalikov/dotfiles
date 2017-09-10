@@ -24,15 +24,22 @@
     tool = vimdiff
 
 [alias]
+    a = add
     br = branch
     ci = commit
     co = checkout
     f = fetch
     h = !sh -c 'git rev-parse --show-toplevel'
+    m = merge --squash
     pr = pull --rebase
     rb = rebase
     rh = reset --hard
+    rs = reset --soft
+    s = status
     sm = submodule
+    st = status
+    rt = !sh -c 'git reset --hard `git rev-parse --abbrev-ref --symbolic-full-name @{upstream}`'
+    d = difftool
 
 [color]
     branch = auto
@@ -59,7 +66,7 @@
 [diff]
     algorithm = patience
     renames = true
-    tool = gvimdiff
+    tool = vimdiff
 
 [difftool]
     prompt = false

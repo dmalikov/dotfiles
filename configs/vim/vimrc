@@ -162,7 +162,7 @@ set whichwrap=b,s,<,>,[,],l,h
 set linebreak
 
 " ignore list for command-t
-set wildignore+=*/.git/*,dist/*,*.un~,*.ibc,*.idr~,
+set wildignore+=*/.git/*,dist/*,*.un~,*.ibc,*.idr~,dist-newstyle/*,
 
 set shell=zsh
 
@@ -248,7 +248,7 @@ let g:CommandTSelectPrevMap = ['<C-k>']
 let g:CommandTCancelMap = ['<C-c>', '<Esc>']
 let g:CommandTBackspaceMap = ['<BS>']
 let g:CommandTDeleteMap = ['<DEL>']
-let g:CommandTWildIgnore = &wildignore . 'dist/*,build/*,result/*,*.un~'
+let g:CommandTWildIgnore = &wildignore . 'build/*,result/*,*.un~'
 " }}}
 
 " Key mapping settings ------------ {{{

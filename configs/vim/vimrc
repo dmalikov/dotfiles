@@ -304,10 +304,6 @@ augroup END
 " }}}
 
 " Haskell settings ------------ {{{
-function GenerateHasktags()
-    call system('hasktags --ignore-close-implementation --ctags . &')
-endfunction
-
 highlight hsNiceOperator ctermfg=none ctermbg=black
 
 autocmd BufNewFile,BufRead,Bufenter *.nix setfiletype nix

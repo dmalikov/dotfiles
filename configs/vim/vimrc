@@ -53,7 +53,7 @@ NeoBundle "godlygeek/tabular"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "tpope/vim-commentary"
 NeoBundle "tpope/vim-surround"
-NeoBundle "ujihisa/neco-ghc"
+" NeoBundle "ujihisa/neco-ghc"
 NeoBundle "jvoorhis/coq.vim"
 NeoBundle "trefis/coquille"
 NeoBundle "def-lkb/vimbufsync"
@@ -70,7 +70,7 @@ NeoBundle "wincent/command-t"
 NeoBundle "junegunn/vim-easy-align"
 NeoBundle "chrisbra/vim-diff-enhanced"
 NeoBundle "adimit/prolog.vim"
-NeoBundle "eagletmt/ghcmod-vim"
+" NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "idris-hackers/idris-vim"
 
 call neobundle#end()
@@ -315,7 +315,7 @@ autocmd FileType nix setlocal expandtab shiftwidth=2 softtabstop=2
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+" autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 " syntax rules
 let hs_highlight_delimiters = 1

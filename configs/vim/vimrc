@@ -72,6 +72,7 @@ NeoBundle "chrisbra/vim-diff-enhanced"
 NeoBundle "adimit/prolog.vim"
 " NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "idris-hackers/idris-vim"
+NeoBundle "raichoo/haskell-vim"
 
 call neobundle#end()
 filetype plugin indent on
@@ -308,6 +309,7 @@ highlight hsNiceOperator ctermfg=none ctermbg=black
 
 autocmd BufNewFile,BufRead,Bufenter *.nix setfiletype nix
 autocmd FileType nix setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 

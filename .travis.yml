@@ -1,38 +1,27 @@
-
-# https://github.com/commercialhaskell/stack/blob/master/doc/travis_ci.md
-# https://raw.githubusercontent.com/commercialhaskell/stack/master/doc/travis-simple.yml
-
-# Use new container infrastructure to enable caching
-sudo: false
-
-# Do not choose a language; we provide our own build tools.
-language: generic
+# See also https://github.com/hvr/multi-ghc-travis for more information
+sudo: required
 
 env:
-    matrix:
-        - ENV=qumsrc
-        - ENV=s10
-        - ENV=w540
-
-# Caching so the next build will be fast too.
-cache:
-  directories:
-  - $HOME/.stack
-
-# Ensure necessary system libraries are present
-addons:
-  apt:
-    packages:
-      - libgmp-dev
+ - CABALVER=head GHCVER=8.2.1
 
 before_install:
-# Download and unpack the stack executable
-- mkdir -p ~/.local/bin
-- export PATH=$HOME/.local/bin:$PATH
-- travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+ - travis_retry sudo add-apt-repository -y ppa:hvr/ghc
+ - travis_retry sudo apt-get update
+ - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER
+ - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+ - rm -rf ../biegunka
+ - git clone https://github.com/biegunka/biegunka ../biegunka
 
 install:
-- stack --no-terminal --install-ghc build
+ - cabal --version
+ - travis_retry cabal update -v
+ - sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
+ - rm -fv cabal.project.local
+ - rm -f cabal.project.freeze
+ - cabal new-build --dep -j --allow-newer
 
 script:
-  - stack exec biegunka run -- --${ENV} --diff
+ - cabal new-run --allow-newer dotfiles -- --qumsrc --diff
+
+allow_failures:
+ - env: CABALVER=head GHCVER=head

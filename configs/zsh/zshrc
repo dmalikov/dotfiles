@@ -66,6 +66,11 @@ alias t='tig'
 alias v='vim'
 alias s='stack'
 alias 'flac-remove-pics-from-tags'='metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING ./*.flac'
+alias cb='cabal new-build'
+alias cbn='cabal new-build --allow-newer'
+alias cr='cabal new-repl'
+alias ch='cabal new-haddock'
+alias ct='cabal new-test'
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

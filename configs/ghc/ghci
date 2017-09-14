@@ -1,39 +1,3 @@
 :set +s
 :set +t
 :set prompt "\ESC[33m> \ESC[m"
-:m + Control.Applicative
-:m + Control.Arrow
-:m + Control.Monad
-:m + Data.Bits
-:m + Data.Function
-:m + Data.List
-:m + Data.Maybe
-:m + Data.Monoid
-:m + Data.Word
-:m + Text.Printf
-
-:set -XOverloadedStrings
-:set -XRankNTypes
-:set -XScopedTypeVariables
-:set -XUnicodeSyntax
-:set -fwarn-alternative-layout-rule-transitional
-:set -fwarn-deprecated-flags
-:set -fwarn-deprecations
-:set -fwarn-dodgy-exports
-:set -fwarn-dodgy-foreign-imports
-:set -fwarn-dodgy-imports
-:set -fwarn-duplicate-exports
-:set -fwarn-hi-shadowing
-:set -fwarn-incomplete-patterns
-:set -fwarn-incomplete-record-updates
-:set -fwarn-missing-fields
-:set -fwarn-missing-methods
-:set -fwarn-monomorphism-restriction
-:set -fwarn-name-shadowing
-:set -fwarn-overlapping-patterns
-:set -fwarn-tabs
-:set -fwarn-unrecognised-pragmas
-:set -fwarn-unused-binds
-:set -fwarn-unused-imports
-:set -fwarn-unused-matches
-:set -fwarn-warnings-deprecations

@@ -19,6 +19,7 @@ namespace_vim = do
     dotfiles $ copy "configs/vim/vimrc" ".vimrc"
   namespace "vim/syntax" $ do
     dotfiles $ copy "configs/vim/syntax/haskell.vim" ".vim/after/syntax/haskell.vim"
+    dotfiles $ copy "configs/vim/syntax/cabal.vim" ".vim/after/syntax/cabal.vim"
     dotfiles $ copy "configs/vim/syntax/nix.vim" ".vim/after/syntax/nix.vim"
   namespace "vim/colorschemes" $
     dotfiles $ copy "configs/vim/colors/neverland-darker.vim" ".vim/colors/neverland-darker.vim"

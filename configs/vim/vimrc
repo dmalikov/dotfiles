@@ -189,7 +189,7 @@ set diffopt+=iwhite " ignore whitespaces
 
 " highlight trailing spaces
 set list!
-set listchars=tab:»»,trail:∘
+set listchars=tab:‗‗,trail:‗
 " disable matches in help buffers
 autocmd BufEnter,FileType help call clearmatches()
 

@@ -1,0 +1,12 @@
+{
+  "baseDir":"/Users/m/Downloads/torrents/",
+  "transmission":{
+    "host":"{{E|host}}",
+    "auth":{
+      "username":"{{E|username}}",
+      "password":"{{E|password}}"
+    },
+    "downloadDirPrefix":"/home/user/files/downloads",
+    "trackers":{ {{E|trackers}} }
+  }
+}

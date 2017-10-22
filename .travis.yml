@@ -1,27 +1,27 @@
-# See also https://github.com/hvr/multi-ghc-travis for more information
-sudo: required
+language: c
 
-env:
- - CABALVER=head GHCVER=8.2.1
+sudo: false
+
+os:
+  - osx
+
+before_cache:
+ - rm -fv $HOME/.cabal/packages/hackage.haskell.org/build-reports.log
+ - rm -fv $HOME/.cabal/packages/hackage.haskell.org/00-index*
+ - rm -fv $HOME/.cabal/packages/hackage.haskell.org/01-index*
+ - rm -fv $HOME/.cabal/packages/hackage.haskell.org/*.json
+
+cache:
+  directories:
+  - $HOME/.stack
 
 before_install:
- - travis_retry sudo add-apt-repository -y ppa:hvr/ghc
- - travis_retry sudo apt-get update
- - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER
- - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
- - rm -rf ../biegunka
- - git clone https://github.com/biegunka/biegunka ../biegunka
+ - brew update
+ - brew install gpgme stack xz
 
 install:
- - cabal --version
- - travis_retry cabal update -v
- - sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
- - rm -fv cabal.project.local
- - rm -f cabal.project.freeze
- - cabal new-build --dep -j --allow-newer
+ - stack --no-terminal setup
+ - stack --no-terminal build --only-dependencies
 
 script:
- - cabal new-run --allow-newer dotfiles -- --qumsrc --diff
-
-allow_failures:
- - env: CABALVER=head GHCVER=head
+ - stack --no-terminal build

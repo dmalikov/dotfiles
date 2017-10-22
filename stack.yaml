@@ -1,15 +1,33 @@
 flags: {}
 extra-package-dbs: []
 packages:
+  - .
   - location:
       git: https://github.com/dmalikov/e.git
-      commit: f14aa66d9d318e81f997276e1b311f2b225b3627
+      commit: eb873ee9abe860f4b54b67b334ec9ed70dcafb7b
+    subdirs:
+      - e
+      - e-gpgme
+    extra-dep: true
   - location:
       git: https://github.com/biegunka/biegunka.git
-      commit: fa3f22186ce4c4b07e6b96d68466fdfbef3540d5
+      commit: 14b1dcca9393d8574c3a0a9dc2e509233e187bbb
+    extra-dep: true
+allow-newer: true
 extra-deps:
+  - acid-state-0.14.3
+  - aeson-1.0.2.1
+  - bindings-gpgme-0.1.7
   - command-qq-0.3.0.0
+  - cryptonite-0.21
   - directory-layout-0.7.4.1
+  - h-gpgme-0.4.0.0
   - hspec-expectations-lens-0.4.0
   - meep-0.1.2.1
-resolver: lts-7.15
+  - optparse-applicative-0.13.2.0
+  - template-haskell-2.11.1.0
+  - time-1.6.0.1
+
+compiler: ghc-8.2.1
+compiler-check: match-exact
+resolver: nightly-2017-10-20

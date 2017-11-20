@@ -28,6 +28,8 @@ namespace_vim = do
 
 namespace_emacs :: Script 'Sources ()
 namespace_emacs =
+  namespace "emacs/emacs" $
+    dotfiles $ copy "configs/emacs/emacs" ".emacs"
   namespace "emacs/spacemacs" $
     dotfiles $ copy "configs/emacs/spacemacs" ".spacemacs"
 

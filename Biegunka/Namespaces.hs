@@ -27,7 +27,7 @@ namespace_vim = do
     dotfiles $ copy "configs/vim/MyTabularMaps.vim" ".vim/bundle/tabular/after/plugin/MyTabularMaps.vim"
 
 namespace_emacs :: Script 'Sources ()
-namespace_emacs =
+namespace_emacs = do
   namespace "emacs/emacs" $
     dotfiles $ copy "configs/emacs/emacs" ".emacs"
   namespace "emacs/spacemacs" $

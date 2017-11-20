@@ -2,3 +2,6 @@
                 (shell-command-to-string "~/.cabal/bin/agda-mode locate")))
 
 (setq ring-bell-function 'ignore)
+
+(add-hook 'agda2-mode-hook
+   (lambda () (agda2-highlight-set-faces 'agda2-highlight-face-groups 'conor)))

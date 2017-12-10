@@ -28,7 +28,7 @@ namespace_vim = do
 
 namespace_emacs :: Script 'Sources ()
 namespace_emacs = do
-  namespace "emacs/emacs" $
+  namespace "emacs/emacs" $ do
     git (url "https://github.com/ProofGeneral/PG" . path ".emacs.d/lisp/PG") pass
     dotfiles $ copy "configs/emacs/emacs" ".emacs"
   namespace "emacs/spacemacs" $

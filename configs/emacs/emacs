@@ -5,3 +5,9 @@
 
 (add-hook 'agda2-mode-hook
    (lambda () (agda2-highlight-set-faces 'agda2-highlight-face-groups 'conor)))
+
+(load "~/.emacs.d/lisp/PG/generic/proof-site")
+
+(load-file "/usr/local/Cellar/ssreflect/1.5_3/share/ssreflect/pg-ssr.el")
+
+(setq coq-prog-name "/usr/local/bin/coqtop")

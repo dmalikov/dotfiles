@@ -1,4 +1,4 @@
 :set +s
 :set +t
 :set prompt "\ESC[33m> \ESC[m"
-:set -XTypeApplication
+:set -XTypeApplications

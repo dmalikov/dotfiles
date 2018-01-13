@@ -28,6 +28,4 @@ extra-deps:
   - template-haskell-2.11.1.0
   - time-1.6.0.1
 
-compiler: ghc-8.2.1
-compiler-check: match-exact
-resolver: nightly-2017-10-20
+resolver: lts-10.0

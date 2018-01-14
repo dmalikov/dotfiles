@@ -4,7 +4,7 @@ packages:
   - .
   - location:
       git: https://github.com/dmalikov/e.git
-      commit: eb873ee9abe860f4b54b67b334ec9ed70dcafb7b
+      commit: 9a110fd138ce180a321b968a4da05ca4cae9fa04
     subdirs:
       - e
       - e-gpgme

@@ -17,10 +17,9 @@
       tcp_nodelay on;
       keepalive_timeout 65;
       types_hash_max_size 2048;
-
+      default_type application/octet-stream;
       gzip on;
       gzip_disable "msie6";
-
       limit_req_zone $binary_remote_addr zone=mysitelimit:10m rate=100r/s;
 
       server {
@@ -47,12 +46,11 @@
         ssl_stapling_verify on;
         add_header Strict-Transport-Security max-age=15768000;
 
-        root /srv/nuda.space;
-        index index.html index.htm;
+        root /srv/nuda.space/;
+        index index.html;
 
         location / {
           try_files $uri $uri/ /index.html;
-          proxy_pass http://127.0.0.1:8081$request_uri;
         }
 
         location ~ /.well-known {

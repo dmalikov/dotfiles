@@ -1,4 +1,4 @@
 :set +s
 :set +t
-:set prompt-function \ms _ -> let f x = let (y,z) = break (== '.') x in if null z || null y then y else head y : '.' : f (tail z); ms' = filter (/= "Prelude") ms; p = case ms' of [] -> ""; [x] -> ' ' : x; xs -> concatMap ((' ' :) . f) xs in return $ "\ESC[1;33m" ++ p ++ " >> \ESC[m"
+:set prompt-function \ms _ -> let f x = let (y,z) = break (== '.') x in if null z || null y then y else head y : '.' : f (tail z); ms' = filter (/= "Prelude") ms; p = case ms' of [] -> ""; [x] -> ' ' : x; xs -> concatMap ((' ' :) . f) xs in return $ "\ESC[1;33m\STX" ++ p ++ " >> \ESC[m\STX"
 :set -XTypeApplications

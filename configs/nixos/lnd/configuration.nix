@@ -27,7 +27,7 @@ in
 
   nix = {
     nixPath = [
-      "nixpkgs=https://nixos.org/channels/nixos-16.03/nixexprs.tar.xz"
+      "nixpkgs=https://nixos.org/channels/nixos-17.09/nixexprs.tar.xz"
       "nixos-config=/etc/nixos/configuration.nix"
     ];
   };
@@ -75,5 +75,5 @@ in
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "16.03";
+  system.stateVersion = "17.09";
 }

@@ -36,7 +36,7 @@ function prompt_static() {
 
 function promt_dynamic() {
     PROMPT="$(prompt_hostname) "
-    if [[ ${IN_NIX_SHELL} -eq 1 ]] then
+    if [[ -n "${IN_NIX_SHELL+x}" ]] then
         if [[ -n ${name} ]] then
             NIX_SHELL_NAME=": ${name}"
         fi

@@ -309,6 +309,9 @@ autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+augroup tags
+    au BufWritePost *.hs            silent !fast-tags -R . %
+augroup END
 
 " syntax rules
 let hs_highlight_delimiters = 1

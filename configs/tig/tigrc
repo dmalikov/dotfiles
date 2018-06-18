@@ -6,7 +6,7 @@ set diff-context = 5
 set horizontal-scroll = 20%
 set line-graphics = utf-8
 set show-changes = true
-set status-untracked-dirs = false
+set status-show-untracked-dirs = false
 set tab-size = 2
 set vertical-split = horizontal
 set wrap-lines = yes
@@ -66,7 +66,6 @@ color tree.file default default
 #==================================
 # KEYBINDINGS SETTINGS
 #==================================
-bind generic <Ctrl-c> !git cherry-pick %(commit)
 bind generic I !git commit
 bind generic <Ctrl-f> !git fetch --prune
 bind generic L !git log %(file)

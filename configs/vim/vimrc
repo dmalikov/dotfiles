@@ -238,7 +238,7 @@ let g:CommandTSelectPrevMap = ['<C-k>']
 let g:CommandTCancelMap = ['<C-c>', '<Esc>']
 let g:CommandTBackspaceMap = ['<BS>']
 let g:CommandTDeleteMap = ['<DEL>']
-let g:CommandTWildIgnore = &wildignore . 'build/*,result/*,*.un~'
+let g:CommandTWildIgnore = &wildignore . 'build/*,result/*,*.un~,*dist-newstyle*'
 " }}}
 
 " Key mapping settings ------------ {{{

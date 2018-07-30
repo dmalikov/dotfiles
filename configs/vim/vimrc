@@ -33,7 +33,7 @@ set ttyfast
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_force_overwrite_completefunc = 1
-let g:necoghc_enable_detailed_browse = 1
+let g:necoghc_enable_detailed_browse = 0
 
 " }}}
 

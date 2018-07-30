@@ -163,7 +163,7 @@ set wildignore+=*/.git/*,dist/*,*.un~,*.ibc,*.idr~,dist-newstyle/*,
 
 set shell=zsh
 
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'], 'passive_filetypes': ['tex','java']}
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['tex','java']}
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_checker_args = '--ignore=E501'
 let g:syntastic_always_populate_loc_list = 1

@@ -47,7 +47,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc', {'build': {'linux': 'make -f make_unix.mak' } }
 NeoBundle "Shougo/neocomplcache"
-NeoBundle "airblade/vim-gitgutter"
+NeoBundle "mhinz/vim-signify"
 NeoBundle "dahu/Insertlessly"
 NeoBundle "godlygeek/tabular"
 NeoBundle "scrooloose/syntastic"
@@ -212,13 +212,6 @@ let g:tex_flavor='latex'
 
 " save after losing focus
 autocmd FocusLost * :wa
-
-" clear signcolumn for Syntastic and GitGutter
-highlight clear SignColumn
-highlight GitGutterAdd          ctermfg=002 ctermbg=002
-highlight GitGutterChange       ctermfg=002 ctermbg=002
-highlight GitGutterDelete       ctermfg=009 ctermbg=009
-highlight GitGutterChangeDelete ctermfg=009 ctermbg=009
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on

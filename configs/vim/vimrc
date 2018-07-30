@@ -213,6 +213,12 @@ let g:tex_flavor='latex'
 " save after losing focus
 autocmd FocusLost * :wa
 
+" clear signcolumn for Syntastic and GitGutter
+highlight SignColumn        ctermbg=none
+highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on
     execute "set <xUp>=\e[1;*A"

@@ -1,6 +1,7 @@
 autoload -Uz compinit promptinit colors vcs_info
 
 setopt autocd autopushd cdablevars correct interactivecomments noclobber sunkeyboardhack extendedglob
+unsetopt share_history
 
 # completion settings
 fpath=(~/git/zsh-completions/src $fpath)
@@ -98,3 +99,4 @@ export GPG_TTY=$(tty)
 bindkey '^R' history-incremental-search-backward
 source ~/.zshenv
 source ~/.zshless
+source ~/.zshnix

@@ -1,17 +1,16 @@
-flags: {}
-extra-package-dbs: []
+resolver: lts-12.4
 packages:
   - .
   - location:
       git: https://github.com/dmalikov/e.git
-      commit: 9a110fd138ce180a321b968a4da05ca4cae9fa04
+      commit: 6a18760f31294f1eef391fe67fa5018985c48055
     subdirs:
       - e
       - e-gpgme
     extra-dep: true
   - location:
       git: https://github.com/biegunka/biegunka.git
-      commit: 14b1dcca9393d8574c3a0a9dc2e509233e187bbb
+      commit: 74fc93326d5f29761125d7047d5418899fa2469d
     extra-dep: true
 allow-newer: true
 extra-deps:
@@ -21,11 +20,11 @@ extra-deps:
   - command-qq-0.3.0.0
   - cryptonite-0.21
   - directory-layout-0.7.4.1
-  - h-gpgme-0.4.0.0
+  - h-gpgme-0.5.0.0
   - hspec-expectations-lens-0.4.0
-  - meep-0.1.2.1
-  - optparse-applicative-0.13.2.0
+  - meep-0.1.2.2
+  - optparse-applicative-0.14.2.0
   - template-haskell-2.11.1.0
   - time-1.6.0.1
-
-resolver: lts-10.0
+ghc-options:
+  "$locals": -fhide-source-paths

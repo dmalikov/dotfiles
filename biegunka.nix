@@ -1,29 +1,36 @@
-{ mkDerivation, acid-state, aeson, async, base, bytestring
-, command-qq, conduit, conduit-extra, containers, cryptohash
-, data-default-class, directory, directory-layout, exceptions
-, fetchgit, filepath, free, hspec, hspec-expectations-lens
+{ mkDerivation, acid-state, aeson, async, base, bytestring, Cabal
+, command-qq, conduit, conduit-extra, containers, cryptonite
+, data-default-class, directory, directory-layout, e, e-gpgme
+, exceptions, filepath, free, hspec, hspec-expectations-lens
 , HStringTemplate, lens, meep, mtl, optparse-applicative, process
 , resourcet, safecopy, semigroups, stdenv, stm, template-haskell
-, temporary, text, transformers, unix
+, temporary, text, transformers, unix, fetchgit
 }:
 mkDerivation {
   pname = "biegunka";
   version = "0.2";
   src = fetchgit {
     url = "http://github.com/biegunka/biegunka.git";
-    sha256 = "88641b4e44ed80fc4a44598554b6b654cb1f27e0852271d9a1dc3338bdf021ed";
-    rev = "38dc810a39c0162aa06cb43cc4fa60f5a5d21019";
+    sha256 = "1dkpyzfimfjdn06d5i428llkzskjvad6inag4r82dxm0ws2ffjvd";
+    rev = "74fc93326d5f29761125d7047d5418899fa2469d";
   };
   isLibrary = true;
   isExecutable = true;
-  buildDepends = [
-    acid-state aeson async base bytestring command-qq conduit
-    conduit-extra containers cryptohash data-default-class directory
-    directory-layout exceptions filepath free hspec HStringTemplate
-    lens meep mtl optparse-applicative process resourcet safecopy
-    semigroups stm template-haskell temporary text transformers unix
+  enableSeparateDataOutput = true;
+  setupHaskellDepends = [ base Cabal directory filepath process ];
+  libraryHaskellDepends = [
+    acid-state async base bytestring command-qq conduit conduit-extra
+    containers cryptonite directory directory-layout e e-gpgme
+    exceptions filepath free hspec HStringTemplate lens meep mtl
+    optparse-applicative process resourcet safecopy semigroups stm
+    template-haskell temporary text transformers unix
   ];
-  testDepends = [
+  executableHaskellDepends = [
+    aeson base bytestring conduit conduit-extra containers
+    data-default-class directory filepath lens process resourcet text
+    transformers unix
+  ];
+  testHaskellDepends = [
     base conduit conduit-extra containers data-default-class directory
     directory-layout filepath free hspec hspec-expectations-lens lens
     optparse-applicative process resourcet semigroups temporary text

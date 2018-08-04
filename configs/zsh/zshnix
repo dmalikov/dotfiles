@@ -4,24 +4,4 @@ if [[ -e $nix_profile ]]; then
 fi
 
 alias eix="nix-env -qaP '*' | grep"
-alias ns='nix-shell --command zsh'
-
-function nix-find () {
-    nix-env -qa \* -P | grep -i "$1"
-}
-
-function ghci-ns () {
-    if [[ -n "$NIX_GHC_LIBDIR" ]]; then
-        ghci -package-db=$NIX_GHC_LIBDIR/package.conf.d $@
-    else
-        echo "\$NIX_GHC_LIBDIR isn't set"
-    fi
-}
-
-function standalone-haddock () {
-    if [[ -n "$NIX_GHC_LIBDIR" ]]; then
-        standalone-haddock --package-db=$NIX_GHC_LIBDIR/package.conf.d $@
-    else
-        echo "\$NIX_GHC_LIBDIR isn't set"
-    fi
-}
+alias n='nix-shell --command zsh'

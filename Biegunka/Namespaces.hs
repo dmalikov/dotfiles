@@ -84,9 +84,9 @@ namespace_irssi = namespace "irssi" $
 namespace_mpd :: Script 'Sources ()
 namespace_mpd = namespace "mpd" $
   dotfiles $ do
-    copy    "configs/mpd/conf" ".mpdconf"
-    unE "configs/mpd/scrobblers/Main.hs" "configs/mpd/scrobblers/.Main.hs.e" ".mpd/scrobblers/Main.hs"
-    copy    "configs/mpd/scrobblers/mpd-scrobbler.cabal" ".mpd/scrobblers/mpd-scrobbler.cabal"
+    copy "configs/mpd/conf" ".mpdconf"
+    unE  "configs/mpd/scrobblers/Main.hs" "configs/mpd/scrobblers/.Main.hs.e" ".mpd/scrobblers/Main.hs"
+    copy "configs/mpd/scrobblers/stack.yaml" ".mpd/scrobblers/stack.yaml" -- in case of memory loss: stack runghc --package scrobblers -- Main.hs
 
 namespace_ncmpcpp :: Script 'Sources ()
 namespace_ncmpcpp = namespace "ncmpcpp" $

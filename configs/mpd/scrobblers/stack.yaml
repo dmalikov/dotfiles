@@ -4,10 +4,6 @@ packages:
       git: https://github.com/supki/scrobblers.git
       commit: ff8f0ab308f881139ef486fe7933b9dc160752b2
     extra-dep: true
-  - location:
-      git: https://github.com/supki/liblastfm.git
-      commit: 6bc626eaf37ce45d8eb9121e21cfb5fd63f34584
-    extra-dep: true
 allow-newer: true
 extra-deps:
   - blaze-html-0.9.1.1
@@ -16,6 +12,7 @@ extra-deps:
   - conduit-extra-1.2.3.2
   - hspec-expectations-lens-0.4.0
   - html-conduit-1.2.1.2
+  - liblastfm-0.7.0
   - resourcet-1.1.11
   - streaming-commons-0.1.17
   - xml-conduit-1.7.1.2

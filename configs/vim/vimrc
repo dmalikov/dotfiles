@@ -311,6 +311,15 @@ augroup tags
     au BufWritePost *.hs            silent !fast-tags -R . %
 augroup END
 
+autocmd BufWritePost package.yaml call Hpack()
+
+function Hpack()
+  let err = system('hpack ' . expand('%'))
+  if v:shell_error
+    echo err
+  endif
+endfunction
+
 " syntax rules
 let hs_highlight_delimiters = 1
 let hs_highlight_boolean = 1

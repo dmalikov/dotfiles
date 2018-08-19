@@ -74,6 +74,7 @@ namespace_haskell = namespace "haskell" $
     copy "configs/ghc/stylish-haskell.yaml" ".stylish-haskell.yaml"
     copy "configs/ghc/haskeline" ".haskeline"
     copy "configs/guard/guard.rb" ".guard.rb"
+    copy "configs/hspec/hspec" ".hspec"
 
 namespace_irssi :: Script 'Sources ()
 namespace_irssi = namespace "irssi" $

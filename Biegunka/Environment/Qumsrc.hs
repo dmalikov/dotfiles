@@ -21,6 +21,7 @@ namespaces = sequence_
   , namespace_emacs
   , namespace_haskell
   , namespace_ncmpcpp
+  , namespace_nix
   , namespace_mpd
   , namespace_shell
   , namespace_tmux

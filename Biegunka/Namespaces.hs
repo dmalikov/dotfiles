@@ -99,7 +99,6 @@ namespace_nix :: Script 'Sources ()
 namespace_nix = namespace "nix" $
   dotfiles $ do
     copy "configs/nix/nixpkgs/config.nix" ".nixpkgs/config.nix"
-    copy "configs/nix/nixpkgs/hdevtools.nix" ".nixpkgs/hdevtools.nix"
 
 namespace_mplayer :: Script 'Sources ()
 namespace_mplayer = namespace "mplayer" $

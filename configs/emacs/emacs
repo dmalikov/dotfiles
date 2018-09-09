@@ -1,5 +1,5 @@
 (load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "~/.cabal/bin/agda-mode locate")))
+                (shell-command-to-string "/Users/m/.nix-profile/bin/agda-mode locate")))
 
 (setq ring-bell-function 'ignore)
 

@@ -72,6 +72,7 @@ alias cbn='cabal new-build --allow-newer'
 alias cr='cabal new-repl'
 alias ch='cabal new-haddock'
 alias ct='cabal new-test'
+alias gf="git ls-tree --full-name --full-tree --name-only -r HEAD  | grep -i "
 
 # external monitor helper
 declare MAINDISPLAY=LVDS1

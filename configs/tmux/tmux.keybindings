@@ -76,7 +76,7 @@ bind -r     C-l resize-pane -R
 
 bind R source-file ~/.tmux.conf \; display-message "Config reloaded!".
 
-bind-key -T vi-copy v begin-selection
-bind-key -T vi-copy y copy-pipe "xclip -i -sel p -f | xclip -i -sel c "
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi y send -X copy-pipe "reattach-to-user-namespace pbcopy"
 
 bind b set-option status

@@ -1,7 +1,7 @@
 autoload -Uz compinit promptinit colors vcs_info
 
-setopt autocd autopushd cdablevars correct interactivecomments noclobber sunkeyboardhack extendedglob
-unsetopt share_history
+setopt autocd autopushd cdablevars correct interactivecomments noclobber sunkeyboardhack extendedglob notify
+unsetopt share_history beep nomatch
 
 # completion settings
 fpath=(~/git/zsh-completions/src $fpath)

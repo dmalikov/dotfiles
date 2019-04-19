@@ -1,7 +1,7 @@
 # number of lines kept in history
-export HISTSIZE=1000
+export HISTSIZE=100000
 # number of lines saved in the history after logout
-export SAVEHIST=1000
+export SAVEHIST=100000
 # location of history
 export HISTFILE=~/.zhistory
 # append command to history file once executed

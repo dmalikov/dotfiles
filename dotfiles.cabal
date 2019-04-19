@@ -16,6 +16,7 @@ executable dotfiles
     Environment.Qumsrc
     Environment.S10
     Environment.Sb2
+    Environment.Violvoic
     Environment.W540
     Namespaces
   build-depends:

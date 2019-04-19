@@ -62,7 +62,6 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "w0ng/vim-hybrid"
 NeoBundle "PProvost/vim-ps1"
 NeoBundle "kien/rainbow_parentheses.vim"
-NeoBundle "wakatime/vim-wakatime"
 NeoBundle "wincent/command-t"
 NeoBundle "junegunn/vim-easy-align"
 NeoBundle "chrisbra/vim-diff-enhanced"
@@ -123,11 +122,6 @@ set report=0
 " Don't update the display while executing macros
 set lazyredraw
 
-" Nice-looking vertical separator
-set fillchars=vert:│
-
-" Cyrillic mapping
-set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 " }}}
 
 " Misc settings ------------------- {{{
@@ -186,9 +180,6 @@ autocmd FileType eruby,javascript,sh setlocal expandtab shiftwidth=2 softtabstop
 " ingore whitespaces (vimdiff)
 set diffopt+=iwhite " ignore whitespaces
 
-" highlight trailing spaces
-set list!
-set listchars=tab:‗‗,trail:‗
 " disable matches in help buffers
 autocmd BufEnter,FileType help call clearmatches()
 

@@ -101,6 +101,7 @@ namespace_nix = namespace "nix" $
     copy "configs/nix/nixpkgs/config.nix" ".nixpkgs/config.nix"
     copy "configs/nix/nixpkgs/hpack.nix" ".nixpkgs/hpack.nix"
     copy "configs/nix/nixpkgs/infer-license.nix" ".nixpkgs/infer-license.nix"
+    copy "configs/nix/nix.conf" ".configs/nix/nix.conf"
 
 namespace_mplayer :: Script 'Sources ()
 namespace_mplayer = namespace "mplayer" $

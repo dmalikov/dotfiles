@@ -19,6 +19,7 @@ namespaces :: Script 'Sources ()
 namespaces = sequence_
   [ namespace_git
   , namespace_haskell
+  , namespace_mpd
   , namespace_nix
   , namespace_shell
   , namespace_tmux

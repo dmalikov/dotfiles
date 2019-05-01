@@ -1,0 +1,39 @@
+name: mpd-scrobbler
+version: 0.1
+maintainer: Dmitry Malikov
+category: Other
+license: BSD3
+
+ghc-options:
+  - -Wall
+  - -fhide-source-paths
+  - -Wcompat
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
+  - -Wredundant-constraints
+  - -fdefer-typed-holes
+  - -Wredundant-constraints
+
+default-extensions:
+  - BangPatterns
+  - DuplicateRecordFields
+  - GADTs
+  - InstanceSigs
+  - OverloadedStrings
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StrictData
+  - TypeApplications
+  - ViewPatterns
+
+executables:
+  pe:
+    main: Main.hs
+    source-dirs: exe/
+    dependencies:
+      - base >= 4.12
+      - scrobblers
+    ghc-options:
+      - -O2
+      - -threaded
+      - -with-rtsopts=-N

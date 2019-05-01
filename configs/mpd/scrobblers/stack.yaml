@@ -1,5 +1,6 @@
-resolver: lts-12.4
+resolver: lts-12.04
 packages:
+  - '.'
   - location:
       git: https://github.com/supki/scrobblers.git
       commit: ff8f0ab308f881139ef486fe7933b9dc160752b2

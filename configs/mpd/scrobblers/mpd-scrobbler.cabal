@@ -1,0 +1,27 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 6b460e90af1a118c3db5405643391d7ff2c4d081817870ef7f50d1a4fe275ad0
+
+name:           mpd-scrobbler
+version:        0.1
+category:       Other
+maintainer:     Dmitry Malikov
+license:        BSD3
+build-type:     Simple
+
+executable pe
+  main-is: Main.hs
+  other-modules:
+      Paths_mpd_scrobbler
+  hs-source-dirs:
+      exe/
+  default-extensions: BangPatterns DuplicateRecordFields GADTs InstanceSigs OverloadedStrings RecordWildCards ScopedTypeVariables StrictData TypeApplications ViewPatterns
+  ghc-options: -Wall -fhide-source-paths -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -fdefer-typed-holes -Wredundant-constraints -O2 -threaded -with-rtsopts=-N
+  build-depends:
+      base >=4.12
+    , scrobblers
+  default-language: Haskell2010

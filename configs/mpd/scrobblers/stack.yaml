@@ -1,10 +1,6 @@
 resolver: lts-12.04
 packages:
   - '.'
-  - location:
-      git: https://github.com/supki/scrobblers.git
-      commit: ff8f0ab308f881139ef486fe7933b9dc160752b2
-    extra-dep: true
 allow-newer: true
 extra-deps:
   - blaze-html-0.9.1.1
@@ -18,5 +14,7 @@ extra-deps:
   - streaming-commons-0.1.17
   - xml-conduit-1.7.1.2
   - xml-html-conduit-lens-0.3.2.1
+  - github: supki/scrobblers
+    commit: ff8f0ab308f881139ef486fe7933b9dc160752b2
 ghc-options:
   "$locals": -fhide-source-paths

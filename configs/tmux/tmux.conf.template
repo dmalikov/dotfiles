@@ -27,8 +27,6 @@ set -sg escape-time 0
 setw -g aggressive-resize on
 setw -g automatic-rename on
 setw -g mode-keys vi
-set -g utf8
-setw -g utf8 on
 
 # plugins
 set -g @tpm_plugins '              \\

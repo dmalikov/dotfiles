@@ -46,6 +46,11 @@ function promt_dynamic() {
     PROMPT+="$(prompt_exit_code) "
 }
 
+# out of twelve to out of five
+function oottoof() {
+    echo $((($1 + $2 + $3) / 12 * 5))
+}
+
 prompt_static
 function zle-line-init zle-keymap-select {
     promt_dynamic

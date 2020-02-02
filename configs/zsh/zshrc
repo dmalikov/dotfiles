@@ -51,6 +51,26 @@ function oottoof() {
     echo $((($1 + $2 + $3) / 12 * 5))
 }
 
+# download specific fragment via youtube-dl, supports youtube and twitch
+function yp() {
+    url=$1
+    from=$2
+    length=$3
+    name=$4
+
+    streams=$(youtube-dl -g $url)
+    stream_video=$(echo "$streams" | head -n 1)
+    if [[ $url == *"youtube"* ]]; then
+        stream_audio=$(echo "$streams" | tail -n 1)
+    elif [[ $url == *"twitch"* ]]; then
+        stream_audio=$stream_video
+    else
+        exit "site is not supported"
+    fi
+
+    ffmpeg -ss $from -i "$stream_video" -ss $from -i "$stream_audio" -t $length -map 0:v -map 1:a -c:v libx264 -c:a aac $name.mp4
+}
+
 prompt_static
 function zle-line-init zle-keymap-select {
     promt_dynamic
